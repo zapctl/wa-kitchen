@@ -1,52 +1,52 @@
 #!/bin/bash
 
 PROTO_DIR=$OUT_DIR/protobuf
-OUT=$OUT_DIR/packages/nodejs
-TS_OUT=$OUT/ts
-TYPES_OUT=$OUT/types
-CJS_OUT=$OUT/cjs
-ESM_OUT=$OUT/esm
+GRAPHQL_DIR=$OUT_DIR/graphql
 
-tsIndexPath=$TS_OUT/index.ts
+OUT=$OUT_DIR/dist/nodejs
+PROTO_OUT=$OUT/proto
+GRAPHQL_OUT=$OUT/graphql
 
 setup() {
     echo "Installing dependencies..."
     npm install -g typescript uglify-js @bufbuild/protoc-gen-es@1.10.0
-    
-    echo "Cleaning and creating directories..."
+
+    echo "Cleaning and creating out directory..."
     rm -rf $OUT
     mkdir -p $OUT
-    mkdir $TS_OUT
-    mkdir $TYPES_OUT
-    mkdir $ESM_OUT
-    mkdir $CJS_OUT
-    
+
+    echo "Setup completed"
+}
+
+generate_package() {
     echo "Copying package files..."
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
-    
+
     echo "Injecting version $NEWEST_VERSION..."
     sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/package.json
     sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/readme.md
-    
-    echo "Setup completed"
 }
 
 generate_index() {
     echo "Generating index file..."
-    echo "" > $tsIndexPath
-    echo "export const VERSION = '$NEWEST_VERSION';" >> $tsIndexPath
-    echo "export const BUILD_HASH = '$NEWEST_BUILD_HASH';" >> $tsIndexPath
+
+    echo "export const VERSION = '$NEWEST_VERSION';" > $OUT/index.ts
+    echo "export const BUILD_HASH = '$NEWEST_BUILD_HASH';" >> $OUT/index.ts
+
     echo "Index file generated"
 }
 
 compile_proto() {
     echo "Compiling proto files..."
+    mkdir $PROTO_OUT
+
     pids=()
+
     for protoFile in $PROTO_DIR/*.proto; do
         (
             protoc \
-            --es_out $TS_OUT \
+            --es_out $PROTO_OUT \
             --es_opt target=ts \
             --proto_path $PROTO_DIR \
             "$protoFile"
@@ -64,72 +64,70 @@ compile_proto() {
     echo "Proto compilation completed"
 }
 
-compile_js() {
+compile_ts() {
     echo "Compiling TypeScript files..."
-    tsFilesArray=($TS_OUT/*.ts)
-    tsFilesStr=${tsFilesArray[@]}
-    pids=()
-    
-    (
-        set -e
-        tsc $tsFilesStr --declaration --emitDeclarationOnly --noCheck --outdir $TYPES_OUT
-        echo "  ✓ Types compiled"
-    ) &
-    pids+=($!)
-    
-    (
-        set -e
-        tsc $tsFilesStr --module commonjs --target es2022 --noCheck --outdir $CJS_OUT
-        echo "  ✓ CommonJS compiled"
-    ) &
-    pids+=($!)
-    
-    (
-        set -e
-        tsc $tsFilesStr --module esnext --target es2022 --noCheck --outdir $ESM_OUT
-        echo "  ✓ ESM compiled"
-    ) &
-    pids+=($!)
-    
-    for pid in "${pids[@]}"; do
-        wait $pid || {
-            echo "Error: TypeScript compilation failed"
-            exit 1
-        }
-    done
-    
-    echo "Removing temporary TypeScript files..."
-    rm -rf $TS_OUT
-    echo "JavaScript compilation completed"
+
+    tsFiles=$(find $OUT -type f -name "*.ts")
+
+    tsc $tsFiles \
+        --declaration \
+        --module commonjs \
+        --target es2022 \
+        --noCheck \
+        --outdir $OUT \
+    || {
+        echo "Error: TypeScript compilation failed"
+        exit 1
+    }
+
+    echo "TypeScript compilation completed"
+
+    echo "Removing TypeScript source files..."
+    rm $tsFiles
+}
+
+generate_graphql() {
+    echo "Generating GraphQL TypeScript definitions..."
+    mkdir -p $GRAPHQL_OUT
+
+    node $(dirname "$0")/scripts/generate-graphql.js "$GRAPHQL_DIR" "$GRAPHQL_OUT/index.ts" || {
+        echo "Error: GraphQL generation failed"
+        exit 1
+    }
+
+    echo "GraphQL generation completed"
 }
 
 minify() {
     echo "Minifying JavaScript files..."
+
     pids=()
-    
-    for filePath in $CJS_OUT/*.js $ESM_OUT/*.js; do
+
+    for filePath in $OUT/**/*.js; do
         (
             uglifyjs $filePath \
             --compress \
-            -o $filePath
+            -o "$filePath"
         ) &
         pids+=($!)
     done
-    
+
     for pid in "${pids[@]}"; do
         wait $pid || {
             echo "Error: Minification failed"
             exit 1
         }
     done
-    
+
     echo "Minification completed"
 }
 
 set -e
 
 setup
+generate_package
 generate_index
 compile_proto
-compile_js
+generate_graphql
+compile_ts
 minify

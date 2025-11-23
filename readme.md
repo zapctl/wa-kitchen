@@ -1,6 +1,6 @@
-# wa-proto
+# wa-kit
 
-This project monitors updates to WhatsApp Web and extracts protocol definitions including protobuf schemas and constants for use in WhatsApp automation.
+This project monitors WhatsApp Web updates and extracts definitions, including schemas and constants, for use in unofficial WhatsApp automations.
 
 ## Features
 
@@ -10,8 +10,12 @@ This project monitors updates to WhatsApp Web and extracts protocol definitions 
 
 ## Current available packages
 
-- [Node.js - NPM](https://www.npmjs.com/package/wa-proto)
+- [Node.js - NPM](https://www.npmjs.com/package/wa-kit)
 
 ## Contributing
 
-Contributions are welcome! If you find an issue or have a suggestion, please open an issue or submit a pull request.
+Contributions are welcome! If you find an issue or have a suggestion, please open an issue or submit a pull request on the [GitHub repository](https://github.com/zapctl/wa-kit).
+
+## Legal Notice
+
+This package is for educational and development purposes. Please respect WhatsApp's Terms of Service when using these definitions.

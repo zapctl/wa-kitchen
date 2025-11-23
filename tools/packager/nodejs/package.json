@@ -1,21 +1,22 @@
 {
-  "name": "wa-proto",
+  "name": "wa-kit",
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
-  "main": "./cjs/index.js",
-  "module": "./esm/index.js",
-  "types": "./types/index.d.ts",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
-      "import": "./cjs/index.js",
-      "require": "./mjs/index.js",
-      "types": "./types/index.d.ts"
+      "types": "./index.d.ts",
+      "default": "./index.js"
     },
-    "./*_pb": {
-      "import": "./cjs/*_pb.js",
-      "require": "./mjs/*_pb.js",
-      "types": "./types/*_pb.d.ts"
+    "./proto/*": {
+      "types": "./proto/*_pb.d.ts",
+      "default": "./proto/*_pb.js"
+    },
+    "./graphql": {
+      "types": "./graphql/index.d.ts",
+      "default": "./graphql/index.js"
     }
   },
   "engines": {
@@ -29,13 +30,13 @@
   ],
   "license": "MIT",
   "author": "João Vitor Machado <joaov@zapctl.dev>",
-  "homepage": "https://github.com/zapctl/wa-proto",
+  "homepage": "https://github.com/zapctl/wa-kit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zapctl/wa-proto.git"
+    "url": "git+https://github.com/zapctl/wa-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/zapctl/wa-proto/issues"
+    "url": "https://github.com/zapctl/wa-kit/issues"
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.10.0"
