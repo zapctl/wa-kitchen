@@ -66,7 +66,10 @@ function serializeField(field, level = 0) {
         case "object": {
             let output = "{\n";
             Object.entries(field.properties).forEach(([prop, val]) => {
-                output += `${indent}\t${prop}: ${serializeField(val, level + 1)};\n`;
+                const optional = val.required === false ? "?" : "";
+                const field = serializeField(val, level + 1);
+
+                output += `${indent}\t${prop}${optional}: ${field};\n`;
             });
             output += `${indent}}`;
             return output;

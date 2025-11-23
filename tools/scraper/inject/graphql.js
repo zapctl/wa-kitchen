@@ -58,6 +58,7 @@ function parseInputSchema(nodes) {
             case "Variable":
             case "Literal":
                 const fieldName = node.variableName || node.name;
+
                 schema[fieldName] = {
                     type: "scalar",
                     value: node.value,
@@ -104,17 +105,27 @@ function parseOutputSchema(nodes) {
                 schema[node.name] = {
                     type: node.plural ? "array" : "object",
                     [node.plural ? "items" : "properties"]: parseOutputSchema(node.selections),
+                    required: false,
                 };
                 break;
 
             case "ScalarField":
                 if (node.name === "__typename") continue;
 
-                schema[node.name] = { type: "scalar" };
+                schema[node.name] = {
+                    type: "scalar",
+                    required: false,
+                };
                 break;
 
             case "RequiredField":
-                Object.assign(schema, parseOutputSchema([node.field]));
+                const requiredFieldSchema = parseOutputSchema([node.field]);
+
+                Object.keys(requiredFieldSchema).forEach(key => {
+                    requiredFieldSchema[key].required = true;
+                });
+
+                Object.assign(schema, requiredFieldSchema);
                 break;
 
             case "Condition": {
