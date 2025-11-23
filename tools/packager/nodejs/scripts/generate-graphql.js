@@ -113,4 +113,3 @@ output += generateMaps() + "\n\n";
 output += generateTypes();
 
 fs.writeFileSync(outputFile, output, "utf8");
-console.log("GraphQL TypeScript definitions generated at", outputFile);
