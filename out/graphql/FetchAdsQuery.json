@@ -28,7 +28,8 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "scalar"
+                                "type": "scalar",
+                                "required": true
                               },
                               "boosting_info": {
                                 "type": "object",
@@ -37,20 +38,25 @@
                                     "type": "object",
                                     "properties": {
                                       "formatted_for_lwi": {
-                                        "type": "scalar"
+                                        "type": "scalar",
+                                        "required": true
                                       }
-                                    }
+                                    },
+                                    "required": true
                                   },
                                   "thumbnail_image_url": {
-                                    "type": "scalar"
+                                    "type": "scalar",
+                                    "required": true
                                   }
-                                }
+                                },
+                                "required": true
                               },
                               "campaign_group": {
                                 "type": "object",
                                 "properties": {
                                   "id": {
-                                    "type": "scalar"
+                                    "type": "scalar",
+                                    "required": true
                                   },
                                   "ad_insights": {
                                     "type": "object",
@@ -67,19 +73,22 @@
                                               "results": {
                                                 "type": "scalar"
                                               }
-                                            }
+                                            },
+                                            "required": true
                                           }
                                         }
                                       }
                                     }
                                   }
-                                }
+                                },
+                                "required": true
                               },
                               "spec": {
                                 "type": "object",
                                 "properties": {
                                   "boosting_status": {
-                                    "type": "scalar"
+                                    "type": "scalar",
+                                    "required": true
                                   },
                                   "adgroup_spec": {
                                     "type": "array",
@@ -92,9 +101,11 @@
                                           }
                                         }
                                       }
-                                    }
+                                    },
+                                    "required": true
                                   }
-                                }
+                                },
+                                "required": true
                               }
                             }
                           },
@@ -102,7 +113,8 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "scalar"
+                                "type": "scalar",
+                                "required": true
                               },
                               "boosting_info": {
                                 "type": "object",
@@ -111,20 +123,25 @@
                                     "type": "object",
                                     "properties": {
                                       "formatted_for_lwi": {
-                                        "type": "scalar"
+                                        "type": "scalar",
+                                        "required": true
                                       }
-                                    }
+                                    },
+                                    "required": true
                                   },
                                   "thumbnail_image_url": {
-                                    "type": "scalar"
+                                    "type": "scalar",
+                                    "required": true
                                   }
-                                }
+                                },
+                                "required": true
                               },
                               "campaign_group": {
                                 "type": "object",
                                 "properties": {
                                   "id": {
-                                    "type": "scalar"
+                                    "type": "scalar",
+                                    "required": true
                                   },
                                   "ad_insights": {
                                     "type": "object",
@@ -136,24 +153,28 @@
                                             "type": "object",
                                             "properties": {
                                               "reach": {
-                                                "type": "scalar"
+                                                "type": "scalar",
+                                                "required": true
                                               },
                                               "results": {
                                                 "type": "scalar"
                                               }
-                                            }
+                                            },
+                                            "required": true
                                           }
                                         }
                                       }
                                     }
                                   }
-                                }
+                                },
+                                "required": true
                               },
                               "spec": {
                                 "type": "object",
                                 "properties": {
                                   "boosting_status": {
-                                    "type": "scalar"
+                                    "type": "scalar",
+                                    "required": true
                                   },
                                   "adgroup_spec": {
                                     "type": "array",
@@ -166,21 +187,27 @@
                                           }
                                         }
                                       }
-                                    }
+                                    },
+                                    "required": true
                                   }
-                                }
+                                },
+                                "required": true
                               }
                             }
                           }
-                        }
+                        },
+                        "required": true
                       }
-                    }
+                    },
+                    "required": true
                   }
                 }
               }
-            }
+            },
+            "required": true
           }
-        }
+        },
+        "required": true
       }
     }
   }

@@ -37,27 +37,34 @@
                 "type": "array",
                 "items": {
                   "client_ttl_seconds": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "priority": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "is_holdout": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "log_eligibility_waterfall": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "time_range": {
                     "type": "object",
                     "properties": {
                       "start": {
-                        "type": "scalar"
+                        "type": "scalar",
+                        "required": true
                       },
                       "end": {
-                        "type": "scalar"
+                        "type": "scalar",
+                        "required": true
                       }
-                    }
+                    },
+                    "required": true
                   },
                   "node": {
                     "type": "object",

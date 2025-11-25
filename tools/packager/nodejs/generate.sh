@@ -2,47 +2,61 @@
 
 PROTO_DIR=$OUT_DIR/protobuf
 GRAPHQL_DIR=$OUT_DIR/graphql
+JID_PATH=$OUT_DIR/jid.json
+BINARY_PATH=$OUT_DIR/binary.json
 
 OUT=$OUT_DIR/dist/nodejs
 PROTO_OUT=$OUT/proto
 GRAPHQL_OUT=$OUT/graphql
+JID_OUT=$OUT/jid
+BINARY_OUT=$OUT/binary
 
 setup() {
     echo "Installing dependencies..."
     npm install -g typescript uglify-js @bufbuild/protoc-gen-es@1.10.0
-
+    
     echo "Cleaning and creating out directory..."
     rm -rf $OUT
     mkdir -p $OUT
-
+    
     echo "Setup completed"
+}
+
+copy_assets() {
+    echo "Coping assets..."
+    
+    cp -r assets/* $OUT/
+    
+    echo "Assets copied"
 }
 
 generate_package() {
     echo "Copying package files..."
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
-
+    
     echo "Injecting version $NEWEST_VERSION..."
     sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/package.json
     sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/readme.md
+    
+    echo "Package file generated"
 }
 
 generate_index() {
     echo "Generating index file..."
-
+    
     echo "export const VERSION = '$NEWEST_VERSION';" > $OUT/index.ts
     echo "export const BUILD_HASH = '$NEWEST_BUILD_HASH';" >> $OUT/index.ts
-
+    
     echo "Index file generated"
 }
 
 compile_proto() {
     echo "Compiling proto files..."
     mkdir $PROTO_OUT
-
+    
     pids=()
-
+    
     for protoFile in $PROTO_DIR/*.proto; do
         (
             protoc \
@@ -53,35 +67,34 @@ compile_proto() {
         ) &
         pids+=($!)
     done
-
+    
     for pid in "${pids[@]}"; do
         wait $pid || {
             echo "Error: protoc compilation failed"
             exit 1
         }
     done
-
+    
     echo "Proto compilation completed"
 }
 
 compile_ts() {
     echo "Compiling TypeScript files..."
-
+    
     tsFiles=$(find $OUT -type f -name "*.ts")
-
+    
     tsc $tsFiles \
-        --declaration \
-        --module commonjs \
-        --target es2022 \
-        --noCheck \
-        --outdir $OUT \
+    --declaration \
+    --module commonjs \
+    --target es2022 \
+    --outdir $OUT \
     || {
         echo "Error: TypeScript compilation failed"
         exit 1
     }
-
+    
     echo "TypeScript compilation completed"
-
+    
     echo "Removing TypeScript source files..."
     rm $tsFiles
 }
@@ -89,20 +102,44 @@ compile_ts() {
 generate_graphql() {
     echo "Generating GraphQL TypeScript definitions..."
     mkdir -p $GRAPHQL_OUT
-
+    
     node $(dirname "$0")/scripts/generate-graphql.js "$GRAPHQL_DIR" "$GRAPHQL_OUT/index.ts" || {
         echo "Error: GraphQL generation failed"
         exit 1
     }
-
+    
     echo "GraphQL generation completed"
+}
+
+generate_jid() {
+    echo "Generating JID constants TypeScript definitions..."
+    mkdir -p $JID_OUT
+    
+    node $(dirname "$0")/scripts/generate.js "$JID_PATH" "$JID_OUT/constants.ts" || {
+        echo "Error: JID constants generation failed"
+        exit 1
+    }
+    
+    echo "JID constants generation completed"
+}
+
+generate_binary() {
+    echo "Generating binary constants TypeScript definitions..."
+    mkdir -p $BINARY_OUT
+    
+    node $(dirname "$0")/scripts/generate.js "$BINARY_PATH" "$BINARY_OUT/constants.ts" || {
+        echo "Error: binary constants generation failed"
+        exit 1
+    }
+    
+    echo "Binary constants generation completed"
 }
 
 minify() {
     echo "Minifying JavaScript files..."
-
+    
     pids=()
-
+    
     for filePath in $OUT/**/*.js; do
         (
             uglifyjs $filePath \
@@ -111,23 +148,26 @@ minify() {
         ) &
         pids+=($!)
     done
-
+    
     for pid in "${pids[@]}"; do
         wait $pid || {
             echo "Error: Minification failed"
             exit 1
         }
     done
-
+    
     echo "Minification completed"
 }
 
 set -e
 
 setup
+copy_assets
 generate_package
 generate_index
 compile_proto
 generate_graphql
+generate_jid
+generate_binary
 compile_ts
 minify

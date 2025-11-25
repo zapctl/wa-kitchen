@@ -49,12 +49,15 @@
                 "type": "object",
                 "properties": {
                   "value": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "creation_time": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   }
-                }
+                },
+                "required": true
               }
             }
           },
@@ -74,12 +77,15 @@
                         "type": "object",
                         "properties": {
                           "value": {
-                            "type": "scalar"
+                            "type": "scalar",
+                            "required": true
                           },
                           "creation_time": {
-                            "type": "scalar"
+                            "type": "scalar",
+                            "required": true
                           }
-                        }
+                        },
+                        "required": true
                       },
                       "properties": {
                         "type": "object",

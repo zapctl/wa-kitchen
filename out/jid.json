@@ -1,25 +1,29 @@
 {
-  "DEFAULT_DEVICE_ID": 0,
-  "AUTHOR_ME": "@me",
-  "AUTHOR_SYSTEM": "@system",
-  "STATUS_JID": "status@broadcast",
-  "PSA_JID": "0@s.whatsapp.net",
-  "CALL_LINK_JID": "call",
-  "MSGR_USER_DOMAIN": "@msgr",
-  "MSGR_USER_JID_SUFFIX": "msgr",
-  "INTEROP_DOMAIN": "@interop",
-  "INTEROP_USER_JID_SUFFIX": "interop",
-  "WA_SERVER_JID_SUFFIX": "s.whatsapp.net",
-  "WA_USER_DOMAIN": "@s.whatsapp.net",
-  "WA_USER_JID_SUFFIX": "s.whatsapp.net",
-  "WA_LID_SUFFIX": "lid",
-  "WA_NEWSLETTER_JID_DOMAIN": "@newsletter",
-  "LID_DOMAIN": "@lid",
-  "LID_SUFFIX": "lid",
-  "HOSTED_DOMAIN": "@hosted",
-  "HOSTED_SUFFIX": "hosted",
-  "HOSTED_LID_DOMAIN": "@hosted.lid",
-  "HOSTED_LID_SUFFIX": "hosted.lid",
-  "BOT_DOMAIN": "@bot",
-  "SURVEY_USER_JID": "16505361212@s.whatsapp.net"
+  "constants": {
+    "AUTHOR_ME_JID": "@me",
+    "AUTHOR_SYSTEM_JID": "@system",
+    "PSA_JID": "0@s.whatsapp.net",
+    "SURVEY_USER_JID": "16505361212@s.whatsapp.net",
+    "STATUS_JID": "status@broadcast",
+    "CALL_JID_SUFFIX": "call",
+    "BOT_JID_SUFFIX": "bot",
+    "HOSTED_LID_SUFFIX": "hosted.lid",
+    "HOSTED_SUFFIX": "hosted",
+    "INTEROP_USER_JID_SUFFIX": "interop",
+    "MSGR_USER_JID_SUFFIX": "msgr",
+    "LID_SUFFIX": "lid",
+    "USER_JID_SUFFIX": "s.whatsapp.net",
+    "GROUP_JID_SUFFIX": "g.us",
+    "CONTACT_JID_SUFFIX": "c.us",
+    "NEWSLETTER_JID_SUFFIX": "newsletter",
+    "BROADCAST_JID_SUFFIX": "broadcast"
+  },
+  "enums": {
+    "JID_DOMAIN": {
+      "WHATSAPP": 0,
+      "LID": 1,
+      "HOSTED": 128,
+      "HOSTED_LID": 129
+    }
+  }
 }

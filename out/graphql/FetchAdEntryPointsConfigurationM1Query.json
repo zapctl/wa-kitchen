@@ -10,10 +10,12 @@
         "type": "array",
         "items": {
           "entry_point_or_experience": {
-            "type": "scalar"
+            "type": "scalar",
+            "required": true
           },
           "should_show": {
-            "type": "scalar"
+            "type": "scalar",
+            "required": true
           },
           "content": {
             "type": "scalar"
@@ -21,7 +23,8 @@
           "sub_content": {
             "type": "scalar"
           }
-        }
+        },
+        "required": true
       }
     }
   }

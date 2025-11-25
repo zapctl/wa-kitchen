@@ -1,4 +1,4 @@
-const dictionary = require("WAWapDict")
+const dict = require("WAWapDict")
 
 const TAGS = {
     LIST_EMPTY: 0,
@@ -23,10 +23,19 @@ const NIBBLE_TOKEN = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "."
 const HEX_TOKEN = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
 
 const specs = {
-    ...dictionary,
-    TAGS,
-    NIBBLE_TOKEN,
-    HEX_TOKEN,
+    constants: {
+        DICT_VERSION: dict.DICT_VERSION,
+        SINGLE_BYTE_TOKEN: dict.SINGLE_BYTE_TOKEN,
+        DICTIONARY_0_TOKEN: dict.DICTIONARY_0_TOKEN,
+        DICTIONARY_1_TOKEN: dict.DICTIONARY_1_TOKEN,
+        DICTIONARY_2_TOKEN: dict.DICTIONARY_2_TOKEN,
+        DICTIONARY_3_TOKEN: dict.DICTIONARY_3_TOKEN,
+        NIBBLE_TOKEN,
+        HEX_TOKEN,
+    },
+    enums: {
+        TAGS,
+    },
 }
 
 console.log("BinarySpecs", specs);

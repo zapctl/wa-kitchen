@@ -39,6 +39,10 @@
     "url": "https://github.com/zapctl/wa-kit/issues"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "1.10.0"
+    "@bufbuild/protobuf": "1.10.0",
+    "pako": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1"
   }
 }

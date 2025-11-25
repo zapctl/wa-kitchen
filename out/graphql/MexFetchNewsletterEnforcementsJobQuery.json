@@ -35,7 +35,8 @@
                 "type": "scalar"
               },
               "enforcement_id": {
-                "type": "scalar"
+                "type": "scalar",
+                "required": true
               },
               "enforcement_extra_data": {
                 "type": "object",
@@ -77,7 +78,8 @@
                 "type": "scalar"
               },
               "enforcement_id": {
-                "type": "scalar"
+                "type": "scalar",
+                "required": true
               },
               "enforcement_source": {
                 "type": "scalar"
@@ -138,7 +140,8 @@
                     "type": "scalar"
                   },
                   "enforcement_id": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "enforcement_violation_category": {
                     "type": "scalar"
@@ -171,7 +174,8 @@
                 }
               },
               "server_msg_id": {
-                "type": "scalar"
+                "type": "scalar",
+                "required": true
               }
             }
           },
@@ -182,7 +186,8 @@
                 "type": "object",
                 "properties": {
                   "enforcement_creation_time": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "appeal_creation_time": {
                     "type": "scalar"
@@ -191,7 +196,8 @@
                     "type": "scalar"
                   },
                   "enforcement_id": {
-                    "type": "scalar"
+                    "type": "scalar",
+                    "required": true
                   },
                   "enforcement_violation_category": {
                     "type": "scalar"
@@ -254,7 +260,8 @@
                 }
               },
               "country_code": {
-                "type": "scalar"
+                "type": "scalar",
+                "required": true
               },
               "country_codes": {
                 "type": "scalar"
