@@ -9,18 +9,14 @@ const __dirname = path.dirname(__filename);
 const IS_DEBUG = process.env.NODE_ENV === "development";
 const OUT_DIR = process.env.OUT_DIR || "./out";
 
-const VERSION_PATH = path.join(OUT_DIR, ".version");
-const PROTOBUF_DIR = path.join(OUT_DIR, "/protobuf");
-const GRAPHQL_DIR = path.join(OUT_DIR, "/graphql");
-const BINARY_PATH = path.join(OUT_DIR, "/binary.json");
-const JID_PATH = path.join(OUT_DIR, "/jid.json");
-const MESSAGE_PATH = path.join(OUT_DIR, "/message.json");
-
-const PROTOBUF_SCRIPT_PATH = path.join(__dirname, "inject/protobuf.js");
-const GRAPHQL_SCRIPT_PATH = path.join(__dirname, "inject/graphql.js");
-const BINARY_SCRIPT_PATH = path.join(__dirname, "inject/binary.js");
-const JID_SCRIPT_PATH = path.join(__dirname, "inject/jid.js");
-const MESSAGE_SCRIPT_PATH = path.join(__dirname, "inject/message.js");
+const SCRAPERS = [
+    { name: "version", type: "text", outputPath: ".version" },
+    { name: "binary", type: "json", outputPath: "binary.json" },
+    { name: "jid", type: "json", outputPath: "jid.json" },
+    { name: "message", type: "json", outputPath: "message.json" },
+    { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: ".proto" },
+    { name: "graphql", type: "multi-json", outputDir: "graphql", extension: ".json" },
+];
 
 const browser = await puppeteer.launch({
     headless: !IS_DEBUG,
@@ -37,39 +33,43 @@ await page.goto("https://web.whatsapp.com/", {
     waitUntil: "networkidle2",
 });
 
-const PROTOBUF_SCRAP_SCRIPT = await fs.readFile(PROTOBUF_SCRIPT_PATH, "utf8");
-const GRAPHQL_SCRAP_SCRIPT = await fs.readFile(GRAPHQL_SCRIPT_PATH, "utf8");
-const BINARY_SCRAP_SCRIPT = await fs.readFile(BINARY_SCRIPT_PATH, "utf8");
-const JID_SCRAP_SCRIPT = await fs.readFile(JID_SCRIPT_PATH, "utf8");
-const MESSAGE_SCRAP_SCRIPT = await fs.readFile(MESSAGE_SCRIPT_PATH, "utf8");
+const results = {};
 
-const version = await page.evaluate(() => window.Debug.VERSION);
-const protobufSpec = await page.evaluate(new Function("scrap", PROTOBUF_SCRAP_SCRIPT));
-const graphqlSpec = await page.evaluate(new Function("scrap", GRAPHQL_SCRAP_SCRIPT));
-const binarySpec = await page.evaluate(new Function("scrap", BINARY_SCRAP_SCRIPT));
-const jidSpec = await page.evaluate(new Function("scrap", JID_SCRAP_SCRIPT));
-const messageSpec = await page.evaluate(new Function("scrap", MESSAGE_SCRAP_SCRIPT));
+for (const scraper of SCRAPERS) {
+    const scriptPath = path.join(__dirname, "inject", `${scraper.name}.js`);
+    const scriptContent = await fs.readFile(scriptPath, "utf8");
+    const scriptFunction = new Function("scrap", scriptContent);
+
+    results[scraper.name] = await page.evaluate(scriptFunction);
+}
 
 if (!IS_DEBUG) await browser.close();
 
 await fs.rm(OUT_DIR, { recursive: true }).catch(() => { });
 await fs.mkdir(OUT_DIR);
-await fs.mkdir(PROTOBUF_DIR);
-await fs.mkdir(GRAPHQL_DIR);
 
-await fs.writeFile(VERSION_PATH, version);
-await fs.writeFile(BINARY_PATH, JSON.stringify(binarySpec, null, 2));
-await fs.writeFile(JID_PATH, JSON.stringify(jidSpec, null, 2));
-await fs.writeFile(MESSAGE_PATH, JSON.stringify(messageSpec, null, 2));
+for (const scraper of SCRAPERS) {
+    const data = results[scraper.name];
 
-await Promise.all(Object.entries(protobufSpec).map(([name, spec]) => {
-    const filePath = path.join(PROTOBUF_DIR, `${name}.proto`);
+    const outputPath = scraper.outputPath ? path.join(OUT_DIR, scraper.outputPath) : null;
+    const outputDir = scraper.outputDir ? path.join(OUT_DIR, scraper.outputDir) : null;
+    const targetDir = outputDir ?? path.dirname(outputPath);
 
-    return fs.writeFile(filePath, spec);
-}));
+    await fs.mkdir(targetDir, { recursive: true });
 
-await Promise.all(Object.entries(graphqlSpec).map(([name, spec]) => {
-    const filePath = path.join(GRAPHQL_DIR, `${name}.json`);
-
-    return fs.writeFile(filePath, JSON.stringify(spec, null, 2));
-}));
+    if (scraper.type === "text") {
+        await fs.writeFile(outputPath, data);
+    } else if (scraper.type === "json") {
+        await fs.writeFile(outputPath, JSON.stringify(data, null, 2));
+    } else if (scraper.type === "multi-file") {
+        await Promise.all(Object.entries(data).map(([name, content]) => {
+            const filePath = path.join(outputDir, `${name}${scraper.extension}`);
+            return fs.writeFile(filePath, content);
+        }));
+    } else if (scraper.type === "multi-json") {
+        await Promise.all(Object.entries(data).map(([name, content]) => {
+            const filePath = path.join(outputDir, `${name}${scraper.extension}`);
+            return fs.writeFile(filePath, JSON.stringify(content, null, 2));
+        }));
+    }
+}
