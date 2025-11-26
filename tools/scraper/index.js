@@ -14,11 +14,13 @@ const PROTOBUF_DIR = path.join(OUT_DIR, "/protobuf");
 const GRAPHQL_DIR = path.join(OUT_DIR, "/graphql");
 const BINARY_PATH = path.join(OUT_DIR, "/binary.json");
 const JID_PATH = path.join(OUT_DIR, "/jid.json");
+const MESSAGE_PATH = path.join(OUT_DIR, "/message.json");
 
 const PROTOBUF_SCRIPT_PATH = path.join(__dirname, "inject/protobuf.js");
 const GRAPHQL_SCRIPT_PATH = path.join(__dirname, "inject/graphql.js");
 const BINARY_SCRIPT_PATH = path.join(__dirname, "inject/binary.js");
 const JID_SCRIPT_PATH = path.join(__dirname, "inject/jid.js");
+const MESSAGE_SCRIPT_PATH = path.join(__dirname, "inject/message.js");
 
 const browser = await puppeteer.launch({
     headless: !IS_DEBUG,
@@ -39,12 +41,14 @@ const PROTOBUF_SCRAP_SCRIPT = await fs.readFile(PROTOBUF_SCRIPT_PATH, "utf8");
 const GRAPHQL_SCRAP_SCRIPT = await fs.readFile(GRAPHQL_SCRIPT_PATH, "utf8");
 const BINARY_SCRAP_SCRIPT = await fs.readFile(BINARY_SCRIPT_PATH, "utf8");
 const JID_SCRAP_SCRIPT = await fs.readFile(JID_SCRIPT_PATH, "utf8");
+const MESSAGE_SCRAP_SCRIPT = await fs.readFile(MESSAGE_SCRIPT_PATH, "utf8");
 
 const version = await page.evaluate(() => window.Debug.VERSION);
 const protobufSpec = await page.evaluate(new Function("scrap", PROTOBUF_SCRAP_SCRIPT));
 const graphqlSpec = await page.evaluate(new Function("scrap", GRAPHQL_SCRAP_SCRIPT));
 const binarySpec = await page.evaluate(new Function("scrap", BINARY_SCRAP_SCRIPT));
 const jidSpec = await page.evaluate(new Function("scrap", JID_SCRAP_SCRIPT));
+const messageSpec = await page.evaluate(new Function("scrap", MESSAGE_SCRAP_SCRIPT));
 
 if (!IS_DEBUG) await browser.close();
 
@@ -56,6 +60,7 @@ await fs.mkdir(GRAPHQL_DIR);
 await fs.writeFile(VERSION_PATH, version);
 await fs.writeFile(BINARY_PATH, JSON.stringify(binarySpec, null, 2));
 await fs.writeFile(JID_PATH, JSON.stringify(jidSpec, null, 2));
+await fs.writeFile(MESSAGE_PATH, JSON.stringify(messageSpec, null, 2));
 
 await Promise.all(Object.entries(protobufSpec).map(([name, spec]) => {
     const filePath = path.join(PROTOBUF_DIR, `${name}.proto`);

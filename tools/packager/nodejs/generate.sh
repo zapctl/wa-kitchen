@@ -4,12 +4,14 @@ PROTO_DIR=$OUT_DIR/protobuf
 GRAPHQL_DIR=$OUT_DIR/graphql
 JID_PATH=$OUT_DIR/jid.json
 BINARY_PATH=$OUT_DIR/binary.json
+MESSAGE_PATH=$OUT_DIR/message.json
 
 OUT=$OUT_DIR/dist/nodejs
 PROTO_OUT=$OUT/proto
 GRAPHQL_OUT=$OUT/graphql
 JID_OUT=$OUT/jid
 BINARY_OUT=$OUT/binary
+MESSAGE_OUT=$OUT/message
 
 setup() {
     echo "Installing dependencies..."
@@ -27,6 +29,12 @@ copy_assets() {
     
     cp -r assets/* $OUT/
     
+    {
+        echo "export const VERSION = '$NEWEST_VERSION';"
+        echo "export const BUILD_HASH = '$NEWEST_BUILD_HASH';"
+        cat $OUT/index.ts
+    } > $OUT/index.ts.tmp && mv $OUT/index.ts.tmp $OUT/index.ts
+
     echo "Assets copied"
 }
 
@@ -40,15 +48,6 @@ generate_package() {
     sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/readme.md
     
     echo "Package file generated"
-}
-
-generate_index() {
-    echo "Generating index file..."
-    
-    echo "export const VERSION = '$NEWEST_VERSION';" > $OUT/index.ts
-    echo "export const BUILD_HASH = '$NEWEST_BUILD_HASH';" >> $OUT/index.ts
-    
-    echo "Index file generated"
 }
 
 compile_proto() {
@@ -135,6 +134,18 @@ generate_binary() {
     echo "Binary constants generation completed"
 }
 
+generate_message() {
+    echo "Generating message constants TypeScript definitions..."
+    mkdir -p $MESSAGE_OUT
+    
+    node $(dirname "$0")/scripts/generate.js "$MESSAGE_PATH" "$MESSAGE_OUT/constants.ts" || {
+        echo "Error: message constants generation failed"
+        exit 1
+    }
+    
+    echo "Message constants generation completed"
+}
+
 minify() {
     echo "Minifying JavaScript files..."
     
@@ -164,10 +175,10 @@ set -e
 setup
 copy_assets
 generate_package
-generate_index
 compile_proto
 generate_graphql
 generate_jid
 generate_binary
-compile_ts
-minify
+generate_message
+# compile_ts
+# minify

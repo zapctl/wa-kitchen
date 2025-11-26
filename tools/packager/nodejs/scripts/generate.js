@@ -9,15 +9,17 @@ if (!inputJsonFile || !outputFile) {
 
 const specs = JSON.parse(fs.readFileSync(inputJsonFile, "utf8"));
 
+function serializeValue(value) {
+    if (Array.isArray(value)) return `[${value.map(val => `"${val}"`).join(", ")}]`;
+    else if (typeof value === "string") return `"${value}"`;
+    return String(value);
+}
+
 function generateConstants() {
     let output = "";
 
-    for (const [name, value] of Object.entries(specs.constants)) {
-        const valueStr = Array.isArray(value) ?
-            `[${value.map(val => `"${val}"`).join(", ")}]` :
-            `"${value}"`;
-
-        output += `export const ${name} = ${valueStr};\n`;
+    for (const [name, value] of Object.entries(specs.constants || {})) {
+        output += `export const ${name} = ${serializeValue(value)};\n`;
     }
 
     return output;
@@ -26,14 +28,14 @@ function generateConstants() {
 function generateEnums() {
     let output = "";
 
-    for (const [name, enumSpec] of Object.entries(specs.enums)) {
+    for (const [name, enumSpec] of Object.entries(specs.enums || {})) {
         output += `export enum ${name} {\n`;
 
         for (const [prop, value] of Object.entries(enumSpec)) {
-            output += `\t${prop} = ${value},\n`;
+            output += `\t${prop} = ${serializeValue(value)},\n`;
         }
 
-        output += "}";
+        output += "}\n\n";
     }
 
     return output;
@@ -41,5 +43,6 @@ function generateEnums() {
 
 let output = generateConstants() + "\n";
 output += generateEnums();
+output = output.trim();
 
 fs.writeFileSync(outputFile, output, "utf8");
