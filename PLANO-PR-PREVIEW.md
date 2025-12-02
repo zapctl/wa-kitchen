@@ -331,8 +331,8 @@ done
 **Processo**:
 ```bash
 # Listar todas as versões preview
-npm view wa-kit versions --json | jq -r '.[]' | grep "$BASE_VERSION-preview" | while read VERSION; do
-  npm deprecate "wa-kit@$VERSION" "Preview version deprecated after merge to main"
+npm view wa-kitchen versions --json | jq -r '.[]' | grep "$BASE_VERSION-preview" | while read VERSION; do
+  npm deprecate "wa-kitchen@$VERSION" "Preview version deprecated after merge to main"
 done
 ```
 

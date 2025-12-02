@@ -1,21 +1,61 @@
-# wa-kit
+# **wa-kitchen**
 
-This project monitors WhatsApp Web updates and extracts definitions, including schemas and constants, for use in unofficial WhatsApp automations.
+[![build](https://img.shields.io/github/actions/workflow/status/zapctl/wa-kitchen/ci.yml?label=build)](https://github.com/zapctl/wa-kitchen/actions)
+[![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
+[![license](https://img.shields.io/github/license/zapctl/wa-kitchen.svg?label=license)](https://github.com/zapctl/wa-kitchen/blob/main/LICENSE)
 
-## Features
+**wa-kitchen** is a workspace that tracks WhatsApp Web updates, extracts internal definitions, and produces language-friendly packages for unofficial WhatsApp integrations and automation tooling.
 
-- Monitors updates to WhatsApp Web
-- Extracts schemas, constants
-- Publishes WhatsApp definitions as packages
+It acts as a *build pipeline* that continuously watches WhatsApp Web, parses its artifacts, and “cooks” them into structured, versioned modules you can consume safely.
 
-## Current available packages
+---
 
-- [Node.js - NPM](https://www.npmjs.com/package/wa-kit)
+## 🔥 Features
 
-## Contributing
+* **Monitors WhatsApp Web bundle changes**
+  Automatically detects new deployments and diffs internal artifacts.
 
-Contributions are welcome! If you find an issue or have a suggestion, please open an issue or submit a pull request on the [GitHub repository](https://github.com/zapctl/wa-kit).
+* **Extracts multi-format definitions**
 
-## Legal Notice
+  * Protobuf schemas
+  * GraphQL types
+  * Constants
+  * URLs
+  * Regex patterns
+  * Low-level config objects
+  * Internal metadata
 
-This package is for educational and development purposes. Please respect WhatsApp's Terms of Service when using these definitions.
+* **Generates reusable packages**
+  Outputs clean language-agnostic artifacts and publishes package bindings (ex: NPM).
+
+* **Version-locked artifacts**
+  Ensures consistency across updates to avoid breaking downstream projects.
+
+---
+
+## 📦 Packages
+
+### **Node.js (NPM)**
+
+* [https://www.npmjs.com/package/wa-kitchen](https://www.npmjs.com/package/wa-kitchen)
+
+More languages and targets will be added as the extraction pipeline evolves.
+
+---
+
+## 🧑‍💻 Contributing
+
+Contributions are welcome!
+If you encounter an issue, want to improve extraction accuracy, or want support for a new language/format, feel free to open an issue or PR:
+
+➡️ **GitHub:** [https://github.com/zapctl/wa-kitchen](https://github.com/zapctl/wa-kitchen)
+
+Please follow structured commit messages and keep changes atomic when modifying extraction logic.
+
+---
+
+## ⚖️ Legal Notice
+
+This project is **unofficial** and **not affiliated with WhatsApp, Meta, or Facebook**.
+The extracted definitions are provided solely for **research, interoperability, and development**.
+Users are responsible for complying with WhatsApp’s Terms of Service when building automations or tools powered by this data.

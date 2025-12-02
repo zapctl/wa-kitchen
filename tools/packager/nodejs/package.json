@@ -1,5 +1,5 @@
 {
-  "name": "wa-kit",
+  "name": "wa-kitchen",
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
@@ -42,13 +42,13 @@
   ],
   "license": "MIT",
   "author": "João Vitor Machado <joaov@zapctl.dev>",
-  "homepage": "https://github.com/zapctl/wa-kit",
+  "homepage": "https://github.com/zapctl/wa-kitchen",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zapctl/wa-kit.git"
+    "url": "git+https://github.com/zapctl/wa-kitchen.git"
   },
   "bugs": {
-    "url": "https://github.com/zapctl/wa-kit/issues"
+    "url": "https://github.com/zapctl/wa-kitchen/issues"
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.10.0",

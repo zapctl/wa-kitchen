@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  PACKAGE_NAME: wa-kit
+  PACKAGE_NAME: wa-kitchen
 
 jobs:
   publish:
