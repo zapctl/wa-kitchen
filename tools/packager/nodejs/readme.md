@@ -2,9 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/wa-kitchen.svg?label=npm)](https://www.npmjs.com/package/wa-kitchen)
 [![npm downloads](https://img.shields.io/npm/dm/wa-kitchen.svg?label=downloads)](https://www.npmjs.com/package/wa-kitchen)
-[![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
 [![license](https://img.shields.io/github/license/zapctl/wa-kitchen.svg?label=license)](https://github.com/zapctl/wa-kitchen/blob/main/LICENSE)
-[![build](https://img.shields.io/github/actions/workflow/status/zapctl/wa-kitchen/ci.yml?label=build)](https://github.com/zapctl/wa-kitchen/actions)
+[![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
 
 The [`wa-kitchen`](https://www.npmjs.com/package/wa-kitchen) package provides JavaScript/TypeScript developers with structured artifacts extracted directly from **WhatsApp Web**.
 It exposes internal schemas, protocol definitions, constants, and metadata used by WhatsApp’s web client — enabling high-level or low-level automation tooling, reverse-engineering work, and unofficial integrations.

@@ -1,8 +1,8 @@
 # **wa-kitchen**
 
 [![build](https://img.shields.io/github/actions/workflow/status/zapctl/wa-kitchen/ci.yml?label=build)](https://github.com/zapctl/wa-kitchen/actions)
-[![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
 [![license](https://img.shields.io/github/license/zapctl/wa-kitchen.svg?label=license)](https://github.com/zapctl/wa-kitchen/blob/main/LICENSE)
+[![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
 
 **wa-kitchen** is a workspace that tracks WhatsApp Web updates, extracts internal definitions, and produces language-friendly packages for unofficial WhatsApp integrations and automation tooling.
 
