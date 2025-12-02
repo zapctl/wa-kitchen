@@ -1,4 +1,4 @@
-name: Publish preview on PR Create
+name: Publish preview
 
 on:
   workflow_call:

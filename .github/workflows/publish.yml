@@ -1,4 +1,4 @@
-name: Publish on PR Merge
+name: Publish
 
 on:
   pull_request:
