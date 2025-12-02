@@ -11,41 +11,35 @@ jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
       id-token: write
-      pull-requests: write
+      contents: write
       checks: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           cache: npm
           node-version: 24
-          registry-url: "https://registry.npmjs.org"
           cache-dependency-path: tools/scraper/package-lock.json
 
       - name: Set up environment
         run: |
           mkdir -p out/packages
-
-          [ -r out/.build ] && BUILD=$(cat out/.build) || BUILD="0"
-          [ -r out/.version ] && VERSION=$(cat out/.version)
-          [ -r out/.checksum ] && CHECKSUM=$(cat out/.checksum)
-
           echo 0 > out/.build
+
+          [ -r out/.build ] && BUILD=$(cat out/.build)
+          [ -r out/.version ] && VERSION=$(cat out/.version)
 
           echo "BUILD=${BUILD}" >> $GITHUB_ENV
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
-          echo "CHECKSUM=${CHECKSUM}" >> $GITHUB_ENV
 
           echo "Current WhatsApp Web version: ${VERSION:-none}"
-          echo "Current artifacts sha256 checksum: ${CHECKSUM:-none}"
 
       - name: Install packager dependencies
         if: env.package_update_needed == 'true'
@@ -55,7 +49,6 @@ jobs:
 
       - name: Generate preview package
         if: env.package_update_needed == 'true'
-        continue-on-error: true
         run: bash generate.sh
         working-directory: tools/packager
         env:
@@ -64,9 +57,7 @@ jobs:
 
       - name: Publish preview to NPM
         if: env.package_update_needed == 'true'
-        id: publish_preview
-        continue-on-error: true
-        run: bash nodejs/publish.sh
+        run: bash publish.sh
         working-directory: tools/packager
         env:
           DIST_DIR: ${{ github.workspace }}/out/dist

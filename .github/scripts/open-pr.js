@@ -15,5 +15,19 @@ module.exports = async ({ github, context, core }) => {
     body,
   });
 
+  await github.rest.issues.addLabels({
+    owner,
+    repo,
+    issue_number: prNumber,
+    labels: ["enhancement", "preview"],
+  });
+
+  await github.rest.pulls.requestReviewers({
+    owner,
+    repo,
+    pull_number: prNumber,
+    reviewers: ["jaovitubr"],
+  });
+
   core.info(`PR criado: #${pr.data.number}`);
 };

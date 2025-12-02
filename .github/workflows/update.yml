@@ -5,15 +5,12 @@ on:
     - cron: "0 */3 * * *"
   workflow_dispatch:
 
-env:
-  PACKAGE_NAME: wa-kitchen
-
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
       id-token: write
+      contents: write
       pull-requests: write
 
     steps:
@@ -27,7 +24,6 @@ jobs:
         with:
           cache: npm
           node-version: 24
-          registry-url: "https://registry.npmjs.org"
           cache-dependency-path: tools/scraper/package-lock.json
 
       - name: Set up environment
@@ -36,14 +32,11 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           mkdir -p out/packages
+          rm out/.build
 
-          [ -r out/.build ] && BUILD=$(cat out/.build) || BUILD="0"
           [ -r out/.version ] && VERSION=$(cat out/.version)
           [ -r out/.checksum ] && CHECKSUM=$(cat out/.checksum)
 
-          echo 0 > out/.build
-
-          echo "BUILD=${BUILD}" >> $GITHUB_ENV
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "CHECKSUM=${CHECKSUM}" >> $GITHUB_ENV
 
@@ -87,23 +80,6 @@ jobs:
           script: |
             const script = require('.github/scripts/close-old-prs.js');
             await script({ github, context });
-
-      # - name: Generate diff report
-      #   if: env.package_update_needed == 'true'
-      #   run: |
-      #     git add out
-      #     CHANGED_FILES=$(git diff HEAD --name-only)
-      #     DIFF_REPORT=$(git diff HEAD)
-      #     git reset
-
-      #     echo $CHANGED_FILES > out/changed-files.diff
-      #     echo $DIFF_REPORT > out/report.diff
-
-      # - name: Generate PR description
-      #   if: env.package_update_needed == 'true'
-      #   run: bash .github/scripts/generate-pr-description.sh
-      #   env:
-      #     ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Commit changes
         if: env.package_update_needed == 'true'
