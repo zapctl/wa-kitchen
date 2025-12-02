@@ -56,10 +56,9 @@ jobs:
             CURRENT_BUILD=$(cat out/.build 2>/dev/null || echo "0")
             VERSION=$(cat out/.version)
             BUILD=$((CURRENT_BUILD + 1))
-
-            echo "$BUILD" > out/.build
           fi
 
+          echo "$BUILD" > out/.build
           echo "BUILD=$BUILD" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Publishing version: $VERSION-preview.$BUILD"
