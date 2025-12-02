@@ -18,14 +18,14 @@ module.exports = async ({ github, context, core }) => {
   await github.rest.issues.addLabels({
     owner,
     repo,
-    issue_number: prNumber,
+    issue_number: pr.data.number,
     labels: ["enhancement", "preview"],
   });
 
   await github.rest.pulls.requestReviewers({
     owner,
     repo,
-    pull_number: prNumber,
+    pull_number: pr.data.number,
     reviewers: ["jaovitubr"],
   });
 
