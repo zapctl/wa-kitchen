@@ -1,0 +1,126 @@
+name: Publish preview on PR Create
+
+on:
+  workflow_call:
+    inputs:
+      branch:
+        description: 'Branch to publish from'
+        required: true
+        type: string
+      version:
+        description: 'Version to publish'
+        required: true
+        type: string
+    secrets:
+      NPM_TOKEN:
+        required: true
+  push:
+    branches:
+      - 'preview/**'
+  workflow_dispatch:
+
+env:
+  PACKAGE_NAME: wa-kitchen
+
+permissions:
+  contents: write
+  checks: write
+  id-token: write
+
+jobs:
+  publish-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch || github.ref }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: tools/packager/package-lock.json
+
+      - name: Set up environment
+        run: |
+          git config --global user.name "GitHub Actions [Bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -n "${{ inputs.version }}" ]; then
+            VERSION="${{ inputs.version }}"
+            BUILD="0"
+          else
+            CURRENT_BUILD=$(cat out/.build 2>/dev/null || echo "0")
+            VERSION=$(cat out/.version)
+            BUILD=$((CURRENT_BUILD + 1))
+
+            echo "$BUILD" > out/.build
+          fi
+
+          echo "BUILD=$BUILD" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Publishing version: $VERSION-preview.$BUILD"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y protobuf-compiler
+
+      - name: Generate preview packages
+        id: generate_preview
+        continue-on-error: true
+        run: bash generate.sh
+        working-directory: tools/packager
+        env:
+          OUT_DIR: ${{ github.workspace }}/out
+          PREVIEW_VERSION: "${{ env.VERSION }}-preview.${{ env.BUILD }}"
+
+      - name: Publish preview packages
+        id: publish_preview
+        continue-on-error: true
+        run: bash publish.sh
+        working-directory: tools/packager
+        env:
+          DIST_DIR: ${{ github.workspace }}/out/dist
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Commit build increment
+        if: inputs.version == ''
+        run: |
+          git add out/.build
+          git commit -m "chore: increment preview build to ${{ env.BUILD }}"
+          git push
+
+      - name: Report preview publish status
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const gen = "${{ steps.generate_preview.outcome }}";
+            const pub = "${{ steps.publish_preview.outcome }}";
+            const failed = gen !== "success" || pub !== "success";
+
+            const packageName = "${{ env.PACKAGE_NAME }}";
+            const previewVersion = "${{ env.VERSION }}-preview.${{ env.BUILD }}";
+            const npmUrl = `https://www.npmjs.com/package/${packageName}/v/${previewVersion}`;
+
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: "preview-published",
+              head_sha: context.sha,
+              status: "completed",
+              conclusion: failed ? "failure" : "success",
+              output: {
+                title: failed
+                  ? `❌ Failed to publish preview v${previewVersion}`
+                  : `✅ Preview v${previewVersion} published successfully`,
+                summary: failed
+                  ? "Preview publication failed. Check the workflow logs for details."
+                  : `## 🎉 Preview version available on NPM\n\n` +
+                    `**Version:** \`${previewVersion}\`\n\n` +
+                    `**NPM Package:** [${packageName}@${previewVersion}](${npmUrl})\n\n`
+              }
+            });
