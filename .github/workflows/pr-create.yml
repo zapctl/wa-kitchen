@@ -1,9 +1,8 @@
 name: Check for updates
 
 on:
-  schedule:
-    - cron: "0 */3 * * *"
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 env:
   PACKAGE_NAME: wa-kitchen
@@ -21,7 +20,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Needed for git log searches
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -48,64 +47,6 @@ jobs:
           echo "Current WhatsApp Web version: ${VERSION:-none}"
           echo "Current artifacts sha256 checksum: ${CHECKSUM:-none}"
 
-      - name: Install scraper dependencies
-        run: |
-          cd tools/scraper
-          npm install
-
-      - name: Scrap proto files
-        run: |
-          node tools/scraper
-
-          NEWEST_VERSION=$(cat out/.version)
-          NEWEST_CHECKSUM=$(cat out/.checksum)
-
-          echo "NEWEST_VERSION=$NEWEST_VERSION" >> $GITHUB_ENV
-          echo "NEWEST_CHECKSUM=$NEWEST_CHECKSUM" >> $GITHUB_ENV
-
-          echo "Newest WhatsApp Web version: $NEWEST_VERSION"
-          echo "Newest artifacts sha256 checksum: $NEWEST_CHECKSUM"
-
-      - name: Check if package update is needed
-        run: |
-          if [[ "${{ env.CHECKSUM }}" == "${{ env.NEWEST_CHECKSUM }}" ]]; then
-            echo "No update needed, artifacts hash is the same."
-            echo "package_update_needed=false" >> $GITHUB_ENV
-          elif [[ "${{ env.VERSION }}" == "${{ env.NEWEST_VERSION }}" ]]; then
-            echo "Cannot update, version is the same but artifacts differ. Need new WhatsApp Web version."
-            echo "package_update_needed=false" >> $GITHUB_ENV
-          else
-            echo "Update needed, both version and artifacts are different."
-            echo "package_update_needed=true" >> $GITHUB_ENV
-          fi
-
-      - name: Close all open pull requests via script
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const script = require('.github/scripts/close-old-prs.js');
-            await script({ github, context });
-
-      - name: Generate diff report
-        if: env.package_update_needed == 'true'
-        run: |
-          git add .
-          CHANGED_FILES=$(git diff HEAD --name-only)
-          DIFF_REPORT=$(git diff HEAD)
-          git reset
-
-          echo $CHANGED_FILES > out/changed-files.diff
-          echo $DIFF_REPORT > out/report.diff
-
-      - name: Generate PR description
-        if: env.package_update_needed == 'true'
-        run: bash .github/scripts/generate-pr-description.sh
-        env:
-          VERSION: ${{ env.VERSION }}
-          NEWEST_VERSION: ${{ env.NEWEST_VERSION }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          DIFF_REPORT: ${{ env.DIFF_REPORT }}
-
       - name: Install packager dependencies
         if: env.package_update_needed == 'true'
         run: |
@@ -130,17 +71,6 @@ jobs:
         env:
           DIST_DIR: ${{ github.workspace }}/out/dist
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create or update PR
-        if: env.package_update_needed == 'true'
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          PUBLISH_STATUS="${{ steps.publish_preview.outcome }}"
-          bash .github/scripts/create-or-update-pr.sh "${{ env.VERSION }}" "${{ env.NEWEST_VERSION }}" "${{ env.BUILD }}" "$PUBLISH_STATUS"
-        env:
-          GH_TOKEN: ${{ github.token }}
 
       - name: Report preview publish status
         if: env.package_update_needed == 'true'

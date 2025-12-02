@@ -1,3 +1,4 @@
 node_modules
 out/dist
+out/report.diff
 out/pr-description.md
