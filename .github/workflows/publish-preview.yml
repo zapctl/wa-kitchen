@@ -20,6 +20,7 @@ on:
 
 env:
   PACKAGE_NAME: wa-kitchen
+  PACKAGE_TAG: preview
 
 permissions:
   id-token: write
@@ -71,7 +72,7 @@ jobs:
           echo "$BUILD" > out/.build
           echo "BUILD=$BUILD" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "Publishing version: $VERSION-preview.$BUILD"
+          echo "Publishing version: $VERSION-$PACKAGE_TAG.$BUILD"
 
       - name: Install dependencies
         run: |
@@ -85,7 +86,7 @@ jobs:
         working-directory: tools/packager
         env:
           OUT_DIR: ${{ github.workspace }}/out
-          VERSION: "${{ env.VERSION }}-preview.${{ env.BUILD }}"
+          VERSION: "${{ env.VERSION }}-$PACKAGE_TAG.${{ env.BUILD }}"
 
       - name: Publish preview packages
         id: publish_preview
@@ -96,7 +97,6 @@ jobs:
         env:
           DIST_DIR: ${{ github.workspace }}/out/dist
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PREVIEW_VERSION: "${{ env.VERSION }}-preview.${{ env.BUILD }}"
 
       - name: Commit build increment
         if: inputs.version == '' && steps.publish_preview.outcome == 'success'
@@ -118,7 +118,7 @@ jobs:
             process.env.PUBLISH_STATUS = failed ? 'failure' : 'success';
             await script({ github, context, core });
         env:
-          PREVIEW_VERSION: ${{ env.VERSION }}-preview.${{ env.BUILD }}
+          PREVIEW_VERSION: ${{ env.VERSION }}-${{ env.PACKAGE_TAG }}.${{ env.BUILD }}
           PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
 
       - name: Report preview publish status
@@ -130,7 +130,7 @@ jobs:
             const failed = gen !== "success" || pub !== "success";
 
             const packageName = "${{ env.PACKAGE_NAME }}";
-            const previewVersion = "${{ env.VERSION }}-preview.${{ env.BUILD }}";
+            const previewVersion = "${{ env.VERSION }}-${{ env.PACKAGE_TAG }}.${{ env.BUILD }}";
             const npmUrl = `https://www.npmjs.com/package/${packageName}/v/${previewVersion}`;
 
             await github.rest.checks.create({
