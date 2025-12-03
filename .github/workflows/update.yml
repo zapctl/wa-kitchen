@@ -54,9 +54,11 @@ jobs:
 
           NEWEST_VERSION=$(cat out/.version)
           NEWEST_CHECKSUM=$(cat out/.checksum)
+          PREVIEW_BRANCH="preview/v$NEWEST_VERSION"
 
           echo "NEWEST_VERSION=$NEWEST_VERSION" >> $GITHUB_ENV
           echo "NEWEST_CHECKSUM=$NEWEST_CHECKSUM" >> $GITHUB_ENV
+          echo "PREVIEW_BRANCH=$PREVIEW_BRANCH" >> $GITHUB_ENV
 
           echo "Newest WhatsApp Web version: $NEWEST_VERSION"
           echo "Newest artifacts sha256 checksum: $NEWEST_CHECKSUM"
@@ -74,7 +76,16 @@ jobs:
             echo "package_update_needed=true" >> $GITHUB_ENV
           fi
 
+      - name: Check if PR already exists
+        if: env.package_update_needed == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const script = require('.github/scripts/check-pr-exists.js');
+            await script({ github, context, core });
+
       - name: Close all open pull requests
+        if: env.package_update_needed == 'true'
         uses: actions/github-script@v8
         with:
           script: |
@@ -86,8 +97,8 @@ jobs:
         run: |
           git add out
           git commit -m "WhatsApp Web v${{ env.NEWEST_VERSION }}"
-          git branch "preview/v${{ env.NEWEST_VERSION }}"
-          git push -u origin "preview/v${{ env.NEWEST_VERSION }}" --force
+          git branch "${{ env.PREVIEW_BRANCH }}"
+          git push -u origin "${{ env.PREVIEW_BRANCH }}" --force
 
       - name: Open PR
         if: env.package_update_needed == 'true'
@@ -100,7 +111,7 @@ jobs:
     outputs:
       package_update_needed: ${{ env.package_update_needed }}
       newest_version: ${{ env.NEWEST_VERSION }}
-      preview_branch: preview/v${{ env.NEWEST_VERSION }}
+      preview_branch: ${{ env.PREVIEW_BRANCH }}
 
   publish-preview:
     needs: update

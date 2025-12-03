@@ -4,17 +4,20 @@ module.exports = async ({ github, context }) => {
   const pullRequests = await github.paginate(github.rest.pulls.list, {
     owner,
     repo,
-    state: "open"
+    state: "open",
   });
 
   for (const pr of pullRequests) {
+    const hasAutomatedLabel = pr.labels.some((label) => label.name === "automated");
+    if (!hasAutomatedLabel) continue;
+
     await github.rest.pulls.update({
       owner,
       repo,
       pull_number: pr.number,
-      state: "closed"
+      state: "closed",
     });
 
-    console.log(`Closed PR #${pr.number}: ${pr.title}`);
+    console.log(`Closed automated PR #${pr.number}: ${pr.title}`);
   }
-}
+};

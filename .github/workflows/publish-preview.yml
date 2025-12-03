@@ -28,7 +28,7 @@ permissions:
   checks: write
 
 jobs:
-  publish:
+  publish-preview:
     runs-on: ubuntu-latest
 
     steps:
