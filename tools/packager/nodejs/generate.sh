@@ -40,15 +40,9 @@ generate_package() {
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
     
-    if [ -n "$PREVIEW_VERSION" ]; then
-        echo "Injecting preview version $PREVIEW_VERSION..."
-        sed -i 's/{{WA_VERSION}}/'"$PREVIEW_VERSION"'/g' $OUT/package.json
-        sed -i 's/{{WA_VERSION}}/'"$PREVIEW_VERSION"'/g' $OUT/readme.md
-    else
-        echo "Injecting version $NEWEST_VERSION..."
-        sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/package.json
-        sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/readme.md
-    fi
+    echo "Injecting version $VERSION..."
+    sed -i 's/{{WA_VERSION}}/'"$VERSION"'/g' $OUT/package.json
+    sed -i 's/{{WA_VERSION}}/'"$VERSION"'/g' $OUT/readme.md
     
     echo "Package file generated"
 }

@@ -46,6 +46,7 @@ jobs:
         env:
           PUBLISH_STATUS: 'started'
           PACKAGE_NAME: ${{ env.PACKAGE_NAME }}
+          PREVIEW_VERSION: ${{ inputs.version }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -84,7 +85,6 @@ jobs:
         working-directory: tools/packager
         env:
           OUT_DIR: ${{ github.workspace }}/out
-          PREVIEW_VERSION: "${{ env.VERSION }}-preview.${{ env.BUILD }}"
 
       - name: Publish preview packages
         id: publish_preview
@@ -95,6 +95,7 @@ jobs:
         env:
           DIST_DIR: ${{ github.workspace }}/out/dist
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PREVIEW_VERSION: "${{ env.VERSION }}-preview.${{ env.BUILD }}"
 
       - name: Commit build increment
         if: inputs.version == '' && steps.publish_preview.outcome == 'success'
