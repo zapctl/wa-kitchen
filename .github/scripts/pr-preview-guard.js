@@ -71,5 +71,5 @@ module.exports = async ({ github, context, status }) => {
       throw new Error("invalid guard status");
   }
 
-  console.log(`PR guard for PR #${prNumber} with status ${status} completed successfully`);
+  console.log(`PR guard for PR #${pr.number} with status ${status} completed successfully`);
 };
