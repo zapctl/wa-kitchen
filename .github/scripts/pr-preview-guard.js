@@ -59,7 +59,7 @@ module.exports = async ({ github, context, status }) => {
       break;
     }
     case "success": {
-      const npmUrl = `https://www.npmjs.com/package/${packageName}/v/${version}`;
+      const npmUrl = `https://www.npmjs.com/package/${packageName}/v/${packageVersion}`;
 
       await createCheck({
         status: 'completed',
