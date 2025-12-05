@@ -108,6 +108,15 @@ jobs:
             const script = require('.github/scripts/open-pr.js');
             await script({ github, context, core });
 
+      - name: Alert PR - Publishing started
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const script = require("./.github/scripts/pr-preview-guard.js");
+            const status = "starting";
+
+            await script({ github, context, core, status });
+
     outputs:
       package_update_needed: ${{ env.package_update_needed }}
       newest_version: ${{ env.NEWEST_VERSION }}

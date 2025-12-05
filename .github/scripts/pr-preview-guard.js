@@ -1,13 +1,9 @@
 module.exports = async ({ github, context, status }) => {
   const { owner, repo } = context.repo;
   const checkName = "preview-publish-guard";
-  const branch = process.env.BRANCH;
+  const branch = process.env.BRANCH || process.env.PREVIEW_BRANCH;
   const packageVersion = process.env.PACKAGE_VERSION;
   const packageName = process.env.PACKAGE_NAME;
-
-  console.log(`Status: ${status}`);
-  console.log(`Package name: ${packageName}`);
-  console.log(`Package version: ${packageVersion}`);
 
   const pr = await github.rest.pulls.list({
     owner,
@@ -48,6 +44,16 @@ module.exports = async ({ github, context, status }) => {
   }
 
   switch (status) {
+    case "starting": {
+      await createCheck({
+        status: 'in_progress',
+        output: {
+          title: '⏱️ Preparing to publish preview version...',
+          summary: 'The preview publication workflow is being initialized.',
+        }
+      });
+      break;
+    }
     case "started": {
       await createCheck({
         status: 'in_progress',
