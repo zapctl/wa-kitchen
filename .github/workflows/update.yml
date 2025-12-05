@@ -72,8 +72,25 @@ jobs:
             echo "Cannot update, version is the same but artifacts differ. Need new WhatsApp Web version."
             echo "package_update_needed=false" >> $GITHUB_ENV
           else
-            echo "Update needed, both version and artifacts are different."
-            echo "package_update_needed=true" >> $GITHUB_ENV
+            git fetch origin 'preview/*:preview/*' || true
+            EXISTING_BRANCH=""
+
+            for branch in $(git for-each-ref --format='%(refname:short)' 'refs/remotes/origin/preview/*'); do
+              BRANCH_CHECKSUM=$(git show "$branch:out/.checksum" 2>/dev/null | tr -d '\n\r' || echo "")
+
+              if [[ "$BRANCH_CHECKSUM" == "$NEWEST_CHECKSUM" ]]; then
+                EXISTING_BRANCH="$branch"
+                break
+              fi
+            done
+
+            if [[ -n "$EXISTING_BRANCH" ]]; then
+              echo "No update needed, checksum $NEWEST_CHECKSUM already exists in branch $EXISTING_BRANCH"
+              echo "package_update_needed=false" >> $GITHUB_ENV
+            else
+              echo "Update needed, both version and artifacts are different."
+              echo "package_update_needed=true" >> $GITHUB_ENV
+            fi
           fi
 
       - name: Check if PR already exists
