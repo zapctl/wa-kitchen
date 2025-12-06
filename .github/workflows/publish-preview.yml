@@ -1,19 +1,7 @@
 name: Publish preview
 
 on:
-  workflow_call:
-    inputs:
-      branch:
-        description: 'Branch to publish from'
-        required: true
-        type: string
-      version:
-        description: 'Version to publish'
-        required: true
-        type: string
-    secrets:
-      NPM_TOKEN:
-        required: true
+  workflow_dispatch:
   push:
     branches:
       - 'preview/**'
@@ -21,7 +9,7 @@ on:
 env:
   PACKAGE_NAME: wa-kitchen
   PACKAGE_TAG: preview
-  BRANCH: ${{ inputs.branch || github.ref }}
+  BRANCH: ${{ github.ref }}
   OUT_DIR: ${{ github.workspace }}/out
   DIST_DIR: ${{ github.workspace }}/out/dist
 
@@ -46,8 +34,7 @@ jobs:
           git config --global user.name "GitHub Actions [Bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          VERSION="${{ inputs.version }}"
-          [ -z "$VERSION" ] && VERSION=$(cat out/.version)
+          VERSION=$(cat out/.version)
 
           CURRENT_BUILD=$(cat out/.build 2>/dev/null || echo "0")
           BUILD=$((CURRENT_BUILD + 1))

@@ -65,10 +65,10 @@ jobs:
 
       - name: Check if package update is needed
         run: |
-          if [[ "${{ env.CHECKSUM }}" == "${{ env.NEWEST_CHECKSUM }}" ]]; then
+          if [[ "$CHECKSUM" == "$NEWEST_CHECKSUM" ]]; then
             echo "No update needed, artifacts hash is the same."
             echo "package_update_needed=false" >> $GITHUB_ENV
-          elif [[ "${{ env.VERSION }}" == "${{ env.NEWEST_VERSION }}" ]]; then
+          elif [[ "$VERSION" == "$NEWEST_VERSION" ]]; then
             echo "Cannot update, version is the same but artifacts differ. Need new WhatsApp Web version."
             echo "package_update_needed=false" >> $GITHUB_ENV
           else
@@ -113,9 +113,9 @@ jobs:
         if: env.package_update_needed == 'true'
         run: |
           git add out
-          git commit -m "WhatsApp Web v${{ env.NEWEST_VERSION }}"
-          git branch "${{ env.PREVIEW_BRANCH }}"
-          git push -u origin "${{ env.PREVIEW_BRANCH }}" --force
+          git commit -m "WhatsApp Web v$NEWEST_VERSION"
+          git branch "$PREVIEW_BRANCH"
+          git push -u origin "$PREVIEW_BRANCH" --force
 
       - name: Open PR
         if: env.package_update_needed == 'true'
@@ -125,17 +125,9 @@ jobs:
             const script = require('.github/scripts/open-pr.js');
             await script({ github, context, core });
 
-    outputs:
-      package_update_needed: ${{ env.package_update_needed }}
-      newest_version: ${{ env.NEWEST_VERSION }}
-      preview_branch: ${{ env.PREVIEW_BRANCH }}
-
-  publish:
-    needs: update
-    if: needs.update.outputs.package_update_needed == 'true'
-    uses: ./.github/workflows/publish-preview.yml
-    with:
-      version: ${{ needs.update.outputs.newest_version }}
-      branch: ${{ needs.update.outputs.preview_branch }}
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Trigger publish workflow on preview branch
+        if: env.package_update_needed == 'true'
+        run: |
+          gh workflow run publish-preview.yml --ref "$PREVIEW_BRANCH"
+        env:
+          GH_TOKEN: ${{ github.token }}
