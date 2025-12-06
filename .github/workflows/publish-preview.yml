@@ -60,15 +60,6 @@ jobs:
 
           echo "Publishing version: $PACKAGE_VERSION"
 
-      - name: Alert PR - Publishing started
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const script = require("./.github/scripts/pr-preview-guard.js");
-            const status = "started";
-
-            await script({ github, context, core, status });
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -96,22 +87,17 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit build increment
-        if: inputs.version == '' && steps.publish_preview.outcome == 'success'
+        if: steps.publish_preview.outcome == 'success'
         run: |
           echo "$BUILD" > out/.build
           git add out/.build
           git commit -m "chore: increment preview build to $BUILD"
           git push
 
-      - name: Alert PR - Publishing completed
-        if: always()
+      - name: Comment preview package link on PR
+        if: steps.publish_preview.outcome == 'success' && env.BUILD == '1'
         uses: actions/github-script@v8
         with:
           script: |
-            const script = require('./.github/scripts/pr-preview-guard.js');
-            const genStatus = "${{ steps.generate_preview.outcome }}";
-            const pubStatus = "${{ steps.publish_preview.outcome }}";
-            const success = genStatus === "success" || pubStatus === "success";
-            const status = success ? "success" : "failure";
-
-            await script({ github, context, core, status });
+            const script = require('./.github/scripts/pr-preview-comment.js');
+            await script({ github, context });
