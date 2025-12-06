@@ -43,9 +43,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           VERSION=$(cat out/.version)
-
-          CURRENT_BUILD=$(cat out/.build 2>/dev/null || echo "0")
-          BUILD=$((CURRENT_BUILD + 1))
+          BUILD=$(($(cat out/.build) + 1))
 
           PACKAGE_VERSION=$VERSION-$PACKAGE_TAG.$BUILD
 

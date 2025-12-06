@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           mkdir -p out/packages
-          rm -f out/.build
+          echo 0 > out/.build
 
           [ -r out/.version ] && VERSION=$(cat out/.version)
           [ -r out/.checksum ] && CHECKSUM=$(cat out/.checksum)
