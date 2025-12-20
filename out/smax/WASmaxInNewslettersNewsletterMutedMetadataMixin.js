@@ -1,0 +1,2 @@
+// Dependencies: WAResultOrError, WASmaxInNewslettersEnums, WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"muted");if(!n.success)return n;var r=o("WASmaxParseUtils").attrStringEnum(n.value,"state",o("WASmaxInNewslettersEnums").ENUM_OFF_ON_UNDEFINED);return r.success?o("WAResultOrError").makeResult({mutedState:r.value}):r}l.parseNewsletterMutedMetadataMixin=e}

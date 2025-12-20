@@ -1,0 +1,69 @@
+{
+  "function": "makeGetNewsletterMessagesRequest",
+  "params": [
+    {
+      "name": "queryNewsletterParamsMixinArgs",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "newsletterMessageRequestPayloadMixinArgs",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "queryNewsletterParamsArgs",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "queryNewsletterJIDParams",
+      "type": "JID",
+      "order": 3
+    },
+    {
+      "name": "queryNewsletterJIDParams",
+      "type": "JID",
+      "order": 4
+    },
+    {
+      "name": "anyJid",
+      "type": "JID",
+      "order": 5
+    },
+    {
+      "name": "anyViewRole",
+      "type": "JID",
+      "order": 6
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 7
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "messages",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 8,
+    "xmlNodeCount": 3
+  }
+}

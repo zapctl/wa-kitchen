@@ -1,0 +1,25 @@
+{
+  "function": "makeMyAddOnsRequest",
+  "params": [
+    {
+      "name": "myAddonsLimit",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "myAddonsJid",
+      "type": "number",
+      "order": 1
+    },
+    {
+      "name": "split",
+      "type": "number",
+      "order": 2
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 3,
+    "xmlNodeCount": 0
+  }
+}

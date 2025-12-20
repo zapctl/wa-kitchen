@@ -1,0 +1,35 @@
+{
+  "function": "makeGetPrivacySettingRequest",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "privacy",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "to",
+        "smax_id"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 3
+  }
+}

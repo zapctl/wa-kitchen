@@ -1,0 +1,42 @@
+{
+  "function": "makeChatBlockSetRequest",
+  "params": [
+    {
+      "name": "blockingAction",
+      "type": "string",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "blocking",
+      "attrs": [
+        "action"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to",
+        "xmlns"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 3
+  }
+}

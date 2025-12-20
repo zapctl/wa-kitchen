@@ -1,0 +1,30 @@
+{
+  "function": "makeClientNotificationRequest",
+  "params": [
+    {
+      "name": "chatstateTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "internalTestMixinArgs",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "stateTypesArgs",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 3
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 4,
+    "xmlNodeCount": 0
+  }
+}

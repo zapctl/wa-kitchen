@@ -1,0 +1,25 @@
+{
+  "function": "makeJoinLinkedGroupRequest",
+  "params": [
+    {
+      "name": "joinLinkedGroupType",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "joinLinkedGroupJid",
+      "type": "string",
+      "order": 1
+    },
+    {
+      "name": "split",
+      "type": "string",
+      "order": 2
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 3,
+    "xmlNodeCount": 0
+  }
+}

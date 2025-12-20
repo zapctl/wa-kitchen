@@ -1,0 +1,16 @@
+{
+  "function": "makeGetCertificateRequestPayloadEncCertificates",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "payload_enc_certificates",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 1
+  }
+}

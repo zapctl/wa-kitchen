@@ -1,0 +1,48 @@
+{
+  "function": "makeGetInviteGroupInfoRequest",
+  "params": [
+    {
+      "name": "inviteCode",
+      "type": "string",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "invite",
+      "attrs": [
+        "code"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to",
+        "xmlns"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 4
+  }
+}

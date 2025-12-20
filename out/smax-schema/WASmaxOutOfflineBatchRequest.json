@@ -1,0 +1,30 @@
+{
+  "function": "makeBatchRequest",
+  "params": [
+    {
+      "name": "offlineBatchCount",
+      "type": "number",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "offline_batch",
+      "attrs": [
+        "count"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "ib",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 2
+  }
+}

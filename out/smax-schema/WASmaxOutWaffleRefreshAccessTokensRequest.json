@@ -1,0 +1,116 @@
+{
+  "function": "makeRefreshAccessTokensRequest",
+  "params": [
+    {
+      "name": "rSAEncryptionMetadataMixinArgs",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "timestampElementValue",
+      "type": "number",
+      "order": 1
+    },
+    {
+      "name": "fbidElementValue",
+      "type": "number",
+      "order": 2
+    },
+    {
+      "name": "encryptedKeyElementValue",
+      "type": "number",
+      "order": 3
+    },
+    {
+      "name": "nonceElementValue",
+      "type": "number",
+      "order": 4
+    },
+    {
+      "name": "encryptedDataElementValue",
+      "type": "number",
+      "order": 5
+    },
+    {
+      "name": "authTagElementValue",
+      "type": "number",
+      "order": 6
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "encryption_metadata",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "encrypted_key",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "nonce",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "encrypted_data",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "auth_tag",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [
+        "version",
+        "algorithm"
+      ],
+      "hasChildren": true,
+      "childrenCount": 4
+    },
+    {
+      "tag": "timestamp",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "fbid",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "smax_id",
+        "to"
+      ],
+      "hasChildren": true,
+      "childrenCount": 3
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 7,
+    "xmlNodeCount": 10
+  }
+}

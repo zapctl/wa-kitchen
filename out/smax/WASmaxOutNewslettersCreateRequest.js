@@ -1,0 +1,2 @@
+// Dependencies: WASmaxJsx, WASmaxOutNewslettersCreateRequestMixinMixin, WASmaxOutNewslettersSelfIQSetRequestMixin
+function(t,n,r,o,a,i,l){function e(e){var t=e.createRequestMixinMixinArgs,n=o("WASmaxOutNewslettersSelfIQSetRequestMixin").mergeSelfIQSetRequestMixin(o("WASmaxJsx").smax("iq",null,o("WASmaxOutNewslettersCreateRequestMixinMixin").mergeCreateRequestMixinMixin(o("WASmaxJsx").smax("create",null),t)));return n}l.makeCreateRequest=e}

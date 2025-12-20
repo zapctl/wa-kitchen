@@ -1,0 +1,28 @@
+{
+  "function": "makeClientRequest",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type",
+        "xmlns"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 2
+  }
+}

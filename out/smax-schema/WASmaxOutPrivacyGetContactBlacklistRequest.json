@@ -1,0 +1,90 @@
+{
+  "function": "makeGetContactBlacklistRequest",
+  "params": [
+    {
+      "name": "getContactBlacklistGetContactBlacklistLIDOrGetContactBlacklistPNMixinGroupArgs",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "getContactBlacklistGetContactBlacklistLID",
+      "type": "string",
+      "order": 1
+    },
+    {
+      "name": "getContactBlacklistGetContactBlacklistLID",
+      "type": "string",
+      "order": 2
+    },
+    {
+      "name": "categoryNamesForContactBlacklistMixinArgs",
+      "type": "string",
+      "order": 3
+    },
+    {
+      "name": "anyName",
+      "type": "string",
+      "order": 4
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "privacy",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "list",
+      "attrs": [
+        "value"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [
+        "name"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "privacy",
+      "attrs": [
+        "addressing_mode"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to",
+        "xmlns"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 5,
+    "xmlNodeCount": 7
+  }
+}

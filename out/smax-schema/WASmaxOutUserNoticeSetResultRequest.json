@@ -1,0 +1,48 @@
+{
+  "function": "makeSetResultRequest",
+  "params": [
+    {
+      "name": "trackableId",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "trackableResult",
+      "type": "number",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "trackable",
+      "attrs": [
+        "id",
+        "result"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to",
+        "xmlns"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 3
+  }
+}

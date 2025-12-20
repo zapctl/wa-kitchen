@@ -1,0 +1,2 @@
+// Dependencies: WAJids
+function(t,n,r,o,a,i,l){var e,s={audio:"audio",video:"video"},u={validators:[(e=o("WAJids")).validateCallJid,e.validateDomainJid],typeName:"CallJid|DomainJid"},c={validators:[e.validateCallJid,e.validateDomainJid,e.validateUserJid],typeName:"CallJid|DomainJid|UserJid"};l.ENUM_AUDIO_VIDEO=s,l.CALLJID_DOMAINJID=u,l.CALLJID_DOMAINJID_USERJID=c}

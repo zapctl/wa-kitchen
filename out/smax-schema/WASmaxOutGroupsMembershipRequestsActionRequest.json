@@ -1,0 +1,30 @@
+{
+  "function": "makeMembershipRequestsActionRequestMembershipRequestsActionApproveParticipant",
+  "params": [
+    {
+      "name": "participantJid",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "participantPhoneNumber",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "participantUsername",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 3
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 4,
+    "xmlNodeCount": 0
+  }
+}

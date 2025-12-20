@@ -1,0 +1,207 @@
+{
+  "function": "makeIndividualReportRequestSpamListMessage",
+  "params": [
+    {
+      "name": "messageSenderOrRecipientMixinGroupArgs",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "rawArgs",
+      "type": "number",
+      "order": 1
+    },
+    {
+      "name": "messageT",
+      "type": "number",
+      "order": 2
+    },
+    {
+      "name": "messageId",
+      "type": "number",
+      "order": 3
+    },
+    {
+      "name": "messageSelected",
+      "type": "number",
+      "order": 4
+    },
+    {
+      "name": "messageUnsent",
+      "type": "number",
+      "order": 5
+    },
+    {
+      "name": "messageDeletedReason",
+      "type": "number",
+      "order": 6
+    },
+    {
+      "name": "hasRevoke",
+      "type": "number",
+      "order": 7
+    },
+    {
+      "name": "hasAdminRevoke",
+      "type": "number",
+      "order": 8
+    },
+    {
+      "name": "hasMessageEdit",
+      "type": "number",
+      "order": 9
+    },
+    {
+      "name": "hasMulticast",
+      "type": "number",
+      "order": 10
+    },
+    {
+      "name": "hasPreFilledNumber",
+      "type": "number",
+      "order": 11
+    },
+    {
+      "name": "hasPreFilledText",
+      "type": "number",
+      "order": 12
+    },
+    {
+      "name": "hasAutomated",
+      "type": "number",
+      "order": 13
+    },
+    {
+      "name": "messageWithHsmTemplateMixinArgs",
+      "type": "number",
+      "order": 14
+    },
+    {
+      "name": "extensionScreenDataMixinArgs",
+      "type": "number",
+      "order": 15
+    },
+    {
+      "name": "messageParticipantMixinArgs",
+      "type": "number",
+      "order": 16
+    },
+    {
+      "name": "messageFrankingMixinArgs",
+      "type": "number",
+      "order": 17
+    },
+    {
+      "name": "waMessageReportingMixinArgs",
+      "type": "number",
+      "order": 18
+    },
+    {
+      "name": "sMBBroadcastSourceMixinArgs",
+      "type": "number",
+      "order": 19
+    },
+    {
+      "name": "iABReportLinkMixinArgs",
+      "type": "number",
+      "order": 20
+    },
+    {
+      "name": "messageWithNewsletterQuestionResponseMixinArgs",
+      "type": "number",
+      "order": 21
+    },
+    {
+      "name": "hasMessagePlaceholder",
+      "type": "number",
+      "order": 22
+    },
+    {
+      "name": "messagePayloadTypesArgs",
+      "type": "number",
+      "order": 23
+    },
+    {
+      "name": "rawMediatype",
+      "type": "string",
+      "order": 24
+    },
+    {
+      "name": "rawLocalMessageType",
+      "type": "string",
+      "order": 25
+    },
+    {
+      "name": "rawElementValue",
+      "type": "string",
+      "order": 26
+    },
+    {
+      "name": "rawMixinsArgs",
+      "type": "string",
+      "order": 27
+    },
+    {
+      "name": "isRawV2",
+      "type": "number",
+      "order": 28
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "message",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "raw",
+      "attrs": [
+        "mediatype",
+        "local_message_type"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "raw",
+      "attrs": [
+        "v"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "message",
+      "attrs": [
+        "t",
+        "id",
+        "selected",
+        "unsent",
+        "deleted_reason"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "message",
+      "attrs": [
+        "edit"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "message",
+      "attrs": [
+        "edit"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 29,
+    "xmlNodeCount": 6
+  }
+}

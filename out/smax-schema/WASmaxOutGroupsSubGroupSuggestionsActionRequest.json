@@ -1,0 +1,32 @@
+{
+  "function": "makeSubGroupSuggestionsActionRequestSubGroupSuggestionsActionApproveSubGroupSuggestion",
+  "params": [
+    {
+      "name": "subGroupSuggestionCreator",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "groupCreatorPhoneNumberMixinArgs",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 2
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "sub_group_suggestion",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 3,
+    "xmlNodeCount": 1
+  }
+}

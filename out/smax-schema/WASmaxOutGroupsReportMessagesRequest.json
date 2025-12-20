@@ -1,0 +1,46 @@
+{
+  "function": "makeReportMessagesRequest",
+  "params": [
+    {
+      "name": "reportMessageId",
+      "type": "STANZA_ID",
+      "order": 0
+    },
+    {
+      "name": "iqTo",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 2
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "report",
+      "attrs": [
+        "message_id"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "reports",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 3,
+    "xmlNodeCount": 3
+  }
+}

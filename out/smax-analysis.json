@@ -1,0 +1,265 @@
+{
+  "totalModules": 152,
+  "topUsed": [
+    {
+      "name": "AbPropsConfigs",
+      "usedBy": 1,
+      "dependencies": 2
+    },
+    {
+      "name": "ChatstateStateSource",
+      "usedBy": 1,
+      "dependencies": 2
+    },
+    {
+      "name": "GroupsMemberAddModes",
+      "usedBy": 1,
+      "dependencies": 3
+    },
+    {
+      "name": "GroupsMemberLinkModes",
+      "usedBy": 1,
+      "dependencies": 3
+    },
+    {
+      "name": "MessageDeliverNewsletterMessageFanoutContent",
+      "usedBy": 1,
+      "dependencies": 14
+    },
+    {
+      "name": "NewslettersNewsletterMessageHistoryContent",
+      "usedBy": 1,
+      "dependencies": 10
+    },
+    {
+      "name": "PresencePresenceUpdates",
+      "usedBy": 1,
+      "dependencies": 5
+    },
+    {
+      "name": "PrivacyGetPrivacyListError",
+      "usedBy": 1,
+      "dependencies": 5
+    },
+    {
+      "name": "SupportMessageFeedbackSendFeedbackError",
+      "usedBy": 1,
+      "dependencies": 3
+    },
+    {
+      "name": "AbPropsGetExperimentConfigResponseErrorNoRetry",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "AbPropsGetExperimentConfigResponseErrorRetry",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "AbPropsGetExperimentConfigResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 3
+    },
+    {
+      "name": "BizAccessTokenRequestSilentNonceResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizAccessTokenRequestSilentNonceResponseRecoveryRequired",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizAccessTokenRequestSilentNonceResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizCtwaActionBannerSuggestionRequest",
+      "usedBy": 0,
+      "dependencies": 4
+    },
+    {
+      "name": "BizCtwaAdAccountGetAccessTokenAndSessionCookiesResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizCtwaAdAccountGetAccessTokenAndSessionCookiesResponseIncorrectNonce",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizCtwaAdAccountGetAccessTokenAndSessionCookiesResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizCtwaAdAccountGetAccessTokenAndSessionCookiesResponseTooManyAttempts",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizCtwaAdAccountNonceNotificationRequest",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizLinkingGetAccountNonceResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizLinkingGetAccountNonceResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BizLinkingGetLinkedAccountsResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizLinkingGetLinkedAccountsResponseForbidden",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizLinkingGetLinkedAccountsResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 9
+    },
+    {
+      "name": "BizSettingsGetPrivacySettingResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizSettingsGetPrivacySettingResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizSettingsSetPrivacySettingResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizSettingsSetPrivacySettingResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BizSettingsSyncPrivacySettingRequest",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BlocklistsGetBlockListResponseInvalidRequest",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BlocklistsGetBlockListResponseMigratedSuccessWithMismatch",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BlocklistsGetBlockListResponseSuccessWithMatch",
+      "usedBy": 0,
+      "dependencies": 0
+    },
+    {
+      "name": "BlocklistsGetBlockListResponseSuccessWithMismatch",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BlocklistsUpdateBlockListResponseInvalidRequest",
+      "usedBy": 0,
+      "dependencies": 3
+    },
+    {
+      "name": "BlocklistsUpdateBlockListResponseMigratedSuccessWithMismatch",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BlocklistsUpdateBlockListResponseSuccessWithMatch",
+      "usedBy": 0,
+      "dependencies": 0
+    },
+    {
+      "name": "BlocklistsUpdateBlockListResponseSuccessWithMismatch",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "BotBotListResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BotBotListResponseSuccessV2",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BotBotListResponseSuccessV3",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BugReportingReportBugResponseError",
+      "usedBy": 0,
+      "dependencies": 2
+    },
+    {
+      "name": "BugReportingReportBugResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "ChatstateServerNotificationRequest",
+      "usedBy": 0,
+      "dependencies": 3
+    },
+    {
+      "name": "ClientExpirationClientExpirationRequest",
+      "usedBy": 0,
+      "dependencies": 0
+    },
+    {
+      "name": "CoexistenceOffboardingNotificationRequest",
+      "usedBy": 0,
+      "dependencies": 3
+    },
+    {
+      "name": "CoexistenceOnboardingStatusNotificationRequest",
+      "usedBy": 0,
+      "dependencies": 4
+    },
+    {
+      "name": "GroupsAcceptGroupAddResponseGroupJoinRequestSuccess",
+      "usedBy": 0,
+      "dependencies": 1
+    },
+    {
+      "name": "GroupsAcceptGroupAddResponseSuccess",
+      "usedBy": 0,
+      "dependencies": 1
+    }
+  ],
+  "patternMatches": {
+    "ClientErrors": [],
+    "ServerErrors": [],
+    "NoRetryError": [],
+    "Common...": [],
+    "Base...": [],
+    "...Types": [],
+    "...Enums": [],
+    "...Ids": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "function": "makeNewsletterRequest",
+  "params": [
+    {
+      "name": "messageTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "clientNewsletterAndServerOrNewsletterIDMixinGroupArgs",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 2
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 3,
+    "xmlNodeCount": 0
+  }
+}

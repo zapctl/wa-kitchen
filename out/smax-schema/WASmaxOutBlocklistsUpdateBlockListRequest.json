@@ -1,0 +1,60 @@
+{
+  "function": "makeUpdateBlockListRequestItemBizOptOut",
+  "params": [
+    {
+      "name": "bizOptOutReason",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "bizOptOutReasonDescription",
+      "type": "string",
+      "order": 1
+    },
+    {
+      "name": "bizOptOutEntryPoint",
+      "type": "string",
+      "order": 2
+    },
+    {
+      "name": "bizOptOutFirstMessage",
+      "type": "string",
+      "order": 3
+    },
+    {
+      "name": "bizOptOutBusinessDiscoveryEntryPoint",
+      "type": "string",
+      "order": 4
+    },
+    {
+      "name": "bizOptOutBusinessDiscoveryTimestamp",
+      "type": "string",
+      "order": 5
+    },
+    {
+      "name": "bizOptOutBusinessDiscoveryId",
+      "type": "string",
+      "order": 6
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "biz_opt_out",
+      "attrs": [
+        "reason",
+        "reason_description",
+        "entry_point",
+        "first_message",
+        "business_discovery_entry_point",
+        "business_discovery_timestamp",
+        "business_discovery_id"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 7,
+    "xmlNodeCount": 1
+  }
+}

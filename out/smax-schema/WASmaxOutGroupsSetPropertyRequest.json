@@ -1,0 +1,16 @@
+{
+  "function": "makeSetPropertyRequestLocked",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "locked",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 1
+  }
+}

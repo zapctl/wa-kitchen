@@ -1,0 +1,33 @@
+{
+  "function": "makeSubscribeToLiveUpdatesRequest",
+  "params": [
+    {
+      "name": "iqTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "live_updates",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 2
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "function": "makeGetLinkedAccountsRequest",
+  "params": [
+    {
+      "name": "iqFrom",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "linked_accounts",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "smax_id"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 2
+  }
+}

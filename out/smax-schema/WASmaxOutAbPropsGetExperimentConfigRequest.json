@@ -1,0 +1,49 @@
+{
+  "function": "makeGetExperimentConfigRequest",
+  "params": [
+    {
+      "name": "propsHash",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "propsRefreshId",
+      "type": "string",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "props",
+      "attrs": [
+        "protocol",
+        "hash",
+        "refresh_id"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "to"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 3
+  }
+}

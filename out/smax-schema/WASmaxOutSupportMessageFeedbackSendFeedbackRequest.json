@@ -1,0 +1,24 @@
+{
+  "function": "makeSendFeedbackRequestFeedbackListFeedback",
+  "params": [
+    {
+      "name": "feedbackKind",
+      "type": "string",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "feedback",
+      "attrs": [
+        "kind"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 1
+  }
+}

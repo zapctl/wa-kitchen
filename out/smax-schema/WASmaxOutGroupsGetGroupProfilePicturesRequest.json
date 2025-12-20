@@ -1,0 +1,42 @@
+{
+  "function": "makeGetGroupProfilePicturesRequest",
+  "params": [
+    {
+      "name": "baseGetGroupOrServerMixinGroupArgs",
+      "type": "unknown",
+      "order": 0
+    },
+    {
+      "name": "pictureArgs",
+      "type": "unknown",
+      "order": 1
+    },
+    {
+      "name": "subGroupHintMixinArgs",
+      "type": "unknown",
+      "order": 2
+    },
+    {
+      "name": "length",
+      "type": "unknown",
+      "order": 3
+    },
+    {
+      "name": "map",
+      "type": "unknown",
+      "order": 4
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 5,
+    "xmlNodeCount": 1
+  }
+}

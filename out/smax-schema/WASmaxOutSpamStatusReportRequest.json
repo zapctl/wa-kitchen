@@ -1,0 +1,50 @@
+{
+  "function": "makeStatusReportRequest",
+  "params": [
+    {
+      "name": "fRXMixinArgs",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "spamListJid",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "bizOptOutMixinArgs",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "bizReportMixinArgs",
+      "type": "JID",
+      "order": 3
+    },
+    {
+      "name": "messageFrom",
+      "type": "JID",
+      "order": 4
+    },
+    {
+      "name": "messageMixinArgs",
+      "type": "JID",
+      "order": 5
+    },
+    {
+      "name": "messageRecipientMixinArgs",
+      "type": "JID",
+      "order": 6
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 7
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 8,
+    "xmlNodeCount": 0
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "function": "makeGetRequest",
+  "params": [
+    {
+      "name": "pictureType",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "pictureId",
+      "type": "string",
+      "order": 1
+    },
+    {
+      "name": "pictureQuery",
+      "type": "string",
+      "order": 2
+    },
+    {
+      "name": "pictureInvite",
+      "type": "string",
+      "order": 3
+    },
+    {
+      "name": "picturePersonaId",
+      "type": "string",
+      "order": 4
+    },
+    {
+      "name": "pictureCommonGid",
+      "type": "string",
+      "order": 5
+    },
+    {
+      "name": "addRequestMixinArgs",
+      "type": "string",
+      "order": 6
+    },
+    {
+      "name": "tCTokenMixinArgs",
+      "type": "string",
+      "order": 7
+    },
+    {
+      "name": "avatarMixinArgs",
+      "type": "string",
+      "order": 8
+    },
+    {
+      "name": "split",
+      "type": "string",
+      "order": 9
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 10,
+    "xmlNodeCount": 0
+  }
+}

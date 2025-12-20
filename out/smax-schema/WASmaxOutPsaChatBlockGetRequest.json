@@ -1,0 +1,40 @@
+{
+  "function": "makeChatBlockGetRequest",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "blocking_status",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "query",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to",
+        "xmlns"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 4
+  }
+}

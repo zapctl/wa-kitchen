@@ -1,0 +1,34 @@
+{
+  "function": "makeGetGroupInfoRequestQueryAddRequest",
+  "params": [
+    {
+      "name": "addRequestExpiration",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "addRequestAdmin",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 2
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "add_request",
+      "attrs": [
+        "expiration"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 3,
+    "xmlNodeCount": 1
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "function": "makeGetNewsletterMessageUpdatesRequest",
+  "params": [
+    {
+      "name": "messageUpdatesCount",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "messageUpdatesSince",
+      "type": "number",
+      "order": 1
+    },
+    {
+      "name": "messageUpdatesBeforeOrAfterMixinMixinGroupArgs",
+      "type": "number",
+      "order": 2
+    },
+    {
+      "name": "messageUpdatesBeforeMixin",
+      "type": "number",
+      "order": 3
+    },
+    {
+      "name": "messageUpdatesBeforeMixin",
+      "type": "number",
+      "order": 4
+    },
+    {
+      "name": "messageUpdatesBefore",
+      "type": "number",
+      "order": 5
+    },
+    {
+      "name": "iqTo",
+      "type": "JID",
+      "order": 6
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 7
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "message_updates",
+      "attrs": [
+        "count",
+        "since"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "message_updates",
+      "attrs": [
+        "before"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 8,
+    "xmlNodeCount": 3
+  }
+}

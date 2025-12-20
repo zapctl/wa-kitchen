@@ -1,0 +1,41 @@
+{
+  "function": "makeFetchMissingPreKeysRequestKeyFetchUserDevice",
+  "params": [
+    {
+      "name": "deviceId",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "registrationElementValue",
+      "type": "unknown",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "device",
+      "attrs": [
+        "id"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "registration",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 3
+  }
+}

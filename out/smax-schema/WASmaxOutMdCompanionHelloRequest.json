@@ -1,0 +1,22 @@
+{
+  "function": "makeCompanionHelloRequestLinkCodeCompanionRegLinkCodePairingNonce",
+  "params": [
+    {
+      "name": "linkCodePairingNonceElementValue",
+      "type": "unknown",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "link_code_pairing_nonce",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 1
+  }
+}

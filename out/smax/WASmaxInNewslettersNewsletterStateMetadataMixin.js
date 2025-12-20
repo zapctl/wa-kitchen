@@ -1,0 +1,2 @@
+// Dependencies: WAResultOrError, WASmaxInNewslettersEnums, WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"state");if(!n.success)return n;var r=o("WASmaxParseUtils").attrStringEnum(n.value,"type",o("WASmaxInNewslettersEnums").ENUM_ACTIVE_GEOSUSPENDED_SUSPENDED);return r.success?o("WAResultOrError").makeResult({stateType:r.value}):r}l.parseNewsletterStateMetadataMixin=e}

@@ -1,0 +1,30 @@
+{
+  "function": "makeRequestSilentNonceRequest",
+  "params": [
+    {
+      "name": "iqFrom",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "smax_id"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 1
+  }
+}

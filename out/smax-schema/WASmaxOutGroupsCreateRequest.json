@@ -1,0 +1,35 @@
+{
+  "function": "makeCreateRequestCreateParticipant",
+  "params": [
+    {
+      "name": "participantJid",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "participantPhoneNumber",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "participantUsername",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "permissionTokenMixinArgs",
+      "type": "JID",
+      "order": 3
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 4
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 5,
+    "xmlNodeCount": 0
+  }
+}

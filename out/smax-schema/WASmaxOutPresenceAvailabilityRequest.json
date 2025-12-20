@@ -1,0 +1,30 @@
+{
+  "function": "makeAvailabilityRequest",
+  "params": [
+    {
+      "name": "presenceType",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "presenceName",
+      "type": "string",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "presence",
+      "attrs": [
+        "type",
+        "name"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 1
+  }
+}

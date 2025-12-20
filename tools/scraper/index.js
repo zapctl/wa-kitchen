@@ -7,7 +7,7 @@ import puppeteer from "puppeteer";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const IS_DEBUG = process.env.NODE_ENV === "development";
+const IS_DEBUG = process.env.NODE_ENV !== "production";
 const OUT_DIR = process.env.OUT_DIR || "./out";
 
 const VERSION_PATH = path.join(OUT_DIR, ".version");
@@ -18,10 +18,13 @@ const SCRAPERS = [
     { name: "version", type: "json", outputPath: "version.json" },
     { name: "main", type: "json", outputPath: "main.json" },
     { name: "binary", type: "json", outputPath: "binary.json" },
+    { name: "media", type: "json", outputPath: "media.json" },
     { name: "jid", type: "json", outputPath: "jid.json" },
     { name: "message", type: "json", outputPath: "message.json" },
     { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: ".proto" },
     { name: "graphql", type: "multi-json", outputDir: "graphql", extension: ".json" },
+    { name: "smax", type: "multi-file", outputDir: "smax", extension: ".js" },
+    { name: "smax-schema", type: "multi-json", outputDir: "smax-schema", extension: ".json" },
 ];
 
 const browser = await puppeteer.launch({
@@ -35,12 +38,12 @@ const [page] = await browser.pages();
 await page.setUserAgent((await browser.userAgent())
     .replace("HeadlessChrome", "Chrome"));
 
+const utilsScriptContent = await fs.readFile(UTILS_SCRIPT_PATH, "utf8");
+await page.evaluateOnNewDocument(utilsScriptContent);
+
 await page.goto("https://web.whatsapp.com/", {
     waitUntil: "networkidle2",
 });
-
-const utilsScriptContent = await fs.readFile(UTILS_SCRIPT_PATH, "utf8");
-await page.evaluate(utilsScriptContent);
 
 const results = {};
 

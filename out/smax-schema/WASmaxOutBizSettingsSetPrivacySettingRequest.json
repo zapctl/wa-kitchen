@@ -1,0 +1,66 @@
+{
+  "function": "makeSetPrivacySettingRequest",
+  "params": [
+    {
+      "name": "smbDataSharingSettingMixinArgs",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "anyValue",
+      "type": "string",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "privacy",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "smb_data_sharing_with_meta_consent",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [
+        "value"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "privacy",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "to",
+        "smax_id"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 6
+  }
+}

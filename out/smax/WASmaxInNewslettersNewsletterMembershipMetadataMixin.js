@@ -1,0 +1,2 @@
+// Dependencies: WAResultOrError, WASmaxInNewslettersEnums, WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"membership");if(!n.success)return n;var r=o("WASmaxParseUtils").attrStringEnum(n.value,"type",o("WASmaxInNewslettersEnums").ENUM_ADMIN_GUEST_OWNER_SUBSCRIBER);return r.success?o("WAResultOrError").makeResult({membershipType:r.value}):r}l.parseNewsletterMembershipMetadataMixin=e}

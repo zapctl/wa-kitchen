@@ -1,0 +1,2 @@
+// Dependencies: WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"linked_accounts");return n.success?o("WASmaxParseUtils").voidSuccess:n}l.parseNewsletterLinkedAccountsMetadataMixin=e}

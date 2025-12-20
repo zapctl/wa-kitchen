@@ -6,7 +6,7 @@ const specs = {
     enums: {
         STANZA_MSG_TYPES: makeEnumerable(msgCommon.STANZA_MSG_TYPES),
         EDIT_MSG_TYPE: enumEditType.EDIT_TYPE,
-        ENC_MEDIA_TYPE: makeEnumerable(backendJobs.EncMediaType),
+        ENC_MSG_MEDIA_TYPE: makeEnumerable(backendJobs.EncMediaType),
     },
 }
 

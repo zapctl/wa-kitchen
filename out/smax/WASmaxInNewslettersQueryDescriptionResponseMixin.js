@@ -1,0 +1,2 @@
+// Dependencies: WAResultOrError, WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"description");if(!t.success)return t;var n=o("WASmaxParseUtils").attrString(e,"id");if(!n.success)return n;var r=o("WASmaxParseUtils").attrIntRange(e,"update_time",0,void 0);if(!r.success)return r;var a=o("WASmaxParseUtils").contentString(e);return a.success?o("WAResultOrError").makeResult({id:n.value,updateTime:r.value,elementValue:a.value}):a}l.parseQueryDescriptionResponseMixin=e}

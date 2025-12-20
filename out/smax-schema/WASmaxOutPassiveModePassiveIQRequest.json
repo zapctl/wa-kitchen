@@ -1,0 +1,27 @@
+{
+  "function": "makePassiveIQRequest",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "passive",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type",
+        "xmlns",
+        "to"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 2
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "function": "makeGetLinkedGroupRequest",
+  "params": [
+    {
+      "name": "iqTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 1
+  }
+}

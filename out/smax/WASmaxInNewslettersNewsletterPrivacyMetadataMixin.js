@@ -1,0 +1,2 @@
+// Dependencies: WAResultOrError, WASmaxInNewslettersEnums, WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"privacy");if(!n.success)return n;var r=o("WASmaxParseUtils").attrStringEnum(n.value,"type",o("WASmaxInNewslettersEnums").ENUM_PRIVATE_PUBLIC);return r.success?o("WAResultOrError").makeResult({privacyType:r.value}):r}l.parseNewsletterPrivacyMetadataMixin=e}

@@ -1,0 +1,30 @@
+{
+  "function": "makeAcceptGroupAddRequest",
+  "params": [
+    {
+      "name": "acceptCode",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "acceptExpiration",
+      "type": "string",
+      "order": 1
+    },
+    {
+      "name": "acceptAdmin",
+      "type": "string",
+      "order": 2
+    },
+    {
+      "name": "split",
+      "type": "string",
+      "order": 3
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 4,
+    "xmlNodeCount": 0
+  }
+}

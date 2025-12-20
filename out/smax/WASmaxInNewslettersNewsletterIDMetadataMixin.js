@@ -1,0 +1,2 @@
+// Dependencies: WAResultOrError, WASmaxParseJid, WASmaxParseUtils
+function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"id");if(!n.success)return n;var r=o("WASmaxParseJid").attrNewsletterJid(n.value,"jid");return r.success?o("WAResultOrError").makeResult({idJid:r.value}):r}l.parseNewsletterIDMetadataMixin=e}

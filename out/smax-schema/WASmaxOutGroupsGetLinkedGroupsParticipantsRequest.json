@@ -1,0 +1,33 @@
+{
+  "function": "makeGetLinkedGroupsParticipantsRequest",
+  "params": [
+    {
+      "name": "iqTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "linked_groups_participants",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 2
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "function": "makeCompanionFinishRequest",
+  "params": [
+    {
+      "name": "linkCodeCompanionRegJid",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "linkCodePairingWrappedKeyBundleElementValue",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "companionIdentityPublicElementValue",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "linkCodePairingRefElementValue",
+      "type": "JID",
+      "order": 3
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 4
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 5,
+    "xmlNodeCount": 0
+  }
+}

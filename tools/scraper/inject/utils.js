@@ -4,3 +4,15 @@ function makeEnumerable(obj) {
         return data;
     }, {});
 }
+
+Object.defineProperty(window, "__onBeforeModuleFactory", {
+    value: (mod) => Object.defineProperty(mod, "factory", {
+        value: mod.factory,
+        writable: false,
+        configurable: false,
+        enumerable: true,
+    }),
+    writable: false,
+    configurable: false,
+    enumerable: true,
+});

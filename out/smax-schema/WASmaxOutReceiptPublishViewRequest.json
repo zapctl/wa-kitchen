@@ -1,0 +1,27 @@
+{
+  "function": "makePublishViewRequest",
+  "params": [
+    {
+      "name": "receiptTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "receipt",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "function": "makeLinkSubGroupsRequestLinksLinkGroupHiddenGroup",
+  "params": [],
+  "xmlStructure": [
+    {
+      "tag": "hidden_group",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 0,
+    "xmlNodeCount": 1
+  }
+}

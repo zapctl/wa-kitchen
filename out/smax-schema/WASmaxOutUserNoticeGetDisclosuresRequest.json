@@ -1,0 +1,42 @@
+{
+  "function": "makeGetDisclosuresRequest",
+  "params": [
+    {
+      "name": "getUserDisclosuresT",
+      "type": "number",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "get_user_disclosures",
+      "attrs": [
+        "t"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "to",
+        "xmlns"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 3
+  }
+}

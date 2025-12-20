@@ -1,0 +1,20 @@
+{
+  "function": "makeBatchGetGroupInfoRequestQueryGroup",
+  "params": [
+    {
+      "name": "groupJid",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 0
+  }
+}

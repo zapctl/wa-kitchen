@@ -1,0 +1,47 @@
+{
+  "function": "makeSendBufferRequest",
+  "params": [
+    {
+      "name": "addT",
+      "type": "number",
+      "order": 0
+    },
+    {
+      "name": "addElementValue",
+      "type": "number",
+      "order": 1
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "add",
+      "attrs": [
+        "t"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "to"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 2,
+    "xmlNodeCount": 3
+  }
+}

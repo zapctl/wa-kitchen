@@ -1,0 +1,2 @@
+// Dependencies: WASmaxJsx, WASmaxMixins
+function(t,n,r,o,a,i,l){function e(){var e=o("WASmaxJsx").smax("metadata",null,o("WASmaxJsx").smax("linked_accounts",null));return e}function s(t){var n=e();return o("WASmaxMixins").mergeStanzas(t,n)}l.mergeNewsletterLinkedAccountsFieldMixin=s}

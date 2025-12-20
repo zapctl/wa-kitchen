@@ -1,0 +1,2 @@
+// Dependencies: WASmaxAttrs, WASmaxJsx, WASmaxMixins, WAWap
+function(t,n,r,o,a,i,l){function e(e){var t=e.messageParticipant,n=e.messageParticipantType,r=o("WASmaxJsx").smax("message",{participant:o("WAWap").USER_JID(t),participant_type:o("WASmaxAttrs").OPTIONAL(o("WAWap").CUSTOM_STRING,n)});return r}function s(t,n){var r=e(n);return o("WASmaxMixins").mergeStanzas(t,r)}l.mergeMessageParticipantMixin=s}

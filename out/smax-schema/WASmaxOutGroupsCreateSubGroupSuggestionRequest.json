@@ -1,0 +1,227 @@
+{
+  "function": "makeCreateSubGroupSuggestionRequest",
+  "params": [
+    {
+      "name": "suggestionForCreateSubGroupSuggestionNewGroupOrCreateSubGroupSuggestionExistingGroupsMixinGroupArgs",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "createSubGroupSuggestionSuggestionForNewGroup",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "createSubGroupSuggestionSuggestionForNewGroup",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "descriptionArgs",
+      "type": "JID",
+      "order": 3
+    },
+    {
+      "name": "hasLocked",
+      "type": "JID",
+      "order": 4
+    },
+    {
+      "name": "hasAnnouncement",
+      "type": "JID",
+      "order": 5
+    },
+    {
+      "name": "hasHiddenGroup",
+      "type": "JID",
+      "order": 6
+    },
+    {
+      "name": "membershipApprovalModeArgs",
+      "type": "JID",
+      "order": 7
+    },
+    {
+      "name": "groupMemberAddModeMixinArgs",
+      "type": "JID",
+      "order": 8
+    },
+    {
+      "name": "groupMemberLinkModeMixinArgs",
+      "type": "JID",
+      "order": 9
+    },
+    {
+      "name": "subjectElementValue",
+      "type": "JID",
+      "order": 10
+    },
+    {
+      "name": "bodyElementValue",
+      "type": "JID",
+      "order": 11
+    },
+    {
+      "name": "membershipApprovalModesArgs",
+      "type": "JID",
+      "order": 12
+    },
+    {
+      "name": "isGroupJoinMembershipApprovalModeEnabled",
+      "type": "JID",
+      "order": 13
+    },
+    {
+      "name": "memberAddModesArgs",
+      "type": "JID",
+      "order": 14
+    },
+    {
+      "name": "isAdminAddMode",
+      "type": "JID",
+      "order": 15
+    },
+    {
+      "name": "memberLinkModesArgs",
+      "type": "JID",
+      "order": 16
+    },
+    {
+      "name": "isAdminLinkMode",
+      "type": "JID",
+      "order": 17
+    },
+    {
+      "name": "iqTo",
+      "type": "JID",
+      "order": 18
+    },
+    {
+      "name": "split",
+      "type": "unknown",
+      "order": 19
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "sub_group_suggestion",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "subject",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "body",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "description",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "locked",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "announcement",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "hidden_group",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "membership_approval_mode",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "group_join",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "group_join",
+      "attrs": [
+        "state"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "membership_approval_mode",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "sub_group_suggestion",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 6
+    },
+    {
+      "tag": "member_add_mode",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "member_add_mode",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "member_link_mode",
+      "attrs": [],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "member_link_mode",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "smax$any",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [],
+      "hasChildren": true,
+      "childrenCount": 1
+    }
+  ],
+  "metadata": {
+    "paramCount": 20,
+    "xmlNodeCount": 19
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "function": "makeEventRequest",
+  "params": [
+    {
+      "name": "eventPromotionId",
+      "type": "string",
+      "order": 0
+    },
+    {
+      "name": "eventType",
+      "type": "string",
+      "order": 1
+    },
+    {
+      "name": "eventTimestampSec",
+      "type": "string",
+      "order": 2
+    },
+    {
+      "name": "eventLogdata",
+      "type": "string",
+      "order": 3
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "event",
+      "attrs": [
+        "promotion_id",
+        "type",
+        "timestamp_sec",
+        "logdata"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "xmlns",
+        "to"
+      ],
+      "hasChildren": true,
+      "childrenCount": 1
+    },
+    {
+      "tag": "iq",
+      "attrs": [
+        "id",
+        "type"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 4,
+    "xmlNodeCount": 3
+  }
+}

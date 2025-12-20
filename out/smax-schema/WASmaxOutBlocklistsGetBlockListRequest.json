@@ -1,0 +1,24 @@
+{
+  "function": "makeGetBlockListRequestItem",
+  "params": [
+    {
+      "name": "itemDhash",
+      "type": "string",
+      "order": 0
+    }
+  ],
+  "xmlStructure": [
+    {
+      "tag": "item",
+      "attrs": [
+        "dhash"
+      ],
+      "hasChildren": false,
+      "childrenCount": 0
+    }
+  ],
+  "metadata": {
+    "paramCount": 1,
+    "xmlNodeCount": 1
+  }
+}

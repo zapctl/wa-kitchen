@@ -1,0 +1,35 @@
+{
+  "function": "makeSubscribeRequest",
+  "params": [
+    {
+      "name": "presenceTo",
+      "type": "JID",
+      "order": 0
+    },
+    {
+      "name": "presenceName",
+      "type": "JID",
+      "order": 1
+    },
+    {
+      "name": "presenceContext",
+      "type": "JID",
+      "order": 2
+    },
+    {
+      "name": "tCTokenMixinArgs",
+      "type": "JID",
+      "order": 3
+    },
+    {
+      "name": "split",
+      "type": "JID",
+      "order": 4
+    }
+  ],
+  "xmlStructure": [],
+  "metadata": {
+    "paramCount": 5,
+    "xmlNodeCount": 0
+  }
+}
