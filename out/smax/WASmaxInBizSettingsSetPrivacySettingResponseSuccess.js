@@ -1,2 +1,15 @@
 // Dependencies: WAResultOrError, WASmaxInBizSettingsIQResultResponseMixin, WASmaxInBizSettingsSmbDataSharingSettingMixin, WASmaxParseUtils
-function(t,n,r,o,a,i,l){function e(e,t){var n=o("WASmaxParseUtils").assertTag(e,"iq");if(!n.success)return n;var r=o("WASmaxParseUtils").flattenedChildWithTag(e,"privacy");if(!r.success)return r;var a=o("WASmaxInBizSettingsSmbDataSharingSettingMixin").parseSmbDataSharingSettingMixin(r.value),i=o("WASmaxInBizSettingsIQResultResponseMixin").parseIQResultResponseMixin(e,t);return i.success?o("WAResultOrError").makeResult(babelHelpers.extends({privacySmbDataSharingSettingMixin:a.success?a.value:null},i.value)):i}l.parseSetPrivacySettingResponseSuccess=e}
+function(t, n, r, o, a, i, l) {
+    function e(e, t) {
+        var n = o("WASmaxParseUtils").assertTag(e, "iq");
+        if (!n.success) return n;
+        var r = o("WASmaxParseUtils").flattenedChildWithTag(e, "privacy");
+        if (!r.success) return r;
+        var a = o("WASmaxInBizSettingsSmbDataSharingSettingMixin").parseSmbDataSharingSettingMixin(r.value),
+            i = o("WASmaxInBizSettingsIQResultResponseMixin").parseIQResultResponseMixin(e, t);
+        return i.success ? o("WAResultOrError").makeResult(babelHelpers.extends({
+            privacySmbDataSharingSettingMixin: a.success ? a.value : null
+        }, i.value)) : i
+    }
+    l.parseSetPrivacySettingResponseSuccess = e
+}

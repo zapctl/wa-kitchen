@@ -34,6 +34,7 @@ const Types = {
     NUMBER: "number",
     BOOLEAN: "boolean",
     BINARY: "binary",
+    UNION: "union",
 };
 
 function getValueFromMetadata(metadata) {
@@ -91,6 +92,29 @@ function assignContent(node, contentMetadata) {
 
     return Object.defineProperty(node, METADATA_SYMBOL, {
         value: { ...nodeMetadata, content: mergedMetadata },
+        configurable: false,
+        enumerable: false,
+        writable: true,
+    });
+}
+
+function assignUnion(node, union, returnValue) {
+    console.log("assignUnion", union);
+
+    const nodeMetadata = node[METADATA_SYMBOL] || {};
+    const unions = nodeMetadata.unions || [];
+    const firstReturnValue = nodeMetadata.firstReturnValue || returnValue;
+
+    unions.push(union);
+
+    if (!node.tag) {
+        node.tag = union.tag;
+        node.attrs = union.attrs;
+        node.content = union.content;
+    }
+
+    return Object.defineProperty(node, METADATA_SYMBOL, {
+        value: { ...nodeMetadata, unions, firstReturnValue },
         configurable: false,
         enumerable: false,
         writable: true,
@@ -323,6 +347,20 @@ function createModuleMetadataProxy(targetModule) {
                         return originalValue(node);
                     }
 
+                case "errorMixinDisjunction":
+                    return (node, variantNames, results) => {
+                        const nodeMetadata = node[METADATA_SYMBOL] || {};
+                        const unionsMetadata = nodeMetadata.unions || [];
+                        const returnValue = nodeMetadata.firstReturnValue;
+
+                        if (!unionsMetadata.length) return originalValue(node, variantNames, results);
+
+                        return {
+                            success: true,
+                            value: returnValue,
+                        };
+                    }
+
                 default:
                     return originalValue;
             }
@@ -330,17 +368,64 @@ function createModuleMetadataProxy(targetModule) {
     });
 }
 
+function createMixinProxy(mixinModule) {
+    return new Proxy(mixinModule, {
+        get(target, propertyName) {
+            const originalValue = target[propertyName];
+            const isParseMixin = typeof originalValue === "function" &&
+                propertyName.startsWith("parse") &&
+                propertyName.endsWith("Mixin");
+
+            if (!isParseMixin) return originalValue;
+
+            const variantName = propertyName.replace("parse", "").replace("Mixin", "");
+
+            return function (node, ...rest) {
+                const proxy = { variantName };
+                const result = originalValue(proxy, ...rest);
+
+                if (result && result.success === true && proxy.tag) {
+                    assignUnion(node, proxy, result.value);
+
+                    return {
+                        success: false,
+                        error: "Forced failure to capture all union variants"
+                    };
+                }
+
+                return result;
+            };
+        }
+    });
+}
+
 function withMockedModules(callback) {
+    const originalExports = {};
+
     try {
         modulesMap["WASmaxParseUtils"].exports = createModuleMetadataProxy(WASmaxParseUtils);
         modulesMap["WASmaxParseJid"].exports = createModuleMetadataProxy(WASmaxParseJid);
         modulesMap["WASmaxParseReference"].exports = createModuleMetadataProxy(WASmaxParseReference);
+
+        Object.keys(modulesMap)
+            .filter(key => key.includes("Mixin"))
+            .forEach(moduleName => {
+                const module = require(moduleName);
+                if (typeof module !== "object") return;
+
+                originalExports[moduleName] = module;
+                modulesMap[moduleName].exports = createMixinProxy(module);
+            });
 
         return callback();
     } finally {
         modulesMap["WASmaxParseUtils"].exports = WASmaxParseUtils;
         modulesMap["WASmaxParseJid"].exports = WASmaxParseJid;
         modulesMap["WASmaxParseReference"].exports = WASmaxParseReference;
+
+        Object.keys(originalExports).forEach(moduleName => {
+            modulesMap[moduleName].exports = originalExports[moduleName];
+        });
     }
 }
 
@@ -354,13 +439,30 @@ function withParamsPlaceholder(callback) {
 function convertToSchema(stanza) {
     const metadata = stanza[METADATA_SYMBOL] || {};
 
+    if (metadata.unions) {
+        if (metadata.unions.length === 1) {
+            debugger;
+            return convertToSchema(metadata.unions[0]);
+        }
+
+        return {
+            type: "union",
+            unions: metadata.unions.map(child => convertToSchema(child)),
+        }
+    }
+
     const schema = {
+        type: "node",
         tag: stanza.tag,
         attributes: metadata.attrs || {},
         content: Array.isArray(stanza.content) ?
             stanza.content.map(child => convertToSchema(child)) :
             metadata.content,
     };
+
+    if (stanza.variantName) {
+        schema.variantName = stanza.variantName;
+    }
 
     if (metadata.children && Object.keys(metadata.children).length > 0) {
         schema.children = metadata.children;
@@ -376,7 +478,7 @@ const smaxParseInput = Object.keys(modulesMap)
         const module = require(moduleName);
         const moduleKeys = Object.keys(module);
 
-        const cleanName = moduleName.replace(/^WASmaxIn$/g, "");
+        const cleanName = moduleName.replace(/^WASmaxIn/, "");
         const parseKey = moduleKeys.find(key => moduleName.endsWith(key.replace("parse", "")));
 
         return { name: cleanName, parse: module[parseKey] };
@@ -388,29 +490,14 @@ const schemas = withMockedModules(() => {
 
     const schemaSpecs = {};
 
-    // require("WASmaxInChatstateStateSource").parseStateSource pode chamar parseFromUserMixin ou parseFromGroupMixin, porem sempre irá capturar apenas um
+    for (const { name, parse } of smaxParseInput) {
+        if (name !== "BizSettingsSetPrivacySettingResponseSuccess") continue;
 
-    // console.log(withParamsPlaceholder(
-    //     require("WASmaxInAbPropsGetExperimentConfigResponseSuccess")
-    //         .parseGetExperimentConfigResponseSuccess));
+        const stanza = withParamsPlaceholder(parse);
 
-    console.log(withParamsPlaceholder(
-        require("WASmaxInChatstateStateSource")
-            .parseStateSource));
-
-    // for (const { name, parse } of smaxParseInput) {
-    //     const stanza = withParamsPlaceholder(parse);
-
-    //     // Debug: mostra metadados vs valores
-    //     if (name === "AbPropsGetExperimentConfigResponseSuccess") {
-    //         console.log("stanza.attrs:", stanza.attrs);
-    //         console.log("metadata.attrs:", stanza[METADATA_SYMBOL]?.attrs);
-    //     }
-
-    //     const schema = convertToSchema(stanza);
-
-    //     schemaSpecs[name] = schema;
-    // }
+        console.log(stanza);
+        schemaSpecs[name] = convertToSchema(stanza);
+    }
 
     return schemaSpecs;
 });
