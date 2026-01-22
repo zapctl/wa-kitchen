@@ -50,7 +50,7 @@ const WAWapTypes = {
     CUSTOM_STRING: { type: Types.STRING },
     CALL_ID: { type: Types.STRING },
     MAYBE_CUSTOM_STRING: { type: Types.STRING },
-    INT: { type: Types.NUMBER },
+    INT: { type: Types.NUMBER, as: Types.STRING },
     G_US: { type: Types.JID, jidTypes: ["GroupJid"] },
     S_WHATSAPP_NET: { type: Types.JID, jidTypes: ["DomainJid"] },
     STATUS_BROADCAST: { type: Types.JID, jidTypes: ["StatusJid"] },
@@ -69,13 +69,20 @@ const WAWapTypes = {
 };
 
 function getValueFromMetadata(metadata) {
-    if (metadata.binary) {
-        return new TextEncoder().encode(getValueFromMetadata({
-            ...metadata,
-            binary: undefined
-        }));
+    if (metadata.as) {
+        const value = getValueFromMetadata({ ...metadata, as: undefined });
+
+        switch (metadata.as) {
+            case Types.STRING:
+                return String(value);
+            case Types.BINARY:
+                return new TextEncoder().encode(String(value));
+            default:
+                throw new Error(`Invalid metadata 'as' type '${metadata.as}'`);
+        }
     }
-    else if (metadata.literal) return metadata.literal;
+
+    if (metadata.literal) return metadata.literal;
     else if (metadata.enum) return metadata.enum[0];
 
     switch (metadata.type) {
@@ -91,7 +98,7 @@ function getValueFromMetadata(metadata) {
             return new Uint8Array(metadata.min || 0);
         case Types.NUMBER: {
             const min = metadata.min ?? 1;
-            const max = metadata.max ?? Number.MAX_SAFE_INTEGER;
+            const max = metadata.max ?? 2 ** 32;
 
             return Math.round(Math.random() * (max - min) + min);
         }
@@ -114,14 +121,14 @@ function mergeMetadata(oldMetadata, newMetadata) {
 }
 
 function assignMetadata(obj, metadata = {}) {
-    console.log("assignMetadata", obj, metadata);
-
     if (typeof obj === "function") {
         return (...args) => {
             args.forEach(arg => assignMetadata(arg, metadata));
             return assignMetadata(obj(...args), metadata);
         }
     }
+
+    console.log("assignMetadata", obj, metadata);
 
     obj = Object(obj);
     const currentMetadata = obj[METADATA_SYMBOL] || {};
@@ -138,7 +145,7 @@ function assignMetadata(obj, metadata = {}) {
             );
 
             if (!obj.attrs) obj.attrs = {};
-            obj.attrs[attrName] = String(getValueFromMetadata(mergedAttrMetadata));
+            obj.attrs[attrName] = getValueFromMetadata(mergedAttrMetadata);
 
             attrsMetadata[attrName] = mergedAttrMetadata;
         }
@@ -166,7 +173,7 @@ function assignMetadata(obj, metadata = {}) {
     if (typeof obj?.assignMetadata === "function") {
         if (obj.assignMetadata(metadata)) throw PROP_RETRY_ERROR;
     }
-    
+
     return Object.defineProperty(obj, METADATA_SYMBOL, {
         value: { ...currentMetadata, ...metadata },
         configurable: false,
@@ -333,7 +340,8 @@ function createModuleMetadataProxy(targetModule) {
                             type: Types.STANZA,
                             attrs: {
                                 [attrName]: {
-                                    type: Types.NUMBER
+                                    type: Types.NUMBER,
+                                    as: Types.BINARY,
                                 }
                             }
                         });
@@ -386,10 +394,9 @@ function createModuleMetadataProxy(targetModule) {
                 case "attrStringFromReference":
                 case "optionalAttrFromReference":
                     return (...props) => {
-                        const node = props.find(node => node.tag);
-                        const attrNamePath = props.find(Array.isArray);
-                        const isValidName = attrNamePath?.length === 1;
-                        const attrName = isValidName ? attrNamePath[0] : undefined;
+                        const node = props.find(prop => prop.tag != undefined);
+                        const attrName = props.find(prop => Array.isArray(prop) &&
+                            prop.length === 1)?.[0];
 
                         if (node) assignMetadata(node, {
                             type: Types.STANZA,
@@ -470,6 +477,7 @@ function createModuleMetadataProxy(targetModule) {
                             attrs: {
                                 [attrName]: {
                                     type: Types.NUMBER,
+                                    as: Types.STRING,
                                     min,
                                     max,
                                 }
@@ -531,7 +539,7 @@ function createModuleMetadataProxy(targetModule) {
                             type: Types.STANZA,
                             content: {
                                 type: Types.NUMBER,
-                                binary: true,
+                                as: Types.BINARY,
                             }
                         });
 
@@ -558,8 +566,8 @@ function createModuleMetadataProxy(targetModule) {
                             type: Types.STANZA,
                             content: {
                                 type: Types.STRING,
+                                as: Types.BINARY,
                                 enum: Object.values(enumObj),
-                                binary: true,
                             }
                         });
 
@@ -600,7 +608,7 @@ function createModuleMetadataProxy(targetModule) {
                             type: Types.STANZA,
                             content: {
                                 type: Types.STRING,
-                                binary: true,
+                                as: Types.BINARY,
                             }
                         });
 
@@ -809,7 +817,7 @@ function createPropProxy(hint, path = "") {
                 hint.get(path).value[propertyName] = propValue;
 
             } else {
-                hint.set(fullPropPath(propertyName), {
+                hint.set(pathJoin(path, propertyName), {
                     value: propValue,
                     metadata: { literal: propValue },
                 });
@@ -894,11 +902,12 @@ function withMockedModules(callback) {
 }
 
 function withParamsPlaceholder(callback) {
-    const proxy = createPropProxy(new Map());
+    const paramsProxy = createPropProxy(new Map());
+    const referenceProxy = createPropProxy(new Map());
 
     while (true) {
         try {
-            const result = callback(proxy, proxy);
+            const result = callback(paramsProxy, referenceProxy);
 
             const skipMixinFailure = !result.success && result.mixin &&
                 !skipForcedMixinFailure.has(result.mixin);
@@ -911,8 +920,8 @@ function withParamsPlaceholder(callback) {
             skipForcedMixinFailure.clear();
 
             if (result.error) throw new Error(result.error);
-            console.log(result)
-            return proxy;
+            if (result.success) return paramsProxy.toObject();
+            return result;
         } catch (error) {
             if (error === PROP_RETRY_ERROR) continue;
 
@@ -1001,8 +1010,9 @@ const schemas = withMockedModules(() => {
 
     for (const mod of SMaxModules) {
         if (
-            // mod.moduleName !== "CoexistenceServerNotification" &&
-            mod.moduleName !== "GroupsRemoveParticipantsRequest"
+            mod.moduleName !== "CoexistenceServerNotification"
+            // mod.moduleName !== "GroupsRemoveParticipantsRequest"
+            // mod.moduleName !== "MessageFallbackDeliverResponseBadStanza"
         ) continue;
 
         const stanza = withParamsPlaceholder(mod.parser);
@@ -1013,7 +1023,7 @@ const schemas = withMockedModules(() => {
         //     name: stanzaName.variant,
         // });
 
-        console.log(mod.moduleName, stanza.toObject())
+        console.log(mod.moduleName, stanza)
         // schemaSpecs[name] = convertToSchema(stanza);
     }
 
