@@ -1,6 +1,7 @@
 const modulesMap = require("__debug").modulesMap;
 
 const WAWap = require("WAWap");
+const WASmaxJsx = require("WASmaxJsx");
 const WASmaxParseUtils = require("WASmaxParseUtils");
 const WASmaxParseJid = require("WASmaxParseJid");
 const WASmaxParseReference = require("WASmaxParseReference");
@@ -183,8 +184,6 @@ function assignMetadata(obj, metadata = {}) {
 }
 
 function pushNodeChild(node, tagName, metadata = {}) {
-    console.log("pushNodeChild", tagName, metadata);
-
     for (let i = 0; i < (metadata.min || 1); i++) {
         const child = structuredClone(Placeholder.STANZA);
         child.tag = tagName;
@@ -249,6 +248,13 @@ function mergeStanzas(...nodes) {
                 ...nodeMetadata.unions || [],
             ),
         }
+
+        Object.entries(mergedMetadata).forEach(([key, val]) => {
+            const isUndefined = val == undefined;
+            const isEmpty = val && typeof val === "object" && !Object.keys(val).length;
+
+            if (isUndefined || isEmpty) delete mergedMetadata[key];
+        });
 
         Object.assign(existentNode, {
             attrs: mergedAttrs,
@@ -671,10 +677,25 @@ function createModuleMetadataProxy(targetModule) {
                             .map(child => assignMetadata(child, { min, max }));
                     }
 
-                // case "smax":
-                //     return (tag, attrs, content) => {
-                //         return originalValue(tag, attrs, content);
-                //     }
+                case "smax":
+                    return (tag, attrs, content) => {
+                        const rawAttrs = Object.fromEntries(Object.entries(attrs || {})
+                            .map(([key, val]) => [key, val.valueOf()]));
+
+                        const attrsMetadata = Object.fromEntries(Object.entries(attrs || {})
+                            .map(([key, val]) => {
+                                if (!val) return [key, val];
+                                if (val[METADATA_SYMBOL]) return [key, val[METADATA_SYMBOL]];
+
+                                const literal = val.valueOf();
+                                return [key, { type: typeof literal, literal }];
+                            }));
+
+                        return assignMetadata(
+                            originalValue(tag, rawAttrs, content),
+                            { attrs: attrsMetadata },
+                        );
+                    }
 
                 case "mergeStanzas":
                     return (a, b) => mergeStanzas(a, b)[0];
@@ -686,9 +707,9 @@ function createModuleMetadataProxy(targetModule) {
     });
 }
 
-function createModuleName(moduleName, propertyName) {
-    const cleanName = moduleName.replace(/^WASmaxIn|Mixin$/g, "");
-    const variant = propertyName.replace(/^parse|Mixin$/g, "");
+function createModuleName(mod) {
+    const cleanName = mod.moduleName.replace(/^WASmaxIn|Mixin$/g, "");
+    const variant = mod.parserName.replace(/^parse|Mixin$/g, "");
     const namespace = cleanName.replace(variant, "");
 
     return { namespace, variant };
@@ -704,9 +725,6 @@ function createMixinProxy(mixinModule, moduleName) {
 
             if (!isParseMixin) return originalValue;
 
-            const name = createModuleName(moduleName, propertyName);
-            console.log("handleMixin", name);
-
             return function (node, ...rest) {
                 const proxy = {};
                 const result = originalValue(proxy, ...rest);
@@ -717,12 +735,12 @@ function createMixinProxy(mixinModule, moduleName) {
                     return result;
                 }
 
-                node.tag = proxy.tag = node.tag || proxy.tag;
+                node.tag = proxy.tag = proxy.tag || node.tag;
 
-                assignMetadata(proxy, {
-                    namespace: name.namespace,
-                    name: name.variant,
-                });
+                assignMetadata(proxy, createModuleName({
+                    moduleName,
+                    parserName: propertyName,
+                }));
 
                 if (isUnion) {
                     assignMetadata(node, {
@@ -750,11 +768,13 @@ function createPropProxy(hint, path = "") {
     }
 
     function assignMetadata(metadata) {
-        const propHint = hint.get(path);
         const value = getValueFromMetadata(metadata);
+        if (!value) return false;
 
-        if (propHint) {
+        if (hint.has(path)) {
+            const propHint = hint.get(path);
             const oldValue = getValueFromMetadata(propHint.metadata);
+
             if (deepEquals(oldValue, value)) return false;
         }
 
@@ -812,16 +832,22 @@ function createPropProxy(hint, path = "") {
         set(target, propertyName, propValue) {
             if (propertyName === METADATA_SYMBOL) {
                 target[propertyName] = propValue;
-
-            } else if (hint.has(path)) {
-                hint.get(path).value[propertyName] = propValue;
-
-            } else {
-                hint.set(pathJoin(path, propertyName), {
-                    value: propValue,
-                    metadata: { literal: propValue },
-                });
+                return true;
             }
+
+            if (hint.has(path)) {
+                const value = hint.get(path).value;
+
+                if (value && typeof value === "object") {
+                    value[propertyName] = propValue;
+                    return true;
+                }
+            }
+
+            hint.set(pathJoin(path, propertyName), {
+                value: propValue,
+                metadata: { literal: propValue },
+            });
 
             return true;
         },
@@ -868,6 +894,7 @@ function withMockedModules(callback) {
 
     try {
         modulesMap["WAWap"].exports = createModuleMetadataProxy(WAWap);
+        modulesMap["WASmaxJsx"].exports = createModuleMetadataProxy(WASmaxJsx);
         modulesMap["WASmaxParseUtils"].exports = createModuleMetadataProxy(WASmaxParseUtils);
         modulesMap["WASmaxParseJid"].exports = createModuleMetadataProxy(WASmaxParseJid);
         modulesMap["WASmaxParseReference"].exports = createModuleMetadataProxy(WASmaxParseReference);
@@ -888,6 +915,7 @@ function withMockedModules(callback) {
         return callback();
     } finally {
         modulesMap["WAWap"].exports = WAWap;
+        modulesMap["WASmaxJsx"].exports = WASmaxJsx;
         modulesMap["WASmaxParseUtils"].exports = WASmaxParseUtils;
         modulesMap["WASmaxParseJid"].exports = WASmaxParseJid;
         modulesMap["WASmaxParseReference"].exports = WASmaxParseReference;
@@ -905,7 +933,7 @@ function withParamsPlaceholder(callback) {
     const paramsProxy = createPropProxy(new Map());
     const referenceProxy = createPropProxy(new Map());
 
-    while (true) {
+    for (let i = 0; i < 10000; i++) {
         try {
             const result = callback(paramsProxy, referenceProxy);
 
@@ -929,6 +957,8 @@ function withParamsPlaceholder(callback) {
             throw error;
         }
     }
+
+    throw new Error("Maximum retry attempts exceeded");
 }
 
 function convertToSchema(stanza) {
@@ -948,7 +978,7 @@ function convertToSchema(stanza) {
             type: "union",
             namespace: metadata.namespace,
             name: metadata.name,
-            unions: metadata.unions.map(child => convertToSchema(child)),
+            unions: metadata.unions.map(convertToSchema),
         };
     }
 
@@ -960,23 +990,15 @@ function convertToSchema(stanza) {
         attributes: metadata.attrs,
     };
 
-    const contentMetadata = Object.keys(metadata.content || {}).length > 0 ?
-        metadata.content :
-        null;
-
     if (Array.isArray(stanza.content)) {
-        const children = stanza.content.map(child => convertToSchema(child));
+        const children = stanza.content.map(convertToSchema);
 
-        schema.content = contentMetadata ?
-            { ...contentMetadata, children } :
+        schema.content = metadata.content ?
+            { ...metadata.content, children } :
             children;
     } else {
-        schema.content = contentMetadata;
+        schema.content = metadata.content;
     }
-
-    Object.entries(schema).forEach(([key, val]) => {
-        if (val === undefined) delete schema[key];
-    });
 
     return schema;
 }
@@ -1010,25 +1032,20 @@ const schemas = withMockedModules(() => {
 
     for (const mod of SMaxModules) {
         if (
-            mod.moduleName !== "CoexistenceServerNotification"
-            // mod.moduleName !== "GroupsRemoveParticipantsRequest"
+            // mod.moduleName !== "CoexistenceServerNotification" &&
+            mod.moduleName !== "AbPropsGetExperimentConfigRequest"
             // mod.moduleName !== "MessageFallbackDeliverResponseBadStanza"
         ) continue;
 
         const stanza = withParamsPlaceholder(mod.parser);
-        // const stanzaName = createModuleName(name, parseName);
+        assignMetadata(stanza, createModuleName(mod));
 
-        // assignMetadata(stanza, {
-        //     namespace: stanzaName.namespace,
-        //     name: stanzaName.variant,
-        // });
-
-        console.log(mod.moduleName, stanza)
-        // schemaSpecs[name] = convertToSchema(stanza);
+        console.log(mod.moduleName, stanza);
+        schemaSpecs[mod.moduleName] = convertToSchema(mod, stanza);
     }
 
     return schemaSpecs;
 });
 
 // console.clear();
-// console.log("SMaxInputSchemas", schemas);
+console.log("SMaxInputSchemas", schemas);
