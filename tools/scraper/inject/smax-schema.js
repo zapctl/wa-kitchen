@@ -1,3 +1,4 @@
+//# sourceURL=smax-schema.js
 const modulesMap = require("__debug").modulesMap;
 
 const WAWap = require("WAWap");
@@ -762,7 +763,7 @@ function createMixinProxy(mixinModule, moduleName) {
     });
 }
 
-function createPropProxy(hint, path = "") {
+function createPropProxy(hint = new Map(), path = "") {
     function pathJoin(...paths) {
         return paths.filter(Boolean).join(".");
     }
@@ -820,12 +821,30 @@ function createPropProxy(hint, path = "") {
         return obj;
     }
 
+    function clear() {
+        for (const hintData of hint.values()) {
+            if (!hintData.value) continue;
+
+            if (Array.isArray(hintData.value)) {
+                hintData.value.splice(0);
+            } else if (typeof hintData.value === "object") {
+                if (Array.isArray(hintData.value.content)) {
+                    hintData.value.content.splice(0);
+                }
+                if (Array.isArray(hintData.value.unions)) {
+                    hintData.value.unions.splice(0);
+                }
+            }
+        }
+    }
+
     const instance = new Proxy({}, {
         get(target, propertyName) {
             switch (propertyName) {
                 case METADATA_SYMBOL: return target[propertyName];
                 case "assignMetadata": return assignMetadata;
                 case "toObject": return () => toObject(instance);
+                case "clear": return clear;
                 default: return proxy(propertyName);
             }
         },
@@ -930,11 +949,14 @@ function withMockedModules(callback) {
 }
 
 function withParamsPlaceholder(callback) {
-    const paramsProxy = createPropProxy(new Map());
-    const referenceProxy = createPropProxy(new Map());
+    const paramsProxy = createPropProxy();
+    const referenceProxy = createPropProxy();
 
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < 5_000; i++) {
         try {
+            paramsProxy.clear();
+            referenceProxy.clear();
+
             const result = callback(paramsProxy, referenceProxy);
 
             const skipMixinFailure = !result.success && result.mixin &&
@@ -1033,10 +1055,11 @@ const schemas = withMockedModules(() => {
     for (const mod of SMaxModules) {
         if (
             // mod.moduleName !== "CoexistenceServerNotification" &&
-            mod.moduleName !== "AbPropsGetExperimentConfigRequest"
+            mod.moduleName !== "AbPropsGetExperimentConfigResponseErrorNoRetry"
             // mod.moduleName !== "MessageFallbackDeliverResponseBadStanza"
         ) continue;
 
+        console.log(mod.moduleName)
         const stanza = withParamsPlaceholder(mod.parser);
         assignMetadata(stanza, createModuleName(mod));
 
