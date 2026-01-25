@@ -232,7 +232,9 @@ function mergeStanzas(...nodes) {
                 );
             }
 
-            return node.content || existentNode.content;
+            if (node.content instanceof Uint8Array) return node.content;
+            if (existentNode.content instanceof Uint8Array) return existentNode.content;
+            return null;
         })();
 
         const mergedMetadata = {
@@ -649,16 +651,6 @@ function createModuleMetadataProxy(targetModule) {
                             originalValue(node, variantNames, results);
                     }
 
-                // case "USER_JID":
-                //     return (jid) => {
-                //         assignMetadata(jid, {
-                //             type: Types.JID,
-                //             jidTypes: ["UserJid"],
-                //         });
-
-                //         return originalValue(jid);
-                //     }
-
                 case "OPTIONAL":
                     return (factory, value) => {
                         return assignMetadata(
@@ -867,12 +859,8 @@ function createPropProxy(hint = new Map(), path = "") {
             }
         },
         set(target, propertyName, propValue) {
-            if (propValue === instance) {
-                throw new Error("Circular reference detected, cannot assign itself");
-            }
-
-            if (propValue.assignMetadata) {
-                debugger
+            if (typeof propValue?.assignMetadata === "function") {
+                throw new Error("Circular reference detected, cannot assign prop proxy");
             }
 
             if (propertyName === METADATA_SYMBOL) {
@@ -1077,7 +1065,7 @@ const schemas = withMockedModules(() => {
     const schemaSpecs = {};
 
     for (const mod of SMaxModules) {
-        if (mod.moduleName !== "GroupsParticipantMixins") continue;
+        if (mod.moduleName !== "NewslettersGetNewsletterMessagesResponseClientError") continue;
 
         console.clear();
         console.log(
