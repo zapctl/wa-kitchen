@@ -105,8 +105,10 @@ function getValueFromMetadata(metadata) {
             return Math.round(Math.random() * (max - min) + min);
         }
         case Types.JID:
-            return Placeholder.JID[metadata.jidTypes[0]] ||
+            return Placeholder.JID[metadata.jidTypes?.[0]] ||
                 Placeholder.JID.DomainJid;
+        case Types.ARRAY:
+            return [];
         default:
             return undefined;
     }
@@ -235,7 +237,7 @@ function mergeStanzas(...nodes) {
 
         const mergedMetadata = {
             namespace: existingMetadata.namespace || nodeMetadata.namespace,
-            name: existingMetadata.name || nodeMetadata.name,
+            variant: existingMetadata.variant || nodeMetadata.variant,
             attrs: {
                 ...existingMetadata.attrs || {},
                 ...nodeMetadata.attrs || {},
@@ -257,10 +259,8 @@ function mergeStanzas(...nodes) {
             if (isUndefined || isEmpty) delete mergedMetadata[key];
         });
 
-        Object.assign(existentNode, {
-            attrs: mergedAttrs,
-            content: mergedContent,
-        });
+        existentNode.attrs = mergedAttrs;
+        existentNode.content = mergedContent;
 
         Object.defineProperty(existentNode, METADATA_SYMBOL, {
             value: mergedMetadata,
@@ -295,16 +295,22 @@ function createModuleMetadataProxy(targetModule) {
 
                 case "literal":
                     return (typeFactory, node, attrName, literal) => {
+                        const isPlaceholder = Object.values(Placeholder).includes(literal);
+
                         assignMetadata(node, {
                             type: Types.STANZA,
                             attrs: {
                                 [attrName]: {
                                     type: typeof literal,
-                                    literal: literal !== Placeholder.STRING ? literal : undefined,
+                                    literal: !isPlaceholder ? literal : undefined,
                                 }
                             }
                         });
-                        assignMetadata(literal, { type: typeof literal });
+
+                        assignMetadata(literal, {
+                            type: typeof literal,
+                            literal,
+                        });
 
                         return originalValue(typeFactory, node, attrName, literal);
                     }
@@ -325,18 +331,23 @@ function createModuleMetadataProxy(targetModule) {
 
                 case "optionalLiteral":
                     return (typeFactory, node, attrName, literal) => {
+                        const isPlaceholder = Object.values(Placeholder).includes(literal);
+
                         assignMetadata(node, {
                             type: Types.STANZA,
                             attrs: {
                                 [attrName]: {
                                     type: typeof literal,
-                                    literal: literal !== Placeholder.STRING ? literal : undefined,
+                                    literal: !isPlaceholder ? literal : undefined,
                                     optional: true,
                                 }
                             }
                         });
 
-                        assignMetadata(literal, { type: typeof literal });
+                        assignMetadata(literal, {
+                            type: typeof literal,
+                            literal,
+                        });
 
                         return originalValue(typeFactory, node, attrName, literal);
                     }
@@ -348,7 +359,7 @@ function createModuleMetadataProxy(targetModule) {
                             attrs: {
                                 [attrName]: {
                                     type: Types.NUMBER,
-                                    as: Types.BINARY,
+                                    as: Types.STRING,
                                 }
                             }
                         });
@@ -383,16 +394,22 @@ function createModuleMetadataProxy(targetModule) {
 
                 case "literalJid":
                     return (typeFactory, node, attrName, literal) => {
+                        const isPlaceholder = Object.values(Placeholder.JID).includes(literal);
+
                         assignMetadata(node, {
                             type: Types.STANZA,
                             attrs: {
                                 [attrName]: {
                                     type: Types.JID,
-                                    literal: String(literal),
+                                    literal: !isPlaceholder ? String(literal) : undefined,
                                 }
                             }
                         });
-                        assignMetadata(literal, { type: Types.JID });
+
+                        assignMetadata(literal, {
+                            type: Types.JID,
+                            literal: !isPlaceholder ? String(literal) : undefined,
+                        });
 
                         return originalValue(typeFactory, node, attrName, literal);
                     }
@@ -643,18 +660,18 @@ function createModuleMetadataProxy(targetModule) {
                 //     }
 
                 case "OPTIONAL":
-                    return (factory, enabled) => {
-                        assignMetadata(enabled, { type: Types.BOOLEAN });
-
+                    return (factory, value) => {
                         return assignMetadata(
-                            originalValue(factory, enabled),
+                            originalValue(factory, value),
                             { optional: true },
                         );
                     }
 
                 case "OPTIONAL_LITERAL":
                     return (literal, enabled) => {
-                        assignMetadata(enabled, { type: Types.BOOLEAN });
+                        assignMetadata(enabled, {
+                            type: Types.BOOLEAN,
+                        });
 
                         return assignMetadata(
                             originalValue(literal, enabled),
@@ -736,7 +753,8 @@ function createMixinProxy(mixinModule, moduleName) {
                     return result;
                 }
 
-                node.tag = proxy.tag = proxy.tag || node.tag;
+                if (typeof node.tag === "string") proxy.tag = node.tag;
+                else if (typeof proxy.tag === "string") node.tag = proxy.tag;
 
                 assignMetadata(proxy, createModuleName({
                     moduleName,
@@ -765,7 +783,7 @@ function createMixinProxy(mixinModule, moduleName) {
 
 function createPropProxy(hint = new Map(), path = "") {
     function pathJoin(...paths) {
-        return paths.filter(Boolean).join(".");
+        return paths.filter(Boolean).map(String).join(".");
     }
 
     function assignMetadata(metadata) {
@@ -849,6 +867,14 @@ function createPropProxy(hint = new Map(), path = "") {
             }
         },
         set(target, propertyName, propValue) {
+            if (propValue === instance) {
+                throw new Error("Circular reference detected, cannot assign itself");
+            }
+
+            if (propValue.assignMetadata) {
+                debugger
+            }
+
             if (propertyName === METADATA_SYMBOL) {
                 target[propertyName] = propValue;
                 return true;
@@ -958,9 +984,7 @@ function withParamsPlaceholder(callback) {
             referenceProxy.clear();
 
             const result = callback(paramsProxy, referenceProxy);
-
-            const skipMixinFailure = !result.success && result.mixin &&
-                !skipForcedMixinFailure.has(result.mixin);
+            const skipMixinFailure = !result.success && result.mixin;
 
             if (skipMixinFailure) {
                 skipForcedMixinFailure.add(result.mixin);
@@ -980,7 +1004,7 @@ function withParamsPlaceholder(callback) {
         }
     }
 
-    throw new Error("Maximum retry attempts exceeded");
+    throw new RangeError("Maximum retry attempts exceeded");
 }
 
 function convertToSchema(stanza) {
@@ -999,7 +1023,7 @@ function convertToSchema(stanza) {
         return {
             type: "union",
             namespace: metadata.namespace,
-            name: metadata.name,
+            variant: metadata.variant,
             unions: metadata.unions.map(convertToSchema),
         };
     }
@@ -1007,7 +1031,7 @@ function convertToSchema(stanza) {
     const schema = {
         type: "node",
         namespace: metadata.namespace,
-        name: metadata.name,
+        variant: metadata.variant,
         tag: stanza.tag,
         attributes: metadata.attrs,
     };
@@ -1053,18 +1077,18 @@ const schemas = withMockedModules(() => {
     const schemaSpecs = {};
 
     for (const mod of SMaxModules) {
-        if (
-            // mod.moduleName !== "CoexistenceServerNotification" &&
-            mod.moduleName !== "AbPropsGetExperimentConfigResponseErrorNoRetry"
-            // mod.moduleName !== "MessageFallbackDeliverResponseBadStanza"
-        ) continue;
+        if (mod.moduleName !== "GroupsParticipantMixins") continue;
 
-        console.log(mod.moduleName)
+        console.clear();
+        console.log(
+            `[${Object.keys(schemaSpecs).length}/${SMaxModules.length}]`,
+            mod.moduleName,
+        );
+
         const stanza = withParamsPlaceholder(mod.parser);
         assignMetadata(stanza, createModuleName(mod));
 
-        console.log(mod.moduleName, stanza);
-        schemaSpecs[mod.moduleName] = convertToSchema(mod, stanza);
+        schemaSpecs[mod.moduleName] = convertToSchema(stanza);
     }
 
     return schemaSpecs;
