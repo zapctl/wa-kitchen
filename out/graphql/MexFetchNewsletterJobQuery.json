@@ -1,5 +1,5 @@
 {
-  "id": "9305958616175970",
+  "id": "25383075034668475",
   "name": "MexFetchNewsletterJob",
   "type": "query",
   "input": {
@@ -127,8 +127,16 @@
           "viewer_metadata": {
             "type": "object",
             "properties": {
-              "mute": {
-                "type": "scalar"
+              "settings": {
+                "type": "array",
+                "items": {
+                  "type": {
+                    "type": "scalar"
+                  },
+                  "value": {
+                    "type": "scalar"
+                  }
+                }
               },
               "role": {
                 "type": "scalar"
