@@ -1,0 +1,29 @@
+{
+  "id": "25690501173969818",
+  "name": "MexNewsletterAddPaidPartnershipLabelJob",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      },
+      "server_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_label_paid_partnership": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

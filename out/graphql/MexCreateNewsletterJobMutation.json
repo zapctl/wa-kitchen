@@ -1,5 +1,5 @@
 {
-  "id": "8823471724422422",
+  "id": "25149874324715067",
   "name": "MexCreateNewsletterJob",
   "type": "mutation",
   "input": {
@@ -92,8 +92,16 @@
           "viewer_metadata": {
             "type": "object",
             "properties": {
-              "mute": {
-                "type": "scalar"
+              "settings": {
+                "type": "array",
+                "items": {
+                  "type": {
+                    "type": "scalar"
+                  },
+                  "value": {
+                    "type": "scalar"
+                  }
+                }
               },
               "role": {
                 "type": "scalar"
