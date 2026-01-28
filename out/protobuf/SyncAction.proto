@@ -241,6 +241,20 @@ message SyncActionValue {
 		optional bool isDocumentsAutodownloadEnabled = 21;
 		optional bool disableLinkPreviews = 22;
 		optional int32 notificationToneId = 23;
+		optional MediaQualitySetting mediaUploadQuality = 24;
+		optional bool isSpellCheckEnabled = 25;
+		optional bool isEnterToSendEnabled = 26;
+		optional bool isGroupMessageNotificationEnabled = 27;
+		optional bool isGroupReactionsNotificationEnabled = 28;
+		optional bool isStatusNotificationEnabled = 29;
+		optional int32 statusNotificationToneId = 30;
+		optional bool shouldPlaySoundForCallNotification = 31;
+	
+		enum MediaQualitySetting {
+			MEDIA_QUALITY_UNKNOWN = 0;
+			STANDARD = 1;
+			HD = 2;
+		}
 	
 		enum DisplayMode {
 			DISPLAY_MODE_UNKNOWN = 0;
@@ -274,6 +288,14 @@ message SyncActionValue {
 			IS_DOCUMENTS_AUTODOWNLOAD_ENABLED = 21;
 			DISABLE_LINK_PREVIEWS = 22;
 			NOTIFICATION_TONE_ID = 23;
+			MEDIA_UPLOAD_QUALITY = 24;
+			IS_SPELL_CHECK_ENABLED = 25;
+			IS_ENTER_TO_SEND_ENABLED = 26;
+			IS_GROUP_MESSAGE_NOTIFICATION_ENABLED = 27;
+			IS_GROUP_REACTIONS_NOTIFICATION_ENABLED = 28;
+			IS_STATUS_NOTIFICATION_ENABLED = 29;
+			STATUS_NOTIFICATION_TONE_ID = 30;
+			SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION = 31;
 		}
 	
 		enum SettingPlatform {
@@ -341,6 +363,7 @@ message SyncActionValue {
 		optional bool deleted = 1;
 		repeated SyncActionValue.BroadcastListParticipant participants = 2;
 		optional string listName = 3;
+		repeated string labelIds = 4;
 	}
 
 	message BusinessBroadcastAssociationAction {
@@ -704,6 +727,7 @@ message SyncActionValue {
 		optional bool muted = 1;
 		optional int64 muteEndTimestamp = 2;
 		optional bool autoMuted = 3;
+		optional int64 muteEveryoneMentionEndTimestamp = 4;
 	}
 
 	message ContactAction {
