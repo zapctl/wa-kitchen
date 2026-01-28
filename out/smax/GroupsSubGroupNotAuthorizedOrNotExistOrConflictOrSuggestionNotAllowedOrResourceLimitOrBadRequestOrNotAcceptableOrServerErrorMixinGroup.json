@@ -1,0 +1,31 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "SubGroupNotAuthorizedOrNotExistOrConflictOrSuggestionNotAllowedOrResourceLimitOrBadRequestOrNotAcceptableOrServerErrorMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:SubGroupNotAuthorized"
+    },
+    {
+      "$ref": "Groups:SubGroupNotExist"
+    },
+    {
+      "$ref": "Groups:SubGroupConflict"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionNotAllowed"
+    },
+    {
+      "$ref": "Groups:SubGroupResourceLimit"
+    },
+    {
+      "$ref": "Groups:SubGroupBadRequest"
+    },
+    {
+      "$ref": "Groups:SubGroupNotAcceptable"
+    },
+    {
+      "$ref": "Groups:SubGroupServerError"
+    }
+  ]
+}

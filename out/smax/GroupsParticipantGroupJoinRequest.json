@@ -1,0 +1,28 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParticipantGroupJoinRequest",
+  "tag": "participant",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "421"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_approval_request",
+      "attributes": {
+        "error": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "304",
+            "419"
+          ]
+        }
+      }
+    }
+  ]
+}

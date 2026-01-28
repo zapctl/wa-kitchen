@@ -1,0 +1,110 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SetPropertyResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "locked"
+    },
+    {
+      "type": "node",
+      "tag": "announcement"
+    },
+    {
+      "type": "node",
+      "tag": "no_frequently_forwarded"
+    },
+    {
+      "type": "node",
+      "tag": "ephemeral",
+      "attributes": {
+        "expiration": {
+          "type": "number",
+          "as": "string",
+          "min": 0,
+          "max": 2147483647
+        },
+        "trigger": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0,
+          "max": 20
+        }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "unlocked"
+    },
+    {
+      "type": "node",
+      "tag": "not_announcement"
+    },
+    {
+      "type": "node",
+      "tag": "frequently_forwarded_ok"
+    },
+    {
+      "type": "node",
+      "tag": "not_ephemeral"
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "MembershipApprovalPropertyResponseMixin",
+      "tag": "membership_approval_mode",
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
+            },
+            {
+              "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "allow_admin_reports"
+    },
+    {
+      "type": "node",
+      "tag": "not_allow_admin_reports"
+    },
+    {
+      "type": "node",
+      "tag": "allow_non_admin_sub_group_creation"
+    },
+    {
+      "type": "node",
+      "tag": "not_allow_non_admin_sub_group_creation"
+    },
+    {
+      "type": "node",
+      "tag": "group_history"
+    },
+    {
+      "type": "node",
+      "tag": "no_group_history"
+    }
+  ]
+}

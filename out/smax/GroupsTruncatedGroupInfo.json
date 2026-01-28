@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "TruncatedGroupInfo",
+  "tag": "group",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "truncated": {
+      "type": "string",
+      "literal": "true"
+    },
+    "size": {
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 19999
+    }
+  }
+}

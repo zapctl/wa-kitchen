@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "AddParticipantTimeOrCountRateLimitMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:AddParticipantTimeRateLimit"
+    },
+    {
+      "$ref": "Groups:AddParticipantCountRateLimit"
+    }
+  ]
+}

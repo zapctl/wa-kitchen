@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Blocklists",
+  "variant": "UnknownIdentifier",
+  "tag": "",
+  "attributes": {
+    "unknown_identifier": {
+      "type": "string",
+      "literal": "true"
+    }
+  }
+}

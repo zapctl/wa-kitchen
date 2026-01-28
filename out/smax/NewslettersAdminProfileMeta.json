@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "AdminProfileMeta",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "content": [
+        {
+          "$ref": "Newsletters:AdminProfile"
+        }
+      ]
+    }
+  ]
+}

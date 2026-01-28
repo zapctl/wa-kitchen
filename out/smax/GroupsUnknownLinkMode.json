@@ -1,0 +1,10 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "UnknownLinkMode",
+  "tag": "member_link_mode",
+  "content": {
+    "type": "string",
+    "as": "binary"
+  }
+}

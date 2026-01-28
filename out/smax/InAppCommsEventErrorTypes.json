@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "InAppComms",
+  "variant": "EventErrorTypes",
+  "unions": [
+    {
+      "$ref": "InAppComms:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "InAppComms:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "InAppComms:IQErrorServiceUnavailable"
+    }
+  ]
+}

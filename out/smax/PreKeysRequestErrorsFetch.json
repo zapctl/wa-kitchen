@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "PreKeys",
+  "variant": "RequestErrorsFetch",
+  "unions": [
+    {
+      "$ref": "PreKeys:IQErrorBadRequest"
+    },
+    {
+      "$ref": "PreKeys:IQErrorNoValidJID"
+    },
+    {
+      "$ref": "PreKeys:IQErrorFallbackClient"
+    }
+  ]
+}

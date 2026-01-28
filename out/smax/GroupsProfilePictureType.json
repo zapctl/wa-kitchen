@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ProfilePictureType",
+  "tag": "picture",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "preview"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "ParentOrSubGroupMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:ParentGroup"
+    },
+    {
+      "$ref": "Groups:SubGroup"
+    }
+  ]
+}

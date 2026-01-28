@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroup",
+  "tag": "",
+  "attributes": {
+    "sub_group_jid": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    }
+  }
+}

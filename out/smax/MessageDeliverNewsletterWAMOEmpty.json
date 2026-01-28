@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterWAMOEmpty",
+  "unions": [
+    {
+      "$ref": "MessageDeliver:AdminRevoke"
+    },
+    {
+      "$ref": "MessageDeliver:AdminEdit"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeText"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeMedia"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypePollCreation"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeQuizCreation"
+    }
+  ]
+}

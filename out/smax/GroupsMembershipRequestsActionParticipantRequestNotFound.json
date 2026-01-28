@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "MembershipRequestsActionParticipantRequestNotFound",
+  "tag": "participant",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "404"
+    }
+  }
+}

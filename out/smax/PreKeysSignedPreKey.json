@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "SignedPreKey",
+  "tag": "",
+  "content": [
+    {
+      "type": "node",
+      "tag": "skey",
+      "content": [
+        {
+          "$ref": "PreKeys:KeyID"
+        },
+        {
+          "type": "node",
+          "namespace": "PreKeys",
+          "variant": "KeyData",
+          "tag": "value",
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        },
+        {
+          "type": "node",
+          "tag": "signature",
+          "content": {
+            "type": "binary",
+            "min": 64,
+            "max": 64
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "namespace": "Md",
+  "variant": "BaseIQSetRequest",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  }
+}

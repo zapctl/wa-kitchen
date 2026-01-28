@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "GroupMemberLinkMode",
+  "tag": "",
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:AdminLinkMode"
+        },
+        {
+          "$ref": "Groups:AllMembersLinkMode"
+        },
+        {
+          "$ref": "Groups:UnknownLinkMode"
+        }
+      ]
+    }
+  ]
+}

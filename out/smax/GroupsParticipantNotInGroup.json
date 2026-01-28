@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParticipantNotInGroup",
+  "tag": "participant",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "404"
+    }
+  }
+}

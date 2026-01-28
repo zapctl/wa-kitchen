@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GetLinkedGroupClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

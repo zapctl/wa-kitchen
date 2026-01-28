@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "namespace": "MdRefreshCodeNotifyCompanionResponseAck",
+  "variant": "makeRefreshCodeNotifyCompanionResponseAck",
+  "tag": "ack",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "class": {
+      "type": "string",
+      "literal": "notification"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

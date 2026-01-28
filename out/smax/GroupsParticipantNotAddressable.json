@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParticipantNotAddressable",
+  "tag": "participant",
+  "attributes": {
+    "addressable": {
+      "type": "string",
+      "literal": "false"
+    }
+  }
+}

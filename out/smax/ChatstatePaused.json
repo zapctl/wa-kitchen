@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Chatstate",
+  "variant": "Paused",
+  "tag": "chatstate",
+  "content": [
+    {
+      "type": "node",
+      "tag": "paused"
+    }
+  ]
+}

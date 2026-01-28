@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Privacy",
+  "variant": "GetPrivacyListError",
+  "unions": [
+    {
+      "$ref": "Privacy:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Privacy:IQErrorFeatureNotImplemented"
+    },
+    {
+      "$ref": "Privacy:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Privacy:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Privacy:IQErrorInternalServerError"
+    }
+  ]
+}

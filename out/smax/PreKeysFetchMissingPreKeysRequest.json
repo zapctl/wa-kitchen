@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "namespace": "PreKeysFetchMissingPreKeysRequest",
+  "variant": "makeFetchMissingPreKeysRequest",
+  "tag": "iq",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "id": {
+      "type": "id"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "encrypt"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "key_fetch",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node"
+        }
+      ]
+    }
+  ]
+}

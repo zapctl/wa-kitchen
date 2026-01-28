@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorResourceLimit",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "resource-limit"
+    },
+    "code": {
+      "type": "number",
+      "literal": 419,
+      "as": "string"
+    }
+  }
+}

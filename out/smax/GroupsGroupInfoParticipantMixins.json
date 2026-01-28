@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GroupInfoParticipantMixins",
+  "unions": [
+    {
+      "$ref": "Groups:GroupInfoParticipantAdmin"
+    },
+    {
+      "$ref": "Groups:GroupInfoParticipantNonAdmin"
+    }
+  ]
+}

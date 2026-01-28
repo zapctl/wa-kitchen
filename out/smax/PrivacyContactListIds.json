@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Privacy",
+  "variant": "ContactListIds",
+  "unions": [
+    {
+      "$ref": "Privacy:Username"
+    },
+    {
+      "$ref": "Privacy:PnJid"
+    }
+  ]
+}

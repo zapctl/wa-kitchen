@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePictureClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

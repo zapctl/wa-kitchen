@@ -1,0 +1,29 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterMessageUpdatesResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "message_updates",
+      "content": [
+        {
+          "$ref": "Newsletters:NewsletterMessageResponsePayload"
+        }
+      ]
+    }
+  ]
+}

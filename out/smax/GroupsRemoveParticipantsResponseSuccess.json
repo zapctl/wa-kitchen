@@ -1,0 +1,82 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "RemoveParticipantsResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "remove",
+      "attributes": {
+        "linked_groups": {
+          "type": "string",
+          "literal": "true",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "type": "node",
+              "namespace": "Groups",
+              "variant": "PhoneNumber",
+              "tag": "participant",
+              "attributes": {
+                "phone_number": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "node",
+              "namespace": "Groups",
+              "variant": "UsernameAtt",
+              "tag": "participant",
+              "attributes": {
+                "username": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "$ref": "Groups:ParticipantNotInGroup"
+            },
+            {
+              "$ref": "Groups:ParticipantNotAllowed"
+            },
+            {
+              "$ref": "Groups:ParticipantNotAcceptable"
+            },
+            {
+              "$ref": "Groups:RemoveParticipantsLinkedGroupsServerError"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

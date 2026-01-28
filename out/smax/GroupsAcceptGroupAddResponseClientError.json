@@ -1,0 +1,64 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AcceptGroupAddResponseClientError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:IQErrorAlreadyExists"
+        },
+        {
+          "$ref": "Groups:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "Groups:IQErrorForbidden"
+        },
+        {
+          "$ref": "Groups:IQErrorItemNotFound"
+        },
+        {
+          "$ref": "Groups:IQErrorConflict"
+        },
+        {
+          "$ref": "Groups:IQErrorGone"
+        },
+        {
+          "$ref": "Groups:IQErrorResourceLimit"
+        },
+        {
+          "$ref": "Groups:IQErrorLocked"
+        },
+        {
+          "$ref": "Groups:IQErrorResourceConstraint"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAllowed"
+        },
+        {
+          "$ref": "Groups:IQErrorParentLinkedGroupsParticipantsResourceLimit"
+        },
+        {
+          "$ref": "Groups:IQErrorFallbackClient"
+        }
+      ]
+    }
+  ]
+}

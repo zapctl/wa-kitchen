@@ -1,0 +1,61 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "CreateParticipantAddedOrNonRegisteredWaUserParticipantErrorLidResponseMixinGroup",
+  "unions": [
+    {
+      "type": "union",
+      "namespace": "Groups",
+      "variant": "CreateParticipantAddedResponse",
+      "unions": [
+        {
+          "type": "node",
+          "namespace": "Groups",
+          "variant": "UsernameAtt",
+          "tag": "participant",
+          "attributes": {
+            "username": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+        },
+        {
+          "$ref": "Groups:ParticipantNotAuthorized"
+        },
+        {
+          "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+        },
+        {
+          "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+        },
+        {
+          "$ref": "Groups:ParticipantHasInvalidPN"
+        },
+        {
+          "$ref": "Groups:ParticipantResourceConstraint"
+        },
+        {
+          "$ref": "Groups:ParticipantNotAcceptable"
+        },
+        {
+          "$ref": "Groups:ParticipantResourceLimit"
+        },
+        {
+          "$ref": "Groups:ParticipantBotIncompatibleVersion"
+        },
+        {
+          "$ref": "Groups:ParticipantBotAlreadyExists"
+        },
+        {
+          "$ref": "Groups:CreateParticipantAdded"
+        }
+      ]
+    },
+    {
+      "$ref": "Groups:NonRegisteredWaUserParticipantErrorLidResponse"
+    }
+  ]
+}

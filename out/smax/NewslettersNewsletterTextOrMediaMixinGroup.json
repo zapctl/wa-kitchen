@@ -1,0 +1,37 @@
+{
+  "type": "union",
+  "namespace": "Newsletters",
+  "variant": "NewsletterTextOrMediaMixinGroup",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "Newsletters",
+      "variant": "NewsletterText",
+      "tag": "message",
+      "attributes": {
+        "type": {
+          "type": "string",
+          "literal": "text"
+        }
+      },
+      "content": [
+        {
+          "$ref": "Newsletters:Payload"
+        },
+        {
+          "type": "node",
+          "tag": "meta",
+          "attributes": {
+            "is_wamo_sub": {
+              "type": "string",
+              "literal": "true"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "Newsletters:NewsletterMedia"
+    }
+  ]
+}

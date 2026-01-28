@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AdminAddMode",
+  "tag": "member_add_mode",
+  "content": {
+    "type": "string",
+    "literal": "admin_add",
+    "as": "binary"
+  }
+}

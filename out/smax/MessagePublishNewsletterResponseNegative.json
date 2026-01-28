@@ -1,0 +1,41 @@
+{
+  "type": "node",
+  "namespace": "MessagePublish",
+  "variant": "NewsletterResponseNegative",
+  "tag": "ack",
+  "attributes": {
+    "error": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "message"
+    },
+    "id": {
+      "type": "string"
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "edit": {
+      "type": "string",
+      "literal": "7"
+    },
+    "application_error": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "backoff": {
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 86400
+    }
+  }
+}

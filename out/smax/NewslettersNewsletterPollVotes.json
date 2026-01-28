@@ -1,0 +1,30 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "NewsletterPollVotes",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "votes",
+      "content": [
+        {
+          "type": "node",
+          "tag": "vote",
+          "attributes": {
+            "count": {
+              "type": "number",
+              "as": "string",
+              "min": 1
+            }
+          },
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        }
+      ]
+    }
+  ]
+}

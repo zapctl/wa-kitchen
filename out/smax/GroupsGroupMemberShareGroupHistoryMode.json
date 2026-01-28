@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "GroupMemberShareGroupHistoryMode",
+  "tag": "",
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:AdminShareMode"
+        },
+        {
+          "$ref": "Groups:AllMembersShareMode"
+        },
+        {
+          "$ref": "Groups:UnknownShareMode"
+        }
+      ]
+    }
+  ]
+}

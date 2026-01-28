@@ -1,0 +1,65 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePicturesResponseSuccessGroupPictures",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "pictures",
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "type": "node",
+              "namespace": "Groups",
+              "variant": "ParentGroup",
+              "tag": "picture",
+              "attributes": {
+                "parent_group_jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "GroupJid"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "node",
+              "namespace": "Groups",
+              "variant": "SubGroup",
+              "tag": "picture",
+              "attributes": {
+                "sub_group_jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "GroupJid"
+                  ]
+                }
+              }
+            },
+            {
+              "$ref": "Groups:GetGroupProfilePicturesSuccessProfilePictureResponse"
+            },
+            {
+              "$ref": "Groups:GetGroupProfilePicturesPartialProfilePictureResponse"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

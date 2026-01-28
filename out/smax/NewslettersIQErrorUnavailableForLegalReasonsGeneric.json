@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "IQErrorUnavailableForLegalReasonsGeneric",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "features-disabled"
+    },
+    "code": {
+      "type": "number",
+      "literal": 451,
+      "as": "string"
+    }
+  }
+}

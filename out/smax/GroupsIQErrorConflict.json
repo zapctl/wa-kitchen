@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorConflict",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "conflict"
+    },
+    "code": {
+      "type": "number",
+      "literal": 409,
+      "as": "string"
+    }
+  }
+}

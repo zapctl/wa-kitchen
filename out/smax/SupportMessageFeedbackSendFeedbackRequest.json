@@ -1,0 +1,48 @@
+{
+  "type": "node",
+  "namespace": "SupportMessageFeedbackSendFeedbackRequest",
+  "variant": "makeSendFeedbackRequest",
+  "tag": "iq",
+  "attributes": {
+    "xmlns": {
+      "type": "string",
+      "literal": "fb:thrift_iq"
+    },
+    "smax_id": {
+      "type": "number",
+      "as": "string"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "LidUserJid"
+      ],
+      "optional": true
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "message",
+      "attributes": {
+        "id": {
+          "type": "id"
+        }
+      }
+    }
+  ]
+}

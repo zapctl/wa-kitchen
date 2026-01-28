@@ -1,0 +1,40 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "CreateParticipantMixins",
+  "unions": [
+    {
+      "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAuthorized"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+    },
+    {
+      "$ref": "Groups:ParticipantHasInvalidPN"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceConstraint"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAcceptable"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceLimit"
+    },
+    {
+      "$ref": "Groups:ParticipantBotIncompatibleVersion"
+    },
+    {
+      "$ref": "Groups:ParticipantBotAlreadyExists"
+    },
+    {
+      "$ref": "Groups:CreateParticipantAdded"
+    }
+  ]
+}

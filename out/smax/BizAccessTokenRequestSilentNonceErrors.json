@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "BizAccessToken",
+  "variant": "RequestSilentNonceErrors",
+  "unions": [
+    {
+      "$ref": "BizAccessToken:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizAccessToken:IQErrorForbidden"
+    },
+    {
+      "$ref": "BizAccessToken:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "BizAccessToken:IQErrorServiceUnavailable"
+    }
+  ]
+}

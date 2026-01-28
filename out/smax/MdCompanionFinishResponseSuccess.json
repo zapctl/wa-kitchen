@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "Md",
+  "variant": "CompanionFinishResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  }
+}

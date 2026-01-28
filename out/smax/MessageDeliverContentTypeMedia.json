@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "MessageDeliver",
+  "variant": "ContentTypeMedia",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "media"
+    }
+  }
+}

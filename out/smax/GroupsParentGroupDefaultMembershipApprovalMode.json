@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParentGroupDefaultMembershipApprovalMode",
+  "tag": "parent",
+  "attributes": {
+    "default_membership_approval_mode": {
+      "type": "string",
+      "literal": "request_required"
+    }
+  }
+}

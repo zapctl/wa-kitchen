@@ -1,0 +1,10 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "UnknownShareMode",
+  "tag": "member_share_group_history_mode",
+  "content": {
+    "type": "string",
+    "as": "binary"
+  }
+}

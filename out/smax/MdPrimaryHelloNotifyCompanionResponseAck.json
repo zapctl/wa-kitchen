@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "namespace": "MdPrimaryHelloNotifyCompanionResponseAck",
+  "variant": "makePrimaryHelloNotifyCompanionResponseAck",
+  "tag": "ack",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "class": {
+      "type": "string",
+      "literal": "notification"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "ClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorLocked"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

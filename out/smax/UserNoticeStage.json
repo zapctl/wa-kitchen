@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "namespace": "UserNotice",
+  "variant": "Stage",
+  "tag": "notice",
+  "attributes": {
+    "id": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "stage": {
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 1000
+    }
+  }
+}

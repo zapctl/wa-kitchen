@@ -1,0 +1,54 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "GroupsDirtyNotificationRequest",
+  "tag": "notification",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "w:gp2"
+    },
+    "from": {
+      "type": "jid",
+      "literal": "g.us",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "groups_dirty",
+      "content": [
+        {
+          "type": "node",
+          "tag": "group",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "GroupJid"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

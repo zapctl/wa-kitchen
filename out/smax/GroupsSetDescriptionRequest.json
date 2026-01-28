@@ -1,0 +1,58 @@
+{
+  "type": "node",
+  "namespace": "GroupsSetDescriptionRequest",
+  "variant": "makeSetDescriptionRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "description",
+      "attributes": {
+        "id": {
+          "type": "string",
+          "optional": true
+        },
+        "prev": {
+          "type": "string",
+          "optional": true
+        },
+        "delete": {
+          "optional": true,
+          "literal": "true"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "body",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

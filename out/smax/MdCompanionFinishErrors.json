@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Md",
+  "variant": "CompanionFinishErrors",
+  "unions": [
+    {
+      "$ref": "Md:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Md:IQErrorBadRequest"
+    }
+  ]
+}

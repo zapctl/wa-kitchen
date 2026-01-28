@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "ResponsePadding",
+  "tag": "iq",
+  "content": [
+    {
+      "type": "node",
+      "tag": "padding",
+      "content": {
+        "type": "binary",
+        "min": 0,
+        "max": 524288
+      }
+    }
+  ]
+}

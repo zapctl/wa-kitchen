@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "namespace": "Chatstate",
+  "variant": "FromUser",
+  "tag": "chatstate",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  }
+}

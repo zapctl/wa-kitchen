@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "namespace": "BizCtwaActionNativeActions",
+  "variant": "NativeActionsMixin",
+  "tag": "",
+  "content": [
+    {
+      "type": "node",
+      "tag": "native_action",
+      "attributes": {
+        "platform": {
+          "type": "string"
+        },
+        "min_app_version": {
+          "type": "string"
+        },
+        "local_link": {
+          "type": "string"
+        },
+        "universal_link": {
+          "optional": true,
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

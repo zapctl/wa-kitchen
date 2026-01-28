@@ -1,0 +1,30 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "ParticipantIdentity",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "ParticipantPN",
+      "attributes": {
+        "participant_pn": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "ParticipantUsername",
+      "attributes": {
+        "participant_username": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

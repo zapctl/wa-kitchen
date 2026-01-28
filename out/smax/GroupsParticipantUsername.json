@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParticipantUsername",
+  "tag": "",
+  "attributes": {
+    "participant_username": {
+      "type": "string"
+    }
+  }
+}

@@ -1,2 +1,0 @@
-// Dependencies: WAResultOrError, WASmaxInNewslettersQueryDescriptionResponseMixin, WASmaxParseUtils
-function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"metadata");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"description");if(!n.success)return n;var r=o("WASmaxInNewslettersQueryDescriptionResponseMixin").parseQueryDescriptionResponseMixin(n.value);return o("WAResultOrError").makeResult({descriptionQueryDescriptionResponseMixin:r.success?r.value:null})}l.parseNewsletterDescriptionMetadataMixin=e}

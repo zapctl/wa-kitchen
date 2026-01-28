@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "PreKeys",
+  "variant": "UserFetchMissingPreKeysSuccessOrFetchMissingPreKeysErrorOrFetchMissingPreKeysErrorFallbackMixinGroup",
+  "unions": [
+    {
+      "$ref": "PreKeys:FetchMissingPreKeysUserSuccess"
+    },
+    {
+      "$ref": "PreKeys:FetchMissingPreKeysUserError"
+    },
+    {
+      "$ref": "PreKeys:FetchMissingPreKeysUserErrorFallback"
+    }
+  ]
+}

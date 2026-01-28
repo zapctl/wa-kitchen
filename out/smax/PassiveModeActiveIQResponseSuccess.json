@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "namespace": "PassiveMode",
+  "variant": "ActiveIQResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "active"
+    }
+  ]
+}

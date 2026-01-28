@@ -1,2 +1,0 @@
-// Dependencies: WAResultOrError, WASmaxInBlocklistsBlocklistIds
-function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxInBlocklistsBlocklistIds").parseBlocklistIds(e);return t.success?o("WAResultOrError").makeResult({blocklistIds:t.value}):t}l.parseBlocklistIdentifierMixin=e}

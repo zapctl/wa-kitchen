@@ -1,0 +1,80 @@
+{
+  "type": "node",
+  "namespace": "AbProps",
+  "variant": "GetExperimentConfigResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "props",
+      "attributes": {
+        "protocol": {
+          "type": "string",
+          "literal": "1"
+        },
+        "ab_key": {
+          "optional": true,
+          "type": "string"
+        },
+        "hash": {
+          "optional": true,
+          "type": "string"
+        },
+        "refresh": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0
+        },
+        "refresh_id": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0
+        },
+        "delta_update": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "$ref": "AbProps:ExperimentConfig"
+            },
+            {
+              "$ref": "AbProps:SamplingConfig"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "erid",
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 100
+      }
+    }
+  ]
+}

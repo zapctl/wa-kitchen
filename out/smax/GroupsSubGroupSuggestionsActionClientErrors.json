@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsActionClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

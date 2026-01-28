@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Newsletters",
+  "variant": "NewsletterMessageMyAddOns",
+  "unions": [
+    {
+      "$ref": "Newsletters:NewsletterMyReaction"
+    },
+    {
+      "$ref": "Newsletters:NewsletterMyPollVote"
+    }
+  ]
+}

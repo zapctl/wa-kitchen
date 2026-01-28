@@ -1,0 +1,43 @@
+{
+  "type": "node",
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterPollVote",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "poll"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "votes",
+      "content": [
+        {
+          "type": "node",
+          "tag": "vote",
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "polltype": {
+          "type": "string",
+          "literal": "vote"
+        },
+        "contenttype": {
+          "optional": true,
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

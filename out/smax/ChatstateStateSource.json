@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Chatstate",
+  "variant": "StateSource",
+  "unions": [
+    {
+      "$ref": "Chatstate:FromUser"
+    },
+    {
+      "$ref": "Chatstate:FromGroup"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsActionResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "sub_group_suggestions_action",
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "content": [
+            {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestion",
+              "unions": [
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "GroupCreatorPhoneNumber",
+                  "tag": "sub_group_suggestion",
+                  "attributes": {
+                    "creator_pn": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionConflict"
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupResourceConstraint"
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupPendingGroupAddsError"
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupCreationInternalServerError"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "reject",
+          "content": [
+            {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestion",
+              "unions": [
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "GroupCreatorPhoneNumber",
+                  "tag": "sub_group_suggestion",
+                  "attributes": {
+                    "creator_pn": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
+                },
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "Identity",
+                  "tag": "sub_group_suggestion",
+                  "attributes": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "cancel",
+          "content": [
+            {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestionWithoutCreator",
+              "unions": [
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
+                },
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "Identity",
+                  "tag": "sub_group_suggestion",
+                  "attributes": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "namespace": "Privacy",
+  "variant": "DeprecatedIQErrorResponseOptionalFrom",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  }
+}

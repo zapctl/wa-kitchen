@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "AdminRevoke",
+  "tag": "message",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "8"
+    }
+  }
+}

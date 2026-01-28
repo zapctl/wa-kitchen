@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Psa",
+  "variant": "ChatBlockError",
+  "unions": [
+    {
+      "$ref": "Psa:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Psa:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "Psa:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Psa:IQErrorRateOverlimit"
+    }
+  ]
+}

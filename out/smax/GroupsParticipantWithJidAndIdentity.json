@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParticipantWithJidAndIdentity",
+  "tag": "participant",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  }
+}

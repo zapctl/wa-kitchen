@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "MessageDeliver",
+  "variant": "ContentTypeTextOrMediaOrPollCreationOrQuizCreationMixinGroup",
+  "unions": [
+    {
+      "$ref": "MessageDeliver:ContentTypeText"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeMedia"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypePollCreation"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeQuizCreation"
+    }
+  ]
+}

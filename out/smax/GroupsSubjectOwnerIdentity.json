@@ -1,0 +1,30 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "SubjectOwnerIdentity",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "SubjectOwnerPhoneNumber",
+      "attributes": {
+        "s_o_pn": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "SubjectOwnerUsername",
+      "attributes": {
+        "s_o_username": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

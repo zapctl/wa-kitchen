@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "namespace": "MdSetToCompanionResponseClientResponse",
+  "variant": "makeSetToCompanionResponseClientResponse",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  }
+}

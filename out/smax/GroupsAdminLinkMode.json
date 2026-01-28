@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AdminLinkMode",
+  "tag": "member_link_mode",
+  "content": {
+    "type": "string",
+    "literal": "admin_link",
+    "as": "binary"
+  }
+}

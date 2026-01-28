@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "MembershipRequestsCancellationClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorLocked"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

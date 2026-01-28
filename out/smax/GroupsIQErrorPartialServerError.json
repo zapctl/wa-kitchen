@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorPartialServerError",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "partial-server-error"
+    },
+    "code": {
+      "type": "number",
+      "literal": 530,
+      "as": "string"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "type": "node",
+  "namespace": "BizSettings",
+  "variant": "SyncPrivacySettingRequest",
+  "tag": "notification",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "business"
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "$ref": "BizSettings:SmbDataSharingSetting"
+    }
+  ]
+}

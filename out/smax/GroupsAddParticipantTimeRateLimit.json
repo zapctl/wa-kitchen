@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AddParticipantTimeRateLimit",
+  "tag": "rate_limit",
+  "attributes": {
+    "backoff": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "group",
+        "user"
+      ]
+    }
+  }
+}

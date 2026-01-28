@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "namespace": "BlocklistsGetBlockListRequest",
+  "variant": "makeGetBlockListRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "blocklist"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "id": {
+      "type": "id"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "item",
+      "attributes": {
+        "dhash": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

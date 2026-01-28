@@ -1,0 +1,40 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GroupCreatorIdentity",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "GroupCreatorPhoneNumber",
+      "attributes": {
+        "creator_pn": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "GroupCreatorUsername",
+      "attributes": {
+        "creator_username": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "GroupCreatorCountryCode",
+      "attributes": {
+        "creator_country_code": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "namespace": "MdSetRegResponseClientResponse",
+  "variant": "makeSetRegResponseClientResponse",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  }
+}

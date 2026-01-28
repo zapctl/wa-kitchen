@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "namespace": "GroupsMembershipApprovalPropertyResponse",
+  "variant": "MembershipApprovalPropertyResponseMixin",
+  "tag": "membership_approval_mode",
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
+        },
+        {
+          "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
+        }
+      ]
+    }
+  ]
+}

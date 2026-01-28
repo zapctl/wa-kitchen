@@ -1,0 +1,153 @@
+{
+  "type": "node",
+  "namespace": "BizLinking",
+  "variant": "GetLinkedAccountsResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "linked_accounts",
+      "content": [
+        {
+          "type": "union",
+          "namespace": "BizLinking",
+          "variant": "FBPageResponseBase",
+          "unions": [
+            {
+              "type": "node",
+              "namespace": "BizLinking",
+              "variant": "HasProfilePicture",
+              "tag": "fb_page",
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "profile_picture",
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "url",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "bytes",
+                      "content": {
+                        "type": "binary",
+                        "min": 0
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "namespace": "BizLinking",
+              "variant": "HasShowOnProfile",
+              "tag": "fb_page",
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "show_on_profile",
+                  "content": {
+                    "type": "string",
+                    "as": "binary",
+                    "enum": [
+                      "false",
+                      "true"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$ref": "BizLinking:FBBizResponse"
+        },
+        {
+          "type": "union",
+          "namespace": "BizLinking",
+          "variant": "IGProfessionalResponseBase",
+          "unions": [
+            {
+              "type": "node",
+              "namespace": "BizLinking",
+              "variant": "HasProfilePicture",
+              "tag": "ig_professional",
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "profile_picture",
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "url",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "bytes",
+                      "content": {
+                        "type": "binary",
+                        "min": 0
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "namespace": "BizLinking",
+              "variant": "HasShowOnProfile",
+              "tag": "ig_professional",
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "show_on_profile",
+                  "content": {
+                    "type": "string",
+                    "as": "binary",
+                    "enum": [
+                      "false",
+                      "true"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$ref": "BizLinking:WhatsAppAdIdentityResponse"
+        }
+      ]
+    }
+  ]
+}

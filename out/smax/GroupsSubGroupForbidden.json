@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroupForbidden",
+  "tag": "group",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "403"
+    }
+  }
+}

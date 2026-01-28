@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "NewsletterMessageOriginalTimestamp",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "original_msg_t": {
+          "type": "number",
+          "as": "string",
+          "min": 1577865600,
+          "max": 4102473600
+        }
+      }
+    }
+  ]
+}

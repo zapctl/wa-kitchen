@@ -1,0 +1,45 @@
+{
+  "type": "node",
+  "namespace": "Privacy",
+  "variant": "GetContactBlacklistResponseError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Privacy:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Privacy:IQErrorFeatureNotImplemented"
+        },
+        {
+          "$ref": "Privacy:IQErrorServiceUnavailable"
+        },
+        {
+          "$ref": "Privacy:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Privacy:IQErrorInternalServerError"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "ServerErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Groups:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Groups:IQErrorPartialServerError"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackServer"
+    }
+  ]
+}

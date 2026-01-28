@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "namespace": "Md",
+  "variant": "CompanionHelloResponseError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Md:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Md:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Md:IQErrorFeatureNotAvailable"
+        },
+        {
+          "$ref": "Md:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Md:IQErrorForbidden"
+        }
+      ]
+    }
+  ]
+}

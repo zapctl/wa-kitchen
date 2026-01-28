@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "namespace": "Stats",
+  "variant": "IQErrorNotAcceptable",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "not-acceptable"
+    },
+    "code": {
+      "type": "number",
+      "literal": 406,
+      "as": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "field",
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

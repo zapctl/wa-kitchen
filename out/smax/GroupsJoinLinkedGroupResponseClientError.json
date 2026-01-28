@@ -1,0 +1,58 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "JoinLinkedGroupResponseClientError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Groups:IQErrorForbidden"
+        },
+        {
+          "$ref": "Groups:IQErrorItemNotFound"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAllowed"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAcceptable"
+        },
+        {
+          "$ref": "Groups:IQErrorConflict"
+        },
+        {
+          "$ref": "Groups:IQErrorResourceLimit"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "Groups:IQErrorUpgradeRequired"
+        },
+        {
+          "$ref": "Groups:IQErrorAlreadyExists"
+        },
+        {
+          "$ref": "Groups:IQErrorFallbackClient"
+        }
+      ]
+    }
+  ]
+}

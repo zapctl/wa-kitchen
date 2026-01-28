@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterMessagesResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "$ref": "Newsletters:NewsletterMessageResponsePayload"
+    }
+  ]
+}

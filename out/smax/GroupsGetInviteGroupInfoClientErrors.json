@@ -1,0 +1,34 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GetInviteGroupInfoClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorGone"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Groups:IQErrorLocked"
+    },
+    {
+      "$ref": "Groups:IQErrorGrowthLocked"
+    },
+    {
+      "$ref": "Groups:IQErrorParentGroupSuspended"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

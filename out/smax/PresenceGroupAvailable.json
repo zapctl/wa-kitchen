@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "namespace": "Presence",
+  "variant": "GroupAvailable",
+  "tag": "presence",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "count": {
+      "type": "number",
+      "as": "string",
+      "min": 1,
+      "max": 1024
+    }
+  }
+}

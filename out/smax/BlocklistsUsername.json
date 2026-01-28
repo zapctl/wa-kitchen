@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Blocklists",
+  "variant": "Username",
+  "tag": "",
+  "attributes": {
+    "username": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "namespace": "Coexistence",
+  "variant": "ProviderInfo",
+  "tag": "",
+  "content": [
+    {
+      "type": "node",
+      "tag": "provider_info",
+      "content": [
+        {
+          "type": "node",
+          "tag": "logo_url",
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "name",
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "id",
+          "content": {
+            "type": "number",
+            "as": "binary"
+          }
+        }
+      ]
+    }
+  ]
+}

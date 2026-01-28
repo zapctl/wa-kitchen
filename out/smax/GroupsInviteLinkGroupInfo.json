@@ -1,0 +1,198 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "InviteLinkGroupInfo",
+  "tag": "group",
+  "attributes": {
+    "size": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 19999
+    },
+    "id": {
+      "type": "string"
+    },
+    "creator": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "creation": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "p_v_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "a_v_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "s_t": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "s_o": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "open_thread_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "$ref": "Groups:GroupInfoDescription"
+    },
+    {
+      "type": "node",
+      "tag": "parent",
+      "attributes": {
+        "num_sub_groups": {
+          "type": "number",
+          "as": "string",
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "NamedSubject",
+      "tag": "linked_parent",
+      "attributes": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        },
+        "subject": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "hidden_group"
+    },
+    {
+      "type": "node",
+      "tag": "default_sub_group"
+    },
+    {
+      "type": "node",
+      "tag": "general_chat"
+    },
+    {
+      "$ref": "Groups:MembershipApprovalGroupJoinModeEnabled"
+    },
+    {
+      "type": "node",
+      "tag": "membership_approval_request",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "304",
+          "optional": true
+        }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "capi"
+    },
+    {
+      "type": "node",
+      "tag": "ephemeral",
+      "attributes": {
+        "expiration": {
+          "type": "number",
+          "as": "string",
+          "min": 0,
+          "max": 2147483647
+        },
+        "trigger": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0,
+          "max": 20
+        }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "missing_participant_identification"
+    },
+    {
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "GroupInfoParticipant",
+      "tag": "participant",
+      "attributes": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "superadmin"
+          ]
+        },
+        "participant_label": {
+          "optional": true,
+          "type": "string"
+        },
+        "participant_label_mtime": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0
+        },
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        },
+        "lid": {
+          "type": "jid",
+          "jidTypes": [
+            "LidUserJid"
+          ]
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
+    }
+  ]
+}

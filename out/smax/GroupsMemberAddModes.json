@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "MemberAddModes",
+  "unions": [
+    {
+      "$ref": "Groups:AdminAddMode"
+    },
+    {
+      "$ref": "Groups:AllMembersAddMode"
+    },
+    {
+      "$ref": "Groups:UnknownAddMode"
+    }
+  ]
+}

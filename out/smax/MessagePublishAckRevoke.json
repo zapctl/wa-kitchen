@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "MessagePublish",
+  "variant": "AckRevoke",
+  "tag": "ack",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "7"
+    }
+  }
+}

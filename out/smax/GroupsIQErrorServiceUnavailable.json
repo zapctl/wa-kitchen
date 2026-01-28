@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorServiceUnavailable",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "service-unavailable"
+    },
+    "code": {
+      "type": "number",
+      "literal": 503,
+      "as": "string"
+    }
+  }
+}

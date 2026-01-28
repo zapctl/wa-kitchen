@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorNotAuthorized",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "not-authorized"
+    },
+    "code": {
+      "type": "number",
+      "literal": 401,
+      "as": "string"
+    }
+  }
+}

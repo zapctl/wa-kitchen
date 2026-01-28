@@ -1,0 +1,44 @@
+{
+  "type": "node",
+  "namespace": "GroupsMembershipRequestsActionRequest",
+  "variant": "makeMembershipRequestsActionRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_requests_action",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

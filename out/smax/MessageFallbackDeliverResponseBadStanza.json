@@ -1,0 +1,54 @@
+{
+  "type": "node",
+  "namespace": "MessageFallbackDeliverResponseBadStanza",
+  "variant": "makeDeliverResponseBadStanza",
+  "tag": "ack",
+  "attributes": {
+    "class": {
+      "type": "string",
+      "literal": "message"
+    },
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    },
+    "participant": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ],
+      "optional": true
+    },
+    "type": {
+      "type": "string",
+      "optional": true
+    },
+    "error": {
+      "type": "number",
+      "as": "string"
+    }
+  }
+}

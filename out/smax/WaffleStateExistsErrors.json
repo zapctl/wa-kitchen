@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "Waffle",
+  "variant": "StateExistsErrors",
+  "unions": [
+    {
+      "$ref": "Waffle:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Waffle:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "Waffle:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Waffle:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Waffle:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Waffle:IQErrorNotAllowed"
+    }
+  ]
+}

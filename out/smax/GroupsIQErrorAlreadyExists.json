@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorAlreadyExists",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "already-exists"
+    },
+    "code": {
+      "type": "number",
+      "literal": 304,
+      "as": "string"
+    }
+  }
+}

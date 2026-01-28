@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "AbProps",
+  "variant": "NoRetryErrors",
+  "unions": [
+    {
+      "$ref": "AbProps:IQErrorBadRequest"
+    },
+    {
+      "$ref": "AbProps:IQErrorFeatureNotImplemented"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "namespace": "Bot",
+  "variant": "BotListResponseError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Bot:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Bot:IQErrorForbidden"
+        },
+        {
+          "$ref": "Bot:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Bot:IQErrorNotAllowed"
+        }
+      ]
+    }
+  ]
+}

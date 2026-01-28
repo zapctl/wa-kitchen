@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Psa",
+  "variant": "IQErrorRequestTimeout",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "request-timeout"
+    },
+    "code": {
+      "type": "number",
+      "literal": 408,
+      "as": "string"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "NewsletterMyReaction",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "reaction",
+      "attributes": {
+        "code": {
+          "type": "string"
+        },
+        "t": {
+          "type": "number",
+          "as": "string",
+          "min": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ProfilePictureId",
+  "tag": "picture",
+  "attributes": {
+    "id": {
+      "type": "string"
+    }
+  }
+}

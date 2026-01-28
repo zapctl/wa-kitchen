@@ -1,0 +1,16 @@
+{
+  "type": "node",
+  "namespace": "Spam",
+  "variant": "IQErrorReportTokenValidationFail",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "code": {
+      "type": "number",
+      "literal": 548,
+      "as": "string"
+    }
+  }
+}

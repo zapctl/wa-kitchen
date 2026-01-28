@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Newsletters",
+  "variant": "MyAddOnsResponseClientError",
+  "unions": [
+    {
+      "$ref": "Newsletters:BadRequestIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:UnauthorizedIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:ItemNotFoundIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:RateLimitedIQErrorResponse"
+    }
+  ]
+}

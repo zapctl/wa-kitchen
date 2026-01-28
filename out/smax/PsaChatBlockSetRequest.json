@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "namespace": "PsaChatBlockSetRequest",
+  "variant": "makeChatBlockSetRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:comms:chat"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "blocking",
+      "attributes": {
+        "action": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

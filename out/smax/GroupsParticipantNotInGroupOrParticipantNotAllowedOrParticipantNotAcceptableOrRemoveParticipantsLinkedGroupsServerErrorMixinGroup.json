@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "ParticipantNotInGroupOrParticipantNotAllowedOrParticipantNotAcceptableOrRemoveParticipantsLinkedGroupsServerErrorMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:ParticipantNotInGroup"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAllowed"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAcceptable"
+    },
+    {
+      "$ref": "Groups:RemoveParticipantsLinkedGroupsServerError"
+    }
+  ]
+}

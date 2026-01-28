@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesResponseServerError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "PreKeys:IQErrorServiceUnavailable"
+        },
+        {
+          "$ref": "PreKeys:IQErrorFallbackServer"
+        }
+      ]
+    }
+  ]
+}

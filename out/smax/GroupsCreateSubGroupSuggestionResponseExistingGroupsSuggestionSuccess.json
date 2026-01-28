@@ -1,0 +1,62 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "CreateSubGroupSuggestionResponseExistingGroupsSuggestionSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "sub_group_suggestion",
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "$ref": "Groups:SubGroupNotAuthorized"
+            },
+            {
+              "$ref": "Groups:SubGroupNotExist"
+            },
+            {
+              "$ref": "Groups:SubGroupConflict"
+            },
+            {
+              "$ref": "Groups:SubGroupSuggestionNotAllowed"
+            },
+            {
+              "$ref": "Groups:SubGroupResourceLimit"
+            },
+            {
+              "$ref": "Groups:SubGroupBadRequest"
+            },
+            {
+              "$ref": "Groups:SubGroupNotAcceptable"
+            },
+            {
+              "$ref": "Groups:SubGroupServerError"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "UnifiedSessionShareRequest",
+  "variant": "makeShareRequest",
+  "tag": "ib",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "unified_session",
+      "attributes": {
+        "id": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

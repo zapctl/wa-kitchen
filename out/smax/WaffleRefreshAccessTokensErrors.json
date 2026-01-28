@@ -1,0 +1,46 @@
+{
+  "type": "union",
+  "namespace": "Waffle",
+  "variant": "RefreshAccessTokensErrors",
+  "unions": [
+    {
+      "$ref": "Waffle:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Waffle:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "Waffle:IQErrorPayloadEncDec"
+    },
+    {
+      "$ref": "Waffle:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Waffle:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Waffle:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Waffle:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Waffle:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Waffle:IQErrorConflict"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFNotFound"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFSuspended"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFStateMismatch"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFNotAuthorizedInvalidPassword"
+    }
+  ]
+}

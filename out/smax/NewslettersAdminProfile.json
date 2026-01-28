@@ -1,0 +1,34 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "AdminProfile",
+  "tag": "admin_profile",
+  "attributes": {
+    "id": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "name",
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "picture",
+      "attributes": {
+        "id": {
+          "type": "string"
+        },
+        "direct_path": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

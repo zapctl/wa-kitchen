@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GetLinkedGroupsParticipantsClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    }
+  ]
+}

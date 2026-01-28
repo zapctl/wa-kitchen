@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "namespace": "BizSettings",
+  "variant": "GetPrivacySettingResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "$ref": "BizSettings:SmbDataSharingSetting"
+    }
+  ]
+}

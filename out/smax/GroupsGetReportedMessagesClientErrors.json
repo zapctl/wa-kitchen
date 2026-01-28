@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GetReportedMessagesClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorLocked"
+    }
+  ]
+}

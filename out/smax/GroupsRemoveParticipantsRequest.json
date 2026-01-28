@@ -1,0 +1,42 @@
+{
+  "type": "node",
+  "namespace": "GroupsRemoveParticipantsRequest",
+  "variant": "makeRemoveParticipantsRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "remove",
+      "attributes": {
+        "linked_groups": {
+          "optional": true,
+          "literal": "true"
+        }
+      },
+      "content": [
+        {
+          "type": "node"
+        }
+      ]
+    }
+  ]
+}

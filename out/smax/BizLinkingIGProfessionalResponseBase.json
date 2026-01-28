@@ -1,0 +1,16 @@
+{
+  "type": "node",
+  "namespace": "BizLinking",
+  "variant": "IGProfessionalResponseBase",
+  "tag": "ig_professional",
+  "content": [
+    {
+      "type": "node",
+      "tag": "ig_handle",
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    }
+  ]
+}

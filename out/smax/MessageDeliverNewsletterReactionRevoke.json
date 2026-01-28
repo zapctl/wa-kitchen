@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterReactionRevoke",
+  "tag": "message",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "7"
+    },
+    "type": {
+      "type": "string",
+      "literal": "reaction"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "reaction"
+    }
+  ]
+}

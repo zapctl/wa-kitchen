@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroupResourceLimit",
+  "tag": "group",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "419"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "BizSettings",
+  "variant": "PrivacySettingErrors",
+  "unions": [
+    {
+      "$ref": "BizSettings:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizSettings:IQErrorFeatureNotImplemented"
+    },
+    {
+      "$ref": "BizSettings:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "BizSettings:IQErrorInternalServerError"
+    }
+  ]
+}

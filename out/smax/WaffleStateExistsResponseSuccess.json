@@ -1,0 +1,42 @@
+{
+  "type": "node",
+  "namespace": "Waffle",
+  "variant": "StateExistsResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "wf_state",
+      "content": {
+        "type": "number",
+        "as": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "suspended_state",
+      "attributes": {
+        "npr": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      }
+    }
+  ]
+}

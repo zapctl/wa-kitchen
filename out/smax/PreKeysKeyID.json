@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "KeyID",
+  "tag": "id",
+  "content": {
+    "type": "binary",
+    "min": 3,
+    "max": 3
+  }
+}

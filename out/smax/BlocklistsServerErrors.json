@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Blocklists",
+  "variant": "ServerErrors",
+  "unions": [
+    {
+      "$ref": "Blocklists:IQErrorFeatureNotImplemented"
+    },
+    {
+      "$ref": "Blocklists:IQErrorInternalServerError"
+    }
+  ]
+}

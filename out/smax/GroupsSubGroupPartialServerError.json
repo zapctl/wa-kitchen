@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroupPartialServerError",
+  "tag": "group",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "530"
+    }
+  }
+}

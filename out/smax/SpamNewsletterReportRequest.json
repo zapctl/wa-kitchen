@@ -1,0 +1,59 @@
+{
+  "type": "node",
+  "namespace": "SpamNewsletterReportRequest",
+  "variant": "makeNewsletterReportRequest",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "spam"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "spam_list",
+      "attributes": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "DomainJid",
+            "LidUserJid",
+            "BroadcastJid",
+            "DeviceJid",
+            "CallJid",
+            "GroupJid",
+            "StatusJid",
+            "ChatJid",
+            "NewsletterJid"
+          ]
+        },
+        "spam_flow": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node"
+        }
+      ]
+    }
+  ]
+}

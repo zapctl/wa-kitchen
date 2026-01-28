@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "SupportMessageFeedback",
+  "variant": "SendFeedbackError",
+  "unions": [
+    {
+      "$ref": "SupportMessageFeedback:IQErrorBadRequest"
+    },
+    {
+      "$ref": "SupportMessageFeedback:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "SupportMessageFeedback:IQErrorRateOverlimit"
+    }
+  ]
+}

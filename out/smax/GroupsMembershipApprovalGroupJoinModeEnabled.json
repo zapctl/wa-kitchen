@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "MembershipApprovalGroupJoinModeEnabled",
+  "tag": "membership_approval_mode",
+  "content": [
+    {
+      "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
+    }
+  ]
+}

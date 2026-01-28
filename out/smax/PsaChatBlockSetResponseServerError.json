@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "namespace": "Psa",
+  "variant": "ChatBlockSetResponseServerError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Psa:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Psa:IQErrorRequestTimeout"
+        },
+        {
+          "$ref": "Psa:IQErrorServiceUnavailable"
+        },
+        {
+          "$ref": "Psa:IQErrorRateOverlimit"
+        }
+      ]
+    }
+  ]
+}

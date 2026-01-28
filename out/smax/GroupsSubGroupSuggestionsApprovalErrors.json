@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsApprovalErrors",
+  "unions": [
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionConflict"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupResourceConstraint"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupPendingGroupAddsError"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupCreationInternalServerError"
+    }
+  ]
+}

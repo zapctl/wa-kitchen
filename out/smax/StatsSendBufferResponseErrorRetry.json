@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "namespace": "Stats",
+  "variant": "SendBufferResponseErrorRetry",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "$ref": "Stats:IQErrorServiceUnavailable"
+    }
+  ]
+}

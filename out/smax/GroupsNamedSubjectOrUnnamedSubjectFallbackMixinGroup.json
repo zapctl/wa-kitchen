@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "NamedSubjectOrUnnamedSubjectFallbackMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:NamedSubject"
+    },
+    {
+      "$ref": "Groups:UnnamedSubjectFallback"
+    }
+  ]
+}

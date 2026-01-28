@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "IQErrorParentGroupSuspended",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "parent-group-suspended"
+    },
+    "code": {
+      "type": "number",
+      "literal": 416,
+      "as": "string"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "GroupCreatorPhoneNumber",
+  "tag": "",
+  "attributes": {
+    "creator_pn": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  }
+}

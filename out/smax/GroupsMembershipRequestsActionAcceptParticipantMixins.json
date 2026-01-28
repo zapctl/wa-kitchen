@@ -1,0 +1,31 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "MembershipRequestsActionAcceptParticipantMixins",
+  "unions": [
+    {
+      "$ref": "Groups:ParticipantNotFound"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAuthorized"
+    },
+    {
+      "$ref": "Groups:ParticipantForbidden"
+    },
+    {
+      "$ref": "Groups:MembershipRequestsActionParticipantRequestNotFound"
+    },
+    {
+      "$ref": "Groups:ParticipantTemporarilyBlocked"
+    },
+    {
+      "$ref": "Groups:ParticipantConflict"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceConstraint"
+    },
+    {
+      "$ref": "Groups:ParticipantParentLinkedGroupsResourceConstraint"
+    }
+  ]
+}

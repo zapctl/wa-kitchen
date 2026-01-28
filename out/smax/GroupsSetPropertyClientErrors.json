@@ -1,0 +1,37 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "SetPropertyClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Groups:IQErrorResourceLimit"
+    },
+    {
+      "$ref": "Groups:IQErrorLocked"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorUpgradeRequired"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

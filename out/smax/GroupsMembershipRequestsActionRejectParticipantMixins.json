@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "MembershipRequestsActionRejectParticipantMixins",
+  "unions": [
+    {
+      "$ref": "Groups:MembershipRequestsActionParticipantRequestNotFound"
+    },
+    {
+      "$ref": "Groups:ParticipantConflict"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "PaidPartnershipContent",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "content": [
+        {
+          "type": "node",
+          "tag": "paid_partnership"
+        }
+      ]
+    }
+  ]
+}

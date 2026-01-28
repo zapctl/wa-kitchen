@@ -1,0 +1,48 @@
+{
+  "type": "node",
+  "namespace": "Spam",
+  "variant": "NewsletterReportResponseError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Spam:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Spam:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Spam:IQErrorForbidden"
+        },
+        {
+          "$ref": "Spam:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Spam:IQErrorReportTokenValidationFail"
+        },
+        {
+          "$ref": "Spam:IQErrorFeatureNotImplemented"
+        }
+      ]
+    }
+  ]
+}

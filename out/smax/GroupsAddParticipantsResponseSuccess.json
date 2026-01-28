@@ -1,0 +1,104 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AddParticipantsResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "add",
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "AddParticipantsParticipantAddedResponse",
+              "unions": [
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "UsernameAtt",
+                  "tag": "participant",
+                  "attributes": {
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "$ref": "Groups:ParticipantGroupJoinRequest"
+                },
+                {
+                  "$ref": "Groups:ParticipantNotAuthorized"
+                },
+                {
+                  "$ref": "Groups:ParticipantInBanList"
+                },
+                {
+                  "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+                },
+                {
+                  "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+                },
+                {
+                  "$ref": "Groups:ParticipantHasInvalidPN"
+                },
+                {
+                  "$ref": "Groups:ParticipantTemporarilyBlocked"
+                },
+                {
+                  "$ref": "Groups:ParticipantConflict"
+                },
+                {
+                  "$ref": "Groups:ParticipantResourceLimit"
+                },
+                {
+                  "$ref": "Groups:ParticipantResourceConstraint"
+                },
+                {
+                  "$ref": "Groups:ParticipantNotAcceptable"
+                },
+                {
+                  "$ref": "Groups:ParticipantNotAddressable"
+                },
+                {
+                  "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+                },
+                {
+                  "$ref": "Groups:ParticipantBotIncompatibleVersion"
+                },
+                {
+                  "$ref": "Groups:ParticipantBotAlreadyExists"
+                }
+              ]
+            },
+            {
+              "$ref": "Groups:NonRegisteredWaUserParticipantErrorLidResponse"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

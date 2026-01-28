@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "MessagePublish",
+  "variant": "AckPaidAckPaidConversationOrAckPaidGroupConversationConversationMixinGroup",
+  "unions": [
+    {
+      "$ref": "MessagePublish:AckPaidConversation"
+    },
+    {
+      "$ref": "MessagePublish:AckPaidGroupConversation"
+    }
+  ]
+}

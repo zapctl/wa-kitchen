@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Waffle",
+  "variant": "IQErrorWFStateMismatch",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "wf-state-mismatch"
+    },
+    "code": {
+      "type": "number",
+      "literal": 485,
+      "as": "string"
+    }
+  }
+}

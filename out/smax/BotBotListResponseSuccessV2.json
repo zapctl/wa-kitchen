@@ -1,0 +1,127 @@
+{
+  "type": "node",
+  "namespace": "Bot",
+  "variant": "BotListResponseSuccessV2",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "bot",
+      "attributes": {
+        "v": {
+          "type": "string",
+          "literal": "2"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "default",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "persona_id": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "node",
+          "tag": "section",
+          "attributes": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "all",
+                "category",
+                "featured"
+              ]
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "bot",
+              "attributes": {
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                },
+                "persona_id": {
+                  "type": "string"
+                },
+                "count": {
+                  "optional": true,
+                  "type": "number",
+                  "as": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "theme",
+                  "attributes": {
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "dark",
+                        "light"
+                      ]
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "background",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "primary_text",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "secondary_text",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

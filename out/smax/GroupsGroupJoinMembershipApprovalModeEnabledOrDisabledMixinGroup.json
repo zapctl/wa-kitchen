@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GroupJoinMembershipApprovalModeEnabledOrDisabledMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
+    },
+    {
+      "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
+    }
+  ]
+}

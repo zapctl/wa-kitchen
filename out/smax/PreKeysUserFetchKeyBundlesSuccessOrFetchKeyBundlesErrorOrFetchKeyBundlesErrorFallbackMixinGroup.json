@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "PreKeys",
+  "variant": "UserFetchKeyBundlesSuccessOrFetchKeyBundlesErrorOrFetchKeyBundlesErrorFallbackMixinGroup",
+  "unions": [
+    {
+      "$ref": "PreKeys:FetchKeyBundlesUserSuccess"
+    },
+    {
+      "$ref": "PreKeys:FetchKeyBundlesUserError"
+    },
+    {
+      "$ref": "PreKeys:FetchKeyBundlesUserErrorFallback"
+    }
+  ]
+}

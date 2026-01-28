@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "NewsletterViewsCountDeprecated",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "views_count",
+      "attributes": {
+        "count": {
+          "type": "number",
+          "as": "string",
+          "min": 0
+        }
+      }
+    }
+  ]
+}

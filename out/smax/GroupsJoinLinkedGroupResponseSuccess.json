@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "JoinLinkedGroupResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  }
+}

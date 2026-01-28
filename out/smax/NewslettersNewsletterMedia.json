@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Newsletters",
+  "variant": "NewsletterMedia",
+  "unions": [
+    {
+      "$ref": "Newsletters:WAMOSub"
+    },
+    {
+      "$ref": "Newsletters:MessageAssociationType"
+    },
+    {
+      "$ref": "Newsletters:MediaMeta"
+    }
+  ]
+}

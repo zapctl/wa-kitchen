@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "PictureNotFound",
+  "tag": "picture",
+  "attributes": {
+    "status": {
+      "type": "string",
+      "literal": "204"
+    }
+  }
+}

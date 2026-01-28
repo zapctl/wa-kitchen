@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "$ref": "PreKeys:FetchKeyBundlesUserSuccess"
+            },
+            {
+              "$ref": "PreKeys:FetchKeyBundlesUserError"
+            },
+            {
+              "$ref": "PreKeys:FetchKeyBundlesUserErrorFallback"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "IQErrorBadRequestOrRateOverlimitOrFallbackClientMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

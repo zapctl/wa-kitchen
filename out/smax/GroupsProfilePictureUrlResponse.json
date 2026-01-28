@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ProfilePictureUrlResponse",
+  "tag": "picture",
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "direct_path": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "type": "union",
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterQuestionReplyOrTextOrMediaMixinGroup",
+  "unions": [
+    {
+      "$ref": "MessageDeliver:NewsletterQuestionReply"
+    },
+    {
+      "type": "node",
+      "namespace": "MessageDeliver",
+      "variant": "NewsletterText",
+      "tag": "message",
+      "attributes": {
+        "type": {
+          "type": "string",
+          "literal": "text"
+        }
+      },
+      "content": [
+        {
+          "$ref": "MessageDeliver:Payload"
+        },
+        {
+          "type": "node",
+          "tag": "meta",
+          "attributes": {
+            "is_wamo_sub": {
+              "type": "string",
+              "literal": "true"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterMedia"
+    }
+  ]
+}

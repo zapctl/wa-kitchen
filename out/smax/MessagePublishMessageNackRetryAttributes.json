@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "namespace": "MessagePublish",
+  "variant": "MessageNackRetryAttributes",
+  "tag": "ack",
+  "attributes": {
+    "backoff": {
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 86400
+    }
+  }
+}

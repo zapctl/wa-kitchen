@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AllMembersAddMode",
+  "tag": "member_add_mode",
+  "content": {
+    "type": "string",
+    "literal": "all_member_add",
+    "as": "binary"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "node",
+  "namespace": "GroupsGetMembershipApprovalRequestsRequest",
+  "variant": "makeGetMembershipApprovalRequestsRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_approval_requests",
+      "attributes": {}
+    }
+  ]
+}

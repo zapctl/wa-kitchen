@@ -1,0 +1,59 @@
+{
+  "type": "node",
+  "namespace": "GroupsGetGroupInfoRequest",
+  "variant": "makeGetGroupInfoRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "query",
+      "attributes": {
+        "phash": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "add_request",
+          "attributes": {
+            "expiration": {
+              "type": "number",
+              "as": "string"
+            },
+            "admin": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "LidUserJid"
+              ]
+            },
+            "code": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

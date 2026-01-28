@@ -1,0 +1,74 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "LinkSubGroupsResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "links",
+      "content": [
+        {
+          "type": "node",
+          "tag": "link",
+          "attributes": {
+            "link_type": {
+              "type": "string",
+              "literal": "sub_group"
+            }
+          },
+          "content": [
+            {
+              "type": "union",
+              "unions": [
+                {
+                  "$ref": "Groups:SubGroupNotAuthorized"
+                },
+                {
+                  "$ref": "Groups:SubGroupForbidden"
+                },
+                {
+                  "$ref": "Groups:SubGroupNotExist"
+                },
+                {
+                  "$ref": "Groups:SubGroupNotAcceptable"
+                },
+                {
+                  "$ref": "Groups:SubGroupConflict"
+                },
+                {
+                  "$ref": "Groups:SubGroupResourceLimit"
+                },
+                {
+                  "$ref": "Groups:PendingAddRequestsNotAllowed"
+                },
+                {
+                  "$ref": "Groups:SubGroupServerError"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

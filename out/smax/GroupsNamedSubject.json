@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "NamedSubject",
+  "tag": "",
+  "attributes": {
+    "subject": {
+      "type": "string"
+    }
+  }
+}

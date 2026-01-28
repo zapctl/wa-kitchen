@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "ProfilePicture",
+  "variant": "IQErrorItemNotFound",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "item-not-found"
+    },
+    "code": {
+      "type": "number",
+      "literal": 404,
+      "as": "string"
+    }
+  }
+}

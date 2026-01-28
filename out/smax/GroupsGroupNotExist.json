@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "GroupNotExist",
+  "tag": "group",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string",
+      "literal": "404"
+    }
+  }
+}

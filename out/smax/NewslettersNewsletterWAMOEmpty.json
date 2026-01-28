@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "Newsletters",
+  "variant": "NewsletterWAMOEmpty",
+  "unions": [
+    {
+      "$ref": "Newsletters:AdminRevoke"
+    },
+    {
+      "$ref": "Newsletters:AdminEdit"
+    },
+    {
+      "$ref": "Newsletters:ContentTypeText"
+    },
+    {
+      "$ref": "Newsletters:ContentTypeMedia"
+    },
+    {
+      "$ref": "Newsletters:ContentTypePollCreation"
+    },
+    {
+      "$ref": "Newsletters:ContentTypeQuizCreation"
+    }
+  ]
+}

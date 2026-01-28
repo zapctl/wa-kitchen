@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "MessagePublish",
+  "variant": "AckMessagePin",
+  "tag": "ack",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "2"
+    }
+  }
+}

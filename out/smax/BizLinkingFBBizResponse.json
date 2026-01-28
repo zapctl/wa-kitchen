@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "namespace": "BizLinking",
+  "variant": "FBBizResponse",
+  "tag": "fb_biz",
+  "attributes": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "catalog",
+      "attributes": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "disable",
+            "import"
+          ]
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "display_name",
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    }
+  ]
+}

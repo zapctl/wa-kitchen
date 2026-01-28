@@ -1,0 +1,60 @@
+{
+  "type": "union",
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesUserSuccess",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "PreKeys",
+      "variant": "KeyType",
+      "tag": "user",
+      "content": [
+        {
+          "type": "node",
+          "tag": "type",
+          "content": {
+            "type": "binary",
+            "literal": {
+              "0": 5
+            }
+          }
+        },
+        {
+          "type": "node",
+          "tag": "key",
+          "content": [
+            {
+              "$ref": "PreKeys:KeyID"
+            },
+            {
+              "type": "node",
+              "namespace": "PreKeys",
+              "variant": "KeyData",
+              "tag": "value",
+              "content": {
+                "type": "binary",
+                "min": 32,
+                "max": 32
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "namespace": "PreKeys",
+      "variant": "DeviceIdentity",
+      "tag": "user",
+      "content": [
+        {
+          "type": "node",
+          "tag": "device-identity",
+          "content": {
+            "type": "binary"
+          }
+        }
+      ]
+    }
+  ]
+}

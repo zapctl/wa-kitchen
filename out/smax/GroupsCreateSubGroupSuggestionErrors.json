@@ -1,0 +1,31 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "CreateSubGroupSuggestionErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorResourceLimit"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

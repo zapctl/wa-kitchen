@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterMedia",
+  "unions": [
+    {
+      "$ref": "MessageDeliver:WAMOSub"
+    },
+    {
+      "$ref": "MessageDeliver:MessageAssociationType"
+    },
+    {
+      "$ref": "MessageDeliver:MediaMeta"
+    }
+  ]
+}

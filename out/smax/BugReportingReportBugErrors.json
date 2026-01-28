@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "BugReporting",
+  "variant": "ReportBugErrors",
+  "unions": [
+    {
+      "$ref": "BugReporting:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BugReporting:IQErrorInternalServerError"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "FetchMissingPreKeysUserSuccess",
+  "tag": "user",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "namespace": "PreKeys",
+      "variant": "RegistrationID",
+      "unions": [
+        {
+          "type": "node",
+          "namespace": "PreKeys",
+          "variant": "KeyType",
+          "tag": "device",
+          "content": [
+            {
+              "type": "node",
+              "tag": "type",
+              "content": {
+                "type": "binary",
+                "literal": {
+                  "0": 5
+                }
+              }
+            },
+            {
+              "type": "node",
+              "tag": "key",
+              "content": [
+                {
+                  "$ref": "PreKeys:KeyID"
+                },
+                {
+                  "type": "node",
+                  "namespace": "PreKeys",
+                  "variant": "KeyData",
+                  "tag": "value",
+                  "content": {
+                    "type": "binary",
+                    "min": 32,
+                    "max": 32
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "namespace": "PreKeys",
+          "variant": "DeviceIdentity",
+          "tag": "device",
+          "content": [
+            {
+              "type": "node",
+              "tag": "device-identity",
+              "content": {
+                "type": "binary"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

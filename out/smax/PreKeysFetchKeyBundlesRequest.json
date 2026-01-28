@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "namespace": "PreKeysFetchKeyBundlesRequest",
+  "variant": "makeFetchKeyBundlesRequest",
+  "tag": "iq",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "id": {
+      "type": "id"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "encrypt"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "key",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node"
+        }
+      ]
+    }
+  ]
+}

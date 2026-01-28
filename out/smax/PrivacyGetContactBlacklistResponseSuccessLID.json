@@ -1,0 +1,63 @@
+{
+  "type": "node",
+  "namespace": "Privacy",
+  "variant": "GetContactBlacklistResponseSuccessLID",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "privacy",
+      "attributes": {
+        "addressing_mode": {
+          "type": "string",
+          "literal": "lid"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "list",
+          "attributes": {
+            "dhash": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "namespace": "Privacy",
+              "variant": "PrivacyContactListIdentifier",
+              "tag": "user",
+              "attributes": {
+                "jid": {
+                  "optional": true,
+                  "type": "jid",
+                  "jidTypes": [
+                    "LidUserJid"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

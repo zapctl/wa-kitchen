@@ -1,0 +1,37 @@
+{
+  "type": "union",
+  "namespace": "Chatstate",
+  "variant": "ServerNotificationRequest",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "Chatstate",
+      "variant": "InternalTest",
+      "tag": "chatstate",
+      "content": [
+        {
+          "type": "node",
+          "tag": "test",
+          "attributes": {
+            "config": {
+              "optional": true,
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "Chatstate:FromUser"
+    },
+    {
+      "$ref": "Chatstate:FromGroup"
+    },
+    {
+      "$ref": "Chatstate:Composing"
+    },
+    {
+      "$ref": "Chatstate:Paused"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "namespace": "Presence",
+  "variant": "ServerUpdateRequest",
+  "unions": [
+    {
+      "$ref": "Presence:GroupAvailable"
+    },
+    {
+      "$ref": "Presence:GroupUnavailable"
+    },
+    {
+      "$ref": "Presence:LastSeenWithOtherValue"
+    },
+    {
+      "$ref": "Presence:UserUnavailable"
+    },
+    {
+      "$ref": "Presence:Available"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "PreKeys",
+  "variant": "ServerErrors",
+  "unions": [
+    {
+      "$ref": "PreKeys:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "PreKeys:IQErrorFallbackServer"
+    }
+  ]
+}

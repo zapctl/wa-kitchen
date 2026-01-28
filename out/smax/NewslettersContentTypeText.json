@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "ContentTypeText",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  }
+}

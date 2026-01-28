@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterMessagesClientErrors",
+  "unions": [
+    {
+      "$ref": "Newsletters:BadRequestIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:UnavailableForLegalReasonsResponse"
+    },
+    {
+      "$ref": "Newsletters:ItemNotFoundIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:SuspendedIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:RateLimitedIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:NotAllowedIQErrorResponse"
+    }
+  ]
+}

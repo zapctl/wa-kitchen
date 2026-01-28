@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "AllMembersShareMode",
+  "tag": "member_share_group_history_mode",
+  "content": {
+    "type": "string",
+    "literal": "all_member_share",
+    "as": "binary"
+  }
+}

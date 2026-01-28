@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "FetchMissingPreKeysResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "$ref": "PreKeys:FetchMissingPreKeysUserSuccess"
+            },
+            {
+              "$ref": "PreKeys:FetchMissingPreKeysUserError"
+            },
+            {
+              "$ref": "PreKeys:FetchMissingPreKeysUserErrorFallback"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

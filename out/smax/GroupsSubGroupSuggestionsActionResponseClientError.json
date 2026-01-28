@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsActionResponseClientError",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Groups:IQErrorItemNotFound"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "Groups:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Groups:IQErrorFallbackClient"
+        }
+      ]
+    }
+  ]
+}

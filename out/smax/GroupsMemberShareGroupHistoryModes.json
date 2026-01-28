@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "MemberShareGroupHistoryModes",
+  "unions": [
+    {
+      "$ref": "Groups:AdminShareMode"
+    },
+    {
+      "$ref": "Groups:AllMembersShareMode"
+    },
+    {
+      "$ref": "Groups:UnknownShareMode"
+    }
+  ]
+}

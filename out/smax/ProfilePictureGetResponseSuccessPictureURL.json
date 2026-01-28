@@ -1,0 +1,54 @@
+{
+  "type": "node",
+  "namespace": "ProfilePicture",
+  "variant": "GetResponseSuccessPictureURL",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "picture",
+      "attributes": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "preview"
+          ]
+        },
+        "url": {
+          "type": "string"
+        },
+        "direct_path": {
+          "type": "string"
+        },
+        "hash": {
+          "optional": true,
+          "type": "string"
+        },
+        "has_staging": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      }
+    }
+  ]
+}

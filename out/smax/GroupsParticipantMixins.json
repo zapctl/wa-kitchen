@@ -1,0 +1,29 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "ParticipantMixins",
+  "tag": "participant",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "lid": {
+      "type": "jid",
+      "jidTypes": [
+        "LidUserJid"
+      ]
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  }
+}

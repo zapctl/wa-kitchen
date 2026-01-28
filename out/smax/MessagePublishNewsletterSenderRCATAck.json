@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "namespace": "MessagePublish",
+  "variant": "NewsletterSenderRCATAck",
+  "tag": "ack",
+  "content": [
+    {
+      "type": "node",
+      "tag": "rcat",
+      "content": {
+        "type": "binary"
+      }
+    }
+  ]
+}

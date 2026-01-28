@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "Presence",
+  "variant": "GroupUnavailable",
+  "tag": "presence",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "unavailable"
+    }
+  }
+}

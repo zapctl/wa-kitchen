@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Stats",
+  "variant": "SendBufferNoRetryError",
+  "unions": [
+    {
+      "$ref": "Stats:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Stats:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Stats:IQErrorFeatureNotImplemented"
+    }
+  ]
+}

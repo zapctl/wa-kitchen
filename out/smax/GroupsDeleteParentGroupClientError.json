@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "DeleteParentGroupClientError",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    }
+  ]
+}

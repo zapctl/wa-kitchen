@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "Stats",
+  "variant": "SendBufferResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  }
+}

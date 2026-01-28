@@ -1,0 +1,32 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "SubscribeToLiveUpdatesResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "live_updates",
+      "attributes": {
+        "duration": {
+          "type": "number",
+          "as": "string",
+          "min": 30,
+          "max": 600
+        }
+      }
+    }
+  ]
+}

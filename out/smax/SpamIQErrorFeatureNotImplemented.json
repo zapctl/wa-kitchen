@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Spam",
+  "variant": "IQErrorFeatureNotImplemented",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "feature-not-implemented"
+    },
+    "code": {
+      "type": "number",
+      "literal": 501,
+      "as": "string"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "MembershipRequestsActionResponseSuccess",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_requests_action",
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "content": [
+            {
+              "type": "union",
+              "unions": [
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "Identity",
+                  "tag": "participant",
+                  "attributes": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$ref": "Groups:ParticipantNotFound"
+                },
+                {
+                  "$ref": "Groups:ParticipantNotAuthorized"
+                },
+                {
+                  "$ref": "Groups:ParticipantForbidden"
+                },
+                {
+                  "$ref": "Groups:MembershipRequestsActionParticipantRequestNotFound"
+                },
+                {
+                  "$ref": "Groups:ParticipantTemporarilyBlocked"
+                },
+                {
+                  "$ref": "Groups:ParticipantConflict"
+                },
+                {
+                  "$ref": "Groups:ParticipantResourceConstraint"
+                },
+                {
+                  "$ref": "Groups:ParticipantParentLinkedGroupsResourceConstraint"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "reject",
+          "content": [
+            {
+              "type": "union",
+              "unions": [
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "Identity",
+                  "tag": "participant",
+                  "attributes": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$ref": "Groups:MembershipRequestsActionParticipantRequestNotFound"
+                },
+                {
+                  "$ref": "Groups:ParticipantConflict"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

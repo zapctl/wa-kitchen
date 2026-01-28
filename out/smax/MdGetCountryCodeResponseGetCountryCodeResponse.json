@@ -1,0 +1,29 @@
+{
+  "type": "node",
+  "namespace": "Md",
+  "variant": "GetCountryCodeResponseGetCountryCodeResponse",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "country_code",
+      "attributes": {
+        "iso": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePicturesSuccessOrGetGroupProfilePicturesPartialProfilePictureResponseMixinGroup",
+  "unions": [
+    {
+      "$ref": "Groups:GetGroupProfilePicturesSuccessProfilePictureResponse"
+    },
+    {
+      "$ref": "Groups:GetGroupProfilePicturesPartialProfilePictureResponse"
+    }
+  ]
+}

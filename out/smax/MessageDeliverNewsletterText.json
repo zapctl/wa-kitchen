@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterText",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "$ref": "MessageDeliver:Payload"
+    }
+  ]
+}

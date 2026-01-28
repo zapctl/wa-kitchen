@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "IQErrorNoValidJID",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "not-acceptable"
+    },
+    "code": {
+      "type": "number",
+      "literal": 406,
+      "as": "string"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "type": "union",
+  "namespace": "MessagePublish",
+  "variant": "Ack",
+  "unions": [
+    {
+      "$ref": "MessagePublish:AckMessageEdit"
+    },
+    {
+      "$ref": "MessagePublish:AckAdminEdit"
+    },
+    {
+      "$ref": "MessagePublish:AckMessagePin"
+    },
+    {
+      "$ref": "MessagePublish:AckAdminRevoke"
+    },
+    {
+      "$ref": "MessagePublish:AckRevoke"
+    },
+    {
+      "type": "node",
+      "namespace": "MessagePublish",
+      "variant": "ServerFrankingTag",
+      "tag": "ack",
+      "content": [
+        {
+          "type": "node",
+          "tag": "franking",
+          "content": [
+            {
+              "type": "node",
+              "tag": "reporting_tag",
+              "content": {
+                "type": "binary",
+                "min": 9,
+                "max": 128
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$ref": "MessagePublish:AckPaidConversation"
+    },
+    {
+      "$ref": "MessagePublish:AckPaidGroupConversation"
+    }
+  ]
+}

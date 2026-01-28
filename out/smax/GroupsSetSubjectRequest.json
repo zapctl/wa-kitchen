@@ -1,0 +1,38 @@
+{
+  "type": "node",
+  "namespace": "GroupsSetSubjectRequest",
+  "variant": "makeSetSubjectRequest",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "subject",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {}
+        }
+      ]
+    }
+  ]
+}

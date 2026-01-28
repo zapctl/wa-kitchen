@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "namespace": "PreKeys",
+  "variant": "FetchMissingPreKeysUserErrorFallback",
+  "tag": "user",
+  "content": [
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "text": {
+          "type": "string"
+        },
+        "code": {
+          "type": "number",
+          "as": "string",
+          "min": 500,
+          "max": 599
+        }
+      }
+    }
+  ]
+}

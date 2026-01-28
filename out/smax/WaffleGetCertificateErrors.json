@@ -1,0 +1,28 @@
+{
+  "type": "union",
+  "namespace": "Waffle",
+  "variant": "GetCertificateErrors",
+  "unions": [
+    {
+      "$ref": "Waffle:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Waffle:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "Waffle:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Waffle:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Waffle:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Waffle:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Waffle:IQErrorFeatureNotImplemented"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "namespace": "BizLinking",
+  "variant": "HasShowOnProfile",
+  "tag": "",
+  "content": [
+    {
+      "type": "node",
+      "tag": "show_on_profile",
+      "content": {
+        "type": "string",
+        "as": "binary",
+        "enum": [
+          "false",
+          "true"
+        ]
+      }
+    }
+  ]
+}

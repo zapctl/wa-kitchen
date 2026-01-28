@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionWithoutCreator",
+  "tag": "sub_group_suggestion",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "node",
+  "namespace": "PresenceAvailabilityRequest",
+  "variant": "makeAvailabilityRequest",
+  "tag": "presence",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "optional": true
+    },
+    "name": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

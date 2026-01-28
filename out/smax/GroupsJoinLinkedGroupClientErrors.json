@@ -1,0 +1,40 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "JoinLinkedGroupClientErrors",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Groups:IQErrorConflict"
+    },
+    {
+      "$ref": "Groups:IQErrorResourceLimit"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorUpgradeRequired"
+    },
+    {
+      "$ref": "Groups:IQErrorAlreadyExists"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    }
+  ]
+}

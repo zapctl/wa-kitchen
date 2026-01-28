@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Groups",
+  "variant": "UnlinkGroupsClientError",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAcceptable"
+    }
+  ]
+}

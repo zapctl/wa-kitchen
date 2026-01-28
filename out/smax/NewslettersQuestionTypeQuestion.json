@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "QuestionTypeQuestion",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "questiontype": {
+          "type": "string",
+          "literal": "question"
+        }
+      }
+    }
+  ]
+}
