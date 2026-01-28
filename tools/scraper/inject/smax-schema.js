@@ -18,6 +18,7 @@ const skipForcedMixinFailure = new Set();
 const Types = {
     STANZA: "node",
     STANZA_ID: "id",
+    CALL_ID: "call-id",
     STRING: "string",
     NUMBER: "number",
     BOOLEAN: "boolean",
@@ -30,6 +31,7 @@ const Types = {
 const Placeholder = {
     STANZA: { tag: "", attrs: {}, content: null },
     STANZA_ID: "123.12456-789",
+    CALL_ID: "1234567891234",
     STRING: "placeholder",
     BOOLEAN: true,
     JID: {
@@ -49,8 +51,8 @@ const Placeholder = {
 const WAWapTypes = {
     generateId: { type: Types.STANZA_ID },
     STANZA_ID: { type: Types.STANZA_ID },
+    CALL_ID: { type: Types.CALL_ID },
     CUSTOM_STRING: { type: Types.STRING },
-    CALL_ID: { type: Types.STRING },
     MAYBE_CUSTOM_STRING: { type: Types.STRING },
     INT: { type: Types.NUMBER, as: Types.STRING },
     G_US: { type: Types.JID, jidTypes: ["GroupJid"] },
@@ -90,6 +92,8 @@ function getValueFromMetadata(metadata) {
     switch (metadata.type) {
         case Types.STANZA_ID:
             return Placeholder.STANZA_ID;
+        case Types.CALL_ID:
+            return Placeholder.CALL_ID;
         case Types.STANZA:
             return structuredClone(Placeholder.STANZA);
         case Types.STRING:
@@ -131,8 +135,6 @@ function assignMetadata(obj, metadata = {}) {
             return assignMetadata(obj(...args), metadata);
         }
     }
-
-    console.log("assignMetadata", obj, metadata);
 
     obj = Object(obj);
     const currentMetadata = obj[METADATA_SYMBOL] || {};
@@ -222,18 +224,16 @@ function mergeStanzas(...nodes) {
         };
 
         const mergedContent = (() => {
-            if (
-                Array.isArray(existentNode.content) &&
-                Array.isArray(node.content)
-            ) {
-                return mergeStanzas(
-                    ...existentNode.content,
-                    ...node.content,
-                );
+            if (Array.isArray(existentNode.content) && Array.isArray(node.content)) {
+                return mergeStanzas(...existentNode.content, ...node.content);
             }
+
+            if (Array.isArray(node.content)) return node.content;
+            if (Array.isArray(existentNode.content)) return existentNode.content;
 
             if (node.content instanceof Uint8Array) return node.content;
             if (existentNode.content instanceof Uint8Array) return existentNode.content;
+
             return null;
         })();
 
@@ -458,9 +458,19 @@ function createModuleMetadataProxy(targetModule) {
                         assignMetadata(node, {
                             type: Types.STANZA,
                             attrs: {
-                                [attrName]: {
-                                    type: Types.STANZA_ID
-                                }
+                                [attrName]: { type: Types.STANZA_ID }
+                            }
+                        });
+
+                        return originalValue(node, attrName);
+                    }
+
+                case "attrCallId":
+                    return (node, attrName) => {
+                        assignMetadata(node, {
+                            type: Types.STANZA,
+                            attrs: {
+                                [attrName]: { type: Types.CALL_ID }
                             }
                         });
 
@@ -472,9 +482,7 @@ function createModuleMetadataProxy(targetModule) {
                         assignMetadata(node, {
                             type: Types.STANZA,
                             attrs: {
-                                [attrName]: {
-                                    type: Types.STRING
-                                }
+                                [attrName]: { type: Types.STRING }
                             }
                         });
 
@@ -742,7 +750,7 @@ function createMixinProxy(mixinModule, moduleName) {
 
                 if (!result?.success) {
                     if (result.mixin) skipForcedMixinFailure.add(result.mixin);
-                    return result;
+                    throw PROP_RETRY_ERROR;
                 }
 
                 if (typeof node.tag === "string") proxy.tag = node.tag;
@@ -832,18 +840,19 @@ function createPropProxy(hint = new Map(), path = "") {
     }
 
     function clear() {
+        if (Array.isArray(instance[METADATA_SYMBOL]?.unions)) {
+            instance[METADATA_SYMBOL].unions.splice(0);
+        }
+
         for (const hintData of hint.values()) {
-            if (!hintData.value) continue;
+            if (Array.isArray(hintData.metadata.unions)) {
+                hintData.metadata.unions.splice(0);
+            }
 
             if (Array.isArray(hintData.value)) {
                 hintData.value.splice(0);
-            } else if (typeof hintData.value === "object") {
-                if (Array.isArray(hintData.value.content)) {
-                    hintData.value.content.splice(0);
-                }
-                if (Array.isArray(hintData.value.unions)) {
-                    hintData.value.unions.splice(0);
-                }
+            } else if (Array.isArray(hintData.value?.content)) {
+                hintData.value.content.splice(0);
             }
         }
     }
@@ -966,6 +975,8 @@ function withParamsPlaceholder(callback) {
     const paramsProxy = createPropProxy();
     const referenceProxy = createPropProxy();
 
+    skipForcedMixinFailure.clear();
+
     for (let i = 0; i < 5_000; i++) {
         try {
             paramsProxy.clear();
@@ -979,15 +990,11 @@ function withParamsPlaceholder(callback) {
                 continue;
             }
 
-            skipForcedMixinFailure.clear();
-
             if (result.error) throw new Error(result.error);
             if (result.success) return paramsProxy.toObject();
             return result;
         } catch (error) {
             if (error === PROP_RETRY_ERROR) continue;
-
-            skipForcedMixinFailure.clear();
             throw error;
         }
     }
@@ -1037,7 +1044,84 @@ function convertToSchema(stanza) {
     return schema;
 }
 
-const SMaxModules = Object.keys(modulesMap)
+function minifySchema(schemas) {
+    const definitions = {};
+    const canonicalDefs = new Map();
+    let refCount = 0;
+    let conflictCount = 0;
+
+    function processNode(node, path = "") {
+        if (!node || typeof node !== "object") return node;
+
+        if (Array.isArray(node)) {
+            return node.map((item, idx) => processNode(item, `${path}[${idx}]`));
+        }
+
+        if (node.type === "union" && Array.isArray(node.unions)) {
+            node.unions = node.unions.map((union, idx) =>
+                processNode(union, `${path}.unions[${idx}]`)
+            );
+            return node;
+        }
+
+        if (node.namespace && node.variant) {
+            const key = `${node.namespace}::${node.variant}`;
+
+            if (canonicalDefs.has(key)) {
+                const canonical = canonicalDefs.get(key);
+
+                if (deepEquals(node, canonical)) {
+                    refCount++;
+                    return { "$ref": `#/${key}` };
+                } else {
+                    conflictCount++;
+                    console.warn(
+                        `[minifySchema] Conflito em ${key}: estruturas diferentes. Path: ${path}`
+                    );
+                    delete node.namespace;
+                    delete node.variant;
+                }
+            } else {
+                const cloned = JSON.parse(JSON.stringify(node));
+                canonicalDefs.set(key, cloned);
+                definitions[key] = cloned;
+            }
+        }
+
+        if (Array.isArray(node.content)) {
+            node.content = node.content.map((child, idx) =>
+                processNode(child, `${path}.content[${idx}]`)
+            );
+        } else if (node.content && typeof node.content === "object" && node.content.children) {
+            node.content.children = node.content.children.map((child, idx) =>
+                processNode(child, `${path}.content.children[${idx}]`)
+            );
+        }
+
+        return node;
+    }
+
+    const result = {};
+
+    for (const [name, schema] of Object.entries(schemas)) {
+        result[name] = processNode(schema, name);
+    }
+
+    for (const [key, def] of Object.entries(definitions)) {
+        if (!result[key]) {
+            result[key] = def;
+        }
+    }
+
+    console.log(`\n[minifySchema] Estatísticas:`);
+    console.log(`  - Definições canônicas: ${canonicalDefs.size}`);
+    console.log(`  - Referências criadas: ${refCount}`);
+    console.log(`  - Conflitos encontrados: ${conflictCount}`);
+
+    return result;
+}
+
+const SMaxInOutModules = Object.keys(modulesMap)
     .filter(key => /^WASmax(In|Out)/.test(key))
     .map(moduleName => {
         const module = require(moduleName);
@@ -1059,28 +1143,32 @@ const SMaxModules = Object.keys(modulesMap)
     .filter(mod => mod.parser)
     .sort((a, b) => a.moduleName.localeCompare(b.moduleName));
 
+const SMaxRPCModules = Object.keys(modulesMap)
+    .filter(key => /^WASmax(In|Out).*RPC$/.test(key));
+
 const schemas = withMockedModules(() => {
     console.clear();
 
     const schemaSpecs = {};
 
-    for (const mod of SMaxModules) {
-        if (mod.moduleName !== "NewslettersGetNewsletterMessagesResponseClientError") continue;
+    for (const mod of SMaxInOutModules) {
+        // if (mod.moduleName !== "VoipLinkCreateResponseLinkCreateAck") continue;
 
-        console.clear();
         console.log(
-            `[${Object.keys(schemaSpecs).length}/${SMaxModules.length}]`,
+            `[${Object.keys(schemaSpecs).length + 1}/${SMaxInOutModules.length}]`,
             mod.moduleName,
         );
 
         const stanza = withParamsPlaceholder(mod.parser);
         assignMetadata(stanza, createModuleName(mod));
 
+        console.log(stanza);
         schemaSpecs[mod.moduleName] = convertToSchema(stanza);
     }
 
     return schemaSpecs;
 });
 
-// console.clear();
-console.log("SMaxInputSchemas", schemas);
+const minified = minifySchema(schemas);
+
+console.log("SMaxInputSchemas", minified);
