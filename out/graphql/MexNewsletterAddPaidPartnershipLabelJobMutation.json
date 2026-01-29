@@ -1,20 +1,14 @@
 {
-  "id": "25757341163897635",
-  "name": "MexSetUsernameJob",
+  "id": "25690501173969818",
+  "name": "MexNewsletterAddPaidPartnershipLabelJob",
   "type": "mutation",
   "input": {
     "type": "object",
     "properties": {
-      "input": {
+      "newsletter_id": {
         "type": "scalar"
       },
-      "reserved": {
-        "type": "scalar"
-      },
-      "session_id": {
-        "type": "scalar"
-      },
-      "source": {
+      "server_id": {
         "type": "scalar"
       }
     }
@@ -22,10 +16,10 @@
   "output": {
     "type": "object",
     "properties": {
-      "xwa2_username_set": {
+      "xwa2_newsletter_label_paid_partnership": {
         "type": "object",
         "properties": {
-          "result": {
+          "id": {
             "type": "scalar"
           }
         }
