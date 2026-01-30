@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "SubjectOwnerUsername",
-  "tag": "",
-  "attributes": {
-    "s_o_username": {
-      "type": "string"
-    }
-  }
+  "variant": "SubjectOwnerUsername"
 }

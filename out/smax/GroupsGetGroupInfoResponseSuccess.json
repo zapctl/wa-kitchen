@@ -24,6 +24,26 @@
         {
           "type": "node",
           "namespace": "Groups",
+          "variant": "DedupAttrs",
+          "tag": "group",
+          "attributes": {
+            "key": {
+              "type": "string"
+            },
+            "create_ctx": {
+              "optional": true,
+              "type": "string",
+              "enum": [
+                "e2ee_migration",
+                "regular",
+                "rtc"
+              ]
+            }
+          }
+        },
+        {
+          "type": "node",
+          "namespace": "Groups",
           "variant": "GroupAddressingMode",
           "tag": "group",
           "attributes": {
@@ -83,26 +103,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "node",
-          "namespace": "Groups",
-          "variant": "DedupAttrs",
-          "tag": "group",
-          "attributes": {
-            "key": {
-              "type": "string"
-            },
-            "create_ctx": {
-              "optional": true,
-              "type": "string",
-              "enum": [
-                "e2ee_migration",
-                "regular",
-                "rtc"
-              ]
-            }
-          }
         }
       ]
     }

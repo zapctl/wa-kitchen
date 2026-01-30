@@ -7,19 +7,19 @@
       "$ref": "Newsletters:BadRequestIQErrorResponse"
     },
     {
-      "$ref": "Newsletters:UnavailableForLegalReasonsResponse"
-    },
-    {
       "$ref": "Newsletters:ItemNotFoundIQErrorResponse"
     },
     {
-      "$ref": "Newsletters:SuspendedIQErrorResponse"
+      "$ref": "Newsletters:NotAllowedIQErrorResponse"
     },
     {
       "$ref": "Newsletters:RateLimitedIQErrorResponse"
     },
     {
-      "$ref": "Newsletters:NotAllowedIQErrorResponse"
+      "$ref": "Newsletters:SuspendedIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:UnavailableForLegalReasonsResponse"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "Blocklists",
+  "variant": "UpdateOptoutErrors",
+  "unions": [
+    {
+      "$ref": "Blocklists:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Blocklists:IQErrorForbidden"
+    },
+    {
+      "$ref": "Blocklists:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Blocklists:IQErrorRateOverlimit"
+    }
+  ]
+}

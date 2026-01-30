@@ -7,19 +7,19 @@
       "$ref": "Waffle:IQErrorBadRequest"
     },
     {
-      "$ref": "Waffle:IQErrorRequestTimeout"
-    },
-    {
       "$ref": "Waffle:IQErrorInternalServerError"
     },
     {
-      "$ref": "Waffle:IQErrorServiceUnavailable"
+      "$ref": "Waffle:IQErrorNotAllowed"
     },
     {
       "$ref": "Waffle:IQErrorRateOverlimit"
     },
     {
-      "$ref": "Waffle:IQErrorNotAllowed"
+      "$ref": "Waffle:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "Waffle:IQErrorServiceUnavailable"
     }
   ]
 }

@@ -6,63 +6,39 @@
     {
       "type": "union",
       "namespace": "MessageDeliver",
-      "variant": "NewsletterQuestion",
+      "variant": "NewsletterEdit",
       "unions": [
-        {
-          "type": "node",
-          "namespace": "MessageDeliver",
-          "variant": "NewsletterText",
-          "tag": "message",
-          "attributes": {
-            "type": {
-              "type": "string",
-              "literal": "text"
-            }
-          },
-          "content": [
-            {
-              "$ref": "MessageDeliver:Payload"
-            },
-            {
-              "type": "node",
-              "tag": "meta",
-              "attributes": {
-                "is_wamo_sub": {
-                  "type": "string",
-                  "literal": "true"
-                }
-              }
-            }
-          ]
-        },
         {
           "type": "union",
           "namespace": "MessageDeliver",
           "variant": "NewsletterMedia",
           "unions": [
             {
-              "$ref": "MessageDeliver:MessageAssociationType"
+              "$ref": "MessageDeliver:MediaMeta"
             },
             {
-              "$ref": "MessageDeliver:MediaMeta"
+              "$ref": "MessageDeliver:MessageAssociationType"
             }
           ]
-        }
-      ]
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterQuestionResponse"
-    },
-    {
-      "type": "union",
-      "namespace": "MessageDeliver",
-      "variant": "NewsletterEdit",
-      "unions": [
+        },
         {
           "type": "union",
           "namespace": "MessageDeliver",
           "variant": "NewsletterQuestionReply",
           "unions": [
+            {
+              "type": "union",
+              "namespace": "MessageDeliver",
+              "variant": "NewsletterMedia",
+              "unions": [
+                {
+                  "$ref": "MessageDeliver:MediaMeta"
+                },
+                {
+                  "$ref": "MessageDeliver:MessageAssociationType"
+                }
+              ]
+            },
             {
               "type": "node",
               "namespace": "MessageDeliver",
@@ -89,19 +65,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "union",
-              "namespace": "MessageDeliver",
-              "variant": "NewsletterMedia",
-              "unions": [
-                {
-                  "$ref": "MessageDeliver:MessageAssociationType"
-                },
-                {
-                  "$ref": "MessageDeliver:MediaMeta"
-                }
-              ]
             }
           ]
         },
@@ -131,17 +94,73 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "union",
+      "namespace": "MessageDeliver",
+      "variant": "NewsletterMedia",
+      "unions": [
+        {
+          "$ref": "MessageDeliver:MediaMeta"
         },
+        {
+          "$ref": "MessageDeliver:MessageAssociationType"
+        }
+      ]
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterPollCreation"
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterPollResultSnapshot"
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterPollVote"
+    },
+    {
+      "type": "union",
+      "namespace": "MessageDeliver",
+      "variant": "NewsletterQuestion",
+      "unions": [
         {
           "type": "union",
           "namespace": "MessageDeliver",
           "variant": "NewsletterMedia",
           "unions": [
             {
-              "$ref": "MessageDeliver:MessageAssociationType"
+              "$ref": "MessageDeliver:MediaMeta"
             },
             {
-              "$ref": "MessageDeliver:MediaMeta"
+              "$ref": "MessageDeliver:MessageAssociationType"
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "namespace": "MessageDeliver",
+          "variant": "NewsletterText",
+          "tag": "message",
+          "attributes": {
+            "type": {
+              "type": "string",
+              "literal": "text"
+            }
+          },
+          "content": [
+            {
+              "$ref": "MessageDeliver:Payload"
+            },
+            {
+              "type": "node",
+              "tag": "meta",
+              "attributes": {
+                "is_wamo_sub": {
+                  "type": "string",
+                  "literal": "true"
+                }
+              }
             }
           ]
         }
@@ -153,6 +172,19 @@
       "variant": "NewsletterQuestionReply",
       "unions": [
         {
+          "type": "union",
+          "namespace": "MessageDeliver",
+          "variant": "NewsletterMedia",
+          "unions": [
+            {
+              "$ref": "MessageDeliver:MediaMeta"
+            },
+            {
+              "$ref": "MessageDeliver:MessageAssociationType"
+            }
+          ]
+        },
+        {
           "type": "node",
           "namespace": "MessageDeliver",
           "variant": "NewsletterText",
@@ -178,21 +210,20 @@
               }
             }
           ]
-        },
-        {
-          "type": "union",
-          "namespace": "MessageDeliver",
-          "variant": "NewsletterMedia",
-          "unions": [
-            {
-              "$ref": "MessageDeliver:MessageAssociationType"
-            },
-            {
-              "$ref": "MessageDeliver:MediaMeta"
-            }
-          ]
         }
       ]
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterQuestionResponse"
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterQuizCreation"
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterReaction"
+    },
+    {
+      "$ref": "MessageDeliver:NewsletterReactionRevoke"
     },
     {
       "type": "node",
@@ -212,10 +243,6 @@
       "content": [
         {
           "type": "node",
-          "tag": "plaintext"
-        },
-        {
-          "type": "node",
           "tag": "meta",
           "attributes": {
             "is_wamo_sub": {
@@ -223,6 +250,10 @@
               "literal": "true"
             }
           }
+        },
+        {
+          "type": "node",
+          "tag": "plaintext"
         }
       ]
     },
@@ -254,37 +285,6 @@
       ]
     },
     {
-      "type": "union",
-      "namespace": "MessageDeliver",
-      "variant": "NewsletterMedia",
-      "unions": [
-        {
-          "$ref": "MessageDeliver:MessageAssociationType"
-        },
-        {
-          "$ref": "MessageDeliver:MediaMeta"
-        }
-      ]
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterReaction"
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterReactionRevoke"
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterPollCreation"
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterQuizCreation"
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterPollVote"
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterPollResultSnapshot"
-    },
-    {
       "type": "node",
       "namespace": "MessageDeliver",
       "variant": "NewsletterWAMOEmpty",
@@ -302,10 +302,6 @@
       "content": [
         {
           "type": "node",
-          "tag": "plaintext"
-        },
-        {
-          "type": "node",
           "tag": "meta",
           "attributes": {
             "is_wamo_sub": {
@@ -313,6 +309,10 @@
               "literal": "true"
             }
           }
+        },
+        {
+          "type": "node",
+          "tag": "plaintext"
         }
       ]
     }

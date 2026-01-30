@@ -23,19 +23,19 @@
           "$ref": "Groups:IQErrorBadRequest"
         },
         {
-          "$ref": "Groups:IQErrorItemNotFound"
-        },
-        {
-          "$ref": "Groups:IQErrorNotAuthorized"
+          "$ref": "Groups:IQErrorFallbackClient"
         },
         {
           "$ref": "Groups:IQErrorForbidden"
         },
         {
+          "$ref": "Groups:IQErrorItemNotFound"
+        },
+        {
           "$ref": "Groups:IQErrorLocked"
         },
         {
-          "$ref": "Groups:IQErrorFallbackClient"
+          "$ref": "Groups:IQErrorNotAuthorized"
         }
       ]
     }

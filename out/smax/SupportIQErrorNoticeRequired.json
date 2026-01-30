@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "namespace": "Support",
+  "variant": "IQErrorNoticeRequired",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "notice-required"
+    },
+    "code": {
+      "type": "number",
+      "literal": 475,
+      "as": "string"
+    },
+    "tos_version": {
+      "type": "number",
+      "as": "string",
+      "min": 1,
+      "max": 65535
+    }
+  }
+}

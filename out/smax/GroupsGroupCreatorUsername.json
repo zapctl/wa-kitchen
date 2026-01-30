@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "GroupCreatorUsername",
-  "tag": "",
-  "attributes": {
-    "creator_username": {
-      "type": "string"
-    }
-  }
+  "variant": "GroupCreatorUsername"
 }

@@ -7,28 +7,28 @@
       "$ref": "Groups:IQErrorBadRequest"
     },
     {
-      "$ref": "Groups:IQErrorItemNotFound"
+      "$ref": "Groups:IQErrorFallbackClient"
     },
     {
       "$ref": "Groups:IQErrorGone"
     },
     {
-      "$ref": "Groups:IQErrorNotAuthorized"
+      "$ref": "Groups:IQErrorGrowthLocked"
     },
     {
-      "$ref": "Groups:IQErrorNotAcceptable"
+      "$ref": "Groups:IQErrorItemNotFound"
     },
     {
       "$ref": "Groups:IQErrorLocked"
     },
     {
-      "$ref": "Groups:IQErrorGrowthLocked"
+      "$ref": "Groups:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
     },
     {
       "$ref": "Groups:IQErrorParentGroupSuspended"
-    },
-    {
-      "$ref": "Groups:IQErrorFallbackClient"
     }
   ]
 }

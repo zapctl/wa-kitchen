@@ -23,16 +23,16 @@
           "$ref": "Groups:IQErrorBadRequest"
         },
         {
-          "$ref": "Groups:IQErrorNotAuthorized"
-        },
-        {
           "$ref": "Groups:IQErrorItemNotFound"
         },
         {
-          "$ref": "Groups:IQErrorRateOverlimit"
+          "$ref": "Groups:IQErrorLocked"
         },
         {
-          "$ref": "Groups:IQErrorLocked"
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "Groups:IQErrorRateOverlimit"
         }
       ]
     }

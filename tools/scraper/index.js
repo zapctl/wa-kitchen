@@ -34,8 +34,9 @@ const browser = await puppeteer.launch({
 
 const [page] = await browser.pages();
 
-await page.setUserAgent((await browser.userAgent())
-    .replace("HeadlessChrome", "Chrome"));
+await page.setUserAgent({
+    userAgent: (await browser.userAgent()).replace("HeadlessChrome", "Chrome"),
+});
 
 const utilsScriptContent = await fs.readFile(UTILS_SCRIPT_PATH, "utf8");
 await page.evaluateOnNewDocument(utilsScriptContent);
@@ -45,11 +46,12 @@ await page.goto("https://web.whatsapp.com/", {
 });
 
 const results = {};
+const AsyncFunction = Object.getPrototypeOf(async function () { }).constructor;
 
 for (const scraper of SCRAPERS) {
     const scriptPath = path.join(__dirname, "inject", `${scraper.name}.js`);
     const scriptContent = await fs.readFile(scriptPath, "utf8");
-    const scriptFunction = new Function("scrap", scriptContent);
+    const scriptFunction = new AsyncFunction("scrap", scriptContent);
 
     results[scraper.name] = await page.evaluate(scriptFunction);
 }

@@ -1,0 +1,43 @@
+{
+  "type": "union",
+  "namespace": "Waffle",
+  "variant": "EncryptedPayloadRequestErrors",
+  "unions": [
+    {
+      "$ref": "Waffle:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Waffle:IQErrorConflict"
+    },
+    {
+      "$ref": "Waffle:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Waffle:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Waffle:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "Waffle:IQErrorPayloadEncDec"
+    },
+    {
+      "$ref": "Waffle:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Waffle:IQErrorRequestTimeout"
+    },
+    {
+      "$ref": "Waffle:IQErrorServiceUnavailable"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFNotFound"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFStateMismatch"
+    },
+    {
+      "$ref": "Waffle:IQErrorWFSuspended"
+    }
+  ]
+}

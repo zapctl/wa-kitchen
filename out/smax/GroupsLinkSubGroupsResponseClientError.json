@@ -23,10 +23,10 @@
           "$ref": "Groups:IQErrorBadRequest"
         },
         {
-          "$ref": "Groups:IQErrorNotAuthorized"
+          "$ref": "Groups:IQErrorForbidden"
         },
         {
-          "$ref": "Groups:IQErrorForbidden"
+          "$ref": "Groups:IQErrorGroupHasPendingAddRequests"
         },
         {
           "$ref": "Groups:IQErrorItemNotFound"
@@ -35,19 +35,19 @@
           "$ref": "Groups:IQErrorNotAllowed"
         },
         {
-          "$ref": "Groups:IQErrorPayloadTooLarge"
-        },
-        {
-          "$ref": "Groups:IQErrorResourceLimit"
+          "$ref": "Groups:IQErrorNotAuthorized"
         },
         {
           "$ref": "Groups:IQErrorParentGroupSuspended"
         },
         {
-          "$ref": "Groups:IQErrorGroupHasPendingAddRequests"
+          "$ref": "Groups:IQErrorPayloadTooLarge"
         },
         {
           "$ref": "Groups:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Groups:IQErrorResourceLimit"
         }
       ]
     }

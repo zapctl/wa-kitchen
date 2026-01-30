@@ -13,10 +13,10 @@
       "$ref": "Groups:IQErrorItemNotFound"
     },
     {
-      "$ref": "Groups:IQErrorRateOverlimit"
+      "$ref": "Groups:IQErrorLocked"
     },
     {
-      "$ref": "Groups:IQErrorLocked"
+      "$ref": "Groups:IQErrorRateOverlimit"
     }
   ]
 }

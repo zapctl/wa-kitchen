@@ -12,6 +12,20 @@
   "content": [
     {
       "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "polltype": {
+          "type": "string",
+          "literal": "vote"
+        },
+        "contenttype": {
+          "optional": true,
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "node",
       "tag": "votes",
       "content": [
         {
@@ -24,20 +38,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "node",
-      "tag": "meta",
-      "attributes": {
-        "polltype": {
-          "type": "string",
-          "literal": "vote"
-        },
-        "contenttype": {
-          "optional": true,
-          "type": "string"
-        }
-      }
     }
   ]
 }

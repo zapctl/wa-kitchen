@@ -4,7 +4,19 @@
   "variant": "CreateParticipantMixins",
   "unions": [
     {
-      "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+      "$ref": "Groups:CreateParticipantAdded"
+    },
+    {
+      "$ref": "Groups:ParticipantBotAlreadyExists"
+    },
+    {
+      "$ref": "Groups:ParticipantBotIncompatibleVersion"
+    },
+    {
+      "$ref": "Groups:ParticipantHasInvalidPN"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAcceptable"
     },
     {
       "$ref": "Groups:ParticipantNotAuthorized"
@@ -16,25 +28,13 @@
       "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
     },
     {
-      "$ref": "Groups:ParticipantHasInvalidPN"
-    },
-    {
       "$ref": "Groups:ParticipantResourceConstraint"
-    },
-    {
-      "$ref": "Groups:ParticipantNotAcceptable"
     },
     {
       "$ref": "Groups:ParticipantResourceLimit"
     },
     {
-      "$ref": "Groups:ParticipantBotIncompatibleVersion"
-    },
-    {
-      "$ref": "Groups:ParticipantBotAlreadyExists"
-    },
-    {
-      "$ref": "Groups:CreateParticipantAdded"
+      "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "namespace": "Support",
+  "variant": "ContactFormError",
+  "unions": [
+    {
+      "$ref": "Support:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Support:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Support:IQErrorNoticeRequired"
+    }
+  ]
+}

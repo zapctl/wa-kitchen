@@ -38,6 +38,15 @@
           "type": "union",
           "unions": [
             {
+              "$ref": "Groups:ParticipantNotAcceptable"
+            },
+            {
+              "$ref": "Groups:ParticipantNotAllowed"
+            },
+            {
+              "$ref": "Groups:ParticipantNotInGroup"
+            },
+            {
               "type": "node",
               "namespace": "Groups",
               "variant": "PhoneNumber",
@@ -52,6 +61,9 @@
               }
             },
             {
+              "$ref": "Groups:RemoveParticipantsLinkedGroupsServerError"
+            },
+            {
               "type": "node",
               "namespace": "Groups",
               "variant": "UsernameAtt",
@@ -61,18 +73,6 @@
                   "type": "string"
                 }
               }
-            },
-            {
-              "$ref": "Groups:ParticipantNotInGroup"
-            },
-            {
-              "$ref": "Groups:ParticipantNotAllowed"
-            },
-            {
-              "$ref": "Groups:ParticipantNotAcceptable"
-            },
-            {
-              "$ref": "Groups:RemoveParticipantsLinkedGroupsServerError"
             }
           ]
         }

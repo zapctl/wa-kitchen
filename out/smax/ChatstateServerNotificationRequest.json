@@ -4,6 +4,15 @@
   "variant": "ServerNotificationRequest",
   "unions": [
     {
+      "$ref": "Chatstate:Composing"
+    },
+    {
+      "$ref": "Chatstate:FromGroup"
+    },
+    {
+      "$ref": "Chatstate:FromUser"
+    },
+    {
       "type": "node",
       "namespace": "Chatstate",
       "variant": "InternalTest",
@@ -20,15 +29,6 @@
           }
         }
       ]
-    },
-    {
-      "$ref": "Chatstate:FromUser"
-    },
-    {
-      "$ref": "Chatstate:FromGroup"
-    },
-    {
-      "$ref": "Chatstate:Composing"
     },
     {
       "$ref": "Chatstate:Paused"

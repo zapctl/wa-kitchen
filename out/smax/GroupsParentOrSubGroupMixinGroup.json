@@ -4,10 +4,32 @@
   "variant": "ParentOrSubGroupMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:ParentGroup"
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "ParentGroup",
+      "tag": "",
+      "attributes": {
+        "parent_group_jid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        }
+      }
     },
     {
-      "$ref": "Groups:SubGroup"
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "SubGroup",
+      "tag": "",
+      "attributes": {
+        "sub_group_jid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        }
+      }
     }
   ]
 }

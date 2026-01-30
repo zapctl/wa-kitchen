@@ -23,37 +23,37 @@
           "$ref": "Waffle:IQErrorBadRequest"
         },
         {
-          "$ref": "Waffle:IQErrorRequestTimeout"
-        },
-        {
-          "$ref": "Waffle:IQErrorPayloadEncDec"
+          "$ref": "Waffle:IQErrorConflict"
         },
         {
           "$ref": "Waffle:IQErrorInternalServerError"
         },
         {
-          "$ref": "Waffle:IQErrorServiceUnavailable"
+          "$ref": "Waffle:IQErrorNotAllowed"
         },
         {
           "$ref": "Waffle:IQErrorNotAuthorized"
         },
         {
+          "$ref": "Waffle:IQErrorPayloadEncDec"
+        },
+        {
           "$ref": "Waffle:IQErrorRateOverlimit"
         },
         {
-          "$ref": "Waffle:IQErrorNotAllowed"
+          "$ref": "Waffle:IQErrorRequestTimeout"
         },
         {
-          "$ref": "Waffle:IQErrorConflict"
+          "$ref": "Waffle:IQErrorServiceUnavailable"
         },
         {
           "$ref": "Waffle:IQErrorWFNotFound"
         },
         {
-          "$ref": "Waffle:IQErrorWFSuspended"
+          "$ref": "Waffle:IQErrorWFStateMismatch"
         },
         {
-          "$ref": "Waffle:IQErrorWFStateMismatch"
+          "$ref": "Waffle:IQErrorWFSuspended"
         }
       ]
     }

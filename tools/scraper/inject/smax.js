@@ -1,6 +1,4 @@
-//# sourceURL=smax-schema.js
-const modulesMap = require("__debug").modulesMap;
-
+const WABootloader = require("Bootloader");
 const WAWap = require("WAWap");
 const WASmaxJsx = require("WASmaxJsx");
 const WASmaxParseUtils = require("WASmaxParseUtils");
@@ -11,7 +9,7 @@ const WASmaxChildren = require("WASmaxChildren");
 const WASmaxMixins = require("WASmaxMixins");
 
 const METADATA_SYMBOL = Symbol("metadata");
-const PROP_RETRY_ERROR = new Error("retry");
+const RETRY_ERROR = new Error("retry");
 
 const skipForcedMixinFailure = new Set();
 
@@ -177,7 +175,7 @@ function assignMetadata(obj, metadata = {}) {
     }
 
     if (typeof obj?.assignMetadata === "function") {
-        if (obj.assignMetadata(metadata)) throw PROP_RETRY_ERROR;
+        if (obj.assignMetadata(metadata)) throw RETRY_ERROR;
     }
 
     return Object.defineProperty(obj, METADATA_SYMBOL, {
@@ -203,7 +201,8 @@ function pushNodeChild(node, tagName, metadata = {}) {
 }
 
 function deepEquals(a, b) {
-    return JSON.stringify(a) === JSON.stringify(b);
+    if (typeof a === "object") return JSON.stringify(a) === JSON.stringify(b);
+    return a === b;
 }
 
 function mergeStanzas(...nodes) {
@@ -738,8 +737,7 @@ function createMixinProxy(mixinModule, moduleName) {
         get(target, propertyName) {
             const originalValue = target[propertyName];
             const isParseMixin = typeof originalValue === "function" &&
-                propertyName.startsWith("parse") &&
-                propertyName.endsWith("Mixin");
+                /^parse.*Mixin$/.test(propertyName);
 
             if (!isParseMixin) return originalValue;
 
@@ -750,7 +748,7 @@ function createMixinProxy(mixinModule, moduleName) {
 
                 if (!result?.success) {
                     if (result.mixin) skipForcedMixinFailure.add(result.mixin);
-                    throw PROP_RETRY_ERROR;
+                    throw RETRY_ERROR;
                 }
 
                 if (typeof node.tag === "string") proxy.tag = node.tag;
@@ -932,6 +930,7 @@ function createPropProxy(hint = new Map(), path = "") {
 }
 
 function withMockedModules(callback) {
+    const modulesMap = require("__debug").modulesMap;
     const originalExports = {};
 
     try {
@@ -994,7 +993,7 @@ function withParamsPlaceholder(callback) {
             if (result.success) return paramsProxy.toObject();
             return result;
         } catch (error) {
-            if (error === PROP_RETRY_ERROR) continue;
+            if (error === RETRY_ERROR) continue;
             throw error;
         }
     }
@@ -1047,25 +1046,49 @@ function convertToSchema(stanza) {
 function minifySchema(schemaObj, schemaNodes = null) {
     const schemaObjNodes = Object.values(schemaObj);
 
+    function processNodesKey(node) {
+        if (node.$key || !node.namespace || !node.variant) return;
+
+        Object.defineProperty(node, "$key", {
+            value: JSON.stringify(node),
+            writable: false,
+            enumerable: false,
+        });
+    }
+
+    function getNodeKey(obj) {
+        if (obj.$ref) return obj.$ref;
+        if (obj.namespace) return `${obj.namespace}:${obj.variant}`;
+        return obj.tag || "";
+    }
+
+    function sortByKey(nodes) {
+        return nodes
+            .map(node => [getNodeKey(node), node])
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .map(pair => pair[1]);
+    }
+
     function processNode(node) {
-        const existent = schemaObjNodes.find(schemaNode => (
-            schemaNode !== node &&
-            schemaNode.namespace && schemaNode.variant &&
-            deepEquals(schemaNode, node)
+        const existent = node.$key && schemaObjNodes.find(schemaNode => (
+            schemaNode !== node && schemaNode.$key === node.$key
         ));
 
-        if (existent) return { $ref: `${existent.namespace}:${existent.variant}` }
+        if (existent) return { $ref: `${existent.namespace}:${existent.variant}` };
 
         const minified = { ...node };
 
         if (Array.isArray(minified.content))
-            minified.content = minifySchema(schemaObj, minified.content);
+            minified.content = sortByKey(minifySchema(schemaObj, minified.content));
 
         if (Array.isArray(minified.unions))
-            minified.unions = minifySchema(schemaObj, minified.unions);
+            minified.unions = sortByKey(minifySchema(schemaObj, minified.unions));
 
         return minified;
     }
+
+    schemaObjNodes.forEach(processNodesKey);
+    schemaNodes?.forEach(processNodesKey);
 
     if (schemaNodes) return schemaNodes.map(processNode);
 
@@ -1075,53 +1098,74 @@ function minifySchema(schemaObj, schemaNodes = null) {
     }, {});
 }
 
-const SMaxInOutModules = Object.keys(modulesMap)
-    .filter(key => /^WASmax(In|Out)/.test(key))
-    .map(moduleName => {
-        const module = require(moduleName);
-        const moduleKeys = Object.keys(module);
+async function preloadAllModules() {
+    ErrorGuard.skipGuardGlobal(true);
 
-        const cleanModuleName = moduleName.replace(/^WASmax(In|Out)|Mixin$/g, "");
+    for (let i = 0; i < 15; i++) {
+        const bootloadedMap = Array.from(WABootloader.__debug.bootloaded.keys());
+        const componentMap = Array.from(WABootloader.__debug.componentMap.keys());
+        const preloadMap = componentMap.filter(name => !bootloadedMap.includes(name));
 
-        const parserName = moduleKeys.find(key => {
-            const cleanParserName = key.replace(/^(parse|make)/, "");
-            return moduleName.endsWith(cleanParserName);
-        });
+        if (bootloadedMap.length >= componentMap.length) break;
 
-        return {
-            moduleName: cleanModuleName,
-            parserName,
-            parser: module[parserName],
-        };
-    })
-    .filter(mod => mod.parser)
-    .sort((a, b) => a.moduleName.localeCompare(b.moduleName));
+        await Promise.race([
+            new Promise((resolve) => WABootloader.loadModules(preloadMap, resolve, "")),
+            new Promise((resolve) => setTimeout(resolve, 1000)),
+        ]);
 
-const SMaxRPCModules = Object.keys(modulesMap)
-    .filter(key => /^WASmax(In|Out).*RPC$/.test(key));
-
-const schemas = withMockedModules(() => {
-    console.clear();
-
-    const schemaSpecs = {};
-
-    for (const mod of SMaxInOutModules) {
-        // if (mod.moduleName !== "VoipLinkCreateResponseLinkCreateAck") continue;
-
-        console.log(
-            `[${Object.keys(schemaSpecs).length + 1}/${SMaxInOutModules.length}]`,
-            mod.moduleName,
-        );
-
-        const stanza = withParamsPlaceholder(mod.parser);
-        assignMetadata(stanza, createModuleName(mod));
-
-        console.log(stanza);
-        schemaSpecs[mod.moduleName] = convertToSchema(stanza);
+        console.log(`Preloaded ${preloadMap.length} modules`);
     }
 
-    return minifySchema(schemaSpecs);
-});
+    ErrorGuard.skipGuardGlobal(false);
+}
+
+function getSMaxInOutModules() {
+    const modulesMap = require("__debug").modulesMap;
+
+    return Object.keys(modulesMap)
+        .filter(key => /^WASmax(In|Out)/.test(key))
+        .filter(key => !/(Enums|RPC)$/.test(key))
+        .map(moduleName => {
+            const module = require(moduleName);
+            const cleanModuleName = moduleName.replace(/^WASmax(In|Out)|Mixin$/g, "");
+
+            const parserName = Object.keys(module).find(key => {
+                const cleanParserName = key.replace(/^(parse|make)/, "");
+                return moduleName.endsWith(cleanParserName);
+            });
+
+            return {
+                moduleName: cleanModuleName,
+                parserName,
+                parser: module[parserName],
+            };
+        })
+        .filter(mod => mod.parser)
+        .sort((a, b) => a.moduleName.localeCompare(b.moduleName));
+}
+
+function getAllModulesSchemas() {
+    return withMockedModules(() => {
+        const schemaSpecs = {};
+        const modules = getSMaxInOutModules();
+
+        modules.forEach((mod, i) => {
+            console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
+
+            const stanza = withParamsPlaceholder(mod.parser);
+            assignMetadata(stanza, createModuleName(mod));
+
+            schemaSpecs[mod.moduleName] = convertToSchema(stanza);
+        });
+
+        console.log("Minifying smax schemas...", schemaSpecs);
+
+        return minifySchema(schemaSpecs);
+    });
+}
+
+await preloadAllModules();
+const schemas = await getAllModulesSchemas();
 
 console.log("SMaxInputSchemas", schemas);
 

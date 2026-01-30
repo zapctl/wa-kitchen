@@ -31,6 +31,12 @@
           "type": "union",
           "unions": [
             {
+              "$ref": "Groups:CancelGroupMembershipRequestsParticipantRequestNotFound"
+            },
+            {
+              "$ref": "Groups:ParticipantNotAuthorized"
+            },
+            {
               "type": "node",
               "namespace": "Groups",
               "variant": "PhoneNumber",
@@ -43,12 +49,6 @@
                   ]
                 }
               }
-            },
-            {
-              "$ref": "Groups:CancelGroupMembershipRequestsParticipantRequestNotFound"
-            },
-            {
-              "$ref": "Groups:ParticipantNotAuthorized"
             }
           ]
         }

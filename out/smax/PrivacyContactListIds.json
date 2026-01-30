@@ -4,10 +4,29 @@
   "variant": "ContactListIds",
   "unions": [
     {
-      "$ref": "Privacy:Username"
+      "type": "node",
+      "namespace": "Privacy",
+      "variant": "PnJid",
+      "tag": "",
+      "attributes": {
+        "pn_jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
     },
     {
-      "$ref": "Privacy:PnJid"
+      "type": "node",
+      "namespace": "Privacy",
+      "variant": "Username",
+      "tag": "",
+      "attributes": {
+        "username": {
+          "type": "string"
+        }
+      }
     }
   ]
 }

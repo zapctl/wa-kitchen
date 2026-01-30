@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "namespace": "Account",
+  "variant": "SetPaymentsTosErrors",
+  "unions": [
+    {
+      "$ref": "Account:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Account:IQErrorConfigMismatch"
+    },
+    {
+      "$ref": "Account:IQErrorForbidden"
+    },
+    {
+      "$ref": "Account:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Account:IQErrorPayUpgradeRequired"
+    },
+    {
+      "$ref": "Account:IQErrorServiceUnavailable"
+    }
+  ]
+}

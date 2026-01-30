@@ -26,10 +26,10 @@
           "$ref": "BizSettings:IQErrorFeatureNotImplemented"
         },
         {
-          "$ref": "BizSettings:IQErrorServiceUnavailable"
+          "$ref": "BizSettings:IQErrorInternalServerError"
         },
         {
-          "$ref": "BizSettings:IQErrorInternalServerError"
+          "$ref": "BizSettings:IQErrorServiceUnavailable"
         }
       ]
     }

@@ -4,19 +4,19 @@
   "variant": "UpdateBlocklistErrors",
   "unions": [
     {
-      "$ref": "Blocklists:IQErrorNotAcceptable"
-    },
-    {
       "$ref": "Blocklists:IQErrorBadRequest"
     },
     {
       "$ref": "Blocklists:IQErrorForbidden"
     },
     {
-      "$ref": "Blocklists:IQErrorRateOverlimit"
+      "$ref": "Blocklists:IQErrorNotAcceptable"
     },
     {
       "$ref": "Blocklists:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "Blocklists:IQErrorRateOverlimit"
     }
   ]
 }

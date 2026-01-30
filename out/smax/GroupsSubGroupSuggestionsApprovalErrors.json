@@ -4,19 +4,19 @@
   "variant": "SubGroupSuggestionsApprovalErrors",
   "unions": [
     {
-      "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
-    },
-    {
-      "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionConflict"
-    },
-    {
-      "$ref": "Groups:SubGroupSuggestionsActionSubGroupResourceConstraint"
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupCreationInternalServerError"
     },
     {
       "$ref": "Groups:SubGroupSuggestionsActionSubGroupPendingGroupAddsError"
     },
     {
-      "$ref": "Groups:SubGroupSuggestionsActionSubGroupCreationInternalServerError"
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupResourceConstraint"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionConflict"
+    },
+    {
+      "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
     }
   ]
 }

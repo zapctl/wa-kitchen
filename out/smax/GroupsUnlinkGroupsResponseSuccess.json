@@ -33,13 +33,13 @@
               "$ref": "Groups:SubGroupBadRequest"
             },
             {
+              "$ref": "Groups:SubGroupNotAcceptable"
+            },
+            {
               "$ref": "Groups:SubGroupNotAuthorized"
             },
             {
               "$ref": "Groups:SubGroupNotExist"
-            },
-            {
-              "$ref": "Groups:SubGroupNotAcceptable"
             },
             {
               "$ref": "Groups:SubGroupPartialServerError"

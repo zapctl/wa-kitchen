@@ -29,11 +29,18 @@
       "content": [
         {
           "type": "node",
-          "tag": "device-identity",
+          "tag": "biz",
+          "attributes": {
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "node",
+          "tag": "client-props",
           "content": {
-            "type": "binary",
-            "min": 1,
-            "max": 500
+            "type": "binary"
           }
         },
         {
@@ -65,27 +72,11 @@
         },
         {
           "type": "node",
-          "tag": "platform",
-          "attributes": {
-            "name": {
-              "type": "string"
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "biz",
-          "attributes": {
-            "name": {
-              "type": "string"
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "client-props",
+          "tag": "device-identity",
           "content": {
-            "type": "binary"
+            "type": "binary",
+            "min": 1,
+            "max": 500
           }
         },
         {
@@ -106,16 +97,7 @@
           "content": [
             {
               "type": "node",
-              "tag": "encrypted_key",
-              "content": {
-                "type": "binary",
-                "min": 1,
-                "max": 2048
-              }
-            },
-            {
-              "type": "node",
-              "tag": "nonce",
+              "tag": "auth_tag",
               "content": {
                 "type": "binary",
                 "min": 1,
@@ -133,7 +115,16 @@
             },
             {
               "type": "node",
-              "tag": "auth_tag",
+              "tag": "encrypted_key",
+              "content": {
+                "type": "binary",
+                "min": 1,
+                "max": 2048
+              }
+            },
+            {
+              "type": "node",
+              "tag": "nonce",
               "content": {
                 "type": "binary",
                 "min": 1,
@@ -141,6 +132,15 @@
               }
             }
           ]
+        },
+        {
+          "type": "node",
+          "tag": "platform",
+          "attributes": {
+            "name": {
+              "type": "string"
+            }
+          }
         }
       ]
     }

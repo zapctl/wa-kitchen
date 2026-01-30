@@ -20,7 +20,16 @@
       "type": "union",
       "unions": [
         {
+          "$ref": "Groups:IQErrorAlreadyExists"
+        },
+        {
           "$ref": "Groups:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Groups:IQErrorConflict"
+        },
+        {
+          "$ref": "Groups:IQErrorFallbackClient"
         },
         {
           "$ref": "Groups:IQErrorForbidden"
@@ -29,28 +38,19 @@
           "$ref": "Groups:IQErrorItemNotFound"
         },
         {
-          "$ref": "Groups:IQErrorNotAllowed"
-        },
-        {
           "$ref": "Groups:IQErrorNotAcceptable"
         },
         {
-          "$ref": "Groups:IQErrorConflict"
-        },
-        {
-          "$ref": "Groups:IQErrorResourceLimit"
+          "$ref": "Groups:IQErrorNotAllowed"
         },
         {
           "$ref": "Groups:IQErrorNotAuthorized"
         },
         {
+          "$ref": "Groups:IQErrorResourceLimit"
+        },
+        {
           "$ref": "Groups:IQErrorUpgradeRequired"
-        },
-        {
-          "$ref": "Groups:IQErrorAlreadyExists"
-        },
-        {
-          "$ref": "Groups:IQErrorFallbackClient"
         }
       ]
     }

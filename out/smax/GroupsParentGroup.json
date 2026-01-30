@@ -1,14 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "ParentGroup",
-  "tag": "",
-  "attributes": {
-    "parent_group_jid": {
-      "type": "jid",
-      "jidTypes": [
-        "GroupJid"
-      ]
-    }
-  }
+  "variant": "ParentGroup"
 }

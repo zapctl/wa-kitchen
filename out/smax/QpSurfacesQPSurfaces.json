@@ -28,18 +28,105 @@
           "content": [
             {
               "type": "node",
-              "tag": "title",
-              "content": {
-                "type": "string",
-                "as": "binary"
+              "tag": "colors",
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "dark",
+                  "attributes": {
+                    "background": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "highlight": {
+                      "optional": true,
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "light",
+                  "attributes": {
+                    "background": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "highlight": {
+                      "optional": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "content_attributes",
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "attribute",
+                  "attributes": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "header",
+              "attributes": {
+                "title": {
+                  "type": "string"
+                }
               }
             },
             {
               "type": "node",
-              "tag": "text",
-              "content": {
-                "type": "string",
-                "as": "binary"
+              "tag": "image",
+              "attributes": {
+                "description": {
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "dark",
+                  "content": {
+                    "type": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "light",
+                  "content": {
+                    "type": "binary"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "primary_action",
+              "attributes": {
+                "text": {
+                  "type": "string"
+                },
+                "universal_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "deep_link": {
+                  "optional": true,
+                  "type": "string"
+                }
               }
             },
             {
@@ -124,21 +211,6 @@
               "content": [
                 {
                   "type": "node",
-                  "tag": "triggers",
-                  "content": [
-                    {
-                      "type": "node",
-                      "tag": "trigger",
-                      "attributes": {
-                        "name": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "node",
                   "tag": "filter_rules",
                   "content": {
                     "type": "binary"
@@ -200,59 +272,23 @@
                       }
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "type": "node",
-              "tag": "header",
-              "attributes": {
-                "title": {
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "node",
-              "tag": "image",
-              "attributes": {
-                "description": {
-                  "type": "string"
-                }
-              },
-              "content": [
-                {
-                  "type": "node",
-                  "tag": "light",
-                  "content": {
-                    "type": "binary"
-                  }
                 },
                 {
                   "type": "node",
-                  "tag": "dark",
-                  "content": {
-                    "type": "binary"
-                  }
+                  "tag": "triggers",
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "trigger",
+                      "attributes": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
                 }
               ]
-            },
-            {
-              "type": "node",
-              "tag": "primary_action",
-              "attributes": {
-                "text": {
-                  "type": "string"
-                },
-                "universal_link": {
-                  "optional": true,
-                  "type": "string"
-                },
-                "deep_link": {
-                  "optional": true,
-                  "type": "string"
-                }
-              }
             },
             {
               "type": "node",
@@ -273,55 +309,19 @@
             },
             {
               "type": "node",
-              "tag": "colors",
-              "content": [
-                {
-                  "type": "node",
-                  "tag": "light",
-                  "attributes": {
-                    "background": {
-                      "optional": true,
-                      "type": "string"
-                    },
-                    "highlight": {
-                      "optional": true,
-                      "type": "string"
-                    }
-                  }
-                },
-                {
-                  "type": "node",
-                  "tag": "dark",
-                  "attributes": {
-                    "background": {
-                      "optional": true,
-                      "type": "string"
-                    },
-                    "highlight": {
-                      "optional": true,
-                      "type": "string"
-                    }
-                  }
-                }
-              ]
+              "tag": "text",
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
             },
             {
               "type": "node",
-              "tag": "content_attributes",
-              "content": [
-                {
-                  "type": "node",
-                  "tag": "attribute",
-                  "attributes": {
-                    "key": {
-                      "type": "string"
-                    },
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                }
-              ]
+              "tag": "title",
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
             }
           ]
         }

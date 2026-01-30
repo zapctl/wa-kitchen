@@ -31,13 +31,13 @@
           "$ref": "Privacy:IQErrorFeatureNotImplemented"
         },
         {
-          "$ref": "Privacy:IQErrorServiceUnavailable"
+          "$ref": "Privacy:IQErrorInternalServerError"
         },
         {
           "$ref": "Privacy:IQErrorRateOverlimit"
         },
         {
-          "$ref": "Privacy:IQErrorInternalServerError"
+          "$ref": "Privacy:IQErrorServiceUnavailable"
         }
       ]
     }

@@ -4,16 +4,52 @@
   "variant": "BlocklistIds",
   "unions": [
     {
-      "$ref": "Blocklists:Username"
+      "type": "node",
+      "namespace": "Blocklists",
+      "variant": "DisplayName",
+      "tag": "",
+      "attributes": {
+        "display_name": {
+          "type": "string"
+        }
+      }
     },
     {
-      "$ref": "Blocklists:PnJid"
+      "type": "node",
+      "namespace": "Blocklists",
+      "variant": "PnJid",
+      "tag": "",
+      "attributes": {
+        "pn_jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
     },
     {
-      "$ref": "Blocklists:DisplayName"
+      "type": "node",
+      "namespace": "Blocklists",
+      "variant": "UnknownIdentifier",
+      "tag": "",
+      "attributes": {
+        "unknown_identifier": {
+          "type": "string",
+          "literal": "true"
+        }
+      }
     },
     {
-      "$ref": "Blocklists:UnknownIdentifier"
+      "type": "node",
+      "namespace": "Blocklists",
+      "variant": "Username",
+      "tag": "",
+      "attributes": {
+        "username": {
+          "type": "string"
+        }
+      }
     }
   ]
 }

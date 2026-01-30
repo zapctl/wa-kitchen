@@ -1,14 +1,5 @@
 {
   "type": "node",
   "namespace": "Privacy",
-  "variant": "PnJid",
-  "tag": "",
-  "attributes": {
-    "pn_jid": {
-      "type": "jid",
-      "jidTypes": [
-        "UserJid"
-      ]
-    }
-  }
+  "variant": "PnJid"
 }

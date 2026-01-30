@@ -23,6 +23,9 @@
           "$ref": "Groups:IQErrorBadRequest"
         },
         {
+          "$ref": "Groups:IQErrorFallbackClient"
+        },
+        {
           "$ref": "Groups:IQErrorItemNotFound"
         },
         {
@@ -30,9 +33,6 @@
         },
         {
           "$ref": "Groups:IQErrorRateOverlimit"
-        },
-        {
-          "$ref": "Groups:IQErrorFallbackClient"
         }
       ]
     }

@@ -4,7 +4,73 @@
   "variant": "NewsletterQuestionReplyOrTextOrMediaMixinGroup",
   "unions": [
     {
-      "$ref": "MessageDeliver:NewsletterQuestionReply"
+      "type": "union",
+      "namespace": "MessageDeliver",
+      "variant": "NewsletterMedia",
+      "unions": [
+        {
+          "$ref": "MessageDeliver:MediaMeta"
+        },
+        {
+          "$ref": "MessageDeliver:MessageAssociationType"
+        },
+        {
+          "$ref": "MessageDeliver:WAMOSub"
+        }
+      ]
+    },
+    {
+      "type": "union",
+      "namespace": "MessageDeliver",
+      "variant": "NewsletterQuestionReply",
+      "unions": [
+        {
+          "type": "union",
+          "namespace": "MessageDeliver",
+          "variant": "NewsletterMedia",
+          "unions": [
+            {
+              "$ref": "MessageDeliver:MediaMeta"
+            },
+            {
+              "$ref": "MessageDeliver:MessageAssociationType"
+            },
+            {
+              "$ref": "MessageDeliver:WAMOSub"
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "namespace": "MessageDeliver",
+          "variant": "NewsletterText",
+          "tag": "message",
+          "attributes": {
+            "type": {
+              "type": "string",
+              "literal": "text"
+            }
+          },
+          "content": [
+            {
+              "$ref": "MessageDeliver:Payload"
+            },
+            {
+              "type": "node",
+              "tag": "meta",
+              "attributes": {
+                "is_wamo_sub": {
+                  "type": "string",
+                  "literal": "true"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$ref": "MessageDeliver:WAMOSub"
+        }
+      ]
     },
     {
       "type": "node",
@@ -32,9 +98,6 @@
           }
         }
       ]
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterMedia"
     }
   ]
 }

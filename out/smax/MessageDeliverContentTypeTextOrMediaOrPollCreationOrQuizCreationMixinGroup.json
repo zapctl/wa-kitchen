@@ -4,9 +4,6 @@
   "variant": "ContentTypeTextOrMediaOrPollCreationOrQuizCreationMixinGroup",
   "unions": [
     {
-      "$ref": "MessageDeliver:ContentTypeText"
-    },
-    {
       "$ref": "MessageDeliver:ContentTypeMedia"
     },
     {
@@ -14,6 +11,9 @@
     },
     {
       "$ref": "MessageDeliver:ContentTypeQuizCreation"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeText"
     }
   ]
 }

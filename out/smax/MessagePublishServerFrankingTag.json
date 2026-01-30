@@ -1,23 +1,5 @@
 {
   "type": "node",
   "namespace": "MessagePublish",
-  "variant": "ServerFrankingTag",
-  "tag": "",
-  "content": [
-    {
-      "type": "node",
-      "tag": "franking",
-      "content": [
-        {
-          "type": "node",
-          "tag": "reporting_tag",
-          "content": {
-            "type": "binary",
-            "min": 9,
-            "max": 128
-          }
-        }
-      ]
-    }
-  ]
+  "variant": "ServerFrankingTag"
 }

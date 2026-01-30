@@ -7,10 +7,10 @@
       "$ref": "Groups:IQErrorBadRequest"
     },
     {
-      "$ref": "Groups:IQErrorRateOverlimit"
+      "$ref": "Groups:IQErrorFallbackClient"
     },
     {
-      "$ref": "Groups:IQErrorFallbackClient"
+      "$ref": "Groups:IQErrorRateOverlimit"
     }
   ]
 }

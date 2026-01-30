@@ -18,15 +18,15 @@
   "content": [
     {
       "type": "node",
-      "tag": "locked"
+      "tag": "allow_admin_reports"
+    },
+    {
+      "type": "node",
+      "tag": "allow_non_admin_sub_group_creation"
     },
     {
       "type": "node",
       "tag": "announcement"
-    },
-    {
-      "type": "node",
-      "tag": "no_frequently_forwarded"
     },
     {
       "type": "node",
@@ -49,19 +49,11 @@
     },
     {
       "type": "node",
-      "tag": "unlocked"
-    },
-    {
-      "type": "node",
-      "tag": "not_announcement"
-    },
-    {
-      "type": "node",
       "tag": "frequently_forwarded_ok"
     },
     {
       "type": "node",
-      "tag": "not_ephemeral"
+      "tag": "group_history"
     },
     {
       "type": "node",
@@ -73,10 +65,10 @@
           "type": "union",
           "unions": [
             {
-              "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
+              "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
             },
             {
-              "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
+              "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
             }
           ]
         }
@@ -84,7 +76,15 @@
     },
     {
       "type": "node",
-      "tag": "allow_admin_reports"
+      "tag": "locked"
+    },
+    {
+      "type": "node",
+      "tag": "no_frequently_forwarded"
+    },
+    {
+      "type": "node",
+      "tag": "no_group_history"
     },
     {
       "type": "node",
@@ -92,19 +92,19 @@
     },
     {
       "type": "node",
-      "tag": "allow_non_admin_sub_group_creation"
-    },
-    {
-      "type": "node",
       "tag": "not_allow_non_admin_sub_group_creation"
     },
     {
       "type": "node",
-      "tag": "group_history"
+      "tag": "not_announcement"
     },
     {
       "type": "node",
-      "tag": "no_group_history"
+      "tag": "not_ephemeral"
+    },
+    {
+      "type": "node",
+      "tag": "unlocked"
     }
   ]
 }

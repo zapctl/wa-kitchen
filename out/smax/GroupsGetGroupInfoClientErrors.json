@@ -4,22 +4,22 @@
   "variant": "GetGroupInfoClientErrors",
   "unions": [
     {
-      "$ref": "Groups:IQErrorGone"
-    },
-    {
       "$ref": "Groups:IQErrorBadRequest"
     },
     {
+      "$ref": "Groups:IQErrorFallbackClient"
+    },
+    {
       "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorGone"
     },
     {
       "$ref": "Groups:IQErrorItemNotFound"
     },
     {
       "$ref": "Groups:IQErrorRateOverlimit"
-    },
-    {
-      "$ref": "Groups:IQErrorFallbackClient"
     }
   ]
 }

@@ -1,22 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "GroupMemberAddMode",
-  "tag": "",
-  "content": [
-    {
-      "type": "union",
-      "unions": [
-        {
-          "$ref": "Groups:AdminAddMode"
-        },
-        {
-          "$ref": "Groups:AllMembersAddMode"
-        },
-        {
-          "$ref": "Groups:UnknownAddMode"
-        }
-      ]
-    }
-  ]
+  "variant": "GroupMemberAddMode"
 }

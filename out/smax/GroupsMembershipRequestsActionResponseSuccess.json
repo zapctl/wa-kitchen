@@ -49,28 +49,28 @@
                   }
                 },
                 {
-                  "$ref": "Groups:ParticipantNotFound"
-                },
-                {
-                  "$ref": "Groups:ParticipantNotAuthorized"
-                },
-                {
-                  "$ref": "Groups:ParticipantForbidden"
-                },
-                {
                   "$ref": "Groups:MembershipRequestsActionParticipantRequestNotFound"
-                },
-                {
-                  "$ref": "Groups:ParticipantTemporarilyBlocked"
                 },
                 {
                   "$ref": "Groups:ParticipantConflict"
                 },
                 {
-                  "$ref": "Groups:ParticipantResourceConstraint"
+                  "$ref": "Groups:ParticipantForbidden"
+                },
+                {
+                  "$ref": "Groups:ParticipantNotAuthorized"
+                },
+                {
+                  "$ref": "Groups:ParticipantNotFound"
                 },
                 {
                   "$ref": "Groups:ParticipantParentLinkedGroupsResourceConstraint"
+                },
+                {
+                  "$ref": "Groups:ParticipantResourceConstraint"
+                },
+                {
+                  "$ref": "Groups:ParticipantTemporarilyBlocked"
                 }
               ]
             }

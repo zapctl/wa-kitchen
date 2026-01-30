@@ -1,16 +1,5 @@
 {
   "type": "node",
   "namespace": "BizLinking",
-  "variant": "HasDisplayName",
-  "tag": "",
-  "content": [
-    {
-      "type": "node",
-      "tag": "display_name",
-      "content": {
-        "type": "string",
-        "as": "binary"
-      }
-    }
-  ]
+  "variant": "HasDisplayName"
 }

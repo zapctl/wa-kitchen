@@ -23,19 +23,19 @@
           "$ref": "ProfilePicture:IQErrorBadRequest"
         },
         {
-          "$ref": "ProfilePicture:IQErrorNotAuthorized"
-        },
-        {
-          "$ref": "ProfilePicture:IQErrorItemNotFound"
-        },
-        {
-          "$ref": "ProfilePicture:IQErrorRateOverlimit"
+          "$ref": "ProfilePicture:IQErrorFeatureNotImplemented"
         },
         {
           "$ref": "ProfilePicture:IQErrorInternalServerError"
         },
         {
-          "$ref": "ProfilePicture:IQErrorFeatureNotImplemented"
+          "$ref": "ProfilePicture:IQErrorItemNotFound"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorRateOverlimit"
         },
         {
           "$ref": "ProfilePicture:IQErrorServiceUnavailable"

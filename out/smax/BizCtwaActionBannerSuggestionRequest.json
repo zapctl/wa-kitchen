@@ -55,6 +55,24 @@
           "content": [
             {
               "type": "node",
+              "tag": "action",
+              "attributes": {
+                "deep_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "local_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "local_android_link": {
+                  "optional": true,
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "node",
               "tag": "config",
               "attributes": {
                 "expires_at": {
@@ -89,7 +107,7 @@
               "content": [
                 {
                   "type": "node",
-                  "tag": "heading",
+                  "tag": "body",
                   "content": {
                     "type": "string",
                     "as": "binary"
@@ -97,7 +115,7 @@
                 },
                 {
                   "type": "node",
-                  "tag": "body",
+                  "tag": "heading",
                   "content": {
                     "type": "string",
                     "as": "binary"
@@ -113,7 +131,7 @@
                 },
                 {
                   "type": "node",
-                  "tag": "localised_heading",
+                  "tag": "localised_body",
                   "attributes": {
                     "value": {
                       "type": "string"
@@ -127,7 +145,7 @@
                 },
                 {
                   "type": "node",
-                  "tag": "localised_body",
+                  "tag": "localised_heading",
                   "attributes": {
                     "value": {
                       "type": "string"
@@ -154,24 +172,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "type": "node",
-              "tag": "action",
-              "attributes": {
-                "deep_link": {
-                  "optional": true,
-                  "type": "string"
-                },
-                "local_link": {
-                  "optional": true,
-                  "type": "string"
-                },
-                "local_android_link": {
-                  "optional": true,
-                  "type": "string"
-                }
-              }
             },
             {
               "type": "node",

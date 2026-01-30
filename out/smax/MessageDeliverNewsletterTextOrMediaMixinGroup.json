@@ -4,6 +4,22 @@
   "variant": "NewsletterTextOrMediaMixinGroup",
   "unions": [
     {
+      "type": "union",
+      "namespace": "MessageDeliver",
+      "variant": "NewsletterMedia",
+      "unions": [
+        {
+          "$ref": "MessageDeliver:MediaMeta"
+        },
+        {
+          "$ref": "MessageDeliver:MessageAssociationType"
+        },
+        {
+          "$ref": "MessageDeliver:WAMOSub"
+        }
+      ]
+    },
+    {
       "type": "node",
       "namespace": "MessageDeliver",
       "variant": "NewsletterText",
@@ -29,9 +45,6 @@
           }
         }
       ]
-    },
-    {
-      "$ref": "MessageDeliver:NewsletterMedia"
     }
   ]
 }

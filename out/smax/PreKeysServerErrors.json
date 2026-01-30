@@ -4,10 +4,10 @@
   "variant": "ServerErrors",
   "unions": [
     {
-      "$ref": "PreKeys:IQErrorServiceUnavailable"
+      "$ref": "PreKeys:IQErrorFallbackServer"
     },
     {
-      "$ref": "PreKeys:IQErrorFallbackServer"
+      "$ref": "PreKeys:IQErrorServiceUnavailable"
     }
   ]
 }

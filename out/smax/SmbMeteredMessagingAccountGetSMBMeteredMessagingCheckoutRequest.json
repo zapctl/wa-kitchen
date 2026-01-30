@@ -1,0 +1,49 @@
+{
+  "type": "node",
+  "namespace": "SmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRequest",
+  "variant": "makeGetSMBMeteredMessagingCheckoutRequest",
+  "tag": "iq",
+  "attributes": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:biz"
+    },
+    "smax_id": {
+      "type": "number",
+      "as": "string"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "LidUserJid"
+      ],
+      "optional": true
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "participants",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node"
+        }
+      ]
+    }
+  ]
+}

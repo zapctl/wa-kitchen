@@ -19,10 +19,10 @@
       "type": "union",
       "unions": [
         {
-          "$ref": "Groups:AddParticipantTimeRateLimit"
+          "$ref": "Groups:AddParticipantCountRateLimit"
         },
         {
-          "$ref": "Groups:AddParticipantCountRateLimit"
+          "$ref": "Groups:AddParticipantTimeRateLimit"
         }
       ]
     }

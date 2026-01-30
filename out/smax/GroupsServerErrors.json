@@ -4,16 +4,16 @@
   "variant": "ServerErrors",
   "unions": [
     {
-      "$ref": "Groups:IQErrorInternalServerError"
+      "$ref": "Groups:IQErrorFallbackServer"
     },
     {
-      "$ref": "Groups:IQErrorServiceUnavailable"
+      "$ref": "Groups:IQErrorInternalServerError"
     },
     {
       "$ref": "Groups:IQErrorPartialServerError"
     },
     {
-      "$ref": "Groups:IQErrorFallbackServer"
+      "$ref": "Groups:IQErrorServiceUnavailable"
     }
   ]
 }

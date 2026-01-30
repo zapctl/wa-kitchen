@@ -4,10 +4,27 @@
   "variant": "NamedSubjectOrUnnamedSubjectFallbackMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:NamedSubject"
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "NamedSubject",
+      "tag": "",
+      "attributes": {
+        "subject": {
+          "type": "string"
+        }
+      }
     },
     {
-      "$ref": "Groups:UnnamedSubjectFallback"
+      "type": "node",
+      "namespace": "Groups",
+      "variant": "UnnamedSubjectFallback",
+      "tag": "",
+      "attributes": {
+        "subject": {
+          "optional": true,
+          "type": "string"
+        }
+      }
     }
   ]
 }

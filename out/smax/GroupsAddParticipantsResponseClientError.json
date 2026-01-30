@@ -20,34 +20,34 @@
       "type": "union",
       "unions": [
         {
+          "$ref": "Groups:CreateOrAddGroupRateLimitError"
+        },
+        {
           "$ref": "Groups:IQErrorBadRequest"
         },
         {
-          "$ref": "Groups:IQErrorItemNotFound"
-        },
-        {
-          "$ref": "Groups:IQErrorNotAuthorized"
+          "$ref": "Groups:IQErrorFallbackClient"
         },
         {
           "$ref": "Groups:IQErrorForbidden"
         },
         {
-          "$ref": "Groups:CreateOrAddGroupRateLimitError"
-        },
-        {
-          "$ref": "Groups:IQErrorRateOverlimit"
-        },
-        {
-          "$ref": "Groups:IQErrorNotAllowed"
+          "$ref": "Groups:IQErrorItemNotFound"
         },
         {
           "$ref": "Groups:IQErrorLocked"
         },
         {
+          "$ref": "Groups:IQErrorNotAllowed"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
           "$ref": "Groups:IQErrorParentGroupSuspended"
         },
         {
-          "$ref": "Groups:IQErrorFallbackClient"
+          "$ref": "Groups:IQErrorRateOverlimit"
         }
       ]
     }

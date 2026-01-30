@@ -33,6 +33,45 @@
         },
         {
           "type": "node",
+          "tag": "addressing_mode_override",
+          "attributes": {
+            "mode": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "node",
+          "tag": "allow_non_admin_sub_group_creation",
+          "attributes": {}
+        },
+        {
+          "type": "node",
+          "tag": "announcement",
+          "attributes": {}
+        },
+        {
+          "type": "node",
+          "tag": "breakout",
+          "attributes": {}
+        },
+        {
+          "type": "node",
+          "tag": "capi",
+          "attributes": {}
+        },
+        {
+          "type": "node",
+          "tag": "create_general_chat",
+          "attributes": {}
+        },
+        {
+          "type": "node",
+          "tag": "created_as_lid",
+          "attributes": {}
+        },
+        {
+          "type": "node",
           "tag": "description",
           "attributes": {
             "id": {
@@ -55,31 +94,6 @@
         },
         {
           "type": "node",
-          "tag": "locked",
-          "attributes": {}
-        },
-        {
-          "type": "node",
-          "tag": "announcement",
-          "attributes": {}
-        },
-        {
-          "type": "node",
-          "tag": "parent",
-          "attributes": {
-            "default_membership_approval_mode": {
-              "type": "string",
-              "literal": "request_required"
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "no_frequently_forwarded",
-          "attributes": {}
-        },
-        {
-          "type": "node",
           "tag": "ephemeral",
           "attributes": {
             "expiration": {
@@ -92,6 +106,28 @@
               "optional": true
             }
           }
+        },
+        {
+          "type": "node",
+          "tag": "hidden_group",
+          "attributes": {}
+        },
+        {
+          "type": "node",
+          "tag": "linked_parent",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "GroupJid"
+              ]
+            }
+          }
+        },
+        {
+          "type": "node",
+          "tag": "locked",
+          "attributes": {}
         },
         {
           "type": "node",
@@ -111,54 +147,18 @@
         },
         {
           "type": "node",
-          "tag": "breakout",
+          "tag": "no_frequently_forwarded",
           "attributes": {}
         },
         {
           "type": "node",
-          "tag": "created_as_lid",
-          "attributes": {}
-        },
-        {
-          "type": "node",
-          "tag": "addressing_mode_override",
+          "tag": "parent",
           "attributes": {
-            "mode": {
-              "type": "string"
+            "default_membership_approval_mode": {
+              "type": "string",
+              "literal": "request_required"
             }
           }
-        },
-        {
-          "type": "node",
-          "tag": "linked_parent",
-          "attributes": {
-            "jid": {
-              "type": "jid",
-              "jidTypes": [
-                "GroupJid"
-              ]
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "hidden_group",
-          "attributes": {}
-        },
-        {
-          "type": "node",
-          "tag": "allow_non_admin_sub_group_creation",
-          "attributes": {}
-        },
-        {
-          "type": "node",
-          "tag": "create_general_chat",
-          "attributes": {}
-        },
-        {
-          "type": "node",
-          "tag": "capi",
-          "attributes": {}
         }
       ]
     }

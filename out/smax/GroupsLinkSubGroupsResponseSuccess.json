@@ -41,25 +41,25 @@
               "type": "union",
               "unions": [
                 {
-                  "$ref": "Groups:SubGroupNotAuthorized"
-                },
-                {
-                  "$ref": "Groups:SubGroupForbidden"
-                },
-                {
-                  "$ref": "Groups:SubGroupNotExist"
-                },
-                {
-                  "$ref": "Groups:SubGroupNotAcceptable"
+                  "$ref": "Groups:PendingAddRequestsNotAllowed"
                 },
                 {
                   "$ref": "Groups:SubGroupConflict"
                 },
                 {
-                  "$ref": "Groups:SubGroupResourceLimit"
+                  "$ref": "Groups:SubGroupForbidden"
                 },
                 {
-                  "$ref": "Groups:PendingAddRequestsNotAllowed"
+                  "$ref": "Groups:SubGroupNotAcceptable"
+                },
+                {
+                  "$ref": "Groups:SubGroupNotAuthorized"
+                },
+                {
+                  "$ref": "Groups:SubGroupNotExist"
+                },
+                {
+                  "$ref": "Groups:SubGroupResourceLimit"
                 },
                 {
                   "$ref": "Groups:SubGroupServerError"

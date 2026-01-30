@@ -1,20 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "DedupAttrs",
-  "tag": "",
-  "attributes": {
-    "key": {
-      "type": "string"
-    },
-    "create_ctx": {
-      "optional": true,
-      "type": "string",
-      "enum": [
-        "e2ee_migration",
-        "regular",
-        "rtc"
-      ]
-    }
-  }
+  "variant": "DedupAttrs"
 }

@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "BizCtwaNativeAd",
+  "variant": "NativeAdErrors",
+  "unions": [
+    {
+      "$ref": "BizCtwaNativeAd:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizCtwaNativeAd:IQErrorForbidden"
+    },
+    {
+      "$ref": "BizCtwaNativeAd:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "BizCtwaNativeAd:IQErrorServiceUnavailable"
+    }
+  ]
+}

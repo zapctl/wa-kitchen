@@ -4,22 +4,22 @@
   "variant": "SpamIqErrors",
   "unions": [
     {
-      "$ref": "Spam:IQErrorInternalServerError"
-    },
-    {
       "$ref": "Spam:IQErrorBadRequest"
     },
     {
+      "$ref": "Spam:IQErrorFeatureNotImplemented"
+    },
+    {
       "$ref": "Spam:IQErrorForbidden"
+    },
+    {
+      "$ref": "Spam:IQErrorInternalServerError"
     },
     {
       "$ref": "Spam:IQErrorRateOverlimit"
     },
     {
       "$ref": "Spam:IQErrorReportTokenValidationFail"
-    },
-    {
-      "$ref": "Spam:IQErrorFeatureNotImplemented"
     }
   ]
 }

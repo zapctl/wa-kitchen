@@ -1,16 +1,22 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Groups",
   "variant": "NonRegisteredWaUserParticipantErrorLidResponse",
-  "unions": [
-    {
-      "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+  "tag": "participant",
+  "attributes": {
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
     },
-    {
-      "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+    "error": {
+      "type": "string",
+      "literal": "404"
     },
-    {
-      "$ref": "Groups:ParticipantHasInvalidPN"
+    "addressable": {
+      "type": "string",
+      "literal": "false"
     }
-  ]
+  }
 }

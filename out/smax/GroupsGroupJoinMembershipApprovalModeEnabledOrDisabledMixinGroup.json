@@ -4,10 +4,10 @@
   "variant": "GroupJoinMembershipApprovalModeEnabledOrDisabledMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
+      "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
     },
     {
-      "$ref": "Groups:GroupJoinMembershipApprovalModeDisabled"
+      "$ref": "Groups:GroupJoinMembershipApprovalModeEnabled"
     }
   ]
 }

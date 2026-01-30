@@ -4,6 +4,22 @@
   "variant": "NewsletterTextOrMediaMixinGroup",
   "unions": [
     {
+      "type": "union",
+      "namespace": "Newsletters",
+      "variant": "NewsletterMedia",
+      "unions": [
+        {
+          "$ref": "Newsletters:MediaMeta"
+        },
+        {
+          "$ref": "Newsletters:MessageAssociationType"
+        },
+        {
+          "$ref": "Newsletters:WAMOSub"
+        }
+      ]
+    },
+    {
       "type": "node",
       "namespace": "Newsletters",
       "variant": "NewsletterText",
@@ -16,9 +32,6 @@
       },
       "content": [
         {
-          "$ref": "Newsletters:Payload"
-        },
-        {
           "type": "node",
           "tag": "meta",
           "attributes": {
@@ -27,11 +40,11 @@
               "literal": "true"
             }
           }
+        },
+        {
+          "$ref": "Newsletters:Payload"
         }
       ]
-    },
-    {
-      "$ref": "Newsletters:NewsletterMedia"
     }
   ]
 }

@@ -20,13 +20,13 @@
       "type": "union",
       "unions": [
         {
-          "$ref": "Bot:IQErrorInternalServerError"
+          "$ref": "Bot:IQErrorBadRequest"
         },
         {
           "$ref": "Bot:IQErrorForbidden"
         },
         {
-          "$ref": "Bot:IQErrorBadRequest"
+          "$ref": "Bot:IQErrorInternalServerError"
         },
         {
           "$ref": "Bot:IQErrorNotAllowed"

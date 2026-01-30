@@ -4,10 +4,10 @@
   "variant": "CompanionFinishErrors",
   "unions": [
     {
-      "$ref": "Md:IQErrorInternalServerError"
+      "$ref": "Md:IQErrorBadRequest"
     },
     {
-      "$ref": "Md:IQErrorBadRequest"
+      "$ref": "Md:IQErrorInternalServerError"
     }
   ]
 }

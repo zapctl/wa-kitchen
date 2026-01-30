@@ -51,19 +51,49 @@
                   }
                 },
                 {
-                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
-                },
-                {
-                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionConflict"
-                },
-                {
-                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupResourceConstraint"
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupCreationInternalServerError"
                 },
                 {
                   "$ref": "Groups:SubGroupSuggestionsActionSubGroupPendingGroupAddsError"
                 },
                 {
-                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupCreationInternalServerError"
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupResourceConstraint"
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionConflict"
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "cancel",
+          "content": [
+            {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestionWithoutCreator",
+              "unions": [
+                {
+                  "type": "node",
+                  "namespace": "Groups",
+                  "variant": "Identity",
+                  "tag": "sub_group_suggestion",
+                  "attributes": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
                 }
               ]
             }
@@ -93,9 +123,6 @@
                   }
                 },
                 {
-                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
-                },
-                {
                   "type": "node",
                   "namespace": "Groups",
                   "variant": "Identity",
@@ -108,36 +135,9 @@
                       ]
                     }
                   }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "node",
-          "tag": "cancel",
-          "content": [
-            {
-              "type": "union",
-              "namespace": "Groups",
-              "variant": "SubGroupSuggestionWithoutCreator",
-              "unions": [
-                {
-                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
                 },
                 {
-                  "type": "node",
-                  "namespace": "Groups",
-                  "variant": "Identity",
-                  "tag": "sub_group_suggestion",
-                  "attributes": {
-                    "phone_number": {
-                      "type": "jid",
-                      "jidTypes": [
-                        "UserJid"
-                      ]
-                    }
-                  }
+                  "$ref": "Groups:SubGroupSuggestionsActionSubGroupSuggestionNotFound"
                 }
               ]
             }

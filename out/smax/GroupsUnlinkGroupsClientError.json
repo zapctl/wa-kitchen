@@ -7,13 +7,13 @@
       "$ref": "Groups:IQErrorBadRequest"
     },
     {
-      "$ref": "Groups:IQErrorNotAuthorized"
-    },
-    {
       "$ref": "Groups:IQErrorItemNotFound"
     },
     {
       "$ref": "Groups:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAuthorized"
     }
   ]
 }

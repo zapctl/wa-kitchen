@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "QuestionResponseSender",
+  "tag": "question_response",
+  "content": [
+    {
+      "type": "node",
+      "tag": "sender",
+      "attributes": {
+        "lid": {
+          "optional": true,
+          "type": "jid",
+          "jidTypes": [
+            "LidUserJid"
+          ]
+        },
+        "notify_name": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "picture",
+          "attributes": {
+            "direct_path": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

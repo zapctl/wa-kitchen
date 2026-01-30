@@ -33,19 +33,19 @@
     },
     {
       "type": "node",
-      "tag": "session_cookies",
-      "content": {
-        "type": "string",
-        "as": "binary"
-      }
-    },
-    {
-      "type": "node",
       "tag": "business_person",
       "attributes": {
         "id": {
           "type": "string"
         }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "session_cookies",
+      "content": {
+        "type": "string",
+        "as": "binary"
       }
     },
     {

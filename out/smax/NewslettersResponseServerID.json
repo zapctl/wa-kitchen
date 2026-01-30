@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "ResponseServerID",
+  "tag": "message",
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "response_server_id": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

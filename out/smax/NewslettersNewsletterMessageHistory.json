@@ -1,320 +1,37 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Newsletters",
   "variant": "NewsletterMessageHistory",
-  "unions": [
-    {
-      "$ref": "Newsletters:NewsletterMessageOriginalTimestamp"
+  "tag": "message",
+  "attributes": {
+    "id": {
+      "optional": true,
+      "type": "id"
     },
-    {
-      "$ref": "Newsletters:NewsletterMessageLastEditTimestamp"
+    "server_id": {
+      "type": "number",
+      "as": "string",
+      "min": 99,
+      "max": 2147476647
     },
-    {
-      "$ref": "Newsletters:AdminProfileMeta"
+    "t": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0
     },
-    {
-      "$ref": "Newsletters:PaidPartnershipContent"
+    "is_sender": {
+      "type": "string",
+      "literal": "true",
+      "optional": true
     },
-    {
-      "type": "union",
-      "namespace": "Newsletters",
-      "variant": "NewsletterQuestion",
-      "unions": [
-        {
-          "type": "node",
-          "namespace": "Newsletters",
-          "variant": "NewsletterText",
-          "tag": "message",
-          "attributes": {
-            "type": {
-              "type": "string",
-              "literal": "text"
-            }
-          },
-          "content": [
-            {
-              "$ref": "Newsletters:Payload"
-            },
-            {
-              "type": "node",
-              "tag": "meta",
-              "attributes": {
-                "is_wamo_sub": {
-                  "type": "string",
-                  "literal": "true"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "type": "union",
-          "namespace": "Newsletters",
-          "variant": "NewsletterMedia",
-          "unions": [
-            {
-              "$ref": "Newsletters:MessageAssociationType"
-            },
-            {
-              "$ref": "Newsletters:MediaMeta"
-            }
-          ]
-        }
-      ]
+    "edit": {
+      "type": "string",
+      "literal": "3"
     },
-    {
-      "type": "union",
-      "namespace": "Newsletters",
-      "variant": "NewsletterEdit",
-      "unions": [
-        {
-          "type": "union",
-          "namespace": "Newsletters",
-          "variant": "NewsletterQuestionReply",
-          "unions": [
-            {
-              "type": "node",
-              "namespace": "Newsletters",
-              "variant": "NewsletterText",
-              "tag": "message",
-              "attributes": {
-                "type": {
-                  "type": "string",
-                  "literal": "text"
-                }
-              },
-              "content": [
-                {
-                  "$ref": "Newsletters:Payload"
-                },
-                {
-                  "type": "node",
-                  "tag": "meta",
-                  "attributes": {
-                    "is_wamo_sub": {
-                      "type": "string",
-                      "literal": "true"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "union",
-              "namespace": "Newsletters",
-              "variant": "NewsletterMedia",
-              "unions": [
-                {
-                  "$ref": "Newsletters:MessageAssociationType"
-                },
-                {
-                  "$ref": "Newsletters:MediaMeta"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "node",
-          "namespace": "Newsletters",
-          "variant": "NewsletterText",
-          "tag": "message",
-          "attributes": {
-            "type": {
-              "type": "string",
-              "literal": "text"
-            }
-          },
-          "content": [
-            {
-              "$ref": "Newsletters:Payload"
-            },
-            {
-              "type": "node",
-              "tag": "meta",
-              "attributes": {
-                "is_wamo_sub": {
-                  "type": "string",
-                  "literal": "true"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "type": "union",
-          "namespace": "Newsletters",
-          "variant": "NewsletterMedia",
-          "unions": [
-            {
-              "$ref": "Newsletters:MessageAssociationType"
-            },
-            {
-              "$ref": "Newsletters:MediaMeta"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "union",
-      "namespace": "Newsletters",
-      "variant": "NewsletterQuestionReply",
-      "unions": [
-        {
-          "type": "node",
-          "namespace": "Newsletters",
-          "variant": "NewsletterText",
-          "tag": "message",
-          "attributes": {
-            "type": {
-              "type": "string",
-              "literal": "text"
-            }
-          },
-          "content": [
-            {
-              "$ref": "Newsletters:Payload"
-            },
-            {
-              "type": "node",
-              "tag": "meta",
-              "attributes": {
-                "is_wamo_sub": {
-                  "type": "string",
-                  "literal": "true"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "type": "union",
-          "namespace": "Newsletters",
-          "variant": "NewsletterMedia",
-          "unions": [
-            {
-              "$ref": "Newsletters:MessageAssociationType"
-            },
-            {
-              "$ref": "Newsletters:MediaMeta"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "node",
-      "namespace": "Newsletters",
-      "variant": "NewsletterRevoke",
-      "tag": "message",
-      "attributes": {
-        "edit": {
-          "type": "string",
-          "literal": "8"
-        },
-        "type": {
-          "type": "string",
-          "literal": "text"
-        }
-      },
-      "content": [
-        {
-          "type": "node",
-          "tag": "plaintext"
-        },
-        {
-          "type": "node",
-          "tag": "meta",
-          "attributes": {
-            "is_wamo_sub": {
-              "type": "string",
-              "literal": "true"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "node",
-      "namespace": "Newsletters",
-      "variant": "NewsletterText",
-      "tag": "message",
-      "attributes": {
-        "type": {
-          "type": "string",
-          "literal": "text"
-        }
-      },
-      "content": [
-        {
-          "$ref": "Newsletters:Payload"
-        },
-        {
-          "type": "node",
-          "tag": "meta",
-          "attributes": {
-            "is_wamo_sub": {
-              "type": "string",
-              "literal": "true"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "union",
-      "namespace": "Newsletters",
-      "variant": "NewsletterMedia",
-      "unions": [
-        {
-          "$ref": "Newsletters:MessageAssociationType"
-        },
-        {
-          "$ref": "Newsletters:MediaMeta"
-        }
-      ]
-    },
-    {
-      "$ref": "Newsletters:NewsletterPollCreation"
-    },
-    {
-      "$ref": "Newsletters:NewsletterQuizCreation"
-    },
-    {
-      "$ref": "Newsletters:NewsletterPollResultSnapshot"
-    },
-    {
-      "type": "node",
-      "namespace": "Newsletters",
-      "variant": "NewsletterWAMOEmpty",
-      "tag": "message",
-      "attributes": {
-        "edit": {
-          "type": "string",
-          "literal": "3"
-        },
-        "type": {
-          "type": "string",
-          "literal": "text"
-        }
-      },
-      "content": [
-        {
-          "type": "node",
-          "tag": "plaintext"
-        },
-        {
-          "type": "node",
-          "tag": "meta",
-          "attributes": {
-            "is_wamo_sub": {
-              "type": "string",
-              "literal": "true"
-            }
-          }
-        }
-      ]
+    "type": {
+      "type": "string",
+      "literal": "media"
     }
-  ]
+  }
 }

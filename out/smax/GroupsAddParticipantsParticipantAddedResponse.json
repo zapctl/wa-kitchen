@@ -1,77 +1,31 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Groups",
   "variant": "AddParticipantsParticipantAddedResponse",
-  "unions": [
-    {
-      "type": "node",
-      "namespace": "Groups",
-      "variant": "PhoneNumber",
-      "tag": "participant",
-      "attributes": {
-        "phone_number": {
-          "type": "jid",
-          "jidTypes": [
-            "UserJid"
-          ]
-        }
-      }
+  "tag": "participant",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
     },
-    {
-      "type": "node",
-      "namespace": "Groups",
-      "variant": "UsernameAtt",
-      "tag": "participant",
-      "attributes": {
-        "username": {
-          "type": "string"
-        }
-      }
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
     },
-    {
-      "$ref": "Groups:ParticipantGroupJoinRequest"
+    "username": {
+      "type": "string"
     },
-    {
-      "$ref": "Groups:ParticipantNotAuthorized"
+    "error": {
+      "type": "string",
+      "literal": "432"
     },
-    {
-      "$ref": "Groups:ParticipantInBanList"
-    },
-    {
-      "$ref": "Groups:ParticipantRequestCodeCanBeSent"
-    },
-    {
-      "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
-    },
-    {
-      "$ref": "Groups:ParticipantHasInvalidPN"
-    },
-    {
-      "$ref": "Groups:ParticipantTemporarilyBlocked"
-    },
-    {
-      "$ref": "Groups:ParticipantConflict"
-    },
-    {
-      "$ref": "Groups:ParticipantResourceLimit"
-    },
-    {
-      "$ref": "Groups:ParticipantResourceConstraint"
-    },
-    {
-      "$ref": "Groups:ParticipantNotAcceptable"
-    },
-    {
-      "$ref": "Groups:ParticipantNotAddressable"
-    },
-    {
-      "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
-    },
-    {
-      "$ref": "Groups:ParticipantBotIncompatibleVersion"
-    },
-    {
-      "$ref": "Groups:ParticipantBotAlreadyExists"
+    "addressable": {
+      "type": "string",
+      "literal": "false"
     }
-  ]
+  }
 }

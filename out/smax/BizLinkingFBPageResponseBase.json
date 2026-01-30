@@ -11,27 +11,6 @@
   "content": [
     {
       "type": "node",
-      "tag": "profile_sync",
-      "attributes": {
-        "state": {
-          "type": "string",
-          "enum": [
-            "disable",
-            "import"
-          ]
-        }
-      }
-    },
-    {
-      "type": "node",
-      "tag": "display_name",
-      "content": {
-        "type": "string",
-        "as": "binary"
-      }
-    },
-    {
-      "type": "node",
       "tag": "ad_status",
       "attributes": {
         "has_created_ad": {
@@ -46,6 +25,27 @@
           "enum": [
             "false",
             "true"
+          ]
+        }
+      }
+    },
+    {
+      "type": "node",
+      "tag": "display_name",
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "profile_sync",
+      "attributes": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "disable",
+            "import"
           ]
         }
       }

@@ -1,18 +1,5 @@
 {
   "type": "node",
   "namespace": "Chatstate",
-  "variant": "InternalTest",
-  "tag": "",
-  "content": [
-    {
-      "type": "node",
-      "tag": "test",
-      "attributes": {
-        "config": {
-          "optional": true,
-          "type": "string"
-        }
-      }
-    }
-  ]
+  "variant": "InternalTest"
 }

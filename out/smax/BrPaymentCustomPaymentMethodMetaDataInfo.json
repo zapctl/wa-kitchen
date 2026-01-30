@@ -1,0 +1,5 @@
+{
+  "type": "node",
+  "namespace": "BrPayment",
+  "variant": "CustomPaymentMethodMetaDataInfo"
+}

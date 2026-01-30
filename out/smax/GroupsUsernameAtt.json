@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "UsernameAtt",
-  "tag": "",
-  "attributes": {
-    "username": {
-      "type": "string"
-    }
-  }
+  "variant": "UsernameAtt"
 }

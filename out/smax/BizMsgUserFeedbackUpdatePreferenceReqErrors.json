@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "namespace": "BizMsgUserFeedback",
+  "variant": "UpdatePreferenceReqErrors",
+  "unions": [
+    {
+      "$ref": "BizMsgUserFeedback:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizMsgUserFeedback:IQErrorForbidden"
+    },
+    {
+      "$ref": "BizMsgUserFeedback:IQErrorNotAcceptable"
+    },
+    {
+      "$ref": "BizMsgUserFeedback:IQErrorRateOverlimit"
+    }
+  ]
+}

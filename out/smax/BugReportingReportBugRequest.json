@@ -36,8 +36,11 @@
   },
   "content": [
     {
+      "type": "node"
+    },
+    {
       "type": "node",
-      "tag": "description",
+      "tag": "category",
       "attributes": {},
       "content": [
         {
@@ -59,6 +62,17 @@
     },
     {
       "type": "node",
+      "tag": "description",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {}
+        }
+      ]
+    },
+    {
+      "type": "node",
       "tag": "device_log_handle",
       "attributes": {},
       "content": [
@@ -69,22 +83,8 @@
       ]
     },
     {
-      "type": "node"
-    },
-    {
       "type": "node",
       "tag": "title",
-      "attributes": {},
-      "content": [
-        {
-          "type": "node",
-          "tag": {}
-        }
-      ]
-    },
-    {
-      "type": "node",
-      "tag": "category",
       "attributes": {},
       "content": [
         {

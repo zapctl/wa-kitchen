@@ -1,28 +1,5 @@
 {
   "type": "node",
   "namespace": "BizLinking",
-  "variant": "AdStatus",
-  "tag": "",
-  "content": [
-    {
-      "type": "node",
-      "tag": "ad_status",
-      "attributes": {
-        "has_created_ad": {
-          "type": "string",
-          "enum": [
-            "false",
-            "true"
-          ]
-        },
-        "has_active_ctwa_ad": {
-          "type": "string",
-          "enum": [
-            "false",
-            "true"
-          ]
-        }
-      }
-    }
-  ]
+  "variant": "AdStatus"
 }

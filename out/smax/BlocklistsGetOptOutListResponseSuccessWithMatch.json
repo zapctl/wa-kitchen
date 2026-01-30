@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "namespace": "Blocklists",
+  "variant": "GetOptOutListResponseSuccessWithMatch",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "category": {
+      "type": "undefined",
+      "optional": true
+    },
+    "id": {
+      "type": "string"
+    }
+  }
+}

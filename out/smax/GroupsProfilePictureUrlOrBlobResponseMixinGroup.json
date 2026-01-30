@@ -4,10 +4,10 @@
   "variant": "ProfilePictureUrlOrBlobResponseMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:ProfilePictureUrlResponse"
+      "$ref": "Groups:ProfilePictureBlobResponse"
     },
     {
-      "$ref": "Groups:ProfilePictureBlobResponse"
+      "$ref": "Groups:ProfilePictureUrlResponse"
     }
   ]
 }

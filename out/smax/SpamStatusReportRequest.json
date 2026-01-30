@@ -56,6 +56,45 @@
       "content": [
         {
           "type": "node",
+          "tag": "biz_api_report",
+          "attributes": {
+            "known_account": {
+              "type": "string"
+            },
+            "message_report": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "node",
+          "tag": "biz_opt_out",
+          "attributes": {
+            "reason": {
+              "type": "string",
+              "optional": true
+            },
+            "business_discovery_entry_point": {
+              "type": "string",
+              "optional": true
+            },
+            "business_discovery_timestamp": {
+              "type": "number",
+              "as": "string",
+              "optional": true
+            },
+            "first_message": {
+              "type": "string",
+              "optional": true
+            },
+            "business_discovery_id": {
+              "type": "string",
+              "optional": true
+            }
+          }
+        },
+        {
+          "type": "node",
           "tag": "message",
           "attributes": {
             "from": {
@@ -136,6 +175,79 @@
           },
           "content": [
             {
+              "type": "node"
+            },
+            {
+              "type": "node",
+              "tag": "automated",
+              "attributes": {}
+            },
+            {
+              "type": "node",
+              "tag": "hsm",
+              "attributes": {
+                "tid": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "node",
+              "tag": "iab",
+              "attributes": {
+                "reported_link": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "node",
+              "tag": "meta",
+              "attributes": {
+                "biz_source": {
+                  "type": "string"
+                },
+                "placeholder_type": {
+                  "type": "string",
+                  "literal": "call"
+                }
+              }
+            },
+            {
+              "type": "node",
+              "tag": "multicast",
+              "attributes": {}
+            },
+            {
+              "type": "node",
+              "tag": "pay",
+              "attributes": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string",
+                  "optional": true
+                },
+                "sender": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "LidUserJid"
+                  ],
+                  "optional": true
+                },
+                "receiver": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "LidUserJid"
+                  ],
+                  "optional": true
+                }
+              }
+            },
+            {
               "type": "node",
               "tag": "raw",
               "attributes": {
@@ -166,11 +278,6 @@
             },
             {
               "type": "node",
-              "tag": "multicast",
-              "attributes": {}
-            },
-            {
-              "type": "node",
               "tag": "url_number",
               "attributes": {}
             },
@@ -178,115 +285,8 @@
               "type": "node",
               "tag": "url_text",
               "attributes": {}
-            },
-            {
-              "type": "node",
-              "tag": "automated",
-              "attributes": {}
-            },
-            {
-              "type": "node",
-              "tag": "hsm",
-              "attributes": {
-                "tid": {
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "node"
-            },
-            {
-              "type": "node",
-              "tag": "meta",
-              "attributes": {
-                "biz_source": {
-                  "type": "string"
-                },
-                "placeholder_type": {
-                  "type": "string",
-                  "literal": "call"
-                }
-              }
-            },
-            {
-              "type": "node",
-              "tag": "iab",
-              "attributes": {
-                "reported_link": {
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "node",
-              "tag": "pay",
-              "attributes": {
-                "type": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "string",
-                  "optional": true
-                },
-                "sender": {
-                  "type": "jid",
-                  "jidTypes": [
-                    "UserJid",
-                    "LidUserJid"
-                  ],
-                  "optional": true
-                },
-                "receiver": {
-                  "type": "jid",
-                  "jidTypes": [
-                    "UserJid",
-                    "LidUserJid"
-                  ],
-                  "optional": true
-                }
-              }
             }
           ]
-        },
-        {
-          "type": "node",
-          "tag": "biz_opt_out",
-          "attributes": {
-            "reason": {
-              "type": "string",
-              "optional": true
-            },
-            "business_discovery_entry_point": {
-              "type": "string",
-              "optional": true
-            },
-            "business_discovery_timestamp": {
-              "type": "number",
-              "as": "string",
-              "optional": true
-            },
-            "first_message": {
-              "type": "string",
-              "optional": true
-            },
-            "business_discovery_id": {
-              "type": "string",
-              "optional": true
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "biz_api_report",
-          "attributes": {
-            "known_account": {
-              "type": "string"
-            },
-            "message_report": {
-              "type": "string"
-            }
-          }
         }
       ]
     }

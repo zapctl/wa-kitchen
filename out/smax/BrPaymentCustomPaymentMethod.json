@@ -1,0 +1,50 @@
+{
+  "type": "node",
+  "namespace": "BrPayment",
+  "variant": "CustomPaymentMethod",
+  "tag": "custom_payment_method",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "pay_on_delivery",
+        "pix_key"
+      ]
+    },
+    "country": {
+      "optional": true,
+      "type": "string"
+    },
+    "created": {
+      "optional": true,
+      "type": "string"
+    },
+    "flow": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "p2m",
+        "p2p"
+      ]
+    },
+    "credential-id": {
+      "type": "string"
+    },
+    "p2p-eligible": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "p2m-eligible": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    }
+  }
+}

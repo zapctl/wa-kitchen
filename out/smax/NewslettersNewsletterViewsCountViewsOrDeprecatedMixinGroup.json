@@ -4,10 +4,10 @@
   "variant": "NewsletterViewsCountViewsOrDeprecatedMixinGroup",
   "unions": [
     {
-      "$ref": "Newsletters:NewsletterViewsCountViews"
+      "$ref": "Newsletters:NewsletterViewsCountDeprecated"
     },
     {
-      "$ref": "Newsletters:NewsletterViewsCountDeprecated"
+      "$ref": "Newsletters:NewsletterViewsCountViews"
     }
   ]
 }

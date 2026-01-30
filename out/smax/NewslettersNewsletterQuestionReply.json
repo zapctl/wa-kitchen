@@ -1,40 +1,43 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Newsletters",
   "variant": "NewsletterQuestionReply",
-  "unions": [
-    {
-      "$ref": "Newsletters:WAMOSub"
-    },
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "media"
+    }
+  },
+  "content": [
     {
       "type": "node",
-      "namespace": "Newsletters",
-      "variant": "NewsletterText",
-      "tag": "message",
+      "tag": "meta",
       "attributes": {
-        "type": {
+        "questiontype": {
           "type": "string",
-          "literal": "text"
-        }
-      },
-      "content": [
-        {
-          "$ref": "Newsletters:Payload"
+          "literal": "reply"
         },
-        {
-          "type": "node",
-          "tag": "meta",
-          "attributes": {
-            "is_wamo_sub": {
-              "type": "string",
-              "literal": "true"
-            }
-          }
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        },
+        "message_association_type": {
+          "type": "string",
+          "enum": [
+            "hd_image_dual_upload",
+            "hd_video_dual_upload",
+            "hevc_video_dual_upload",
+            "media_poll",
+            "motion_photo",
+            "sticker_annotation"
+          ]
+        },
+        "contenttype": {
+          "optional": true,
+          "type": "string"
         }
-      ]
-    },
-    {
-      "$ref": "Newsletters:NewsletterMedia"
+      }
     }
   ]
 }

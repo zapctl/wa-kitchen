@@ -58,6 +58,17 @@
       "content": [
         {
           "type": "node",
+          "tag": "forwards_count",
+          "attributes": {
+            "count": {
+              "type": "number",
+              "as": "string",
+              "min": 0
+            }
+          }
+        },
+        {
+          "type": "node",
           "tag": "meta",
           "attributes": {
             "original_msg_t": {
@@ -150,6 +161,13 @@
         },
         {
           "type": "node",
+          "tag": "rcat",
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
           "tag": "reactions",
           "content": [
             {
@@ -170,47 +188,7 @@
         },
         {
           "type": "node",
-          "tag": "votes",
-          "content": [
-            {
-              "type": "node",
-              "tag": "vote",
-              "attributes": {
-                "count": {
-                  "type": "number",
-                  "as": "string",
-                  "min": 1
-                }
-              },
-              "content": {
-                "type": "binary",
-                "min": 32,
-                "max": 32
-              }
-            }
-          ]
-        },
-        {
-          "type": "node",
           "tag": "responses_count",
-          "attributes": {
-            "count": {
-              "type": "number",
-              "as": "string",
-              "min": 0
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "rcat",
-          "content": {
-            "type": "binary"
-          }
-        },
-        {
-          "type": "node",
-          "tag": "forwards_count",
           "attributes": {
             "count": {
               "type": "number",
@@ -233,6 +211,28 @@
               "min": 0
             }
           }
+        },
+        {
+          "type": "node",
+          "tag": "votes",
+          "content": [
+            {
+              "type": "node",
+              "tag": "vote",
+              "attributes": {
+                "count": {
+                  "type": "number",
+                  "as": "string",
+                  "min": 1
+                }
+              },
+              "content": {
+                "type": "binary",
+                "min": 32,
+                "max": 32
+              }
+            }
+          ]
         }
       ]
     }

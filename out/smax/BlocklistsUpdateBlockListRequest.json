@@ -25,6 +25,15 @@
   "content": [
     {
       "type": "node",
+      "tag": "entry_point",
+      "attributes": {
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "node",
       "tag": "item",
       "attributes": {
         "dhash": {
@@ -88,15 +97,6 @@
           }
         }
       ]
-    },
-    {
-      "type": "node",
-      "tag": "entry_point",
-      "attributes": {
-        "source": {
-          "type": "string"
-        }
-      }
     }
   ]
 }

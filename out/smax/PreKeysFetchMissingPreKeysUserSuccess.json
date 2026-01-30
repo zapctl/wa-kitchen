@@ -20,26 +20,28 @@
         {
           "type": "node",
           "namespace": "PreKeys",
+          "variant": "DeviceIdentity",
+          "tag": "device",
+          "content": [
+            {
+              "type": "node",
+              "tag": "device-identity",
+              "content": {
+                "type": "binary"
+              }
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "namespace": "PreKeys",
           "variant": "KeyType",
           "tag": "device",
           "content": [
             {
               "type": "node",
-              "tag": "type",
-              "content": {
-                "type": "binary",
-                "literal": {
-                  "0": 5
-                }
-              }
-            },
-            {
-              "type": "node",
               "tag": "key",
               "content": [
-                {
-                  "$ref": "PreKeys:KeyID"
-                },
                 {
                   "type": "node",
                   "namespace": "PreKeys",
@@ -50,22 +52,20 @@
                     "min": 32,
                     "max": 32
                   }
+                },
+                {
+                  "$ref": "PreKeys:KeyID"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "node",
-          "namespace": "PreKeys",
-          "variant": "DeviceIdentity",
-          "tag": "device",
-          "content": [
+            },
             {
               "type": "node",
-              "tag": "device-identity",
+              "tag": "type",
               "content": {
-                "type": "binary"
+                "type": "binary",
+                "literal": {
+                  "0": 5
+                }
               }
             }
           ]

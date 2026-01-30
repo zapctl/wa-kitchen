@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "BizMarketingMessage",
+  "variant": "IQErrorForbidden",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "forbidden"
+    },
+    "code": {
+      "type": "number",
+      "literal": 403,
+      "as": "string"
+    }
+  }
+}

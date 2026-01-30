@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "PreKeys",
-  "variant": "KeyData",
-  "tag": "",
-  "content": {
-    "type": "binary",
-    "min": 32,
-    "max": 32
-  }
+  "variant": "KeyData"
 }

@@ -1,13 +1,5 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Privacy",
-  "variant": "PrivacyContactListIdentifier",
-  "unions": [
-    {
-      "$ref": "Privacy:Username"
-    },
-    {
-      "$ref": "Privacy:PnJid"
-    }
-  ]
+  "variant": "PrivacyContactListIdentifier"
 }

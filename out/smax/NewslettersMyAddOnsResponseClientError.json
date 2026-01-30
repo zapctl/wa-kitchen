@@ -7,13 +7,13 @@
       "$ref": "Newsletters:BadRequestIQErrorResponse"
     },
     {
-      "$ref": "Newsletters:UnauthorizedIQErrorResponse"
-    },
-    {
       "$ref": "Newsletters:ItemNotFoundIQErrorResponse"
     },
     {
       "$ref": "Newsletters:RateLimitedIQErrorResponse"
+    },
+    {
+      "$ref": "Newsletters:UnauthorizedIQErrorResponse"
     }
   ]
 }

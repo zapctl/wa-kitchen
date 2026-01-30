@@ -1,57 +1,67 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "PreKeys",
   "variant": "FetchKeyBundlesUserSuccess",
-  "unions": [
+  "tag": "user",
+  "attributes": {
+    "t": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "is_cloud_api": {
+      "type": "string",
+      "literal": "true",
+      "optional": true
+    }
+  },
+  "content": [
     {
       "type": "node",
       "namespace": "PreKeys",
-      "variant": "KeyType",
-      "tag": "user",
-      "content": [
-        {
-          "type": "node",
-          "tag": "type",
-          "content": {
-            "type": "binary",
-            "literal": {
-              "0": 5
-            }
-          }
-        },
-        {
-          "type": "node",
-          "tag": "key",
-          "content": [
-            {
-              "$ref": "PreKeys:KeyID"
-            },
-            {
-              "type": "node",
-              "namespace": "PreKeys",
-              "variant": "KeyData",
-              "tag": "value",
-              "content": {
-                "type": "binary",
-                "min": 32,
-                "max": 32
-              }
-            }
-          ]
-        }
-      ]
+      "variant": "KeyData",
+      "tag": "identity",
+      "content": {
+        "type": "binary",
+        "min": 32,
+        "max": 32
+      }
     },
     {
       "type": "node",
-      "namespace": "PreKeys",
-      "variant": "DeviceIdentity",
-      "tag": "user",
+      "tag": "registration",
+      "content": {
+        "type": "binary",
+        "min": 4,
+        "max": 4
+      }
+    },
+    {
+      "type": "node",
+      "tag": "skey",
       "content": [
         {
           "type": "node",
-          "tag": "device-identity",
+          "namespace": "PreKeys",
+          "variant": "KeyData",
+          "tag": "value",
           "content": {
-            "type": "binary"
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        },
+        {
+          "$ref": "PreKeys:KeyID"
+        },
+        {
+          "type": "node",
+          "tag": "signature",
+          "content": {
+            "type": "binary",
+            "min": 64,
+            "max": 64
           }
         }
       ]

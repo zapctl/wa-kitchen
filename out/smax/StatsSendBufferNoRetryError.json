@@ -7,10 +7,10 @@
       "$ref": "Stats:IQErrorBadRequest"
     },
     {
-      "$ref": "Stats:IQErrorNotAcceptable"
+      "$ref": "Stats:IQErrorFeatureNotImplemented"
     },
     {
-      "$ref": "Stats:IQErrorFeatureNotImplemented"
+      "$ref": "Stats:IQErrorNotAcceptable"
     }
   ]
 }

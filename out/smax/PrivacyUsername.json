@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "Privacy",
-  "variant": "Username",
-  "tag": "",
-  "attributes": {
-    "username": {
-      "type": "string"
-    }
-  }
+  "variant": "Username"
 }

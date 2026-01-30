@@ -1,0 +1,39 @@
+{
+  "type": "union",
+  "namespace": "Blocklists",
+  "variant": "BizOptOutIds",
+  "unions": [
+    {
+      "type": "node",
+      "namespace": "Blocklists",
+      "variant": "BizOptOutBrandID",
+      "tag": "",
+      "attributes": {
+        "biz_opt_out_brand_id": {
+          "type": "string"
+        },
+        "biz_jid": {
+          "optional": true,
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
+    },
+    {
+      "type": "node",
+      "namespace": "Blocklists",
+      "variant": "BizOptOutJid",
+      "tag": "",
+      "attributes": {
+        "biz_opt_out_jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      }
+    }
+  ]
+}

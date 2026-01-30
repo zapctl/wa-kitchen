@@ -4,40 +4,40 @@
   "variant": "CreateClientErrors",
   "unions": [
     {
-      "$ref": "Groups:IQErrorForbidden"
-    },
-    {
-      "$ref": "Groups:IQErrorResourceConstraint"
-    },
-    {
-      "$ref": "Groups:IQErrorItemNotFound"
-    },
-    {
-      "$ref": "Groups:IQErrorResourceLimit"
-    },
-    {
-      "$ref": "Groups:IQErrorNotAcceptable"
+      "$ref": "Groups:CreateOrAddGroupRateLimitError"
     },
     {
       "$ref": "Groups:IQErrorBadRequest"
     },
     {
-      "$ref": "Groups:CreateOrAddGroupRateLimitError"
+      "$ref": "Groups:IQErrorFallbackClient"
     },
     {
-      "$ref": "Groups:IQErrorRateOverlimit"
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorNotAcceptable"
     },
     {
       "$ref": "Groups:IQErrorNotAllowed"
     },
     {
-      "$ref": "Groups:IQErrorParentLinkedGroupsParticipantsResourceLimit"
-    },
-    {
       "$ref": "Groups:IQErrorParentGroupSuspended"
     },
     {
-      "$ref": "Groups:IQErrorFallbackClient"
+      "$ref": "Groups:IQErrorParentLinkedGroupsParticipantsResourceLimit"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    },
+    {
+      "$ref": "Groups:IQErrorResourceConstraint"
+    },
+    {
+      "$ref": "Groups:IQErrorResourceLimit"
     }
   ]
 }

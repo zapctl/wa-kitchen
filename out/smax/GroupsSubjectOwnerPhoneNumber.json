@@ -1,14 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "SubjectOwnerPhoneNumber",
-  "tag": "",
-  "attributes": {
-    "s_o_pn": {
-      "type": "jid",
-      "jidTypes": [
-        "UserJid"
-      ]
-    }
-  }
+  "variant": "SubjectOwnerPhoneNumber"
 }

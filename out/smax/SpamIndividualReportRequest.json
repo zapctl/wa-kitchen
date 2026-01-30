@@ -60,6 +60,18 @@
         },
         {
           "type": "node",
+          "tag": "biz_api_report",
+          "attributes": {
+            "known_account": {
+              "type": "string"
+            },
+            "message_report": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "node",
           "tag": "biz_opt_out",
           "attributes": {
             "reason": {
@@ -101,18 +113,6 @@
               }
             }
           ]
-        },
-        {
-          "type": "node",
-          "tag": "biz_api_report",
-          "attributes": {
-            "known_account": {
-              "type": "string"
-            },
-            "message_report": {
-              "type": "string"
-            }
-          }
         }
       ]
     }

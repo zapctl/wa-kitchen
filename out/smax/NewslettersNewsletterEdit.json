@@ -1,43 +1,16 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Newsletters",
   "variant": "NewsletterEdit",
-  "unions": [
-    {
-      "$ref": "Newsletters:WAMOSub"
+  "tag": "message",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "3"
     },
-    {
-      "$ref": "Newsletters:NewsletterQuestionReply"
-    },
-    {
-      "type": "node",
-      "namespace": "Newsletters",
-      "variant": "NewsletterText",
-      "tag": "message",
-      "attributes": {
-        "type": {
-          "type": "string",
-          "literal": "text"
-        }
-      },
-      "content": [
-        {
-          "$ref": "Newsletters:Payload"
-        },
-        {
-          "type": "node",
-          "tag": "meta",
-          "attributes": {
-            "is_wamo_sub": {
-              "type": "string",
-              "literal": "true"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "$ref": "Newsletters:NewsletterMedia"
+    "type": {
+      "type": "string",
+      "literal": "media"
     }
-  ]
+  }
 }

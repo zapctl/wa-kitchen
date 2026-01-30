@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "namespace": "BizMsgUserFeedback",
+  "variant": "IQErrorInternalServerError",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "internal-server-error"
+    },
+    "code": {
+      "type": "number",
+      "literal": 500,
+      "as": "string"
+    }
+  }
+}

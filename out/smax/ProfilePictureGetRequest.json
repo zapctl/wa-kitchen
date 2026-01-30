@@ -72,6 +72,9 @@
       },
       "content": [
         {
+          "type": "node"
+        },
+        {
           "type": "node",
           "tag": "add_request",
           "attributes": {
@@ -91,9 +94,6 @@
               "as": "string"
             }
           }
-        },
-        {
-          "type": "node"
         }
       ]
     }

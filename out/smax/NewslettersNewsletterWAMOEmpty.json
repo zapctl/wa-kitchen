@@ -1,25 +1,40 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Newsletters",
   "variant": "NewsletterWAMOEmpty",
-  "unions": [
+  "tag": "message",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "3"
+    },
+    "type": {
+      "type": "string",
+      "literal": "poll"
+    }
+  },
+  "content": [
     {
-      "$ref": "Newsletters:AdminRevoke"
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        },
+        "polltype": {
+          "type": "string",
+          "literal": "quiz_creation"
+        },
+        "contenttype": {
+          "optional": true,
+          "type": "string"
+        }
+      }
     },
     {
-      "$ref": "Newsletters:AdminEdit"
-    },
-    {
-      "$ref": "Newsletters:ContentTypeText"
-    },
-    {
-      "$ref": "Newsletters:ContentTypeMedia"
-    },
-    {
-      "$ref": "Newsletters:ContentTypePollCreation"
-    },
-    {
-      "$ref": "Newsletters:ContentTypeQuizCreation"
+      "type": "node",
+      "tag": "plaintext"
     }
   ]
 }

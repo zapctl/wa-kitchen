@@ -4,19 +4,19 @@
   "variant": "GetLinkedGroupClientErrors",
   "unions": [
     {
-      "$ref": "Groups:IQErrorItemNotFound"
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
     },
     {
       "$ref": "Groups:IQErrorForbidden"
     },
     {
-      "$ref": "Groups:IQErrorBadRequest"
+      "$ref": "Groups:IQErrorItemNotFound"
     },
     {
       "$ref": "Groups:IQErrorNotAllowed"
-    },
-    {
-      "$ref": "Groups:IQErrorFallbackClient"
     }
   ]
 }

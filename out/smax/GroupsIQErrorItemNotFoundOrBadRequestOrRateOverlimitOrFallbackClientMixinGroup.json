@@ -4,16 +4,16 @@
   "variant": "IQErrorItemNotFoundOrBadRequestOrRateOverlimitOrFallbackClientMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:IQErrorItemNotFound"
-    },
-    {
       "$ref": "Groups:IQErrorBadRequest"
     },
     {
-      "$ref": "Groups:IQErrorRateOverlimit"
+      "$ref": "Groups:IQErrorFallbackClient"
     },
     {
-      "$ref": "Groups:IQErrorFallbackClient"
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
     }
   ]
 }

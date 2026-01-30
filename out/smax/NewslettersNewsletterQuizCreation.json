@@ -11,9 +11,6 @@
   },
   "content": [
     {
-      "$ref": "Newsletters:Payload"
-    },
-    {
       "type": "node",
       "tag": "meta",
       "attributes": {
@@ -30,6 +27,9 @@
           "literal": "true"
         }
       }
+    },
+    {
+      "$ref": "Newsletters:Payload"
     }
   ]
 }

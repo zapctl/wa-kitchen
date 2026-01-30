@@ -4,9 +4,6 @@
   "variant": "ContentTypeTextOrMediaOrPollCreationOrQuizCreationMixinGroup",
   "unions": [
     {
-      "$ref": "Newsletters:ContentTypeText"
-    },
-    {
       "$ref": "Newsletters:ContentTypeMedia"
     },
     {
@@ -14,6 +11,9 @@
     },
     {
       "$ref": "Newsletters:ContentTypeQuizCreation"
+    },
+    {
+      "$ref": "Newsletters:ContentTypeText"
     }
   ]
 }

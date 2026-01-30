@@ -1,0 +1,50 @@
+{
+  "type": "node",
+  "namespace": "AccountSetPaymentsTOSv3Request",
+  "variant": "makeSetPaymentsTOSv3Request",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "urn:xmpp:whatsapp:account"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "accept_pay",
+      "attributes": {
+        "version": {
+          "type": "string",
+          "literal": "3"
+        },
+        "tos_version": {
+          "type": "number",
+          "as": "string"
+        },
+        "service": {
+          "type": "string",
+          "literal": "FBPAY"
+        }
+      },
+      "content": [
+        {
+          "type": "node"
+        }
+      ]
+    }
+  ]
+}

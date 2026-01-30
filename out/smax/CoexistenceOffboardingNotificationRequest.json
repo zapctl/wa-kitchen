@@ -53,6 +53,14 @@
           "content": [
             {
               "type": "node",
+              "tag": "id",
+              "content": {
+                "type": "number",
+                "as": "binary"
+              }
+            },
+            {
+              "type": "node",
               "tag": "logo_url",
               "content": {
                 "type": "binary"
@@ -63,14 +71,6 @@
               "tag": "name",
               "content": {
                 "type": "binary"
-              }
-            },
-            {
-              "type": "node",
-              "tag": "id",
-              "content": {
-                "type": "number",
-                "as": "binary"
               }
             }
           ]

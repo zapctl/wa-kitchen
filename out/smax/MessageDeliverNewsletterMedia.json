@@ -1,16 +1,52 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "MessageDeliver",
   "variant": "NewsletterMedia",
-  "unions": [
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "media"
+    }
+  },
+  "content": [
     {
-      "$ref": "MessageDeliver:WAMOSub"
-    },
-    {
-      "$ref": "MessageDeliver:MessageAssociationType"
-    },
-    {
-      "$ref": "MessageDeliver:MediaMeta"
+      "type": "node",
+      "namespace": "MessageDeliver",
+      "variant": "Payload",
+      "tag": "plaintext",
+      "attributes": {
+        "mediatype": {
+          "type": "string",
+          "enum": [
+            "1p_sticker",
+            "audio",
+            "avatar_sticker",
+            "cataloglink",
+            "collection",
+            "document",
+            "genai_sticker",
+            "gif",
+            "image",
+            "motion_photo",
+            "motion_video",
+            "productlink",
+            "ptt",
+            "ptv",
+            "sticker",
+            "sticker_pack",
+            "url",
+            "user_created_sticker",
+            "vcard",
+            "video"
+          ]
+        }
+      },
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 1048576
+      }
     }
   ]
 }

@@ -34,16 +34,7 @@
       "content": [
         {
           "type": "node",
-          "tag": "encrypted_key",
-          "content": {
-            "type": "binary",
-            "min": 1,
-            "max": 2048
-          }
-        },
-        {
-          "type": "node",
-          "tag": "nonce",
+          "tag": "auth_tag",
           "content": {
             "type": "binary",
             "min": 1,
@@ -61,7 +52,16 @@
         },
         {
           "type": "node",
-          "tag": "auth_tag",
+          "tag": "encrypted_key",
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 2048
+          }
+        },
+        {
+          "type": "node",
+          "tag": "nonce",
           "content": {
             "type": "binary",
             "min": 1,

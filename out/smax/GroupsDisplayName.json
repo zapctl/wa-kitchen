@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "DisplayName",
-  "tag": "",
-  "attributes": {
-    "display_name": {
-      "type": "string"
-    }
-  }
+  "variant": "DisplayName"
 }

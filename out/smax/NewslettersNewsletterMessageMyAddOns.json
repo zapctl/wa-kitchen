@@ -1,13 +1,14 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Newsletters",
   "variant": "NewsletterMessageMyAddOns",
-  "unions": [
-    {
-      "$ref": "Newsletters:NewsletterMyReaction"
-    },
-    {
-      "$ref": "Newsletters:NewsletterMyPollVote"
+  "tag": "message",
+  "attributes": {
+    "server_id": {
+      "type": "number",
+      "as": "string",
+      "min": 99,
+      "max": 2147476647
     }
-  ]
+  }
 }

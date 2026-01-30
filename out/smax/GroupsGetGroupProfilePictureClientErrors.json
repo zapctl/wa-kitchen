@@ -4,22 +4,22 @@
   "variant": "GetGroupProfilePictureClientErrors",
   "unions": [
     {
-      "$ref": "Groups:IQErrorItemNotFound"
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
     },
     {
       "$ref": "Groups:IQErrorForbidden"
     },
     {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
       "$ref": "Groups:IQErrorNotAllowed"
     },
     {
-      "$ref": "Groups:IQErrorBadRequest"
-    },
-    {
       "$ref": "Groups:IQErrorRateOverlimit"
-    },
-    {
-      "$ref": "Groups:IQErrorFallbackClient"
     }
   ]
 }

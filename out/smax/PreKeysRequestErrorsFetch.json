@@ -7,10 +7,10 @@
       "$ref": "PreKeys:IQErrorBadRequest"
     },
     {
-      "$ref": "PreKeys:IQErrorNoValidJID"
+      "$ref": "PreKeys:IQErrorFallbackClient"
     },
     {
-      "$ref": "PreKeys:IQErrorFallbackClient"
+      "$ref": "PreKeys:IQErrorNoValidJID"
     }
   ]
 }

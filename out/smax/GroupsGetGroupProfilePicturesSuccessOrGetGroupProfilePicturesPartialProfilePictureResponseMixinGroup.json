@@ -4,10 +4,36 @@
   "variant": "GetGroupProfilePicturesSuccessOrGetGroupProfilePicturesPartialProfilePictureResponseMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:GetGroupProfilePicturesSuccessProfilePictureResponse"
+      "type": "union",
+      "namespace": "Groups",
+      "variant": "GetGroupProfilePicturesPartialProfilePictureResponse",
+      "unions": [
+        {
+          "$ref": "Groups:BadLinkedGroupProfilePictureError"
+        },
+        {
+          "$ref": "Groups:BadServerProfilePictureError"
+        },
+        {
+          "$ref": "Groups:PictureDidNotChange"
+        },
+        {
+          "$ref": "Groups:PictureNotFound"
+        }
+      ]
     },
     {
-      "$ref": "Groups:GetGroupProfilePicturesPartialProfilePictureResponse"
+      "type": "union",
+      "namespace": "Groups",
+      "variant": "GetGroupProfilePicturesSuccessProfilePictureResponse",
+      "unions": [
+        {
+          "$ref": "Groups:ProfilePictureBlobResponse"
+        },
+        {
+          "$ref": "Groups:ProfilePictureUrlResponse"
+        }
+      ]
     }
   ]
 }

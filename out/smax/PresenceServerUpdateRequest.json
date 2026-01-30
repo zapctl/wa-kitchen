@@ -4,6 +4,9 @@
   "variant": "ServerUpdateRequest",
   "unions": [
     {
+      "$ref": "Presence:Available"
+    },
+    {
       "$ref": "Presence:GroupAvailable"
     },
     {
@@ -14,9 +17,6 @@
     },
     {
       "$ref": "Presence:UserUnavailable"
-    },
-    {
-      "$ref": "Presence:Available"
     }
   ]
 }

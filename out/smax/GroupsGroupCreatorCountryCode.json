@@ -1,11 +1,5 @@
 {
   "type": "node",
   "namespace": "Groups",
-  "variant": "GroupCreatorCountryCode",
-  "tag": "",
-  "attributes": {
-    "creator_country_code": {
-      "type": "string"
-    }
-  }
+  "variant": "GroupCreatorCountryCode"
 }

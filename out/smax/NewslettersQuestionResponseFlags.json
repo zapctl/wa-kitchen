@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "namespace": "Newsletters",
+  "variant": "QuestionResponseFlags",
+  "tag": "question_response",
+  "content": [
+    {
+      "$ref": "Newsletters:RepliedFlag"
+    }
+  ]
+}

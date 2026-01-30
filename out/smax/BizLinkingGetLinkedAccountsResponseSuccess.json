@@ -28,6 +28,9 @@
       "tag": "linked_accounts",
       "content": [
         {
+          "$ref": "BizLinking:FBBizResponse"
+        },
+        {
           "type": "union",
           "namespace": "BizLinking",
           "variant": "FBPageResponseBase",
@@ -44,18 +47,18 @@
                   "content": [
                     {
                       "type": "node",
-                      "tag": "url",
-                      "content": {
-                        "type": "string",
-                        "as": "binary"
-                      }
-                    },
-                    {
-                      "type": "node",
                       "tag": "bytes",
                       "content": {
                         "type": "binary",
                         "min": 0
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "url",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
                       }
                     }
                   ]
@@ -85,9 +88,6 @@
           ]
         },
         {
-          "$ref": "BizLinking:FBBizResponse"
-        },
-        {
           "type": "union",
           "namespace": "BizLinking",
           "variant": "IGProfessionalResponseBase",
@@ -104,18 +104,18 @@
                   "content": [
                     {
                       "type": "node",
-                      "tag": "url",
-                      "content": {
-                        "type": "string",
-                        "as": "binary"
-                      }
-                    },
-                    {
-                      "type": "node",
                       "tag": "bytes",
                       "content": {
                         "type": "binary",
                         "min": 0
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "url",
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
                       }
                     }
                   ]

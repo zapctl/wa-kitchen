@@ -1,16 +1,5 @@
 {
   "type": "node",
   "namespace": "BizSettings",
-  "variant": "SmbDataSharingSettingValue",
-  "tag": "",
-  "attributes": {
-    "value": {
-      "type": "string",
-      "enum": [
-        "false",
-        "notset",
-        "true"
-      ]
-    }
-  }
+  "variant": "SmbDataSharingSettingValue"
 }

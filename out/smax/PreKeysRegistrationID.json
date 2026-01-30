@@ -1,17 +1,5 @@
 {
   "type": "node",
   "namespace": "PreKeys",
-  "variant": "RegistrationID",
-  "tag": "",
-  "content": [
-    {
-      "type": "node",
-      "tag": "registration",
-      "content": {
-        "type": "binary",
-        "min": 4,
-        "max": 4
-      }
-    }
-  ]
+  "variant": "RegistrationID"
 }

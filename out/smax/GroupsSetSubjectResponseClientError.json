@@ -23,25 +23,25 @@
           "$ref": "Groups:IQErrorBadRequest"
         },
         {
-          "$ref": "Groups:IQErrorItemNotFound"
-        },
-        {
-          "$ref": "Groups:IQErrorNotAuthorized"
+          "$ref": "Groups:IQErrorFallbackClient"
         },
         {
           "$ref": "Groups:IQErrorForbidden"
         },
         {
-          "$ref": "Groups:IQErrorNotAcceptable"
+          "$ref": "Groups:IQErrorItemNotFound"
         },
         {
           "$ref": "Groups:IQErrorLocked"
         },
         {
-          "$ref": "Groups:IQErrorRateOverlimit"
+          "$ref": "Groups:IQErrorNotAcceptable"
         },
         {
-          "$ref": "Groups:IQErrorFallbackClient"
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "Groups:IQErrorRateOverlimit"
         }
       ]
     }

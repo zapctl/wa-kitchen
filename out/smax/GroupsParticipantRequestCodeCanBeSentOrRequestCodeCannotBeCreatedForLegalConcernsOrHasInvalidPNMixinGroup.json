@@ -4,13 +4,13 @@
   "variant": "ParticipantRequestCodeCanBeSentOrRequestCodeCannotBeCreatedForLegalConcernsOrHasInvalidPNMixinGroup",
   "unions": [
     {
+      "$ref": "Groups:ParticipantHasInvalidPN"
+    },
+    {
       "$ref": "Groups:ParticipantRequestCodeCanBeSent"
     },
     {
       "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
-    },
-    {
-      "$ref": "Groups:ParticipantHasInvalidPN"
     }
   ]
 }

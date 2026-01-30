@@ -7,22 +7,22 @@
       "$ref": "Waffle:IQErrorBadRequest"
     },
     {
-      "$ref": "Waffle:IQErrorRequestTimeout"
-    },
-    {
-      "$ref": "Waffle:IQErrorNotAllowed"
+      "$ref": "Waffle:IQErrorFeatureNotImplemented"
     },
     {
       "$ref": "Waffle:IQErrorInternalServerError"
     },
     {
+      "$ref": "Waffle:IQErrorNotAllowed"
+    },
+    {
       "$ref": "Waffle:IQErrorRateOverlimit"
     },
     {
-      "$ref": "Waffle:IQErrorServiceUnavailable"
+      "$ref": "Waffle:IQErrorRequestTimeout"
     },
     {
-      "$ref": "Waffle:IQErrorFeatureNotImplemented"
+      "$ref": "Waffle:IQErrorServiceUnavailable"
     }
   ]
 }

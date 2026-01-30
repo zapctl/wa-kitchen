@@ -4,13 +4,13 @@
   "variant": "ParticipantNotInGroupOrParticipantNotAllowedOrParticipantNotAcceptableOrRemoveParticipantsLinkedGroupsServerErrorMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:ParticipantNotInGroup"
+      "$ref": "Groups:ParticipantNotAcceptable"
     },
     {
       "$ref": "Groups:ParticipantNotAllowed"
     },
     {
-      "$ref": "Groups:ParticipantNotAcceptable"
+      "$ref": "Groups:ParticipantNotInGroup"
     },
     {
       "$ref": "Groups:RemoveParticipantsLinkedGroupsServerError"

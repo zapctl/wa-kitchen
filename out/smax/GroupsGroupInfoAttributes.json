@@ -1,51 +1,72 @@
 {
-  "type": "union",
+  "type": "node",
   "namespace": "Groups",
   "variant": "GroupInfoAttributes",
-  "unions": [
+  "tag": "group",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "creator": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "creation": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "p_v_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "a_v_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "s_t": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "s_o": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "open_thread_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "size": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 19999
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    },
+    "subject": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": [
     {
       "type": "node",
-      "namespace": "Groups",
-      "variant": "GroupAddressingMode",
-      "tag": "group",
-      "attributes": {
-        "addressing_mode": {
-          "type": "string",
-          "enum": [
-            "lid",
-            "pn"
-          ]
-        }
-      }
-    },
-    {
-      "$ref": "Groups:SubjectOwnerIdentity"
-    },
-    {
-      "$ref": "Groups:GroupCreatorIdentity"
-    },
-    {
-      "type": "node",
-      "namespace": "Groups",
-      "variant": "NamedSubject",
-      "tag": "group",
-      "attributes": {
-        "subject": {
-          "type": "string"
-        }
-      }
-    },
-    {
-      "type": "node",
-      "namespace": "Groups",
-      "variant": "UnnamedSubjectFallback",
-      "tag": "group",
-      "attributes": {
-        "subject": {
-          "optional": true,
-          "type": "string"
-        }
-      }
+      "tag": "missing_participant_identification"
     }
   ]
 }

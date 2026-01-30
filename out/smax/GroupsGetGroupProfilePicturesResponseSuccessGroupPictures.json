@@ -24,6 +24,38 @@
           "type": "union",
           "unions": [
             {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "GetGroupProfilePicturesPartialProfilePictureResponse",
+              "unions": [
+                {
+                  "$ref": "Groups:BadLinkedGroupProfilePictureError"
+                },
+                {
+                  "$ref": "Groups:BadServerProfilePictureError"
+                },
+                {
+                  "$ref": "Groups:PictureDidNotChange"
+                },
+                {
+                  "$ref": "Groups:PictureNotFound"
+                }
+              ]
+            },
+            {
+              "type": "union",
+              "namespace": "Groups",
+              "variant": "GetGroupProfilePicturesSuccessProfilePictureResponse",
+              "unions": [
+                {
+                  "$ref": "Groups:ProfilePictureBlobResponse"
+                },
+                {
+                  "$ref": "Groups:ProfilePictureUrlResponse"
+                }
+              ]
+            },
+            {
               "type": "node",
               "namespace": "Groups",
               "variant": "ParentGroup",
@@ -50,12 +82,6 @@
                   ]
                 }
               }
-            },
-            {
-              "$ref": "Groups:GetGroupProfilePicturesSuccessProfilePictureResponse"
-            },
-            {
-              "$ref": "Groups:GetGroupProfilePicturesPartialProfilePictureResponse"
             }
           ]
         }

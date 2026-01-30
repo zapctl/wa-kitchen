@@ -30,10 +30,10 @@
           "$ref": "BizLinking:IQErrorBadRequest"
         },
         {
-          "$ref": "BizLinking:IQErrorNoticeRequired"
+          "$ref": "BizLinking:IQErrorInternalServerError"
         },
         {
-          "$ref": "BizLinking:IQErrorInternalServerError"
+          "$ref": "BizLinking:IQErrorNoticeRequired"
         }
       ]
     }

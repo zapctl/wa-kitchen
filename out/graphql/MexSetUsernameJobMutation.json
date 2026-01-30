@@ -1,11 +1,20 @@
 {
-  "id": "8896855000416010",
+  "id": "25757341163897635",
   "name": "MexSetUsernameJob",
   "type": "mutation",
   "input": {
     "type": "object",
     "properties": {
       "input": {
+        "type": "scalar"
+      },
+      "reserved": {
+        "type": "scalar"
+      },
+      "session_id": {
+        "type": "scalar"
+      },
+      "source": {
         "type": "scalar"
       }
     }

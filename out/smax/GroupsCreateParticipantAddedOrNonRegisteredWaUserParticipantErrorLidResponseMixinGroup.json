@@ -9,18 +9,19 @@
       "variant": "CreateParticipantAddedResponse",
       "unions": [
         {
-          "type": "node",
-          "namespace": "Groups",
-          "variant": "UsernameAtt",
-          "tag": "participant",
-          "attributes": {
-            "username": {
-              "type": "string"
-            }
-          }
+          "$ref": "Groups:CreateParticipantAdded"
         },
         {
-          "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+          "$ref": "Groups:ParticipantBotAlreadyExists"
+        },
+        {
+          "$ref": "Groups:ParticipantBotIncompatibleVersion"
+        },
+        {
+          "$ref": "Groups:ParticipantHasInvalidPN"
+        },
+        {
+          "$ref": "Groups:ParticipantNotAcceptable"
         },
         {
           "$ref": "Groups:ParticipantNotAuthorized"
@@ -32,30 +33,42 @@
           "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
         },
         {
-          "$ref": "Groups:ParticipantHasInvalidPN"
-        },
-        {
           "$ref": "Groups:ParticipantResourceConstraint"
-        },
-        {
-          "$ref": "Groups:ParticipantNotAcceptable"
         },
         {
           "$ref": "Groups:ParticipantResourceLimit"
         },
         {
-          "$ref": "Groups:ParticipantBotIncompatibleVersion"
+          "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
         },
         {
-          "$ref": "Groups:ParticipantBotAlreadyExists"
-        },
-        {
-          "$ref": "Groups:CreateParticipantAdded"
+          "type": "node",
+          "namespace": "Groups",
+          "variant": "UsernameAtt",
+          "tag": "participant",
+          "attributes": {
+            "username": {
+              "type": "string"
+            }
+          }
         }
       ]
     },
     {
-      "$ref": "Groups:NonRegisteredWaUserParticipantErrorLidResponse"
+      "type": "union",
+      "namespace": "Groups",
+      "variant": "NonRegisteredWaUserParticipantErrorLidResponse",
+      "unions": [
+        {
+          "$ref": "Groups:ParticipantHasInvalidPN"
+        },
+        {
+          "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+        },
+        {
+          "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+        }
+      ]
     }
   ]
 }

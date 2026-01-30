@@ -24,13 +24,13 @@
           "type": "union",
           "unions": [
             {
-              "$ref": "PreKeys:FetchMissingPreKeysUserSuccess"
-            },
-            {
               "$ref": "PreKeys:FetchMissingPreKeysUserError"
             },
             {
               "$ref": "PreKeys:FetchMissingPreKeysUserErrorFallback"
+            },
+            {
+              "$ref": "PreKeys:FetchMissingPreKeysUserSuccess"
             }
           ]
         }

@@ -4,16 +4,16 @@
   "variant": "PictureDidNotChangeOrPictureNotFoundOrBadServerProfilePictureErrorOrBadLinkedGroupProfilePictureErrorMixinGroup",
   "unions": [
     {
-      "$ref": "Groups:PictureDidNotChange"
-    },
-    {
-      "$ref": "Groups:PictureNotFound"
+      "$ref": "Groups:BadLinkedGroupProfilePictureError"
     },
     {
       "$ref": "Groups:BadServerProfilePictureError"
     },
     {
-      "$ref": "Groups:BadLinkedGroupProfilePictureError"
+      "$ref": "Groups:PictureDidNotChange"
+    },
+    {
+      "$ref": "Groups:PictureNotFound"
     }
   ]
 }
