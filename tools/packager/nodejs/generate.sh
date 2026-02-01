@@ -2,6 +2,7 @@
 
 PROTO_DIR=$OUT_DIR/protobuf
 GRAPHQL_DIR=$OUT_DIR/graphql
+STANZA_DIR=$OUT_DIR/stanza
 VERSION_PATH=$OUT_DIR/version.json
 MAIN_PATH=$OUT_DIR/main.json
 JID_PATH=$OUT_DIR/jid.json
@@ -11,6 +12,7 @@ MESSAGE_PATH=$OUT_DIR/message.json
 OUT=$OUT_DIR/dist/nodejs
 PROTO_OUT=$OUT/proto
 GRAPHQL_OUT=$OUT/graphql
+STANZA_OUT=$OUT/stanza
 JID_OUT=$OUT/jid
 BINARY_OUT=$OUT/binary
 MESSAGE_OUT=$OUT/message
@@ -20,7 +22,7 @@ setup() {
     npm install
     export PATH="$PATH:$(npm root)/.bin"
     
-    echo "Cleaning and creating out directory..."
+    echo "Cleaning and creating out directory... $OUT"
     rm -rf $OUT
     mkdir -p $OUT
     
@@ -73,6 +75,18 @@ generate_graphql() {
     }
     
     echo "GraphQL generation completed"
+}
+
+generate_stanza() {
+    echo "Generating Stanza TypeScript definitions..."
+    mkdir -p $STANZA_OUT
+    
+    node $(dirname "$0")/scripts/generate-stanza.js "$STANZA_DIR" "$STANZA_OUT/index.ts" || {
+        echo "Error: Stanza generation failed"
+        exit 1
+    }
+    
+    echo "Stanza generation completed"
 }
 
 generate_jid() {
@@ -193,9 +207,10 @@ copy_assets
 generate_package
 generate_main
 generate_graphql
+generate_stanza
 generate_jid
 generate_binary
 generate_message
 compile_proto
-compile_ts
-minify
+# compile_ts
+# minify
