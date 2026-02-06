@@ -9,9 +9,8 @@ const WASmaxChildren = require("WASmaxChildren");
 const WASmaxMixins = require("WASmaxMixins");
 
 const METADATA_SYMBOL = Symbol("metadata");
+const PARENT_MODULE_NAME = Symbol("parentModuleName");
 const RETRY_ERROR = new Error("retry");
-
-const skipForcedMixinFailure = new Set();
 
 const Types = {
     STANZA: "node",
@@ -251,6 +250,8 @@ function mergeStanzas(...nodes) {
                 ...existingMetadata.unions || [],
                 ...nodeMetadata.unions || [],
             ),
+            min: existingMetadata.min ?? nodeMetadata.min,
+            max: existingMetadata.max ?? nodeMetadata.max,
         }
 
         Object.entries(mergedMetadata).forEach(([key, val]) => {
@@ -734,6 +735,8 @@ function createModuleName(mod) {
 }
 
 function createMixinProxy(mixinModule, moduleName) {
+    const skipMixinFailureMap = new Map();
+
     return new Proxy(mixinModule, {
         get(target, propertyName) {
             const originalValue = target[propertyName];
@@ -743,12 +746,30 @@ function createMixinProxy(mixinModule, moduleName) {
             if (!isParseMixin) return originalValue;
 
             return function (node, ...rest) {
+                const ctxModuleName = node[PARENT_MODULE_NAME] || moduleName;
+
+                if (!skipMixinFailureMap.has(ctxModuleName))
+                    skipMixinFailureMap.set(ctxModuleName, new Set());
+
+                const skipMixinFailureSet = skipMixinFailureMap.get(ctxModuleName);
+
                 const proxy = {};
+
+                Object.defineProperty(proxy, PARENT_MODULE_NAME, {
+                    value: moduleName,
+                    configurable: false,
+                    enumerable: false,
+                    writable: false,
+                });
+
                 const result = originalValue(proxy, ...rest);
-                const isUnion = !skipForcedMixinFailure.has(originalValue);
+
+                const isUnion = !skipMixinFailureSet.has(originalValue) &&
+                    !Object.keys(node.attrs || {}).length &&
+                    !(Array.isArray(node.content) || node.content instanceof Uint8Array);
 
                 if (!result?.success) {
-                    if (result.mixin) skipForcedMixinFailure.add(result.mixin);
+                    if (result.skip) result.skip();
                     throw RETRY_ERROR;
                 }
 
@@ -756,13 +777,14 @@ function createMixinProxy(mixinModule, moduleName) {
                 else if (typeof proxy.tag === "string") node.tag = proxy.tag;
                 else node.tag = proxy.tag = "";
 
-                assignMetadata(proxy, createModuleName({
-                    moduleName,
-                    parserName: propertyName,
-                }));
+                const isNullable = false;
 
                 if (isUnion) {
                     assignMetadata(node, {
+                        ...createModuleName({
+                            moduleName,
+                            parserName: propertyName,
+                        }),
                         unions: [proxy],
                         mixinReturn: result,
                     });
@@ -770,7 +792,7 @@ function createMixinProxy(mixinModule, moduleName) {
                     return {
                         success: false,
                         error: "Forced failure to capture all union variants",
-                        mixin: originalValue,
+                        skip: () => skipMixinFailureSet.add(originalValue),
                     };
                 } else {
                     mergeStanzas(node, proxy);
@@ -860,6 +882,7 @@ function createPropProxy(hint = new Map(), path = "") {
     const instance = new Proxy({}, {
         get(target, propertyName) {
             switch (propertyName) {
+                case PARENT_MODULE_NAME: return target[propertyName];
                 case METADATA_SYMBOL: return target[propertyName];
                 case "assignMetadata": return assignMetadata;
                 case "toObject": return () => toObject(instance);
@@ -872,7 +895,7 @@ function createPropProxy(hint = new Map(), path = "") {
                 throw new Error("Circular reference detected, cannot assign prop proxy");
             }
 
-            if (propertyName === METADATA_SYMBOL) {
+            if (typeof propertyName === "symbol") {
                 target[propertyName] = propValue;
                 return true;
             }
@@ -976,18 +999,15 @@ function withParamsPlaceholder(callback) {
     const paramsProxy = createPropProxy();
     const referenceProxy = createPropProxy();
 
-    skipForcedMixinFailure.clear();
-
     for (let i = 0; i < 5_000; i++) {
         try {
             paramsProxy.clear();
             referenceProxy.clear();
 
             const result = callback(paramsProxy, referenceProxy);
-            const skipMixinFailure = !result.success && result.mixin;
 
-            if (skipMixinFailure) {
-                skipForcedMixinFailure.add(result.mixin);
+            if (!result.success && result.skip) {
+                result.skip();
                 continue;
             }
 
@@ -1016,21 +1036,28 @@ function convertToSchema(stanza) {
             return convertToSchema(stanza);
         }
 
-        return {
+        const schema = {
             type: "union",
-            namespace: metadata.namespace,
-            variant: metadata.variant,
             unions: metadata.unions.map(convertToSchema),
-        };
+        }
+
+        if (metadata.namespace) schema.namespace = metadata.namespace;
+        if (metadata.variant) schema.variant = metadata.variant;
+
+        return schema;
     }
 
     const schema = {
         type: "node",
-        namespace: metadata.namespace,
-        variant: metadata.variant,
         tag: stanza.tag,
-        attributes: metadata.attrs,
+        attributes: metadata.attrs || {},
+        content: null,
     };
+
+    if (metadata.namespace) schema.namespace = metadata.namespace;
+    if (metadata.variant) schema.variant = metadata.variant;
+    if (metadata.min) schema.min = metadata.min;
+    if (metadata.max) schema.max = metadata.max;
 
     if (Array.isArray(stanza.content)) {
         const children = stanza.content.map(convertToSchema);
@@ -1038,7 +1065,7 @@ function convertToSchema(stanza) {
         schema.content = metadata.content ?
             { ...metadata.content, children } :
             children;
-    } else {
+    } else if (metadata.content) {
         schema.content = metadata.content;
     }
 
@@ -1166,14 +1193,21 @@ function getAllModulesSchemas() {
         const modules = getSMaxInOutModules();
 
         modules.forEach((mod, i) => {
-            // if(createModuleName(mod).namespace !== "Blocklist") return;
-            if (mod.moduleName !== "BizCtwaActionNativeActionsMixin") return;
+            // WASmaxInGroupsParticipantUsernameMixin
+            // WASmaxInGroupsIdentityTypes
+
+            // if(createModuleName(mod).namespace !== "Blocklists") return;
+            // if (
+            //     mod.moduleName !== "GroupsGroupInfoOrTruncatedGroupInfoOrGroupForbiddenOrGroupNotExistMixinGroup"
+            // ) return;
+            if (mod.moduleName !== "GroupsGroupInfo") return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
 
             const stanza = withParamsPlaceholder(mod.parser);
             assignMetadata(stanza, createModuleName(mod));
 
+            console.log(stanza);
             schemaSpecs[mod.moduleName] = convertToSchema(stanza);
         });
 
@@ -1191,4 +1225,4 @@ const schemas = await getAllModulesSchemas();
 
 console.log("SMaxInputSchemas", schemas);
 
-return schemas;
+// return schemas;

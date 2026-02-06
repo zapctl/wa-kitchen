@@ -5,7 +5,6 @@ const [, , schemasDir, outputFile] = process.argv;
 
 if (!schemasDir || !outputFile) {
     console.error("Error: Missing arguments");
-    console.error("Usage: generate-stanzajs <schemasDir> <outputFile>");
     process.exit(1);
 }
 
@@ -97,16 +96,20 @@ function serializeContent(namespace, spec, level) {
             const contentType = serializeContent(namespace, spec.content, level + 1);
 
             let output = `{\n`;
-            output += `${indentInner}tag: "${spec.tag}";\n`;
+            if (spec.tag) output += `${indentInner}tag: "${spec.tag}";\n`;
             output += `${indentInner}attrs: ${attrsType};\n`;
-            output += `${indentInner}content: ${contentType};\n`;
+            if (spec.content) output += `${indentInner}content: ${contentType};\n`;
             output += `${indent}}`;
             return output;
         }
         case "union": {
-            return "never";
+            const nodes = spec.unions.filter(node => node.type === "node");
+            const unions = spec.unions.filter(node => node.type === "union");
+
+            const indent = "\t".repeat(level);
+
             const unionType = spec.unions
-                .map(serializeSpec)
+                .map(union => serializeContent(namespace, union, level + 1))
                 .map(type => type.replace(`${spec.namespace}.`, ""))
                 .join(" | ") || "never";
 
@@ -121,9 +124,6 @@ function serializeContent(namespace, spec, level) {
         case "binary":
             // TODO: min, max, literal
             return "Uint8Array";
-        case undefined:
-            // FIXME: undefined?
-            return "undefined";
         default:
             throw new Error(`Unhandled type "${spec.type}"`);
     }
@@ -139,9 +139,9 @@ function serializeSpec(namespace, spec, level = 0) {
             const contentType = serializeContent(namespace, spec.content, level + 1);
 
             let output = `${indent}export interface ${spec.variant} {\n`;
-            output += `${indentInner}tag: "${spec.tag}";\n`;
+            if (spec.tag) output += `${indentInner}tag: "${spec.tag}";\n`;
             output += `${indentInner}attrs: ${attrsType};\n`;
-            output += `${indentInner}content: ${contentType};\n`;
+            if (spec.content) output += `${indentInner}content: ${contentType};\n`;
             output += `${indent}}`;
             return output;
         }

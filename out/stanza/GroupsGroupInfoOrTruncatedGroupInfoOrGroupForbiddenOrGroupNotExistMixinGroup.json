@@ -1,0 +1,211 @@
+{
+    "type": "union",
+    "namespace": "Groups",
+    "variant": "GroupInfoOrTruncatedGroupInfoOrGroupForbiddenOrGroupNotExistMixinGroup",
+    "unions": [
+        {
+            "type": "union",
+            "namespace": "Groups",
+            "variant": "GroupInfo",
+            "unions": [
+                {
+                    "type": "node",
+                    "tag": "group",
+                    "attributes": {
+                        "addressing_mode": {
+                            "type": "string",
+                            "enum": [
+                                "lid",
+                                "pn"
+                            ]
+                        },
+                        "subject": {
+                            "optional": true,
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "type": "node",
+                    "tag": "group",
+                    "content": [
+                        {
+                            "type": "union",
+                            "unions": [
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "AdminAddMode",
+                                    "tag": "member_add_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary",
+                                        "literal": "admin_add"
+                                    }
+                                },
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "AllMembersAddMode",
+                                    "tag": "member_add_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary",
+                                        "literal": "all_member_add"
+                                    }
+                                },
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "UnknownAddMode",
+                                    "tag": "member_add_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "node",
+                    "tag": "group",
+                    "content": [
+                        {
+                            "type": "union",
+                            "unions": [
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "AdminLinkMode",
+                                    "tag": "member_link_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary",
+                                        "literal": "admin_link"
+                                    }
+                                },
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "AllMembersLinkMode",
+                                    "tag": "member_link_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary",
+                                        "literal": "all_member_link"
+                                    }
+                                },
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "UnknownLinkMode",
+                                    "tag": "member_link_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "node",
+                    "tag": "group",
+                    "content": [
+                        {
+                            "type": "union",
+                            "unions": [
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "AdminShareMode",
+                                    "tag": "member_share_group_history_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary",
+                                        "literal": "admin_share"
+                                    }
+                                },
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "AllMembersShareMode",
+                                    "tag": "member_share_group_history_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary",
+                                        "literal": "all_member_share"
+                                    }
+                                },
+                                {
+                                    "type": "node",
+                                    "namespace": "Groups",
+                                    "variant": "UnknownShareMode",
+                                    "tag": "member_share_group_history_mode",
+                                    "content": {
+                                        "type": "string",
+                                        "as": "binary"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "node",
+            "namespace": "Groups",
+            "variant": "TruncatedGroupInfo",
+            "tag": "group",
+            "attributes": {
+                "id": {
+                    "type": "string"
+                },
+                "truncated": {
+                    "type": "string",
+                    "literal": "true"
+                },
+                "size": {
+                    "type": "number",
+                    "as": "string",
+                    "min": 0,
+                    "max": 19999
+                }
+            }
+        },
+        {
+            "type": "node",
+            "namespace": "Groups",
+            "variant": "GroupForbidden",
+            "tag": "group",
+            "attributes": {
+                "id": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "string",
+                    "literal": "403"
+                }
+            }
+        },
+        {
+            "type": "node",
+            "namespace": "Groups",
+            "variant": "GroupNotExist",
+            "tag": "group",
+            "attributes": {
+                "id": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "string",
+                    "literal": "404"
+                }
+            }
+        }
+    ]
+}
