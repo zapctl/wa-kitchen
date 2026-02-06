@@ -47,10 +47,13 @@ function serializeAttributeType(attr) {
 }
 
 function serializeAttributes(attributes, level) {
+    const attrs = Object.entries(attributes || {});
+    if (!attrs.length) return;
+
     const indent = "\t".repeat(level);
     let output = "{";
 
-    Object.entries(attributes || {}).forEach(([name, attr]) => {
+    attrs.forEach(([name, attr]) => {
         const optional = attr.optional ? "?" : "";
         const type = serializeAttributeType(attr);
 
@@ -65,13 +68,13 @@ function serializeAttributes(attributes, level) {
 }
 
 function serializeContent(namespace, spec, level) {
-    if (!spec) return "null";
+    if (!spec) return;
 
     if (Array.isArray(spec)) {
         const indent = "\t".repeat(level);
-        const types = spec.map(val => serializeContent(namespace, val, level));
+        const types = spec.map(val => serializeContent(namespace, val, level + 1));
 
-        return `[${types.join(`,\n${indent}`)}]`;
+        return `[\n\t${indent}${types.join(`,\n\t${indent}`)}\n${indent}]`;
     }
 
     if (spec.$ref) return spec.$ref.replace(":", ".");
@@ -97,23 +100,27 @@ function serializeContent(namespace, spec, level) {
 
             let output = `{\n`;
             if (spec.tag) output += `${indentInner}tag: "${spec.tag}";\n`;
-            output += `${indentInner}attrs: ${attrsType};\n`;
-            if (spec.content) output += `${indentInner}content: ${contentType};\n`;
+            if (attrsType) output += `${indentInner}attrs: ${attrsType};\n`;
+            if (contentType) output += `${indentInner}content: ${contentType};\n`;
             output += `${indent}}`;
             return output;
         }
         case "union": {
+            if (spec.variant) {
+                namespace.push(serializeSpec(namespace, spec, 1));
+
+                return spec.variant;
+            }
+
             const nodes = spec.unions.filter(node => node.type === "node");
             const unions = spec.unions.filter(node => node.type === "union");
 
-            const indent = "\t".repeat(level);
-
             const unionType = spec.unions
-                .map(union => serializeContent(namespace, union, level + 1))
+                .map(union => serializeContent(namespace, union, level))
                 .map(type => type.replace(`${spec.namespace}.`, ""))
-                .join(" | ") || "never";
+                .join(" | ");
 
-            return `${indent}export type ${spec.variant} = ${unionType};`;
+            return unionType;
         }
         case "number":
             // literal
@@ -140,16 +147,15 @@ function serializeSpec(namespace, spec, level = 0) {
 
             let output = `${indent}export interface ${spec.variant} {\n`;
             if (spec.tag) output += `${indentInner}tag: "${spec.tag}";\n`;
-            output += `${indentInner}attrs: ${attrsType};\n`;
-            if (spec.content) output += `${indentInner}content: ${contentType};\n`;
+            if (attrsType) output += `${indentInner}attrs: ${attrsType};\n`;
+            if (contentType) output += `${indentInner}content: ${contentType};\n`;
             output += `${indent}}`;
             return output;
         }
         case "union": {
             const unionType = spec.unions
                 .map(union => serializeContent(namespace, union, level + 1))
-                .map(type => type.replace(`${spec.namespace}.`, ""))
-                .join(` |\n${indentInner}`);
+                .join(" | ");
 
             return `${indent}export type ${spec.variant} = \n${indentInner}${unionType};`;
         }
@@ -189,7 +195,7 @@ function generateTypes() {
         output += `\n}\n\n`;
     }
 
-    return output;
+    return output.trim();
 }
 
 const output = generateTypes();

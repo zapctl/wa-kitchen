@@ -1,5 +1,5 @@
 {
-  "id": "32114967328146495",
+  "id": "34648142681451626",
   "name": "FetchSubscriptions",
   "type": "query",
   "input": {
@@ -40,6 +40,12 @@
                 "type": "scalar"
               },
               "enabled": {
+                "type": "scalar"
+              },
+              "expiration_time": {
+                "type": "scalar"
+              },
+              "limit": {
                 "type": "scalar"
               }
             }

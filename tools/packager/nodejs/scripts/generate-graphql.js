@@ -108,7 +108,7 @@ function generateTypes() {
         if (spec.output) output += serializeSpec(spec, "output");
     }
 
-    return output;
+    return output.trim();
 }
 
 let output = generateEnum() + "\n\n";

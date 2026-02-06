@@ -1193,14 +1193,7 @@ function getAllModulesSchemas() {
         const modules = getSMaxInOutModules();
 
         modules.forEach((mod, i) => {
-            // WASmaxInGroupsParticipantUsernameMixin
-            // WASmaxInGroupsIdentityTypes
-
-            // if(createModuleName(mod).namespace !== "Blocklists") return;
-            // if (
-            //     mod.moduleName !== "GroupsGroupInfoOrTruncatedGroupInfoOrGroupForbiddenOrGroupNotExistMixinGroup"
-            // ) return;
-            if (mod.moduleName !== "GroupsGroupInfo") return;
+            if (mod.moduleName !== "GroupsParticipantIdentity") return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
 
@@ -1225,4 +1218,4 @@ const schemas = await getAllModulesSchemas();
 
 console.log("SMaxInputSchemas", schemas);
 
-// return schemas;
+return schemas;
