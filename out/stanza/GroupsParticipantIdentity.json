@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "participant_pn": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "participant_username": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "ParticipantIdentity"
+}

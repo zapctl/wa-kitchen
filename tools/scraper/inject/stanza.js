@@ -147,6 +147,11 @@ function assignMetadata(obj, metadata = {}) {
                 metadata.attrs[attrName],
             );
 
+            if (mergedAttrMetadata.type === "undefined") {
+                debugger
+                continue;
+            }
+
             if (!obj.attrs) obj.attrs = {};
             obj.attrs[attrName] = getValueFromMetadata(mergedAttrMetadata);
 
@@ -1193,7 +1198,10 @@ function getAllModulesSchemas() {
         const modules = getSMaxInOutModules();
 
         modules.forEach((mod, i) => {
-            if (mod.moduleName !== "GroupsParticipantIdentity") return;
+            if (![
+                "GroupsGroupInfo",
+                "GroupsParticipantIdentity",
+            ].includes(mod.moduleName)) return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
 

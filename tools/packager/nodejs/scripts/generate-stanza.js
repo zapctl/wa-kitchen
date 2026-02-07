@@ -30,17 +30,11 @@ function serializeAttributeType(attr) {
         case "number":
             return "number";
         case "id":
-            return "string";
+            return "StanzaId";
         case "call-id":
-            return "string";
+            return "CallId";
         case "boolean":
             return "boolean";
-        case "binary":
-            return "Uint8Array";
-
-        case "undefined": // FIXME
-            return "undefined";
-
         default:
             throw new Error(`Unhandled attribute type "${attr.type}"`);
     }
@@ -78,20 +72,14 @@ function serializeContent(namespace, spec, level) {
     }
 
     if (spec.$ref) return spec.$ref.replace(":", ".");
-    // if (spec.as) return spec.literal;
-    // if (spec.literal) return spec.literal;
-    // if (spec.enum) return spec.literal;
-    // if (spec.min) return spec.literal;
-    // if (spec.max) return spec.literal;
+
+    if (spec.variant) {
+        namespace.push(serializeSpec(namespace, spec, 1));
+        return spec.variant;
+    }
 
     switch (spec.type) {
         case "node": {
-            if (spec.variant) {
-                namespace.push(serializeSpec(namespace, spec, 1));
-
-                return spec.variant;
-            }
-
             const indent = "\t".repeat(level);
             const indentInner = indent + "\t";
 
@@ -106,14 +94,8 @@ function serializeContent(namespace, spec, level) {
             return output;
         }
         case "union": {
-            if (spec.variant) {
-                namespace.push(serializeSpec(namespace, spec, 1));
-
-                return spec.variant;
-            }
-
-            const nodes = spec.unions.filter(node => node.type === "node");
-            const unions = spec.unions.filter(node => node.type === "union");
+            // const nodes = spec.unions.filter(node => node.type === "node");
+            // const unions = spec.unions.filter(node => node.type === "union");
 
             const unionType = spec.unions
                 .map(union => serializeContent(namespace, union, level))
@@ -122,15 +104,44 @@ function serializeContent(namespace, spec, level) {
 
             return unionType;
         }
-        case "number":
-            // literal
-            return "Uint8Array";
-        case "string":
-            // TODO: min, max, literal, enum
-            return "Uint8Array";
-        case "binary":
-            // TODO: min, max, literal
-            return "Uint8Array";
+        case "number": {
+            if (spec.literal !== undefined) return spec.literal;
+
+            let type = "number";
+            if (spec.min !== undefined) type = `Min<${type}, ${spec.min}>`;
+            if (spec.max !== undefined) type = `Max<${type}, ${spec.max}>`;
+
+            return type;
+        }
+        case "string": {
+            if (spec.literal !== undefined) {
+                return `"${spec.literal.replace(/"/g, `\\"`)}"`;
+            }
+
+            if (spec.enum?.length > 0) {
+                return spec.enum
+                    .map(v => `"${v.replace(/"/g, `\\"`)}"`)
+                    .join(" | ");
+            }
+
+            let type = "string";
+
+            if (spec.min !== undefined) type = `Min<${type}, ${spec.min}>`;
+            if (spec.max !== undefined) type = `Max<${type}, ${spec.max}>`;
+
+            return type;
+        }
+        case "binary": {
+            if (spec.literal !== undefined) {
+                return `Literal<Uint8Array, [${spec.literal.join(", ")}]>`;
+            }
+
+            let type = "Uint8Array";
+            if (spec.min !== undefined) type = `Min<${type}, ${spec.min}>`;
+            if (spec.max !== undefined) type = `Max<${type}, ${spec.max}>`;
+
+            return type;
+        }
         default:
             throw new Error(`Unhandled type "${spec.type}"`);
     }
@@ -176,18 +187,28 @@ function generateTypes() {
 
     let output = "";
 
-    output += "export type Jid = string;\n";
-    output += "export type UserJid = string;\n";
-    output += "export type DomainJid = string;\n";
-    output += "export type LidUserJid = string;\n";
-    output += "export type BroadcastJid = string;\n";
-    output += "export type DeviceJid = string;\n";
-    output += "export type CallJid = string;\n";
-    output += "export type GroupJid = string;\n";
-    output += "export type StatusJid = string;\n";
-    output += "export type ChatJid = string;\n";
-    output += "export type NewsletterJid = string;\n";
-    output += "\n";
+    output += `import type { JID, JID_PAIR, JID_AD } from "../jid";\n`;
+    output += `import type { STATUS_JID } from "../jid/commons";\n`;
+    output += `import type * as JID_CONSTS from "../jid/constants";\n\n`;
+
+    output += "export type Literal<T, N> = T & { readonly __literal: N };\n";
+    output += "export type Min<T, N extends number> = T & { readonly __min: N };\n";
+    output += "export type Max<T, N extends number> = T & { readonly __max: N };\n\n";
+
+    output += "export type StanzaId = string & { _?: never };\n";
+    output += "export type CallId = string & { _?: never };\n\n";
+
+    output += "export type Jid = JID;\n";
+    output += `export type DeviceJid = JID_AD;\n`;
+    output += `export type ChatJid = JID_PAIR;\n`;
+    output += `export type DomainJid = JID_PAIR<"", string>;\n`;
+    output += `export type UserJid = JID_PAIR<string, typeof JID_CONSTS.USER_JID_SUFFIX>;\n`;
+    output += `export type LidUserJid = JID_PAIR<string, typeof JID_CONSTS.LID_SUFFIX>;\n`;
+    output += `export type BroadcastJid = JID_PAIR<string, typeof JID_CONSTS.BROADCAST_JID_SUFFIX>;\n`;
+    output += `export type CallJid = JID_PAIR<string, typeof JID_CONSTS.CALL_JID_SUFFIX>;\n`;
+    output += `export type GroupJid = JID_PAIR<string, typeof JID_CONSTS.GROUP_JID_SUFFIX>;\n`;
+    output += `export type NewsletterJid = JID_PAIR<string, typeof JID_CONSTS.NEWSLETTER_JID_SUFFIX>;\n`;
+    output += `export type StatusJid = JID_PAIR<typeof STATUS_JID.user, typeof STATUS_JID.server>;\n\n`;
 
     for (const [name, specs] of Object.entries(namespaces)) {
         output += `export namespace ${name} {\n`;
