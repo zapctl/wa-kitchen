@@ -7,10 +7,13 @@ const WASmaxParseReference = require("WASmaxParseReference");
 const WASmaxAttrs = require("WASmaxAttrs");
 const WASmaxChildren = require("WASmaxChildren");
 const WASmaxMixins = require("WASmaxMixins");
+const WAResultOrError = require("WAResultOrError");
 
 const METADATA_SYMBOL = Symbol("metadata");
 const PARENT_MODULE_NAME = Symbol("parentModuleName");
 const RETRY_ERROR = new Error("retry");
+
+const nullableMixinCheckMap = new Map();
 
 const Types = {
     STANZA: "node",
@@ -721,6 +724,21 @@ function createModuleMetadataProxy(targetModule) {
                         );
                     }
 
+                case "makeResult":
+                    return (result) => {
+                        Object.entries(result).forEach(([key, value]) => {
+                            if (value !== null || !key.endsWith("Mixin")) return;
+
+                            const nullableChecker = nullableMixinCheckMap.get(key.toLowerCase());
+                            if (!nullableChecker) return;
+
+                            nullableChecker.markAsNullable();
+                            result[key] = nullableChecker.mixinValue;
+                        });
+
+                        return originalValue(result);
+                    }
+
                 case "mergeStanzas":
                     return (a, b) => mergeStanzas(a, b)[0];
 
@@ -769,10 +787,6 @@ function createMixinProxy(mixinModule, moduleName) {
 
                 const result = originalValue(proxy, ...rest);
 
-                const isUnion = !skipMixinFailureSet.has(originalValue) &&
-                    !Object.keys(node.attrs || {}).length &&
-                    !(Array.isArray(node.content) || node.content instanceof Uint8Array);
-
                 if (!result?.success) {
                     if (result.skip) result.skip();
                     throw RETRY_ERROR;
@@ -782,7 +796,34 @@ function createMixinProxy(mixinModule, moduleName) {
                 else if (typeof proxy.tag === "string") node.tag = proxy.tag;
                 else node.tag = proxy.tag = "";
 
-                const isNullable = false;
+                const isMixinFailureSkipped = skipMixinFailureSet.has(originalValue);
+
+                const isUnion = !isMixinFailureSkipped &&
+                    !Object.keys(node.attrs || {}).length &&
+                    !(Array.isArray(node.content) || node.content instanceof Uint8Array);
+
+                if (!isMixinFailureSkipped) {
+                    const nullableCheckKey = propertyName.replace("parse", "").toLowerCase();
+
+                    nullableMixinCheckMap.set(nullableCheckKey, {
+                        mixinValue: result.value,
+                        markAsNullable: () => {
+                            const proxyMetadata = proxy[METADATA_SYMBOL] || {};
+
+                            if (typeof proxyMetadata.attrs === "object") {
+                                Object.values(proxyMetadata.attrs).forEach(attr => {
+                                    attr.optional = true;
+                                });
+                            }
+
+                            if (Array.isArray(proxyMetadata.content)) {
+                                proxyMetadata.content.forEach(content => {
+                                    content.min = 0;
+                                });
+                            }
+                        },
+                    });
+                }
 
                 if (isUnion) {
                     assignMetadata(node, {
@@ -801,6 +842,7 @@ function createMixinProxy(mixinModule, moduleName) {
                     };
                 } else {
                     mergeStanzas(node, proxy);
+
                     return result;
                 }
             };
@@ -972,6 +1014,7 @@ function withMockedModules(callback) {
         modulesMap["WASmaxAttrs"].exports = createModuleMetadataProxy(WASmaxAttrs);
         modulesMap["WASmaxChildren"].exports = createModuleMetadataProxy(WASmaxChildren);
         modulesMap["WASmaxMixins"].exports = createModuleMetadataProxy(WASmaxMixins);
+        modulesMap["WAResultOrError"].exports = createModuleMetadataProxy(WAResultOrError);
 
         Object.keys(modulesMap)
             .filter(key => key.includes("Mixin"))
@@ -993,6 +1036,7 @@ function withMockedModules(callback) {
         modulesMap["WASmaxAttrs"].exports = WASmaxAttrs;
         modulesMap["WASmaxChildren"].exports = WASmaxChildren;
         modulesMap["WASmaxMixins"].exports = WASmaxMixins;
+        modulesMap["WAResultOrError"].exports = WAResultOrError;
 
         Object.keys(originalExports).forEach(moduleName => {
             modulesMap[moduleName].exports = originalExports[moduleName];
@@ -1008,6 +1052,7 @@ function withParamsPlaceholder(callback) {
         try {
             paramsProxy.clear();
             referenceProxy.clear();
+            nullableMixinCheckMap.clear();
 
             const result = callback(paramsProxy, referenceProxy);
 
@@ -1199,8 +1244,7 @@ function getAllModulesSchemas() {
 
         modules.forEach((mod, i) => {
             if (![
-                "GroupsGroupInfo",
-                "GroupsParticipantIdentity",
+                "GroupsGroupInfoDescription",
             ].includes(mod.moduleName)) return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
@@ -1226,4 +1270,4 @@ const schemas = await getAllModulesSchemas();
 
 console.log("SMaxInputSchemas", schemas);
 
-return schemas;
+// return schemas;

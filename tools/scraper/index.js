@@ -24,6 +24,7 @@ const SCRAPERS = [
     { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: ".proto" },
     { name: "graphql", type: "multi-json", outputDir: "graphql", extension: ".json" },
     { name: "stanza", type: "multi-json", outputDir: "stanza", extension: ".json" },
+    { name: "smax", type: "multi-file", outputDir: "smax", extension: ".js" },
 ];
 
 const browser = await puppeteer.launch({
