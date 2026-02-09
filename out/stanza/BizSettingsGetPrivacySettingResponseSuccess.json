@@ -1,0 +1,42 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "privacy",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "smb_data_sharing_with_meta_consent",
+          "attributes": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "false",
+                "notset",
+                "true"
+              ]
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "BizSettings",
+  "variant": "GetPrivacySettingResponseSuccess"
+}

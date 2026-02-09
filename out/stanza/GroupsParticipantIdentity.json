@@ -6,10 +6,12 @@
       "type": "jid",
       "jidTypes": [
         "UserJid"
-      ]
+      ],
+      "optional": true
     },
     "participant_username": {
-      "type": "string"
+      "type": "string",
+      "optional": true
     }
   },
   "content": null,

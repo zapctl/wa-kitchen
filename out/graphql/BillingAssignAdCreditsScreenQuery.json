@@ -1,0 +1,46 @@
+{
+  "id": "10002243896504612",
+  "name": "BillingAssignAdCreditsScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      },
+      "paymentMethodID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "node": {
+        "type": "object",
+        "properties": {
+          "current_balance_currency_amount": {
+            "type": "object",
+            "properties": {
+              "amount_with_offset": {
+                "type": "scalar"
+              },
+              "currency": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      },
+      "billable_account_by_payment_account": {
+        "type": "object",
+        "properties": {
+          "ad_campaign_groups": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}

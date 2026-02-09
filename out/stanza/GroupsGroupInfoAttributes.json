@@ -1,0 +1,99 @@
+{
+  "type": "node",
+  "tag": "group",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "creator": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "creation": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "p_v_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "a_v_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "s_t": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "s_o": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "open_thread_id": {
+      "optional": true,
+      "type": "string"
+    },
+    "size": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 19999
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    },
+    "subject": {
+      "type": "string"
+    },
+    "s_o_pn": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ],
+      "optional": true
+    },
+    "s_o_username": {
+      "type": "string",
+      "optional": true
+    },
+    "creator_pn": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ],
+      "optional": true
+    },
+    "creator_username": {
+      "type": "string",
+      "optional": true
+    },
+    "creator_country_code": {
+      "type": "string",
+      "optional": true
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "missing_participant_identification",
+      "attributes": {},
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GroupInfoAttributes"
+}

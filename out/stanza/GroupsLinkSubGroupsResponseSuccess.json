@@ -1,0 +1,90 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "links",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "link",
+          "attributes": {
+            "link_type": {
+              "type": "string",
+              "literal": "sub_group"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "group",
+              "attributes": {
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "GroupJid"
+                  ]
+                },
+                "error": {
+                  "type": "string",
+                  "literal": "401"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "hidden_group",
+                  "attributes": {},
+                  "content": null
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attributes": {
+                    "jid": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    },
+                    "error": {
+                      "type": "string",
+                      "literal": "403"
+                    }
+                  },
+                  "content": null,
+                  "max": 19999
+                }
+              ],
+              "min": 1,
+              "max": 1000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "LinkSubGroupsResponseSuccess"
+}

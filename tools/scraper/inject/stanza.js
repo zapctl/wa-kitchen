@@ -305,22 +305,24 @@ function createModuleMetadataProxy(targetModule) {
 
                 case "literal":
                     return (typeFactory, node, attrName, literal) => {
-                        const isPlaceholder = Object.values(Placeholder).includes(literal);
+                        if (literal != undefined) {
+                            const isPlaceholder = Object.values(Placeholder).includes(literal);
 
-                        assignMetadata(node, {
-                            type: Types.STANZA,
-                            attrs: {
-                                [attrName]: {
-                                    type: typeof literal,
-                                    literal: !isPlaceholder ? literal : undefined,
+                            assignMetadata(node, {
+                                type: Types.STANZA,
+                                attrs: {
+                                    [attrName]: {
+                                        type: typeof literal,
+                                        literal: !isPlaceholder ? literal : undefined,
+                                    }
                                 }
-                            }
-                        });
+                            });
 
-                        assignMetadata(literal, {
-                            type: typeof literal,
-                            literal,
-                        });
+                            assignMetadata(literal, {
+                                type: typeof literal,
+                                literal,
+                            });
+                        }
 
                         return originalValue(typeFactory, node, attrName, literal);
                     }
@@ -341,23 +343,25 @@ function createModuleMetadataProxy(targetModule) {
 
                 case "optionalLiteral":
                     return (typeFactory, node, attrName, literal) => {
-                        const isPlaceholder = Object.values(Placeholder).includes(literal);
+                        if (literal != undefined) {
+                            const isPlaceholder = Object.values(Placeholder).includes(literal);
 
-                        assignMetadata(node, {
-                            type: Types.STANZA,
-                            attrs: {
-                                [attrName]: {
-                                    type: typeof literal,
-                                    literal: !isPlaceholder ? literal : undefined,
-                                    optional: true,
+                            assignMetadata(node, {
+                                type: Types.STANZA,
+                                attrs: {
+                                    [attrName]: {
+                                        type: typeof literal,
+                                        literal: !isPlaceholder ? literal : undefined,
+                                        optional: true,
+                                    }
                                 }
-                            }
-                        });
+                            });
 
-                        assignMetadata(literal, {
-                            type: typeof literal,
-                            literal,
-                        });
+                            assignMetadata(literal, {
+                                type: typeof literal,
+                                literal,
+                            });
+                        }
 
                         return originalValue(typeFactory, node, attrName, literal);
                     }
@@ -1048,7 +1052,7 @@ function withParamsPlaceholder(callback) {
     const paramsProxy = createPropProxy();
     const referenceProxy = createPropProxy();
 
-    for (let i = 0; i < 5_000; i++) {
+    for (let i = 0; i < 1_000; i++) {
         try {
             paramsProxy.clear();
             referenceProxy.clear();
@@ -1245,9 +1249,9 @@ function getAllModulesSchemas() {
         const modules = getSMaxInOutModules();
 
         modules.forEach((mod, i) => {
-            if (![
-                "GroupsGroupInfoDescription",
-            ].includes(mod.moduleName)) return;
+            // if (![
+            //     "GroupsGroupInfoDescription",
+            // ].includes(mod.moduleName)) return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
 
@@ -1264,12 +1268,9 @@ function getAllModulesSchemas() {
     });
 }
 
-// WASmaxInBizCtwaActionNativeActionsMixinMixin tá com problema
-// WASmaxInBlocklistsUpdateBlockListResponseMigratedSuccessWithMismatch tambem
-
 await preloadAllModules();
 const schemas = await getAllModulesSchemas();
 
 console.log("SMaxInputSchemas", schemas);
 
-// return schemas;
+return schemas;

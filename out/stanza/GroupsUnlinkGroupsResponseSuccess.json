@@ -1,0 +1,56 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "unlink",
+      "attributes": {
+        "unlink_type": {
+          "type": "string",
+          "literal": "sub_group"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "group",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "GroupJid"
+              ]
+            },
+            "remove_orphaned_members": {
+              "type": "string",
+              "literal": "true",
+              "optional": true
+            },
+            "error": {
+              "type": "string",
+              "literal": "400"
+            }
+          },
+          "content": null,
+          "min": 1,
+          "max": 1000
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "UnlinkGroupsResponseSuccess"
+}

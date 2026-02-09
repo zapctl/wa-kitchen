@@ -30,7 +30,9 @@
           },
           "country_code": {
             "type": "scalar",
-            "condition": {}
+            "condition": {
+              "include_country_code": true
+            }
           },
           "username_info": {
             "type": "object",
@@ -51,7 +53,9 @@
                 "type": "scalar"
               }
             },
-            "condition": {}
+            "condition": {
+              "include_username": true
+            }
           },
           "about_status_info": {
             "type": "object",
@@ -66,7 +70,9 @@
                 "type": "scalar"
               }
             },
-            "condition": {}
+            "condition": {
+              "include_about_status": true
+            }
           }
         }
       }

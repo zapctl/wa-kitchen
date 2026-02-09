@@ -1,0 +1,85 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "waffle"
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "notification_metadata",
+      "attributes": {
+        "event": {
+          "type": "number",
+          "as": "string",
+          "min": 1,
+          "max": 7
+        },
+        "show_user_notif": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        },
+        "type": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0,
+          "max": 0
+        },
+        "client_resync": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        },
+        "sync_delay": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0
+        },
+        "npr": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Waffle",
+  "variant": "WFNotificationRequest"
+}

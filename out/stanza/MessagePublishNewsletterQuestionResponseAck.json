@@ -1,0 +1,177 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attributes": {
+    "response_server_id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "message"
+    },
+    "id": {
+      "type": "string"
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "edit": {
+      "type": "string",
+      "literal": "7"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "biz",
+      "attributes": {
+        "paid_convo_id": {
+          "type": "string"
+        },
+        "pricing_model": {
+          "type": "string",
+          "enum": [
+            "CBP",
+            "NBP",
+            "PMP"
+          ]
+        },
+        "billable": {
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        },
+        "expiration_timestamp": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0
+        },
+        "pricing_category": {
+          "optional": true,
+          "type": "string"
+        },
+        "pricing_type": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "free_customer_service",
+            "free_entry_point",
+            "regular"
+          ]
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "delivery_context",
+          "attributes": {
+            "optimization_goal": {
+              "type": "string",
+              "enum": [
+                "delivery",
+                "no_optimization"
+              ]
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "origin",
+          "attributes": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "referral",
+              "attributes": {
+                "source_type": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "source_url",
+                  "attributes": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "pricing",
+          "attributes": {
+            "consumer_country_code": {
+              "optional": true,
+              "type": "string"
+            },
+            "business_country_code": {
+              "optional": true,
+              "type": "string"
+            },
+            "conversation_status": {
+              "optional": true,
+              "type": "number",
+              "as": "string",
+              "min": 0
+            },
+            "latest_c2b_timestamp": {
+              "optional": true,
+              "type": "number",
+              "as": "string",
+              "min": 0
+            },
+            "analytics_conversation_id": {
+              "optional": true,
+              "type": "string"
+            },
+            "b2c_timestamp": {
+              "optional": true,
+              "type": "number",
+              "as": "string",
+              "min": 0
+            }
+          },
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "franking",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "reporting_tag",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 9,
+            "max": 128
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "MessagePublish",
+  "variant": "NewsletterQuestionResponseAck"
+}

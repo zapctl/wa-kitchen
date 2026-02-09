@@ -1,0 +1,29 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "preview"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "direct_path": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "literal": "405"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePicturesSuccessOrGetGroupProfilePicturesPartialProfilePictureResponseMixinGroup"
+}

@@ -1,0 +1,155 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "account_balance",
+      "attributes": {
+        "billing": {
+          "type": "number",
+          "as": "string"
+        },
+        "available": {
+          "type": "number",
+          "as": "string"
+        },
+        "offset": {
+          "type": "number",
+          "as": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "cost",
+      "attributes": {
+        "before_tax": {
+          "type": "number",
+          "as": "string"
+        },
+        "tax": {
+          "type": "number",
+          "as": "string"
+        },
+        "offset": {
+          "type": "number",
+          "as": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "base": {
+          "optional": true,
+          "type": "number",
+          "as": "string"
+        },
+        "base_formatted": {
+          "optional": true,
+          "type": "string"
+        },
+        "discount_percent": {
+          "optional": true,
+          "type": "number",
+          "as": "string"
+        },
+        "before_discount": {
+          "optional": true,
+          "type": "number",
+          "as": "string"
+        },
+        "before_discount_formatted": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "discounts",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "discount",
+              "attributes": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "free_msg",
+                    "percentage"
+                  ]
+                },
+                "percentage": {
+                  "optional": true,
+                  "type": "number",
+                  "as": "string"
+                },
+                "amount": {
+                  "type": "number",
+                  "as": "string"
+                },
+                "amount_formatted": {
+                  "type": "string"
+                }
+              },
+              "content": null,
+              "max": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "integrity",
+      "attributes": {
+        "is_eligible": {
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "quota",
+      "attributes": {
+        "remaining": {
+          "type": "number",
+          "as": "string"
+        },
+        "total_monthly": {
+          "type": "number",
+          "as": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "SmbMeteredMessagingAccount",
+  "variant": "GetSMBMeteredMessagingCheckoutResponseSuccess"
+}

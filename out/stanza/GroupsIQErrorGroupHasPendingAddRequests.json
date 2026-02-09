@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "pending-add-requests"
+    },
+    "code": {
+      "type": "number",
+      "literal": 433,
+      "as": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "IQErrorGroupHasPendingAddRequests"
+}

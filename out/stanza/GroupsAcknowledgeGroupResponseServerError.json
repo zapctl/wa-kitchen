@@ -1,0 +1,91 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Groups",
+      "variant": "IQErrorFallbackServer",
+      "type": "union",
+      "unions": [
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "internal-server-error"
+            },
+            "code": {
+              "type": "number",
+              "literal": 500,
+              "as": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "service-unavailable"
+            },
+            "code": {
+              "type": "number",
+              "literal": 503,
+              "as": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "partial-server-error"
+            },
+            "code": {
+              "type": "number",
+              "literal": 530,
+              "as": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string"
+            },
+            "code": {
+              "type": "number",
+              "as": "string",
+              "min": 500,
+              "max": 599
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "AcknowledgeGroupResponseServerError"
+}

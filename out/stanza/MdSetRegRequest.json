@@ -1,0 +1,156 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "md"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "pair-success",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "biz",
+          "attributes": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "client-props",
+          "attributes": {},
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "device",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "DeviceJid"
+              ]
+            },
+            "lid": {
+              "optional": true,
+              "type": "jid",
+              "jidTypes": [
+                "DeviceJid"
+              ]
+            },
+            "beta": {
+              "optional": true,
+              "type": "string",
+              "enum": [
+                "false",
+                "true"
+              ]
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "device-identity",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 500
+          }
+        },
+        {
+          "type": "node",
+          "tag": "encryption-metadata",
+          "attributes": {
+            "version": {
+              "type": "string",
+              "literal": "1"
+            },
+            "algorithm": {
+              "type": "string",
+              "literal": "aes-256-gcm"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "auth_tag",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "min": 1,
+                "max": 128
+              }
+            },
+            {
+              "type": "node",
+              "tag": "encrypted_data",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "min": 1,
+                "max": 8192
+              }
+            },
+            {
+              "type": "node",
+              "tag": "encrypted_key",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "min": 1,
+                "max": 2048
+              }
+            },
+            {
+              "type": "node",
+              "tag": "nonce",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "min": 1,
+                "max": 128
+              }
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "platform",
+          "attributes": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Md",
+  "variant": "SetRegRequest"
+}

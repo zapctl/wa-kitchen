@@ -1,0 +1,44 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "username": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string",
+      "literal": "421"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_approval_request",
+      "attributes": {
+        "error": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "304",
+            "419"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "AddParticipantsParticipantAddedResponse"
+}

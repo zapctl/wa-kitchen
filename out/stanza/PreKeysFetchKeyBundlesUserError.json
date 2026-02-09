@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "user",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "text": {
+          "type": "string"
+        },
+        "code": {
+          "type": "number",
+          "literal": 500,
+          "as": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesUserError"
+}

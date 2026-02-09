@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "membership_approval_mode",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "group_join",
+      "attributes": {
+        "state": {
+          "type": "string",
+          "literal": "on"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "MembershipApprovalPropertyResponse"
+}

@@ -1,5 +1,5 @@
 {
-  "id": "9808120992618220",
+  "id": "34122891280658264",
   "name": "MexFetchNewsletterEnforcementsJob",
   "type": "query",
   "input": {
@@ -258,10 +258,6 @@
                     }
                   }
                 }
-              },
-              "country_code": {
-                "type": "scalar",
-                "required": true
               },
               "country_codes": {
                 "type": "scalar"

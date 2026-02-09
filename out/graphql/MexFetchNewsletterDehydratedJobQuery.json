@@ -51,7 +51,9 @@
                     "type": "scalar"
                   }
                 },
-                "condition": {}
+                "condition": {
+                  "fetch_wamo_sub": true
+                }
               }
             }
           },
@@ -62,7 +64,9 @@
                 "type": "scalar"
               }
             },
-            "condition": {}
+            "condition": {
+              "fetch_wamo_sub": true
+            }
           }
         }
       }

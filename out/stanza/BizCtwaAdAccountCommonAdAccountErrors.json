@@ -1,0 +1,71 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "text": {
+          "type": "string",
+          "literal": "bad-request"
+        },
+        "code": {
+          "type": "number",
+          "literal": 400,
+          "as": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "text": {
+          "type": "string",
+          "literal": "forbidden"
+        },
+        "code": {
+          "type": "number",
+          "literal": 403,
+          "as": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "text": {
+          "type": "string",
+          "literal": "internal-server-error"
+        },
+        "code": {
+          "type": "number",
+          "literal": 500,
+          "as": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "text": {
+          "type": "string",
+          "literal": "service-unavailable"
+        },
+        "code": {
+          "type": "number",
+          "literal": 503,
+          "as": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "CommonAdAccountErrors"
+}

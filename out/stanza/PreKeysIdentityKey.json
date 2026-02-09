@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "identity",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 32,
+        "max": 32
+      }
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "IdentityKey"
+}

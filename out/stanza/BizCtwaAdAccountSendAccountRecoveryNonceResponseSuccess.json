@@ -1,0 +1,47 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "Result",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "status",
+          "attributes": {},
+          "content": {
+            "type": "string",
+            "as": "binary",
+            "enum": [
+              "Fail",
+              "Success"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "SendAccountRecoveryNonceResponseSuccess"
+}

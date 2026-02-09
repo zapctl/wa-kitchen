@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "subject": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "NamedSubjectOrUnnamedSubjectFallbackMixinGroup"
+}

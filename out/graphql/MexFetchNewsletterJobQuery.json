@@ -44,7 +44,9 @@
             "properties": {
               "creation_time": {
                 "type": "scalar",
-                "condition": {}
+                "condition": {
+                  "fetch_creation_time": true
+                }
               },
               "name": {
                 "type": "object",
@@ -120,7 +122,9 @@
                     "type": "scalar"
                   }
                 },
-                "condition": {}
+                "condition": {
+                  "fetch_wamo_sub": true
+                }
               }
             }
           },
@@ -143,10 +147,14 @@
               },
               "wamo_sub_status": {
                 "type": "scalar",
-                "condition": {}
+                "condition": {
+                  "fetch_wamo_sub": true
+                }
               }
             },
-            "condition": {}
+            "condition": {
+              "fetch_viewer_metadata": true
+            }
           }
         }
       }

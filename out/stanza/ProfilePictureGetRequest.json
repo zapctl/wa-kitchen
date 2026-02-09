@@ -1,0 +1,105 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:profile:picture"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "target": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "picture",
+      "attributes": {
+        "type": {
+          "type": "string",
+          "literal": "avatar"
+        },
+        "id": {
+          "type": "string",
+          "optional": true
+        },
+        "query": {
+          "type": "string",
+          "optional": true
+        },
+        "invite": {
+          "type": "string",
+          "optional": true
+        },
+        "persona_id": {
+          "type": "string",
+          "optional": true
+        },
+        "common_gid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ],
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "attributes": {},
+          "content": null,
+          "max": 4
+        },
+        {
+          "type": "node",
+          "tag": "add_request",
+          "attributes": {
+            "code": {
+              "type": "string"
+            },
+            "admin": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "LidUserJid"
+              ],
+              "optional": true
+            },
+            "expiration": {
+              "type": "number",
+              "as": "string"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "ProfilePicture",
+  "variant": "GetRequest"
+}

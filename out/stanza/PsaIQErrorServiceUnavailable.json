@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "service-unavailable"
+    },
+    "code": {
+      "type": "number",
+      "literal": 503,
+      "as": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Psa",
+  "variant": "IQErrorServiceUnavailable"
+}

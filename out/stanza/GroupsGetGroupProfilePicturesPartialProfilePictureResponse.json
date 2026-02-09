@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attributes": {
+    "status": {
+      "type": "string",
+      "literal": "405"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePicturesPartialProfilePictureResponse"
+}

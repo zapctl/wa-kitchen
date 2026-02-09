@@ -1,0 +1,59 @@
+{
+  "type": "node",
+  "tag": "question_response",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "message",
+      "attributes": {
+        "id": {
+          "type": "id"
+        },
+        "t": {
+          "type": "number",
+          "as": "string",
+          "min": 1577865600,
+          "max": 4102473600
+        },
+        "is_sender": {
+          "type": "string",
+          "literal": "true",
+          "optional": true
+        },
+        "type": {
+          "type": "string",
+          "literal": "text"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "meta",
+          "attributes": {
+            "questiontype": {
+              "type": "string",
+              "literal": "response"
+            },
+            "response_server_id": {
+              "type": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "plaintext",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 1048576
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "QuestionResponseMessage"
+}

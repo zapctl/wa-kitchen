@@ -1,0 +1,33 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "403"
+    },
+    "addressable": {
+      "type": "string",
+      "literal": "false"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "add_request",
+      "attributes": {
+        "code": {
+          "type": "string"
+        },
+        "expiration": {
+          "type": "number",
+          "as": "string",
+          "min": 0
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "ParticipantRequestCodeCanBeSent"
+}

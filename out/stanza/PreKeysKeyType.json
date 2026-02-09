@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "type",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "literal": {
+          "0": 5
+        }
+      }
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "KeyType"
+}

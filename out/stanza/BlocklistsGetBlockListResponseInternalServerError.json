@@ -1,0 +1,59 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Blocklists",
+      "variant": "IQErrorInternalServerError",
+      "type": "union",
+      "unions": [
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "feature-not-implemented"
+            },
+            "code": {
+              "type": "number",
+              "literal": 501,
+              "as": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "internal-server-error"
+            },
+            "code": {
+              "type": "number",
+              "literal": 500,
+              "as": "string"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "GetBlockListResponseInternalServerError"
+}

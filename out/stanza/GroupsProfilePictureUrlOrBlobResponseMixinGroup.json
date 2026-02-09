@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "direct_path": {
+      "type": "string"
+    }
+  },
+  "content": {
+    "type": "binary",
+    "min": 1
+  },
+  "namespace": "Groups",
+  "variant": "ProfilePictureUrlOrBlobResponseMixinGroup"
+}

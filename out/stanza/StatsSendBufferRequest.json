@@ -1,0 +1,45 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:stats"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "add",
+      "attributes": {
+        "t": {
+          "type": "number",
+          "as": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attributes": {},
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Stats",
+  "variant": "SendBufferRequest"
+}

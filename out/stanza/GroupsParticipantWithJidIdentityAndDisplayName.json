@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attributes": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "username": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "ParticipantWithJidIdentityAndDisplayName"
+}

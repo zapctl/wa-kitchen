@@ -1,0 +1,30 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "username": {
+          "type": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "pn_jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Privacy",
+  "variant": "ContactListIds"
+}

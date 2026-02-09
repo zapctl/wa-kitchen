@@ -1,0 +1,39 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "questiontype": {
+          "type": "string",
+          "literal": "reply"
+        },
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "plaintext",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 1048576
+      }
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterQuestionReply"
+}

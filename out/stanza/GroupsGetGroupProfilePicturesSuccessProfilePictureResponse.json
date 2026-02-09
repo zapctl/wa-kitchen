@@ -1,0 +1,25 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "preview"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "direct_path": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePicturesSuccessProfilePictureResponse"
+}

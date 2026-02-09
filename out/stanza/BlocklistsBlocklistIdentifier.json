@@ -1,0 +1,25 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "pn_jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "unknown_identifier": {
+      "type": "string",
+      "literal": "true"
+    }
+  },
+  "content": null,
+  "namespace": "Blocklists",
+  "variant": "BlocklistIdentifier"
+}

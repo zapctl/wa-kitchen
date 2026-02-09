@@ -1,0 +1,93 @@
+{
+  "id": "10093987487333327",
+  "name": "useBillingAssignAdCredits",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "alter_token_campaign_group_ids": {
+        "type": "object",
+        "properties": {
+          "succeeded": {
+            "type": "scalar"
+          },
+          "ad_account": {
+            "type": "object",
+            "properties": {
+              "coupon_balance": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "scalar"
+                  },
+                  "formatted_amount": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "campaign_level_coupon_balance": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "scalar"
+                  },
+                  "formatted_amount": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "account_level_coupon_balance": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "scalar"
+                  },
+                  "formatted_amount": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "billing_payment_account": {
+                "type": "object",
+                "properties": {
+                  "billing_payment_methods": {
+                    "type": "array",
+                    "items": {
+                      "credential": {
+                        "type": "object",
+                        "properties": {
+                          "credential_id": {
+                            "type": "scalar"
+                          },
+                          "campaign_info": {
+                            "type": "array",
+                            "items": {
+                              "id": {
+                                "type": "scalar"
+                              },
+                              "name": {
+                                "type": "scalar"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

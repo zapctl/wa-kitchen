@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "s_o_pn": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ],
+      "optional": true
+    },
+    "s_o_username": {
+      "type": "string",
+      "optional": true
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "SubjectOwnerIdentity"
+}

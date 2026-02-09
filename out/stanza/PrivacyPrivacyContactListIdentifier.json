@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "pn_jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Privacy",
+  "variant": "PrivacyContactListIdentifier"
+}

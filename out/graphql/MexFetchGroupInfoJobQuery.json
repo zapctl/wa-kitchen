@@ -64,7 +64,9 @@
                     "type": "scalar"
                   }
                 },
-                "condition": {}
+                "condition": {
+                  "include_username": true
+                }
               }
             }
           },
@@ -93,7 +95,9 @@
                         "type": "scalar"
                       }
                     },
-                    "condition": {}
+                    "condition": {
+                      "include_username": true
+                    }
                   }
                 }
               },
@@ -133,7 +137,9 @@
                         "type": "scalar"
                       }
                     },
-                    "condition": {}
+                    "condition": {
+                      "include_username": true
+                    }
                   }
                 }
               },
@@ -170,7 +176,9 @@
                             "type": "scalar"
                           }
                         },
-                        "condition": {}
+                        "condition": {
+                          "include_username": true
+                        }
                       }
                     }
                   },

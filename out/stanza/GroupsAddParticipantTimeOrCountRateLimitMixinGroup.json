@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "tag": "rate_limit",
+  "attributes": {
+    "participant_limit": {
+      "type": "number",
+      "as": "string",
+      "min": 1,
+      "max": 19999
+    },
+    "backoff": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "group",
+        "user"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "AddParticipantTimeOrCountRateLimitMixinGroup"
+}

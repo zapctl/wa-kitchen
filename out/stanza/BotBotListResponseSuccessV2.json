@@ -1,0 +1,135 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "bot",
+      "attributes": {
+        "v": {
+          "type": "string",
+          "literal": "2"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "default",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "persona_id": {
+              "type": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "section",
+          "attributes": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "all",
+                "category",
+                "featured"
+              ]
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "bot",
+              "attributes": {
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                },
+                "persona_id": {
+                  "type": "string"
+                },
+                "count": {
+                  "optional": true,
+                  "type": "number",
+                  "as": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "theme",
+                  "attributes": {
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "dark",
+                        "light"
+                      ]
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "background",
+                      "attributes": {},
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "primary_text",
+                      "attributes": {},
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "secondary_text",
+                      "attributes": {},
+                      "content": {
+                        "type": "string",
+                        "as": "binary"
+                      }
+                    }
+                  ],
+                  "max": 2
+                }
+              ],
+              "max": null
+            }
+          ],
+          "min": 1,
+          "max": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Bot",
+  "variant": "BotListResponseSuccessV2"
+}

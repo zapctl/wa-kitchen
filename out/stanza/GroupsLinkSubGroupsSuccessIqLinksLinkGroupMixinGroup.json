@@ -1,0 +1,95 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "401"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "403"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "404"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "406"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "409"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "419"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "433"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group",
+      "attributes": {
+        "error": {
+          "type": "string",
+          "literal": "500"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "LinkSubGroupsSuccessIqLinksLinkGroupMixinGroup"
+}

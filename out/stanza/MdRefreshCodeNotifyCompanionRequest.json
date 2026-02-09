@@ -1,0 +1,63 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "link_code_companion_reg"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "link_code_companion_reg",
+      "attributes": {
+        "stage": {
+          "type": "string",
+          "literal": "refresh_code"
+        },
+        "force_manual_refresh": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "link_code_pairing_ref",
+          "attributes": {},
+          "content": {
+            "type": "binary"
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "Md",
+  "variant": "RefreshCodeNotifyCompanionRequest"
+}

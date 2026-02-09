@@ -1,0 +1,88 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Support",
+      "variant": "IQErrorInternalServerError",
+      "type": "union",
+      "unions": [
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "bad-request"
+            },
+            "code": {
+              "type": "number",
+              "literal": 400,
+              "as": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "notice-required"
+            },
+            "code": {
+              "type": "number",
+              "literal": 475,
+              "as": "string"
+            },
+            "tos_version": {
+              "type": "number",
+              "as": "string",
+              "min": 1,
+              "max": 65535
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "error",
+          "attributes": {
+            "text": {
+              "type": "string",
+              "literal": "internal-server-error"
+            },
+            "code": {
+              "type": "number",
+              "literal": 500,
+              "as": "string"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Support",
+  "variant": "ContactFormResponseError"
+}

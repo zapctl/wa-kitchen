@@ -1,0 +1,16 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "preview"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "ProfilePictureType"
+}

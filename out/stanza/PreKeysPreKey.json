@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "key",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "id",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 3,
+            "max": 3
+          }
+        },
+        {
+          "type": "node",
+          "tag": "value",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "sPreKey",
+  "variant": "PreKey"
+}

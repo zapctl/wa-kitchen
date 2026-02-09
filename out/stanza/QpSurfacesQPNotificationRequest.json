@@ -1,0 +1,389 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "psa"
+    },
+    "t": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "surfaces",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "surface",
+          "attributes": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "promotion",
+              "attributes": {
+                "id": {
+                  "type": "string"
+                },
+                "instance_id": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "colors",
+                  "attributes": {},
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "dark",
+                      "attributes": {
+                        "background": {
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "highlight": {
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "content": null
+                    },
+                    {
+                      "type": "node",
+                      "tag": "light",
+                      "attributes": {
+                        "background": {
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "highlight": {
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "content": null
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "content_attributes",
+                  "attributes": {},
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "attribute",
+                      "attributes": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "content": null,
+                      "max": 50
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "header",
+                  "attributes": {
+                    "title": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                },
+                {
+                  "type": "node",
+                  "tag": "image",
+                  "attributes": {
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "dark",
+                      "attributes": {},
+                      "content": {
+                        "type": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "light",
+                      "attributes": {},
+                      "content": {
+                        "type": "binary"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "primary_action",
+                  "attributes": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "universal_link": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "deep_link": {
+                      "optional": true,
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                },
+                {
+                  "type": "node",
+                  "tag": "qp_config",
+                  "attributes": {
+                    "template_name": {
+                      "type": "string"
+                    },
+                    "start_time_seconds": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "end_time_seconds": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "ttl_seconds": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "dismissable": {
+                      "type": "string",
+                      "enum": [
+                        "false",
+                        "true"
+                      ]
+                    },
+                    "force_pass": {
+                      "type": "string",
+                      "enum": [
+                        "false",
+                        "true"
+                      ]
+                    },
+                    "surface_delay_time_seconds": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "deterministic": {
+                      "type": "string",
+                      "enum": [
+                        "false",
+                        "true"
+                      ]
+                    },
+                    "experiment_key": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "exposure_holdout": {
+                      "type": "string",
+                      "enum": [
+                        "false",
+                        "true"
+                      ]
+                    },
+                    "max_impressions": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "impression_cooldown": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "eligibility_duration_ms": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "priority": {
+                      "type": "number",
+                      "as": "string"
+                    },
+                    "log_eligibility_waterfall": {
+                      "type": "string",
+                      "enum": [
+                        "false",
+                        "true"
+                      ]
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "filter_rules",
+                      "attributes": {},
+                      "content": {
+                        "type": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "instance_log_data",
+                      "attributes": {},
+                      "content": {
+                        "type": "binary"
+                      }
+                    },
+                    {
+                      "type": "node",
+                      "tag": "pacing",
+                      "attributes": {},
+                      "content": [
+                        {
+                          "type": "node",
+                          "tag": "promotion_config",
+                          "attributes": {
+                            "max_impressions": {
+                              "type": "number",
+                              "as": "string"
+                            },
+                            "max_primary_clicks": {
+                              "type": "number",
+                              "as": "string"
+                            },
+                            "max_secondary_clicks": {
+                              "type": "number",
+                              "as": "string"
+                            },
+                            "max_dismisses": {
+                              "type": "number",
+                              "as": "string"
+                            }
+                          },
+                          "content": null
+                        },
+                        {
+                          "type": "node",
+                          "tag": "user_info",
+                          "attributes": {
+                            "impression_count": {
+                              "type": "number",
+                              "as": "string"
+                            },
+                            "primary_click_count": {
+                              "type": "number",
+                              "as": "string"
+                            },
+                            "secondary_click_count": {
+                              "type": "number",
+                              "as": "string"
+                            },
+                            "dismiss_click_count": {
+                              "type": "number",
+                              "as": "string"
+                            }
+                          },
+                          "content": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": "node",
+                      "tag": "triggers",
+                      "attributes": {},
+                      "content": [
+                        {
+                          "type": "node",
+                          "tag": "trigger",
+                          "attributes": {
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "content": null,
+                          "min": 1,
+                          "max": 50
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "secondary_action",
+                  "attributes": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "universal_link": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "deep_link": {
+                      "optional": true,
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                },
+                {
+                  "type": "node",
+                  "tag": "text",
+                  "attributes": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "title",
+                  "attributes": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                }
+              ],
+              "max": 100
+            }
+          ],
+          "max": 100
+        }
+      ]
+    }
+  ],
+  "namespace": "QpSurfaces",
+  "variant": "QPNotificationRequest"
+}

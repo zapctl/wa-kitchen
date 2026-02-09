@@ -1,0 +1,19 @@
+{
+  "id": "9730140127062115",
+  "name": "LWICometRegulatedCategoryUtilsSingaporeUniversal",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "lwi": {
+        "type": "object",
+        "properties": {
+          "target_spec_subject_to_singapore_universal": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

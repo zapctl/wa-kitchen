@@ -1,0 +1,166 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "user",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "DeviceJid"
+              ]
+            },
+            "t": {
+              "optional": true,
+              "type": "number",
+              "as": "string",
+              "min": 0
+            },
+            "is_cloud_api": {
+              "type": "string",
+              "literal": "true",
+              "optional": true
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "device-identity",
+              "attributes": {},
+              "content": {
+                "type": "binary"
+              }
+            },
+            {
+              "type": "node",
+              "tag": "identity",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "min": 32,
+                "max": 32
+              }
+            },
+            {
+              "type": "node",
+              "tag": "key",
+              "attributes": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "id",
+                  "attributes": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 3,
+                    "max": 3
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "value",
+                  "attributes": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 32,
+                    "max": 32
+                  }
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "registration",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "min": 4,
+                "max": 4
+              }
+            },
+            {
+              "type": "node",
+              "tag": "skey",
+              "attributes": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "id",
+                  "attributes": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 3,
+                    "max": 3
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "signature",
+                  "attributes": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 64,
+                    "max": 64
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "value",
+                  "attributes": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 32,
+                    "max": 32
+                  }
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "type",
+              "attributes": {},
+              "content": {
+                "type": "binary",
+                "literal": {
+                  "0": 5
+                }
+              }
+            }
+          ],
+          "max": 100000
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "padding",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 0,
+        "max": 524288
+      }
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesResponseSuccess"
+}

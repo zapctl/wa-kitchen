@@ -1,0 +1,38 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "questiontype": {
+          "type": "string",
+          "literal": "response"
+        },
+        "response_server_id": {
+          "type": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "plaintext",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 1048576
+      }
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterQuestionResponse"
+}

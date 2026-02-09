@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "responses_count",
+      "attributes": {
+        "count": {
+          "type": "number",
+          "as": "string",
+          "min": 0
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterResponsesCount"
+}

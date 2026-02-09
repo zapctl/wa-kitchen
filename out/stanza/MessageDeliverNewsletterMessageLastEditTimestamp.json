@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "msg_edit_t": {
+          "type": "number",
+          "as": "string",
+          "min": 1577865600000,
+          "max": 4102473600000
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterMessageLastEditTimestamp"
+}

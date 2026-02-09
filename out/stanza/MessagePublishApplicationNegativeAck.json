@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attributes": {
+    "application_error": {
+      "type": "number",
+      "as": "string",
+      "min": 0
+    }
+  },
+  "content": null,
+  "namespace": "MessagePublish",
+  "variant": "ApplicationNegativeAck"
+}

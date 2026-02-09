@@ -1,0 +1,19 @@
+{
+  "id": "9171925689574615",
+  "name": "LWICometRegulatedCategoryUtilsIndiaFinserv",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "lwi": {
+        "type": "object",
+        "properties": {
+          "target_spec_subject_to_india_finserv": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

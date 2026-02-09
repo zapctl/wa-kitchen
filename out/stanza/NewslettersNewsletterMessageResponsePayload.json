@@ -1,0 +1,235 @@
+{
+  "type": "node",
+  "tag": "messages",
+  "attributes": {
+    "jid": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "NewsletterJid"
+      ]
+    },
+    "t": {
+      "optional": true,
+      "type": "number",
+      "as": "string",
+      "min": 0
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "message",
+      "attributes": {
+        "id": {
+          "optional": true,
+          "type": "id"
+        },
+        "server_id": {
+          "type": "number",
+          "as": "string",
+          "min": 99,
+          "max": 2147476647
+        },
+        "t": {
+          "optional": true,
+          "type": "number",
+          "as": "string",
+          "min": 0
+        },
+        "is_sender": {
+          "type": "string",
+          "literal": "true",
+          "optional": true
+        },
+        "type": {
+          "type": "string",
+          "literal": "media"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "forwards_count",
+          "attributes": {
+            "count": {
+              "type": "number",
+              "as": "string",
+              "min": 0
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "meta",
+          "attributes": {
+            "original_msg_t": {
+              "type": "number",
+              "as": "string",
+              "min": 1577865600,
+              "max": 4102473600
+            },
+            "msg_edit_t": {
+              "type": "number",
+              "as": "string",
+              "min": 1577865600000,
+              "max": 4102473600000
+            },
+            "questiontype": {
+              "type": "string",
+              "literal": "question"
+            },
+            "is_wamo_sub": {
+              "type": "string",
+              "literal": "true"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "admin_profile",
+              "attributes": {
+                "id": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "name",
+                  "attributes": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "picture",
+                  "attributes": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "direct_path": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "paid_partnership",
+              "attributes": {},
+              "content": null
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "plaintext",
+          "attributes": {
+            "mediatype": {
+              "type": "string",
+              "literal": "url"
+            }
+          },
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 1048576
+          }
+        },
+        {
+          "type": "node",
+          "tag": "rcat",
+          "attributes": {},
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "reactions",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "reaction",
+              "attributes": {
+                "code": {
+                  "type": "string"
+                },
+                "count": {
+                  "type": "number",
+                  "as": "string",
+                  "min": 1
+                }
+              },
+              "content": null,
+              "max": 1000
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "responses_count",
+          "attributes": {
+            "count": {
+              "type": "number",
+              "as": "string",
+              "min": 0
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "views_count",
+          "attributes": {
+            "type": {
+              "type": "string",
+              "literal": "views"
+            },
+            "count": {
+              "type": "number",
+              "as": "string",
+              "min": 0
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "votes",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "vote",
+              "attributes": {
+                "count": {
+                  "type": "number",
+                  "as": "string",
+                  "min": 1
+                }
+              },
+              "content": {
+                "type": "binary",
+                "min": 32,
+                "max": 32
+              },
+              "max": 1000
+            }
+          ]
+        }
+      ],
+      "max": 300
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterMessageResponsePayload"
+}
