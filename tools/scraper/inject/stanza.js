@@ -1078,12 +1078,14 @@ function convertToSchema(stanza) {
 
     if (metadata.unions?.length > 0) {
         if (metadata.unions.length === 1) {
-            const union = metadata.unions[0];
-            delete metadata.unions;
+            const node = { ...stanza };
+            const union = { ...metadata.unions[0], tag: node.tag };
 
-            mergeStanzas(stanza, union);
+            node[METADATA_SYMBOL] = { ...metadata, unions: [] };
+            union[METADATA_SYMBOL] = metadata.unions[0][METADATA_SYMBOL];
 
-            return convertToSchema(stanza);
+            mergeStanzas(node, union);
+            return convertToSchema(node);
         }
 
         const schema = {
