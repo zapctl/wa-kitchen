@@ -1,0 +1,55 @@
+{
+  "id": "24831101743172748",
+  "name": "BillingInitAutomaticBillingState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "payment_modes": {
+                "type": "scalar"
+              },
+              "auto_reload_info": {
+                "type": "object",
+                "properties": {
+                  "auto_reload_status": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "is_eligible_for_postpay_upgrade": {
+                "type": "scalar"
+              }
+            }
+          },
+          "billing_payment_methods": {
+            "type": "array",
+            "items": {
+              "credential": {
+                "type": "object",
+                "properties": {
+                  "supports_recurring": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

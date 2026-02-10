@@ -1,0 +1,34 @@
+{
+  "id": "23924057530564663",
+  "name": "BillingFlexBillingOnboardingLandingScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "billable_account_by_payment_account": {
+        "type": "object",
+        "properties": {
+          "flex_billing_limit": {
+            "type": "object",
+            "properties": {
+              "formatted_amount": {
+                "type": "scalar"
+              }
+            }
+          },
+          "flex_billing_can_use_direct_debit": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

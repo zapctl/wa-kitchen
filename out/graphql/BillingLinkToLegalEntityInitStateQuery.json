@@ -1,0 +1,27 @@
+{
+  "id": "29711895531787227",
+  "name": "BillingLinkToLegalEntityInitState",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_legal_entity_management_controller": {
+        "type": "object",
+        "properties": {
+          "account_has_eligible_legal_entities": {
+            "type": "scalar"
+          },
+          "account_connected_legal_entity": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

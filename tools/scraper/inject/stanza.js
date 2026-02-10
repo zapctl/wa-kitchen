@@ -1106,9 +1106,13 @@ function convertToSchema(stanza) {
     const schema = {
         type: "node",
         tag: stanza.tag,
-        attributes: metadata.attrs || {},
+        attributes: { ...metadata.attrs || {} },
         content: null,
     };
+
+    Object.values(schema.attributes).forEach(attr => {
+        delete attr.as
+    });
 
     if (metadata.namespace) schema.namespace = metadata.namespace;
     if (metadata.variant) schema.variant = metadata.variant;
@@ -1122,7 +1126,19 @@ function convertToSchema(stanza) {
             { ...metadata.content, children } :
             children;
     } else if (metadata.content) {
+        const content = { ...metadata.content };
+        delete content.as;
+
         schema.content = metadata.content;
+
+        if (content?.type === "binary" && content.literal) {
+            if (content.literal.length === 1) return {
+                type: Types.NUMBER,
+                literal: content.literal[0],
+            };
+
+            content.literal = Array.from(content.literal);
+        }
     }
 
     return schema;
@@ -1166,6 +1182,11 @@ function minifySchema(schemaObj, schemaNodes = null) {
         ));
 
         if (existent) {
+            if (!schemaNodes) {
+                schemaObjNodes.splice(schemaObjNodes.indexOf(existent), 1);
+                return processNode(node);
+            }
+
             if (existent.$str !== node.$str) return {
                 namespace: undefined,
                 variant: undefined,
@@ -1250,8 +1271,10 @@ function getAllModulesSchemas() {
 
         modules.forEach((mod, i) => {
             // if (![
-            //     "GroupsGroupInfoDescription",
+            //     "GroupsGroupInfoParticipant",
+            //     "GroupsGroupInfoParticipantMixins",
             // ].includes(mod.moduleName)) return;
+            if (createModuleName(mod).namespace !== "Md") return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
 

@@ -14,7 +14,6 @@
     },
     "t": {
       "type": "number",
-      "as": "string",
       "min": 0
     },
     "id": {
@@ -23,7 +22,6 @@
     "offline": {
       "optional": true,
       "type": "number",
-      "as": "string",
       "min": 0,
       "max": 1024
     }

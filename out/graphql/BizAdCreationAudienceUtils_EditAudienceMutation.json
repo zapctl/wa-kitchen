@@ -1,0 +1,45 @@
+{
+  "id": "25726350063668723",
+  "name": "BizAdCreationAudienceUtils_EditAudience",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "scalar"
+      },
+      "savedAudienceID": {
+        "type": "scalar"
+      },
+      "targetingSpecString": {
+        "type": "scalar"
+      },
+      "skip_normalization": {
+        "type": "scalar",
+        "value": true
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "saved_audience_edit": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "scalar"
+          },
+          "id": {
+            "type": "scalar"
+          },
+          "target_spec_string_without_placements": {
+            "type": "scalar"
+          },
+          "subject_to_dsa": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

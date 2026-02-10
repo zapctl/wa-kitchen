@@ -1,0 +1,46 @@
+{
+  "id": "24991295137127144",
+  "name": "BizAiKnowledgeReview",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "timestamp": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_maiba_load_potential_knowledge_for_review": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "id": {
+                "type": "scalar"
+              },
+              "type": {
+                "type": "scalar"
+              },
+              "faq_question": {
+                "type": "scalar"
+              },
+              "faq_answer": {
+                "type": "scalar"
+              },
+              "biz_info_attribute": {
+                "type": "scalar"
+              },
+              "biz_info_value": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

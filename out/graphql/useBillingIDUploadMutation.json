@@ -1,0 +1,21 @@
+{
+  "id": "24312933585040732",
+  "name": "useBillingIDUpload",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "billing_id_upload": {
+        "type": "scalar"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "9685216461577274",
+  "name": "BillingFlexRiskBasedUnenrollLandingScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "billable_account_by_payment_account": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

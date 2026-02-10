@@ -1,0 +1,26 @@
+{
+  "id": "9727400070711873",
+  "name": "useBillingCreditSharingEditSubmission",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "credit_allocation_update": {
+        "type": "object",
+        "properties": {
+          "client_mutation_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

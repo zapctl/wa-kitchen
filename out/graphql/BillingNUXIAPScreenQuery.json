@@ -1,0 +1,31 @@
+{
+  "id": "24318965454450838",
+  "name": "BillingNUXIAPScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "payment_modes": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

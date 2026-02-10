@@ -1,0 +1,19 @@
+{
+  "id": "9734072893355148",
+  "name": "useComposerVideoUploaderConfig",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "viewer": {
+        "type": "object",
+        "properties": {
+          "comet_composer_video_uploader_config": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

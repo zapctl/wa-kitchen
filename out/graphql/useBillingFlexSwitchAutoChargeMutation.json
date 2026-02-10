@@ -1,0 +1,31 @@
+{
+  "id": "24064228839869484",
+  "name": "useBillingFlexSwitchAutoCharge",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "flex_auto_charge_switch": {
+        "type": "object",
+        "properties": {
+          "flex_billing_config": {
+            "type": "object",
+            "properties": {
+              "threshold_auto_charge_enabled": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

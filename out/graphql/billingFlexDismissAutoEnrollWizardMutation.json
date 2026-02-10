@@ -1,0 +1,27 @@
+{
+  "id": "29479495971693881",
+  "name": "billingFlexDismissAutoEnrollWizard",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "flex_dismiss_auto_enroll_wizard": {
+        "type": "object",
+        "properties": {
+          "flex_billing_config": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}

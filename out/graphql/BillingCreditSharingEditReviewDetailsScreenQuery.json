@@ -1,0 +1,53 @@
+{
+  "id": "25647870594880424",
+  "name": "BillingCreditSharingEditReviewDetailsScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "allocationID": {
+        "type": "scalar"
+      },
+      "paymentMethodID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "extended_credit": {
+        "type": "object",
+        "properties": {
+          "credit_limit": {
+            "type": "object",
+            "properties": {
+              "formatted_amount": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      },
+      "extended_credit_allocation": {
+        "type": "object",
+        "properties": {
+          "allocation_liability_type": {
+            "type": "scalar"
+          },
+          "receiving_business": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "scalar"
+              }
+            }
+          },
+          "bill_to_le_name": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

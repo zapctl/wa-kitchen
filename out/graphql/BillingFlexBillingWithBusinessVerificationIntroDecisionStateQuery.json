@@ -1,0 +1,31 @@
+{
+  "id": "24196531723354665",
+  "name": "BillingFlexBillingWithBusinessVerificationIntroDecisionState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "payment_legacy_account_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "ad_account": {
+            "type": "object",
+            "properties": {
+              "security_card_canned_responses": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

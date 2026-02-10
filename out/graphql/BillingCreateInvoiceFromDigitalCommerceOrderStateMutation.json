@@ -1,0 +1,40 @@
+{
+  "id": "32332091196390493",
+  "name": "BillingCreateInvoiceFromDigitalCommerceOrderState",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_billing_create_invoice_from_dcp_order": {
+        "type": "object",
+        "properties": {
+          "invoice_id": {
+            "type": "scalar"
+          },
+          "dcp_order_amount": {
+            "type": "object",
+            "properties": {
+              "amount_with_offset": {
+                "type": "scalar"
+              },
+              "currency": {
+                "type": "scalar"
+              }
+            }
+          },
+          "dcp_offer_type": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "25175427515409024",
+  "name": "BillingIAPInitV2StateBoostEnableStatus",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "deviceCountry": {
+        "type": "scalar"
+      },
+      "deviceCurrency": {
+        "type": "scalar"
+      },
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "boost_enable_status": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

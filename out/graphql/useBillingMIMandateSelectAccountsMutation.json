@@ -1,0 +1,26 @@
+{
+  "id": "25881794078119404",
+  "name": "useBillingMIMandateSelectAccounts",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_billing_schedule_mi_migration": {
+        "type": "object",
+        "properties": {
+          "scheduled": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

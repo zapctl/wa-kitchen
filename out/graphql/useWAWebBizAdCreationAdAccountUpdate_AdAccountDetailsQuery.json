@@ -1,0 +1,46 @@
+{
+  "id": "24708483602160361",
+  "name": "useWAWebBizAdCreationAdAccountUpdate_AdAccountDetails",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "adAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "ad_account": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "legacy_account_id": {
+            "type": "scalar"
+          },
+          "name": {
+            "type": "scalar"
+          },
+          "currency_code_enum": {
+            "type": "scalar"
+          },
+          "has_capability": {
+            "type": "scalar"
+          },
+          "payment_account": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

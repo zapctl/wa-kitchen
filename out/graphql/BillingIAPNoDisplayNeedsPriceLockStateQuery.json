@@ -1,0 +1,68 @@
+{
+  "id": "31299888702992564",
+  "name": "BillingIAPNoDisplayNeedsPriceLockState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "budgetAmount": {
+        "type": "scalar"
+      },
+      "budgetCurrency": {
+        "type": "scalar"
+      },
+      "deviceCountry": {
+        "type": "scalar"
+      },
+      "deviceCurrency": {
+        "type": "scalar"
+      },
+      "paymentAccountID": {
+        "type": "scalar"
+      },
+      "lock_pre_quote": {
+        "type": "scalar",
+        "value": true
+      },
+      "target_currency_amount": {
+        "type": "object",
+        "properties": {
+          "budgetAmount": {
+            "type": "scalar"
+          },
+          "budgetCurrency": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_billing_iap_payment_info": {
+        "type": "object",
+        "properties": {
+          "total_currency_amount": {
+            "type": "object",
+            "properties": {
+              "amount_with_offset": {
+                "type": "scalar"
+              },
+              "currency": {
+                "type": "scalar"
+              }
+            }
+          },
+          "pre_quote_obj_id": {
+            "type": "scalar"
+          },
+          "payment_details": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}

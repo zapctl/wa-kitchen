@@ -11,8 +11,7 @@
         },
         "code": {
           "type": "number",
-          "literal": 500,
-          "as": "string"
+          "literal": 500
         }
       },
       "content": null
@@ -27,8 +26,7 @@
         },
         "code": {
           "type": "number",
-          "literal": 400,
-          "as": "string"
+          "literal": 400
         }
       },
       "content": null

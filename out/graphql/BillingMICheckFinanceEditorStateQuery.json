@@ -1,0 +1,29 @@
+{
+  "id": "10036773869720257",
+  "name": "BillingMICheckFinanceEditorState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "businessID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "business": {
+        "type": "object",
+        "properties": {
+          "viewer_is_admin": {
+            "type": "scalar"
+          },
+          "viewer_is_finance_editor": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

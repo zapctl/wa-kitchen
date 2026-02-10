@@ -1,0 +1,48 @@
+{
+  "id": "25080898591609521",
+  "name": "useWAWebBizAdCreationAdAccountUpdate_Budget",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "lwi": {
+        "type": "object",
+        "properties": {
+          "boosted_component": {
+            "type": "object",
+            "properties": {
+              "spec": {
+                "type": "object",
+                "properties": {
+                  "budget": {
+                    "type": "object",
+                    "properties": {
+                      "offset_amount": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "budget_options": {
+                    "type": "array",
+                    "items": {
+                      "offset_amount": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                },
+                "required": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

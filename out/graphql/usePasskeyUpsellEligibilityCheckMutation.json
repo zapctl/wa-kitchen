@@ -1,0 +1,21 @@
+{
+  "id": "24998666569801021",
+  "name": "usePasskeyUpsellEligibilityCheck",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "encryptedContext": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_upsell_passkey_post_reauth": {
+        "type": "scalar"
+      }
+    }
+  }
+}

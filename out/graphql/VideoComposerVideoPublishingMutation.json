@@ -1,0 +1,26 @@
+{
+  "id": "29705123342436060",
+  "name": "VideoComposerVideoPublishing",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "video_publish": {
+        "type": "object",
+        "properties": {
+          "video_asset_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

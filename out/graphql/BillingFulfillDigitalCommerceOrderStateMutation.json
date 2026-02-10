@@ -1,0 +1,26 @@
+{
+  "id": "24658676607124770",
+  "name": "BillingFulfillDigitalCommerceOrderState",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_billing_fulfill_dcp_order": {
+        "type": "object",
+        "properties": {
+          "called_dcp_fulfillment": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

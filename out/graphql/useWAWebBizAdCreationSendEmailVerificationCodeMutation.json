@@ -1,0 +1,29 @@
+{
+  "id": "25314829244811285",
+  "name": "useWAWebBizAdCreationSendEmailVerificationCode",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "wa_ad_account_send_email_verification_code": {
+        "type": "object",
+        "properties": {
+          "email_sent": {
+            "type": "scalar"
+          },
+          "failure_reason": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

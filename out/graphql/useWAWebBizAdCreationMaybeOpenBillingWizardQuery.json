@@ -1,0 +1,47 @@
+{
+  "id": "32843053468676588",
+  "name": "useWAWebBizAdCreationMaybeOpenBillingWizard",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "asset_id": {
+        "type": "scalar"
+      },
+      "budget": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "billable_account_by_asset_id": {
+        "type": "object",
+        "properties": {
+          "billing_info": {
+            "type": "object",
+            "properties": {
+              "required_action": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "object",
+                    "properties": {
+                      "wizard_name": {
+                        "type": "scalar"
+                      },
+                      "wizard_props_json": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

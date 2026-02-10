@@ -1,0 +1,22 @@
+{
+  "id": "29539241599052847",
+  "name": "useAdsLWIExposeAdAccountBoolUniverseHook",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "lwi": {
+        "type": "object",
+        "properties": {
+          "expose_ad_account_for_qe_bool": {
+            "type": "scalar",
+            "condition": {
+              "should_fetch": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

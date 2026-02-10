@@ -26,8 +26,7 @@
           "literal": "not-authorized"
         },
         "code": {
-          "type": "number",
-          "as": "string"
+          "type": "number"
         }
       },
       "content": null

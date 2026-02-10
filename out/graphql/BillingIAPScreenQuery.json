@@ -1,0 +1,62 @@
+{
+  "id": "24829438496723940",
+  "name": "BillingIAPScreen",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "gk_on_payment_account": {
+            "type": "scalar"
+          },
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "prepay_delivery_remaining": {
+                "type": "object",
+                "properties": {
+                  "amount_with_offset": {
+                    "type": "scalar"
+                  },
+                  "currency": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "xfb_billing_iap_prequote_options": {
+        "type": "array",
+        "items": {
+          "est_indirect_fee_account_currency": {
+            "type": "object",
+            "properties": {
+              "amount_with_offset": {
+                "type": "scalar"
+              },
+              "currency": {
+                "type": "scalar"
+              }
+            }
+          },
+          "est_other_jurisdictional_fee_account_currency": {
+            "type": "object",
+            "properties": {
+              "amount_with_offset": {
+                "type": "scalar"
+              },
+              "currency": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

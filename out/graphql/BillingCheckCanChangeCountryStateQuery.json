@@ -1,0 +1,36 @@
+{
+  "id": "24289773060719268",
+  "name": "BillingCheckCanChangeCountryState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "billable_account_tax_info": {
+                "type": "object",
+                "properties": {
+                  "can_update_tax_country": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

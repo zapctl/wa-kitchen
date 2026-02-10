@@ -1,0 +1,27 @@
+{
+  "id": "9635779516548500",
+  "name": "useBillingSwitchOffFlexBillingSurvey",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "set_switch_off_reasons_flex_billing_config": {
+        "type": "object",
+        "properties": {
+          "flex_billing_config": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}

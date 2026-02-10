@@ -1,0 +1,79 @@
+{
+  "id": "30281363288121596",
+  "name": "BillingMIAutoPaymentEnableState",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "auto_payment_config_create_or_update": {
+        "type": "object",
+        "properties": {
+          "config": {
+            "type": "object",
+            "properties": {
+              "payment_method": {
+                "type": "object",
+                "properties": {
+                  "credential": {
+                    "type": "object",
+                    "properties": {
+                      "card_association_name": {
+                        "type": "scalar"
+                      },
+                      "last_four_digits": {
+                        "type": "scalar"
+                      },
+                      "bank_name": {
+                        "type": "scalar"
+                      },
+                      "bank_account_type": {
+                        "type": "scalar"
+                      },
+                      "email": {
+                        "type": "scalar"
+                      },
+                      "legal_entity_name": {
+                        "type": "scalar"
+                      },
+                      "partition_from": {
+                        "type": "scalar"
+                      },
+                      "stored_balance_type": {
+                        "type": "scalar"
+                      },
+                      "balance_amount": {
+                        "type": "object",
+                        "properties": {
+                          "currency_name": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "credential_type": {
+                        "type": "scalar"
+                      },
+                      "user_display_name": {
+                        "type": "scalar"
+                      },
+                      "display_name": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

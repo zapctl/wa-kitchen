@@ -1,0 +1,34 @@
+{
+  "id": "25565606183062071",
+  "name": "BillingMIMandateOptionsScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "businessID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "business": {
+        "type": "object",
+        "properties": {
+          "mi_mandate_announcement_date": {
+            "type": "scalar"
+          },
+          "monthly_invoicings": {
+            "type": "array",
+            "items": {
+              "supports_ads": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

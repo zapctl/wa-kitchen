@@ -1,0 +1,42 @@
+{
+  "id": "29512764071702553",
+  "name": "BillingMIAssignFinanceEditorScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "businessID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "business": {
+        "type": "object",
+        "properties": {
+          "non_finance_editor_users": {
+            "type": "array",
+            "items": {
+              "id": {
+                "type": "scalar"
+              },
+              "name": {
+                "type": "scalar"
+              }
+            }
+          },
+          "business_user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

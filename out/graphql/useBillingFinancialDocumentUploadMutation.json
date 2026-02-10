@@ -1,0 +1,26 @@
+{
+  "id": "23991264390485455",
+  "name": "useBillingFinancialDocumentUpload",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "cnc_create_case_of_uploaded_financial_statement": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

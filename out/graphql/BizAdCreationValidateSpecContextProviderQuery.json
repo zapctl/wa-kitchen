@@ -1,0 +1,62 @@
+{
+  "id": "25496526670019409",
+  "name": "BizAdCreationValidateSpecContextProvider",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "lwi": {
+        "type": "object",
+        "properties": {
+          "validate_spec": {
+            "type": "array",
+            "items": {
+              "spec_element": {
+                "type": "scalar"
+              },
+              "message_type": {
+                "type": "scalar"
+              },
+              "validation_module": {
+                "type": "scalar"
+              },
+              "title": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "text": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "action": {
+                "type": "object",
+                "properties": {
+                  "display_text": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "uri": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

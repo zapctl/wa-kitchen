@@ -1,0 +1,44 @@
+{
+  "id": "24212238825026670",
+  "name": "useBillingFlexConnectPlaidIntegration",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "plaid_item_public_token_exchange": {
+        "type": "object",
+        "properties": {
+          "ad_account": {
+            "type": "object",
+            "properties": {
+              "is_eligible_for_plaid": {
+                "type": "scalar"
+              },
+              "plaid_connected_institutions": {
+                "type": "array",
+                "items": {}
+              },
+              "plaid_connection_status": {
+                "type": "scalar"
+              },
+              "plaid_credit_limit_increase_last_review_date": {
+                "type": "scalar"
+              },
+              "plaid_credit_limit_increase_status": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

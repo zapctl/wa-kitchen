@@ -1,0 +1,37 @@
+{
+  "id": "25491014540529172",
+  "name": "BillingSubscriptionDowngradeWarningState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "subscription_details": {
+                "type": "array",
+                "items": {
+                  "expiration_date": {
+                    "type": "scalar",
+                    "required": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "9924988847537232",
+  "name": "useBillingPlaidCreateLinkToken",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "plaid_create_link_token": {
+        "type": "object",
+        "properties": {
+          "link_token": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "25215735191415388",
+  "name": "BillingPayNowOrSettleStateSettle",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "billable_account_settle": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "billable_account_status": {
+                "type": "scalar"
+              }
+            }
+          },
+          "next_action": {
+            "type": "object",
+            "properties": {
+              "async_payment_status_ent_id": {
+                "type": "scalar"
+              },
+              "external_uri": {
+                "type": "scalar"
+              },
+              "needs_await_completion": {
+                "type": "scalar"
+              },
+              "nonce": {
+                "type": "scalar"
+              },
+              "params": {
+                "type": "array",
+                "items": {
+                  "key": {
+                    "type": "scalar"
+                  },
+                  "value": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "external_ref_id": {
+                "type": "scalar"
+              },
+              "external_otp_webview_fallback": {
+                "type": "object",
+                "properties": {
+                  "async_payment_status_ent_id": {
+                    "type": "scalar"
+                  },
+                  "external_uri": {
+                    "type": "scalar"
+                  },
+                  "needs_await_completion": {
+                    "type": "scalar"
+                  },
+                  "nonce": {
+                    "type": "scalar"
+                  },
+                  "params": {
+                    "type": "array",
+                    "items": {
+                      "key": {
+                        "type": "scalar"
+                      },
+                      "value": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "total_provider_amount": {
+            "type": "object",
+            "properties": {
+              "formatted_amount": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

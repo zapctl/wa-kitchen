@@ -36,7 +36,7 @@ function serializeAttributeType(attr) {
         case "boolean":
             return "boolean";
         default:
-            throw new Error(`Unhandled attribute type "${attr.type}"`);
+            throw new Error(`Unhandled attribute type "${attr.type}"`, { cause: attr });
     }
 }
 
@@ -50,9 +50,11 @@ function serializeAttributes(attributes, level) {
     attrs.forEach(([name, attr]) => {
         const optional = attr.optional ? "?" : "";
         const type = serializeAttributeType(attr);
+        const needsQuotes = /[^a-zA-Z0-9_$]/.test(name) || /^[0-9]/.test(name);
+        const formattedName = needsQuotes ? `"${name}"` : name;
 
         if (output.length === 1) output += "\n";
-        output += `${indent}\t${name}${optional}: ${type};\n`;
+        output += `${indent}\t${formattedName}${optional}: ${type};\n`;
     });
 
     if (output.length > 1) output += indent;
@@ -74,7 +76,19 @@ function serializeContent(namespace, spec, level) {
     if (spec.$ref) return spec.$ref.replace(":", ".");
 
     if (spec.variant) {
-        namespace.push(serializeSpec(namespace, spec, 1));
+        let serializedSpec = serializeSpec(namespace, spec, 1);
+        const existentSpec = namespace[spec.variant];
+
+        if (existentSpec && existentSpec !== serializedSpec) {
+            const newName = spec.variant + (Object.keys(namespace)
+                .filter(key => key.startsWith(spec.variant))
+                .length + 1);
+
+            serializedSpec = serializedSpec.replace(spec.variant, newName);
+            spec.variant = newName;
+        }
+
+        namespace[spec.variant] = serializedSpec;
         return spec.variant;
     }
 
@@ -133,6 +147,7 @@ function serializeContent(namespace, spec, level) {
         }
         case "binary": {
             if (spec.literal !== undefined) {
+                console.log(spec.literal)
                 return `Literal<Uint8Array, [${spec.literal.join(", ")}]>`;
             }
 
@@ -143,13 +158,15 @@ function serializeContent(namespace, spec, level) {
             return type;
         }
         default:
-            throw new Error(`Unhandled type "${spec.type}"`);
+            throw new Error(`Unhandled type "${spec.type}"`, { cause: spec });
     }
 }
 
 function serializeSpec(namespace, spec, level = 0) {
     const indent = "\t".repeat(level);
     const indentInner = indent + "\t";
+
+    if (spec.$ref) return spec.$ref.replace(":", ".");
 
     switch (spec.type) {
         case "node": {
@@ -171,7 +188,7 @@ function serializeSpec(namespace, spec, level = 0) {
             return `${indent}export type ${spec.variant} = \n${indentInner}${unionType};`;
         }
         default:
-            throw new Error(`Unhandled type "${spec.type}"`);
+            throw new Error(`Unhandled type "${spec.type}"`, { cause: spec });
     }
 }
 
@@ -179,10 +196,22 @@ function generateTypes() {
     const namespaces = {};
 
     for (const spec of specs) {
-        const namespace = namespaces[spec.namespace] || [];
+        const namespace = namespaces[spec.namespace] || {};
         namespaces[spec.namespace] = namespace;
 
-        namespace.push(serializeSpec(namespace, spec, 1));
+        let serializedSpec = serializeSpec(namespace, spec, 1);
+        const existentSpec = namespace[spec.variant];
+
+        if (existentSpec && existentSpec !== serializedSpec) {
+            const newName = spec.variant + (Object.keys(namespace)
+                .filter(key => key.startsWith(spec.variant))
+                .length + 1);
+
+            serializedSpec = serializedSpec.replace(spec.variant, newName);
+            spec.variant = newName;
+        }
+
+        namespace[spec.variant] = serializedSpec;
     }
 
     let output = "";
@@ -212,7 +241,7 @@ function generateTypes() {
 
     for (const [name, specs] of Object.entries(namespaces)) {
         output += `export namespace ${name} {\n`;
-        output += specs.join("\n\n");
+        output += Object.values(specs).join("\n\n");
         output += `\n}\n\n`;
     }
 

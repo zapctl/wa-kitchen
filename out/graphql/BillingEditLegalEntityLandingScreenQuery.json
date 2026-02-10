@@ -1,0 +1,42 @@
+{
+  "id": "24187787654156005",
+  "name": "BillingEditLegalEntityLandingScreen",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_legal_entity_management_controller": {
+        "type": "object",
+        "properties": {
+          "supported_country_options": {
+            "type": "array",
+            "items": {
+              "label": {
+                "type": "scalar",
+                "required": true
+              },
+              "value": {
+                "type": "scalar",
+                "required": true
+              }
+            }
+          },
+          "supported_taxidtype_options": {
+            "type": "array",
+            "items": {
+              "label": {
+                "type": "scalar",
+                "required": true
+              },
+              "value": {
+                "type": "scalar",
+                "required": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "29873242668987201",
+  "name": "BillingIAPScreenRefetch",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {}
+  }
+}

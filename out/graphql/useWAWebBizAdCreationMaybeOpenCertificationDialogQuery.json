@@ -1,0 +1,19 @@
+{
+  "id": "25319796354371579",
+  "name": "useWAWebBizAdCreationMaybeOpenCertificationDialog",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "viewer": {
+        "type": "object",
+        "properties": {
+          "ad_integrity_certification": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

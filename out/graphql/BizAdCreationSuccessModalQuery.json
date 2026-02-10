@@ -1,0 +1,35 @@
+{
+  "id": "25629101233377520",
+  "name": "BizAdCreationSuccessModal",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "asset_id": {
+        "type": "scalar"
+      },
+      "budget": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "billable_account_by_asset_id": {
+        "type": "object",
+        "properties": {
+          "billing_info": {
+            "type": "object",
+            "properties": {
+              "payment_section_details": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

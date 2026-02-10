@@ -1,0 +1,64 @@
+{
+  "id": "25219649970993150",
+  "name": "BillingFulfillDigitalCommerceOrderState",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentMethodID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "node": {
+        "type": "object",
+        "properties": {
+          "card_association_name": {
+            "type": "scalar"
+          },
+          "last_four_digits": {
+            "type": "scalar"
+          },
+          "bank_name": {
+            "type": "scalar"
+          },
+          "bank_account_type": {
+            "type": "scalar"
+          },
+          "email": {
+            "type": "scalar"
+          },
+          "legal_entity_name": {
+            "type": "scalar"
+          },
+          "partition_from": {
+            "type": "scalar"
+          },
+          "stored_balance_type": {
+            "type": "scalar"
+          },
+          "balance_amount": {
+            "type": "object",
+            "properties": {
+              "currency_name": {
+                "type": "scalar"
+              }
+            }
+          },
+          "credential_type": {
+            "type": "scalar"
+          },
+          "user_display_name": {
+            "type": "scalar"
+          },
+          "display_name": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

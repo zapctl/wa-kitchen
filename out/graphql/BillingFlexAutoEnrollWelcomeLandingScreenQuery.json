@@ -1,0 +1,76 @@
+{
+  "id": "24128216503463326",
+  "name": "BillingFlexAutoEnrollWelcomeLandingScreen",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "paymentAccountID": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "payment_account": {
+        "type": "object",
+        "properties": {
+          "billable_account": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "scalar"
+              },
+              "flex_billing_config": {
+                "type": "object",
+                "properties": {
+                  "max_balance": {
+                    "type": "object",
+                    "properties": {
+                      "formatted_amount": {
+                        "type": "scalar"
+                      },
+                      "currency": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "next_billing_statement_info": {
+                "type": "object",
+                "properties": {
+                  "earliest_issue_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "billing_info": {
+                "type": "object",
+                "properties": {
+                  "payment_section_details": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "scalar"
+                      },
+                      "logos": {
+                        "type": "array",
+                        "items": {
+                          "uri": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

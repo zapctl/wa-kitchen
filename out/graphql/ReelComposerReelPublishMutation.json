@@ -1,0 +1,29 @@
+{
+  "id": "24143317328587698",
+  "name": "ReelComposerReelPublish",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "cpx_reel_publish": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          },
+          "published_video_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

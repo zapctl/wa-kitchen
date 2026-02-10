@@ -1,0 +1,29 @@
+{
+  "id": "23969833542640925",
+  "name": "BillingEMandateIncreaseRemoveCardsDecisionState",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "india_emandate_remove_payment_methods": {
+        "type": "object",
+        "properties": {
+          "cards_to_delete_count": {
+            "type": "scalar"
+          },
+          "cards_deleted_count": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}
