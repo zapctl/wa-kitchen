@@ -76,19 +76,7 @@ function serializeContent(namespace, spec, level) {
     if (spec.$ref) return spec.$ref.replace(":", ".");
 
     if (spec.variant) {
-        let serializedSpec = serializeSpec(namespace, spec, 1);
-        const existentSpec = namespace[spec.variant];
-
-        if (existentSpec && existentSpec !== serializedSpec) {
-            const newName = spec.variant + (Object.keys(namespace)
-                .filter(key => key.startsWith(spec.variant))
-                .length + 1);
-
-            serializedSpec = serializedSpec.replace(spec.variant, newName);
-            spec.variant = newName;
-        }
-
-        namespace[spec.variant] = serializedSpec;
+        namespace[spec.variant] = serializeSpec(namespace, spec, 1);
         return spec.variant;
     }
 
@@ -108,12 +96,8 @@ function serializeContent(namespace, spec, level) {
             return output;
         }
         case "union": {
-            // const nodes = spec.unions.filter(node => node.type === "node");
-            // const unions = spec.unions.filter(node => node.type === "union");
-
             const unionType = spec.unions
                 .map(union => serializeContent(namespace, union, level))
-                .map(type => type.replace(`${spec.namespace}.`, ""))
                 .join(" | ");
 
             return unionType;
@@ -147,7 +131,6 @@ function serializeContent(namespace, spec, level) {
         }
         case "binary": {
             if (spec.literal !== undefined) {
-                console.log(spec.literal)
                 return `Literal<Uint8Array, [${spec.literal.join(", ")}]>`;
             }
 
@@ -198,20 +181,7 @@ function generateTypes() {
     for (const spec of specs) {
         const namespace = namespaces[spec.namespace] || {};
         namespaces[spec.namespace] = namespace;
-
-        let serializedSpec = serializeSpec(namespace, spec, 1);
-        const existentSpec = namespace[spec.variant];
-
-        if (existentSpec && existentSpec !== serializedSpec) {
-            const newName = spec.variant + (Object.keys(namespace)
-                .filter(key => key.startsWith(spec.variant))
-                .length + 1);
-
-            serializedSpec = serializedSpec.replace(spec.variant, newName);
-            spec.variant = newName;
-        }
-
-        namespace[spec.variant] = serializedSpec;
+        namespace[spec.variant] = serializeSpec(namespace, spec, 1);
     }
 
     let output = "";

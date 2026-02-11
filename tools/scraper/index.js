@@ -21,11 +21,11 @@ const SCRAPERS = [
     { name: "media", type: "json", outputPath: "media.json" },
     { name: "jid", type: "json", outputPath: "jid.json" },
     { name: "message", type: "json", outputPath: "message.json" },
-    { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: ".proto" },
-    { name: "graphql", type: "multi-json", outputDir: "graphql", extension: ".json" },
-    { name: "stanza", type: "multi-json", outputDir: "stanza", extension: ".json" },
-    { name: "smax", type: "multi-file", outputDir: "smax", extension: ".js" },
-];
+    { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: "proto" },
+    { name: "graphql", type: "multi-json", outputDir: "graphql", extension: "json" },
+    { name: "stanza", type: "multi-json", outputDir: "stanza", extension: "json" },
+    IS_DEBUG && { name: "smax", type: "multi-file", outputDir: "smax", extension: "js" },
+].filter(Boolean);
 
 const browser = await puppeteer.launch({
     headless: !IS_DEBUG,
@@ -74,8 +74,8 @@ for (const scraper of SCRAPERS) {
     await fs.mkdir(targetDir, { recursive: true });
 
     if (scraper.type === "text") {
-        await fs.writeFile(outputPath, data);
         globalHash.update(data);
+        await fs.writeFile(outputPath, data);
     } else if (scraper.type === "json") {
         const content = JSON.stringify(data, null, 2);
         await fs.writeFile(outputPath, content);
@@ -88,16 +88,20 @@ for (const scraper of SCRAPERS) {
         globalHash.update(content);
     } else if (scraper.type === "multi-file") {
         const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
+
         await Promise.all(entries.map(([name, content]) => {
-            const filePath = path.join(outputDir, `${name}${scraper.extension}`);
+            const filePath = path.join(outputDir, `${name}.${scraper.extension}`);
+
             globalHash.update(content);
             return fs.writeFile(filePath, content);
         }));
     } else if (scraper.type === "multi-json") {
         const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
+
         await Promise.all(entries.map(([name, content]) => {
-            const filePath = path.join(outputDir, `${name}${scraper.extension}`);
+            const filePath = path.join(outputDir, `${name}.${scraper.extension}`);
             const jsonContent = JSON.stringify(content, null, 2);
+
             globalHash.update(jsonContent);
             return fs.writeFile(filePath, jsonContent);
         }));

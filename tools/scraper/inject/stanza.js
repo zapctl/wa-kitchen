@@ -150,11 +150,6 @@ function assignMetadata(obj, metadata = {}) {
                 metadata.attrs[attrName],
             );
 
-            if (mergedAttrMetadata.type === "undefined") {
-                debugger
-                continue;
-            }
-
             if (!obj.attrs) obj.attrs = {};
             obj.attrs[attrName] = getValueFromMetadata(mergedAttrMetadata);
 
@@ -254,10 +249,10 @@ function mergeStanzas(...nodes) {
                 ...existingMetadata.content || {},
                 ...nodeMetadata.content || {},
             },
-            unions: mergeStanzas(
+            unions: [
                 ...existingMetadata.unions || [],
                 ...nodeMetadata.unions || [],
-            ),
+            ],
             min: existingMetadata.min ?? nodeMetadata.min,
             max: existingMetadata.max ?? nodeMetadata.max,
         }
@@ -768,7 +763,7 @@ function createMixinProxy(mixinModule, moduleName) {
         get(target, propertyName) {
             const originalValue = target[propertyName];
             const isParseMixin = typeof originalValue === "function" &&
-                /^parse.*Mixin$/.test(propertyName);
+                /^parse.*Mixin/.test(propertyName);
 
             if (!isParseMixin) return originalValue;
 
@@ -829,12 +824,13 @@ function createMixinProxy(mixinModule, moduleName) {
                     });
                 }
 
+                assignMetadata(proxy, createModuleName({
+                    moduleName,
+                    parserName: propertyName,
+                }));
+
                 if (isUnion) {
                     assignMetadata(node, {
-                        ...createModuleName({
-                            moduleName,
-                            parserName: propertyName,
-                        }),
                         unions: [proxy],
                         mixinReturn: result,
                     });
@@ -1271,10 +1267,9 @@ function getAllModulesSchemas() {
 
         modules.forEach((mod, i) => {
             // if (![
-            //     "GroupsGroupInfoParticipant",
-            //     "GroupsGroupInfoParticipantMixins",
+            // "MdCompanionHelloResponseError",
             // ].includes(mod.moduleName)) return;
-            if (createModuleName(mod).namespace !== "Md") return;
+            // if (createModuleName(mod).namespace !== "Md") return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);
 
