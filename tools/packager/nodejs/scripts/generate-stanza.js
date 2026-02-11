@@ -24,7 +24,7 @@ function serializeAttributeType(attr) {
         case "jid":
             return attr.jidTypes?.join(" | ") || "Jid";
         case "enum":
-            return attr.enum.map(JSON.stringify).join("|") || "never";
+            return attr.enum.map(JSON.stringify).join(" | ");
         case "string":
             return "string";
         case "number":
@@ -166,7 +166,7 @@ function serializeSpec(namespace, spec, level = 0) {
         case "union": {
             const unionType = spec.unions
                 .map(union => serializeContent(namespace, union, level + 1))
-                .join(" | ");
+                .join(` |\n${indentInner}`);
 
             return `${indent}export type ${spec.variant} = \n${indentInner}${unionType};`;
         }

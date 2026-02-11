@@ -1,0 +1,143 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "NewsletterJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "question_responses",
+      "attributes": {
+        "server_id": {
+          "type": "number",
+          "min": 99,
+          "max": 2147476647
+        }
+      },
+      "content": [
+        {
+          "namespace": "Newsletters",
+          "variant": "QuestionResponseMessage",
+          "type": "node",
+          "tag": "question_response",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "message",
+              "attributes": {
+                "id": {
+                  "type": "id"
+                },
+                "t": {
+                  "type": "number",
+                  "min": 1577865600,
+                  "max": 4102473600
+                },
+                "is_sender": {
+                  "type": "string",
+                  "literal": "true",
+                  "optional": true
+                },
+                "type": {
+                  "type": "string",
+                  "literal": "text"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "plaintext",
+                  "attributes": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 1,
+                    "max": 1048576
+                  },
+                  "namespace": "Newsletters",
+                  "variant": "Payload"
+                },
+                {
+                  "type": "node",
+                  "tag": "meta",
+                  "attributes": {
+                    "questiontype": {
+                      "type": "string",
+                      "literal": "response"
+                    },
+                    "response_server_id": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                }
+              ],
+              "namespace": "Newsletters",
+              "variant": "NewsletterQuestionResponse"
+            },
+            {
+              "type": "node",
+              "tag": "sender",
+              "attributes": {
+                "lid": {
+                  "optional": true,
+                  "type": "jid",
+                  "jidTypes": [
+                    "LidUserJid"
+                  ]
+                },
+                "notify_name": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "picture",
+                  "attributes": {
+                    "direct_path": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "flags",
+              "attributes": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "replied",
+                  "attributes": {},
+                  "content": null
+                }
+              ],
+              "namespace": "Newsletters",
+              "variant": "RepliedFlag"
+            }
+          ],
+          "max": 1000
+        }
+      ]
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterResponsesResponseSuccess"
+}
