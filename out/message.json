@@ -48,6 +48,18 @@
       "Product": "product",
       "NativeFlowResponse": "native_flow_response",
       "GroupHistory": "group_history"
+    },
+    "MessageReceiptType": {
+      "INACTIVE": "inactive",
+      "SENDER": "sender",
+      "DELIVERY": "delivery",
+      "READ": "read",
+      "READ_SELF": "read-self",
+      "PLAYED": "played",
+      "PLAYED_SELF": "played-self",
+      "HISTORY_SYNC_COMPLETION": "hist_sync",
+      "SERVER_ERROR": "server-error",
+      "PEER_MSG": "peer_msg"
     }
   }
 }

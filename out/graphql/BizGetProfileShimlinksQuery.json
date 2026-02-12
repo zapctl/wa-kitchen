@@ -1,0 +1,29 @@
+{
+  "id": "24491258413796282",
+  "name": "BizGetProfileShimlinks",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "bizJid": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_whatsapp_smb_get_profile_linkshims": {
+        "type": "array",
+        "items": {
+          "website": {
+            "type": "scalar"
+          },
+          "shimmed_website_url": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

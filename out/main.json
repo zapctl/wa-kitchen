@@ -1,5 +1,9 @@
 {
   "enums": {
+    "AddressingMode": {
+      "PN": "pn",
+      "LID": "lid"
+    },
     "LogoutReason": {
       "UserInitiated": "user_initiated",
       "SyncdFailure": "syncd_failure",

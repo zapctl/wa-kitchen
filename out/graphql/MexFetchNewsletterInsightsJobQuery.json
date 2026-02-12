@@ -1,0 +1,65 @@
+{
+  "id": "9853618868050977",
+  "name": "MexFetchNewsletterInsightsJob",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_admin_insights": {
+        "type": "object",
+        "properties": {
+          "newsletter_id": {
+            "type": "scalar"
+          },
+          "state": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "scalar"
+              }
+            }
+          },
+          "last_update_time": {
+            "type": "scalar"
+          },
+          "metrics_status": {
+            "type": "scalar"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "id": {
+                "type": "scalar"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "value": {
+                    "type": "scalar"
+                  },
+                  "country": {
+                    "type": "scalar"
+                  },
+                  "role": {
+                    "type": "scalar"
+                  },
+                  "timestamp": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
