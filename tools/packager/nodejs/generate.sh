@@ -1,21 +1,8 @@
 #!/bin/bash
 
 PROTO_DIR=$OUT_DIR/protobuf
-GRAPHQL_DIR=$OUT_DIR/graphql
-STANZA_DIR=$OUT_DIR/stanza
-VERSION_PATH=$OUT_DIR/version.json
-MAIN_PATH=$OUT_DIR/main.json
-JID_PATH=$OUT_DIR/jid.json
-BINARY_PATH=$OUT_DIR/binary.json
-MESSAGE_PATH=$OUT_DIR/message.json
-
 OUT=$OUT_DIR/dist/nodejs
 PROTO_OUT=$OUT/proto
-GRAPHQL_OUT=$OUT/graphql
-STANZA_OUT=$OUT/stanza
-JID_OUT=$OUT/jid
-BINARY_OUT=$OUT/binary
-MESSAGE_OUT=$OUT/message
 
 setup() {
     echo "Installing dependencies..."
@@ -31,10 +18,11 @@ setup() {
 
 copy_assets() {
     echo "Coping assets..."
-    
+
     cp -r assets/* $OUT/
-    
-    echo "Assets copied"
+
+    find $OUT -type f -name "*.ts" \
+        -exec sed -i '/^[[:space:]]*\/\/[[:space:]]*@ts-/d' {} +
 }
 
 generate_package() {
@@ -42,91 +30,79 @@ generate_package() {
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
     
-    echo "Injecting version $PACKAGE_VERSION..."
+    echo "Injecting version($PACKAGE_VERSION)..."
     sed -i 's/{{WA_VERSION}}/'"$PACKAGE_VERSION"'/g' $OUT/package.json
     sed -i 's/{{WA_VERSION}}/'"$PACKAGE_VERSION"'/g' $OUT/readme.md
-    
-    echo "Package file generated"
 }
 
-generate_main() {
-    echo "Generating main constants TypeScript definitions..."
-    
-    node $(dirname "$0")/scripts/generate.js "$VERSION_PATH" "$OUT/index.ts" || {
-        echo "Error: main constants generation failed"
+generate_definitions() {
+    local name=$1
+    local script=$2
+    local input=$3
+    local output=$4
+
+    echo "Generating $name definitions..."
+
+    mkdir -p "$(dirname "$output")"
+
+    node $(dirname "$0")/scripts/$script "$input" "$output" || {
+        echo "Error: $name generation failed"
         exit 1
     }
-    
-    node $(dirname "$0")/scripts/generate.js "$MAIN_PATH" "$OUT/index.ts" || {
-        echo "Error: main constants generation failed"
-        exit 1
-    }
-    
-    echo "Main constants generation completed"
 }
 
-generate_graphql() {
-    echo "Generating GraphQL TypeScript definitions..."
-    mkdir -p $GRAPHQL_OUT
-    
-    node $(dirname "$0")/scripts/generate-graphql.js "$GRAPHQL_DIR" "$GRAPHQL_OUT/index.ts" || {
-        echo "Error: GraphQL generation failed"
-        exit 1
-    }
-    
-    echo "GraphQL generation completed"
-}
+generate_all_definitions() {
+    generate_definitions \
+        "Version constants" "generate.js" \
+        "$OUT_DIR/version.json" "$OUT/index.ts"
 
-generate_stanza() {
-    echo "Generating Stanza TypeScript definitions..."
-    mkdir -p $STANZA_OUT
-    
-    node $(dirname "$0")/scripts/generate-stanza.js "$STANZA_DIR" "$STANZA_OUT/index.ts" || {
-        echo "Error: Stanza generation failed"
-        exit 1
-    }
-    
-    echo "Stanza generation completed"
-}
+    generate_definitions \
+        "Main constants" "generate.js" \
+        "$OUT_DIR/main.json" "$OUT/index.ts"
 
-generate_jid() {
-    echo "Generating JID constants TypeScript definitions..."
-    mkdir -p $JID_OUT
-    
-    node $(dirname "$0")/scripts/generate.js "$JID_PATH" "$JID_OUT/constants.ts" || {
-        echo "Error: JID constants generation failed"
-        exit 1
-    }
-    
-    echo "JID constants generation completed"
-}
+    generate_definitions \
+        "GraphQL" "generate-graphql.js" \
+        "$OUT_DIR/graphql" "$OUT/graphql/index.ts"
 
-generate_binary() {
-    echo "Generating binary constants TypeScript definitions..."
-    mkdir -p $BINARY_OUT
-    
-    node $(dirname "$0")/scripts/generate.js "$BINARY_PATH" "$BINARY_OUT/constants.ts" || {
-        echo "Error: binary constants generation failed"
-        exit 1
-    }
-    
-    echo "Binary constants generation completed"
-}
+    generate_definitions \
+        "Stanza" "generate-stanza.js" \
+        "$OUT_DIR/stanza" "$OUT/stanza/index.ts"
 
-generate_message() {
-    echo "Generating message constants TypeScript definitions..."
-    mkdir -p $MESSAGE_OUT
-    
-    node $(dirname "$0")/scripts/generate.js "$MESSAGE_PATH" "$MESSAGE_OUT/constants.ts" || {
-        echo "Error: message constants generation failed"
-        exit 1
-    }
-    
-    echo "Message constants generation completed"
+    generate_definitions \
+        "JID constants" "generate.js" \
+        "$OUT_DIR/jid.json" "$OUT/jid/constants.ts"
+
+    generate_definitions \
+        "Binary constants" "generate.js" \
+        "$OUT_DIR/binary.json" "$OUT/binary/constants.ts"
+
+    generate_definitions \
+        "Message constants" "generate.js" \
+        "$OUT_DIR/message.json" "$OUT/message/constants.ts"
+
+    generate_definitions \
+        "Media constants" "generate.js" \
+        "$OUT_DIR/media.json" "$OUT/media/constants.ts"
+
+    generate_definitions \
+        "Newsletter constants" "generate.js" \
+        "$OUT_DIR/newsletter.json" "$OUT/newsletter/constants.ts"
+
+    generate_definitions \
+        "Chat constants" "generate.js" \
+        "$OUT_DIR/chat.json" "$OUT/chat/constants.ts"
+
+    generate_definitions \
+        "Group constants" "generate.js" \
+        "$OUT_DIR/group.json" "$OUT/group/constants.ts"
+
+    generate_definitions \
+        "Privacy constants" "generate.js" \
+        "$OUT_DIR/privacy.json" "$OUT/privacy/constants.ts"
 }
 
 compile_proto() {
-    echo "Compiling proto files..."
+    echo "Compiling Protobuf files..."
     mkdir $PROTO_OUT
     
     pids=()
@@ -148,8 +124,6 @@ compile_proto() {
             exit 1
         }
     done
-    
-    echo "Proto compilation completed"
 }
 
 compile_ts() {
@@ -169,8 +143,6 @@ compile_ts() {
         echo "Error: TypeScript compilation failed"
         exit 1
     }
-    
-    echo "TypeScript compilation completed"
     
     echo "Removing TypeScript source files..."
     rm $tsFiles
@@ -196,8 +168,6 @@ minify() {
             exit 1
         }
     done
-    
-    echo "Minification completed"
 }
 
 set -e
@@ -205,12 +175,9 @@ set -e
 setup
 copy_assets
 generate_package
-generate_main
-generate_graphql
-generate_stanza
-generate_jid
-generate_binary
-generate_message
+generate_all_definitions
 compile_proto
-# compile_ts
-# minify
+compile_ts
+minify
+
+echo "All generations finished!"

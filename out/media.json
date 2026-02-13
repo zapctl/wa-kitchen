@@ -1,4 +1,24 @@
 {
+  "unions": {
+    "IMAGE_MIMES": [
+      "image/*"
+    ],
+    "AUDIO_MIMES": [
+      "audio/wav",
+      "audio/mp3",
+      "audio/ogg",
+      "audio/aac",
+      "audio/mpeg"
+    ],
+    "VIDEO_MIMES": [
+      "video/mp4",
+      "video/3gpp",
+      "video/quicktime"
+    ],
+    "DOC_MIMES": [
+      "*"
+    ]
+  },
   "enums": {
     "MEDIA_TYPE": {
       "AUDIO": "audio",
@@ -43,24 +63,6 @@
       "WAFFLE_IMAGE": "waffle-image",
       "WAFFLE_VIDEO": "waffle-video"
     },
-    "IMAGE_MIMES": [
-      "image/*"
-    ],
-    "AUDIO_MIMES": [
-      "audio/wav",
-      "audio/mp3",
-      "audio/ogg",
-      "audio/aac",
-      "audio/mpeg"
-    ],
-    "VIDEO_MIMES": [
-      "video/mp4",
-      "video/3gpp",
-      "video/quicktime"
-    ],
-    "DOC_MIMES": [
-      "*"
-    ],
     "ENC_MEDIA_INFO": {
       "audio": "WhatsApp Audio Keys",
       "document": "WhatsApp Document Keys",

@@ -4,12 +4,14 @@ const cryptoCreateMediaKeys = require("WAWebCryptoCreateMediaKeys");
 const cryptoHkdf = require("WACryptoHkdf");
 
 const specs = {
-    enums: {
-        MEDIA_TYPE: mmsMediaTypes.MEDIA_TYPES,
+    unions: {
         IMAGE_MIMES: mimeTypes.IMAGE_MIMES.split(","),
         AUDIO_MIMES: mimeTypes.AUDIO_MIMES.split(","),
         VIDEO_MIMES: mimeTypes.VIDEO_MIMES.split(","),
         DOC_MIMES: mimeTypes.DOC_MIMES.split(","),
+    },
+    enums: {
+        MEDIA_TYPE: mmsMediaTypes.MEDIA_TYPES,
         ENC_MEDIA_INFO: {},
         EXT_TO_MIME: mimeTypes.EXT_TO_MIME,
     },

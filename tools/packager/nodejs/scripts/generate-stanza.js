@@ -221,4 +221,3 @@ function generateTypes() {
 const output = generateTypes();
 
 fs.writeFileSync(outputFile, output, "utf8");
-console.log(`Generated ${outputFile}`);

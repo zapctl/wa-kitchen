@@ -1,13 +1,13 @@
 // @ts-nocheck
-export type LastSeenPrivacy = VISIBILITY_WITH_ERROR;
-export type OnlinePrivacy = ONLINE_VISIBILITY_WITH_ERROR;
-export type ProfilePicturePrivacy = VISIBILITY_WITH_ERROR;
-export type AboutPrivacy = VISIBILITY_WITH_ERROR;
-export type ReadReceiptsPrivacy = ALL_NONE_WITH_ERROR;
-export type MessagePrivacy = ALL_CONTACTS;
-export type GroupAddPrivacy = VISIBILITY_WITH_ERROR;
-export type CallAddPrivacy = CALL_ADD_WITH_ERROR;
-export type PixPrivacy = VISIBILITY;
-export type LinksPrivacy = VISIBILITY;
-export type StickersPrivacy = VISIBILITY;
-export type DefensePrivacy = DEFENSE_MODE_STATE;
+export type LastSeenPrivacy = VisibilityWithError;
+export type OnlinePrivacy = OnlineVisibilityWithError;
+export type ProfilePicturePrivacy = VisibilityWithError;
+export type AboutPrivacy = VisibilityWithError;
+export type ReadReceiptsPrivacy = AllNoneWithError;
+export type MessagePrivacy = AllContacts;
+export type GroupAddPrivacy = VisibilityWithError;
+export type CallAddPrivacy = CallAddWithError;
+export type PixPrivacy = Visibility;
+export type LinksPrivacy = Visibility;
+export type StickersPrivacy = Visibility;
+export type DefensePrivacy = DefenseModeState;
