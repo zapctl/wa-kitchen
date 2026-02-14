@@ -79,7 +79,8 @@
     "url": "https://github.com/zapctl/wa-kitchen/issues"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "1.10.0"
+    "@bufbuild/protobuf": "1.10.0",
+    "curve25519-js": "^0.0.4"
   },
   "devDependencies": {
     "@bufbuild/protoc-gen-es": "1.10.0",
