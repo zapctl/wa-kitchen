@@ -1,6 +1,6 @@
 {
   "name": "wa-kitchen",
-  "description": "WhatsApp Web Protocol Buffers",
+  "description": "WhatsApp Kit",
   "version": "0.0.0",
   "private": false,
   "type": "commonjs",
