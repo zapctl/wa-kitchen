@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "$ref": "Groups:AdminLinkMode"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GroupMemberLinkMode"
+}

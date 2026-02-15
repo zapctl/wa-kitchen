@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:biz"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "privacy",
+      "attributes": {},
+      "content": null
+    }
+  ],
+  "namespace": "BizSettings",
+  "variant": "GetPrivacySettingRequest"
+}

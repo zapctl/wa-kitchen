@@ -1,0 +1,42 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "xmlns": {
+      "type": "string",
+      "literal": "waffle"
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "timestamp",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "attributes": {},
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Waffle",
+  "variant": "StateExistsRequest"
+}
