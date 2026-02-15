@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:PhoneNumber"
+    },
+    {
+      "$ref": "Groups:PhoneNumberAndUsernameAtt"
+    },
+    {
+      "$ref": "Groups:UsernameAtt"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "Identity"
+}

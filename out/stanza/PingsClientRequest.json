@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:p"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Pings",
+  "variant": "ClientRequest"
+}
