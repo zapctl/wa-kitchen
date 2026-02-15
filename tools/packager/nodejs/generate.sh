@@ -31,8 +31,8 @@ generate_package() {
     cp readme.md $OUT/readme.md
 
     if [ -n "$PACKAGE_OWNER" ]; then
-        echo "Setting package name($PACKAGE_OWNER/$PACKAGE_NAME)..."
-        npm pkg set name="$PACKAGE_OWNER/$PACKAGE_NAME" --prefix $OUT
+        echo "Setting package name(@$PACKAGE_OWNER/$PACKAGE_NAME)..."
+        npm pkg set name="@$PACKAGE_OWNER/$PACKAGE_NAME" --prefix $OUT
     fi
 
     echo "Injecting version($PACKAGE_VERSION)..."
