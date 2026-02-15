@@ -14,7 +14,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     outputs:
-      package_update_needed: ${{ steps.check-update.outputs.package_update_needed }}
+      package_update_needed: ${{ steps.should-update.outputs.needed == 'true' }}
       preview_branch: ${{ steps.scrap.outputs.preview_branch }}
 
     steps:
@@ -71,16 +71,14 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Check if package update is needed
+      - name: Check package update version
         id: check-update
         run: |
           if [[ "$CHECKSUM" == "$NEWEST_CHECKSUM" ]]; then
             echo "No update needed, artifacts hash is the same."
-            echo "package_update_needed=false" >> $GITHUB_ENV
             echo "package_update_needed=false" >> $GITHUB_OUTPUT
           elif [[ "$VERSION" == "$NEWEST_VERSION" ]]; then
             echo "Cannot update, version is the same but artifacts differ. Need new WhatsApp Web version."
-            echo "package_update_needed=false" >> $GITHUB_ENV
             echo "package_update_needed=false" >> $GITHUB_OUTPUT
           else
             git fetch origin 'preview/*:preview/*' || true
@@ -97,33 +95,41 @@ jobs:
 
             if [[ -n "$EXISTING_BRANCH" ]]; then
               echo "No update needed, checksum $NEWEST_CHECKSUM already exists in branch $EXISTING_BRANCH"
-              echo "package_update_needed=false" >> $GITHUB_ENV
               echo "package_update_needed=false" >> $GITHUB_OUTPUT
             else
               echo "Update needed, both version and artifacts are different."
-              echo "package_update_needed=true" >> $GITHUB_ENV
               echo "package_update_needed=true" >> $GITHUB_OUTPUT
             fi
           fi
 
       - name: Check if PR already exists
-        if: env.package_update_needed == 'true'
+        id: check-pr
+        if: steps.check-update.outputs.package_update_needed == 'true'
         uses: actions/github-script@v8
         with:
           script: |
             const script = require('.github/scripts/check-pr-exists.js');
             await script({ github, context, core });
 
+      - name: Should update
+        id: should-update
+        if: >-
+          steps.check-update.outputs.package_update_needed == 'true' &&
+          steps.check-pr.outputs.package_update_needed != 'false'
+        run: echo "needed=true" >> $GITHUB_OUTPUT
+
       - name: Close all open pull requests
-        if: env.package_update_needed == 'true'
+        if: steps.should-update.outputs.needed == 'true'
         uses: actions/github-script@v8
         with:
           script: |
-            const script = require('.github/scripts/close-old-prs.js');
+            const script = require('.github/scripts/close-prs.js');
             await script({ github, context });
+        env:
+          CLOSE_REASON: "🔄 A new version has been detected.\n\nThis PR will be closed automatically."
 
       - name: Commit changes
-        if: env.package_update_needed == 'true'
+        if: steps.should-update.outputs.needed == 'true'
         run: |
           git add out
           git commit -m "WhatsApp Web v$NEWEST_VERSION"
@@ -131,7 +137,7 @@ jobs:
           git push -u origin $PREVIEW_BRANCH --force
 
       - name: Open PR
-        if: env.package_update_needed == 'true'
+        if: steps.should-update.outputs.needed == 'true'
         uses: actions/github-script@v8
         with:
           script: |
@@ -144,3 +150,20 @@ jobs:
     uses: ./.github/workflows/publish-preview.yml
     with:
       branch: ${{ needs.update.outputs.preview_branch }}
+
+  cleanup:
+    needs: [update, publish]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Close PRs and delete branches
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const script = require('.github/scripts/close-prs.js');
+            await script({ github, context });
+        env:
+          CLOSE_REASON: "❌ Workflow failed. Cleaning up PR and branch."

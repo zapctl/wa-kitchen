@@ -18,12 +18,12 @@ module.exports = async ({ github, context, core }) => {
     if (prVersion === newestVersion) {
       core.info(`PR already exists for the same version: #${pr.number}`);
       core.info(`URL: ${pr.html_url}`);
-      core.exportVariable("package_update_needed", "false");
+      core.setOutput("package_update_needed", "false");
 
     } else if (prVersion > newestVersion) {
       core.info(`PR with newer version already exists: #${pr.number}`);
       core.info(`URL: ${pr.html_url}`);
-      core.exportVariable("package_update_needed", "false");
+      core.setOutput("package_update_needed", "false");
     }
   }
 };

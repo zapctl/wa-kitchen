@@ -8,19 +8,20 @@ module.exports = async ({ github, context }) => {
   });
 
   for (const pr of pullRequests) {
+    const branchName = pr.head.ref;
     const hasAutomatedLabel = pr.labels.some((label) => label.name === "automated");
     if (!hasAutomatedLabel) continue;
 
-    const branchName = pr.head.ref;
+    if (process.env.CLOSE_REASON) {
+      await github.rest.issues.createComment({
+        owner,
+        repo,
+        issue_number: pr.number,
+        body: process.env.CLOSE_REASON,
+      });
 
-    await github.rest.issues.createComment({
-      owner,
-      repo,
-      issue_number: pr.number,
-      body: "🔄 A new version has been detected.\n\nThis PR will be closed automatically.",
-    });
-
-    console.log(`Commented on PR #${pr.number}`);
+      console.log(`Commented on PR #${pr.number}`);
+    }
 
     await github.rest.pulls.update({
       owner,
