@@ -1,0 +1,68 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "access_token",
+      "attributes": {},
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "business_person",
+      "attributes": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "session_cookies",
+      "attributes": {},
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "token_type",
+      "attributes": {},
+      "content": {
+        "type": "string",
+        "as": "binary",
+        "enum": [
+          "Strong",
+          "Weak"
+        ]
+      }
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "GetAccessTokenAndSessionCookiesResponseSuccess"
+}

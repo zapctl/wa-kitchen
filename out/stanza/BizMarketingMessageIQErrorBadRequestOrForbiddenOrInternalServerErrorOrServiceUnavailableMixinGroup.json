@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "BizMarketingMessage:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizMarketingMessage:IQErrorForbidden"
+    },
+    {
+      "$ref": "BizMarketingMessage:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "BizMarketingMessage:IQErrorServiceUnavailable"
+    }
+  ],
+  "namespace": "BizMarketingMessage",
+  "variant": "IQErrorBadRequestOrForbiddenOrInternalServerErrorOrServiceUnavailableMixinGroup"
+}

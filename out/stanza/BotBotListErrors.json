@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Bot:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Bot:IQErrorForbidden"
+    },
+    {
+      "$ref": "Bot:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Bot:IQErrorNotAllowed"
+    }
+  ],
+  "namespace": "Bot",
+  "variant": "BotListErrors"
+}

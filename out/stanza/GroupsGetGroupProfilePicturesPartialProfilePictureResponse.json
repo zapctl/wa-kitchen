@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:BadLinkedGroupProfilePictureError"
+    },
+    {
+      "$ref": "Groups:BadServerProfilePictureError"
+    },
+    {
+      "$ref": "Groups:PictureDidNotChange"
+    },
+    {
+      "$ref": "Groups:PictureNotFound"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GetGroupProfilePicturesPartialProfilePictureResponse"
+}
