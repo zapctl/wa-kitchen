@@ -24,7 +24,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  publish-preview:
+  preview:
     runs-on: ubuntu-latest
 
     steps:
