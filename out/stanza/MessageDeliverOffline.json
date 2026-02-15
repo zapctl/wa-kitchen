@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "offline": {
+      "type": "number",
+      "min": 0,
+      "max": 12
+    }
+  },
+  "content": null,
+  "namespace": "MessageDeliver",
+  "variant": "Offline"
+}

@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "message_association_type": {
+          "type": "string",
+          "enum": [
+            "hd_image_dual_upload",
+            "hd_video_dual_upload",
+            "hevc_video_dual_upload",
+            "media_poll",
+            "motion_photo",
+            "sticker_annotation"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "MessageAssociationType"
+}

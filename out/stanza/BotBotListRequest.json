@@ -1,0 +1,49 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "bot"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "bot",
+      "attributes": {
+        "v": {
+          "type": "string",
+          "optional": true
+        },
+        "bhash": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "attributes": {},
+          "content": null,
+          "max": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Bot",
+  "variant": "BotListRequest"
+}
