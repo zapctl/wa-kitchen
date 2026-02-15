@@ -8,6 +8,9 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    outputs:
+      package_update_needed: ${{ steps.check-update.outputs.package_update_needed }}
+      preview_branch: ${{ steps.scrap.outputs.preview_branch }}
     permissions:
       id-token: write
       contents: write
@@ -49,6 +52,7 @@ jobs:
           npm install
 
       - name: Scrap files
+        id: scrap
         run: |
           node tools/scraper
 
@@ -59,6 +63,7 @@ jobs:
           echo "NEWEST_VERSION=$NEWEST_VERSION" >> $GITHUB_ENV
           echo "NEWEST_CHECKSUM=$NEWEST_CHECKSUM" >> $GITHUB_ENV
           echo "PREVIEW_BRANCH=$PREVIEW_BRANCH" >> $GITHUB_ENV
+          echo "preview_branch=$PREVIEW_BRANCH" >> $GITHUB_OUTPUT
 
           echo "Newest WhatsApp Web version: $NEWEST_VERSION"
           echo "Newest artifacts sha256 checksum: $NEWEST_CHECKSUM"
@@ -66,13 +71,16 @@ jobs:
           NODE_ENV: production
 
       - name: Check if package update is needed
+        id: check-update
         run: |
           if [[ "$CHECKSUM" == "$NEWEST_CHECKSUM" ]]; then
             echo "No update needed, artifacts hash is the same."
             echo "package_update_needed=false" >> $GITHUB_ENV
+            echo "package_update_needed=false" >> $GITHUB_OUTPUT
           elif [[ "$VERSION" == "$NEWEST_VERSION" ]]; then
             echo "Cannot update, version is the same but artifacts differ. Need new WhatsApp Web version."
             echo "package_update_needed=false" >> $GITHUB_ENV
+            echo "package_update_needed=false" >> $GITHUB_OUTPUT
           else
             git fetch origin 'preview/*:preview/*' || true
             EXISTING_BRANCH=""
@@ -89,9 +97,11 @@ jobs:
             if [[ -n "$EXISTING_BRANCH" ]]; then
               echo "No update needed, checksum $NEWEST_CHECKSUM already exists in branch $EXISTING_BRANCH"
               echo "package_update_needed=false" >> $GITHUB_ENV
+              echo "package_update_needed=false" >> $GITHUB_OUTPUT
             else
               echo "Update needed, both version and artifacts are different."
               echo "package_update_needed=true" >> $GITHUB_ENV
+              echo "package_update_needed=true" >> $GITHUB_OUTPUT
             fi
           fi
 
