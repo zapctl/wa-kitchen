@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:GroupForbidden"
+    },
+    {
+      "$ref": "Groups:GroupInfo"
+    },
+    {
+      "$ref": "Groups:GroupNotExist"
+    },
+    {
+      "$ref": "Groups:TruncatedGroupInfo"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GroupInfoOrTruncatedGroupInfoOrGroupForbiddenOrGroupNotExistMixinGroup"
+}

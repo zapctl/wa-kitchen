@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "type": "number",
+      "literal": 5
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "KeyType"
+}

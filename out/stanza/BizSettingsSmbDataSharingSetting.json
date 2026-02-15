@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "tag": "privacy",
+  "attributes": {},
+  "content": [
+    {
+      "namespace": "BizSettings",
+      "variant": "SmbDataSharingSettingValue",
+      "type": "node",
+      "tag": "smb_data_sharing_with_meta_consent",
+      "attributes": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "false",
+            "notset",
+            "true"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizSettings",
+  "variant": "SmbDataSharingSetting"
+}
