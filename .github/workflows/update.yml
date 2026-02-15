@@ -5,16 +5,17 @@ on:
   #   - cron: "0 */3 * * *"
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
     outputs:
       package_update_needed: ${{ steps.check-update.outputs.package_update_needed }}
       preview_branch: ${{ steps.scrap.outputs.preview_branch }}
-    permissions:
-      id-token: write
-      contents: write
-      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -143,5 +144,3 @@ jobs:
     uses: ./.github/workflows/publish-preview.yml
     with:
       branch: ${{ needs.update.outputs.preview_branch }}
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

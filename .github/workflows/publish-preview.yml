@@ -7,9 +7,6 @@ on:
         description: 'Branch to publish from'
         required: true
         type: string
-    secrets:
-      NPM_TOKEN:
-        required: true
   push:
     branches:
       - 'preview/**'
@@ -76,8 +73,6 @@ jobs:
         continue-on-error: true
         run: bash publish.sh
         working-directory: tools/packager
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit build increment
         if: steps.publish_preview.outcome == 'success'
