@@ -1048,6 +1048,7 @@ message Message {
 			optional SyncDSnapshotFatalRecoveryResponse syncdSnapshotFatalRecoveryResponse = 8;
 			optional CompanionCanonicalUserNonceFetchResponse companionCanonicalUserNonceFetchRequestResponse = 9;
 			optional HistorySyncChunkRetryResponse historySyncChunkRetryResponse = 10;
+			optional FlowResponsesCsvBundle flowResponsesCsvBundle = 11;
 		
 			enum HistorySyncChunkRetryResponseCode {
 				GENERATION_ERROR = 1;
@@ -1066,6 +1067,19 @@ message Message {
 				ERROR_REQUEST_ON_NON_SMB_PRIMARY = 4;
 				ERROR_HOSTED_DEVICE_NOT_CONNECTED = 5;
 				ERROR_HOSTED_DEVICE_LOGIN_TIME_NOT_SET = 6;
+			}
+		
+			message FlowResponsesCsvBundle {
+				optional string flowId = 1;
+				optional string galaxyFlowDownloadRequestId = 2;
+				optional string fileName = 3;
+				optional string mimetype = 4;
+				optional bytes fileSha256 = 5;
+				optional bytes mediaKey = 6;
+				optional bytes fileEncSha256 = 7;
+				optional string directPath = 8;
+				optional int64 mediaKeyTimestamp = 9;
+				optional uint64 fileLength = 10;
 			}
 		
 			message HistorySyncChunkRetryResponse {
@@ -1156,9 +1170,12 @@ message Message {
 			optional GalaxyFlowActionType type = 1;
 			optional string flowId = 2;
 			optional string stanzaId = 3;
+			optional string galaxyFlowDownloadRequestId = 4;
+			optional string agmId = 5;
 		
 			enum GalaxyFlowActionType {
 				NOTIFY_LAUNCH = 1;
+				DOWNLOAD_RESPONSES = 2;
 			}
 		}
 	
@@ -1181,6 +1198,7 @@ message Message {
 		message FullHistorySyncOnDemandRequest {
 			optional Message.FullHistorySyncOnDemandRequestMetadata requestMetadata = 1;
 			optional DeviceProps.HistorySyncConfig historySyncConfig = 2;
+			optional Message.FullHistorySyncOnDemandConfig fullHistorySyncOnDemandConfig = 3;
 		}
 	
 		message HistorySyncOnDemandRequest {
@@ -1202,8 +1220,15 @@ message Message {
 		}
 	}
 
+	message FullHistorySyncOnDemandConfig {
+		optional uint64 historyFromTimestamp = 1;
+		optional uint32 historyDurationDays = 2;
+	}
+
 	message FullHistorySyncOnDemandRequestMetadata {
 		optional string requestId = 1;
+		optional string businessProduct = 2;
+		optional bytes opaqueClientData = 3;
 	}
 
 	message AppStateFatalExceptionNotification {
@@ -1297,6 +1322,7 @@ message Message {
 		optional AIQueryFanout aiQueryFanout = 26;
 		optional MemberLabel memberLabel = 27;
 		optional AIMediaCollectionMessage aiMediaCollectionMessage = 28;
+		optional uint32 afterReadDurationMs = 29;
 	
 		enum Type {
 			REVOKE = 0;
@@ -1366,6 +1392,7 @@ message Message {
 		optional string nativeFlowCallButtonPayload = 8;
 		optional string deeplinkPayload = 9;
 		optional MessageContextInfo messageContextInfo = 10;
+		optional uint32 callEntryPoint = 11;
 	}
 
 	message VideoMessage {

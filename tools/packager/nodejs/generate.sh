@@ -131,10 +131,13 @@ compile_ts() {
     
     tsFiles=$(find $OUT -type f -name "*.ts")
     
+    ln -s "$(pwd)/node_modules" "$OUT/node_modules"
+
     tsc $tsFiles \
     --declaration \
-    --module commonjs \
     --target es2022 \
+    --lib es2022 \
+    --module commonjs \
     --esModuleInterop \
     --skipLibCheck \
     --types node \

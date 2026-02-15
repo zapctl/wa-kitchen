@@ -14,7 +14,11 @@
     },
     "type": {
       "type": "string",
-      "literal": "waiting_room_toggle"
+      "literal": "link_query"
+    },
+    "error": {
+      "optional": true,
+      "type": "string"
     },
     "to": {
       "optional": true,
@@ -30,18 +34,14 @@
     "class": {
       "type": "string",
       "literal": "call"
-    },
-    "error": {
-      "optional": true,
-      "type": "string"
     }
   },
   "content": [
     {
       "type": "node",
-      "tag": "waiting_room_toggle",
+      "tag": "error",
       "attributes": {
-        "link-token": {
+        "token": {
           "type": "string"
         }
       },
@@ -49,5 +49,5 @@
     }
   ],
   "namespace": "Voip",
-  "variant": "WaitingRoomToggleCallLinkResponseWaitingRoomToggleCallLinkAck"
+  "variant": "LinkQueryResponseLinkQueryNack"
 }

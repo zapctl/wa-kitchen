@@ -92,14 +92,6 @@ enum SessionTransparencyType {
 	NY_AI_SAFETY_DISCLAIMER = 1;
 }
 
-message BotAvatarMetadata {
-	optional uint32 sentiment = 1;
-	optional string behaviorGraph = 2;
-	optional uint32 action = 3;
-	optional uint32 intensity = 4;
-	optional uint32 wordCount = 5;
-}
-
 message BotPluginMetadata {
 	optional SearchProvider provider = 1;
 	optional PluginType pluginType = 2;
@@ -565,7 +557,6 @@ message AIMediaCollectionMessage {
 }
 
 message BotMetadata {
-	optional BotAvatarMetadata avatarMetadata = 1;
 	optional string personaId = 2;
 	optional BotPluginMetadata pluginMetadata = 3;
 	optional BotSuggestedPromptMetadata suggestedPromptMetadata = 4;

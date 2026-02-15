@@ -86,6 +86,8 @@ enum MutationProps {
 	AI_THREAD_RENAME_ACTION = 76;
 	INTERACTIVE_MESSAGE_ACTION = 77;
 	SETTINGS_SYNC_ACTION = 78;
+	OUT_CONTACT_ACTION = 79;
+	NCT_SALT_SYNC_ACTION = 80;
 	SHARE_OWN_PN = 10001;
 	BUSINESS_BROADCAST_ACTION = 10002;
 	AI_THREAD_DELETE_ACTION = 10003;
@@ -216,6 +218,8 @@ message SyncActionValue {
 	optional AiThreadRenameAction aiThreadRenameAction = 76;
 	optional InteractiveMessageAction interactiveMessageAction = 77;
 	optional SettingsSyncAction settingsSyncAction = 78;
+	optional OutContactAction outContactAction = 79;
+	optional NctSaltSyncAction nctSaltSyncAction = 80;
 
 	message SettingsSyncAction {
 		optional bool startAtLogin = 1;
@@ -307,8 +311,13 @@ message SyncActionValue {
 		}
 	}
 
+	message NctSaltSyncAction {
+		optional bytes salt = 1;
+	}
+
 	message InteractiveMessageAction {
 		required InteractiveMessageActionMode type = 1;
+		optional string agmId = 2;
 	
 		enum InteractiveMessageActionMode {
 			DISABLE_CTA = 1;
@@ -381,6 +390,11 @@ message SyncActionValue {
 
 	message CtwaPerCustomerDataSharingAction {
 		optional bool isCtwaPerCustomerDataSharingEnabled = 1;
+	}
+
+	message OutContactAction {
+		optional string fullName = 1;
+		optional string firstName = 2;
 	}
 
 	message LidContactAction {
