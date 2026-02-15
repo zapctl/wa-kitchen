@@ -21,7 +21,6 @@ env:
 permissions:
   id-token: write
   contents: write
-  checks: write
   pull-requests: write
 
 jobs:
