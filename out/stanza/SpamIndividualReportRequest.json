@@ -1,0 +1,125 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "spam"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "spam_list",
+      "attributes": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "DomainJid",
+            "LidUserJid",
+            "BroadcastJid",
+            "DeviceJid",
+            "CallJid",
+            "GroupJid",
+            "StatusJid",
+            "ChatJid",
+            "NewsletterJid"
+          ],
+          "optional": true
+        },
+        "spam_flow": {
+          "type": "string"
+        },
+        "reportee": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "LidUserJid"
+          ]
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "attributes": {},
+          "content": null,
+          "max": 210
+        },
+        {
+          "type": "node",
+          "tag": "biz_api_report",
+          "attributes": {
+            "known_account": {
+              "type": "string"
+            },
+            "message_report": {
+              "type": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "biz_opt_out",
+          "attributes": {
+            "reason": {
+              "type": "string",
+              "optional": true
+            },
+            "business_discovery_entry_point": {
+              "type": "string",
+              "optional": true
+            },
+            "business_discovery_timestamp": {
+              "type": "number",
+              "optional": true
+            },
+            "first_message": {
+              "type": "string",
+              "optional": true
+            },
+            "business_discovery_id": {
+              "type": "string",
+              "optional": true
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "uistateset",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "uistate",
+              "attributes": {
+                "value": {
+                  "type": "string",
+                  "literal": "spam_banner"
+                }
+              },
+              "content": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "IndividualReportRequest"
+}
