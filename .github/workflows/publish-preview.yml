@@ -4,16 +4,14 @@ on:
   workflow_call:
     inputs:
       branch:
-        description: 'Branch to publish from'
+        description: "Branch to publish from"
         required: true
         type: string
   push:
     branches:
-      - 'preview/**'
+      - "preview/**"
 
 env:
-  PACKAGE_OWNER: ${{ github.repository_owner }}
-  PACKAGE_NAME: ${{ github.event.repository.name }}
   PACKAGE_TAG: preview
   BRANCH: ${{ inputs.branch || github.ref }}
   OUT_DIR: ${{ github.workspace }}/out
@@ -40,15 +38,9 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           VERSION=$(cat out/.version)
-          BUILD=$(($(cat out/.build 2>/dev/null || echo 0) + 1))
-
-          PACKAGE_VERSION=$VERSION-$PACKAGE_TAG.$BUILD
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "BUILD=$BUILD" >> $GITHUB_ENV
-          echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
-
-          echo "Publishing version: $PACKAGE_VERSION"
+          echo "Publishing version: $VERSION"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -68,19 +60,10 @@ jobs:
       - name: Publish preview packages
         run: bash publish.sh
         working-directory: tools/packager
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
-
-      - name: Commit build increment
-        run: |
-          echo "$BUILD" > out/.build
-          git add out/.build
-          git commit -m "chore: increment preview build to $BUILD"
-          git push
 
       - name: Comment preview package link on PR
         uses: actions/github-script@v8
         with:
           script: |
-            const script = require('./.github/scripts/pr-preview-comment.js');
+            const script = require('./.github/scripts/comment-pr.js');
             await script({ github, context });

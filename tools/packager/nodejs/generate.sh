@@ -30,13 +30,8 @@ generate_package() {
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
 
-    if [ -n "$PACKAGE_OWNER" ]; then
-        echo "Setting package name (@$PACKAGE_OWNER/$PACKAGE_NAME)..."
-        npm pkg set name="@$PACKAGE_OWNER/$PACKAGE_NAME" --prefix $OUT
-    fi
-
-    echo "Setting package version ($PACKAGE_VERSION)..."
-    npm pkg set version="$PACKAGE_VERSION" --prefix $OUT
+    echo "Setting package version ($VERSION)..."
+    npm pkg set version="$VERSION" --prefix $OUT
 
     sed -i 's/{{WA_VERSION}}/'"$VERSION"'/g' $OUT/readme.md
 }
