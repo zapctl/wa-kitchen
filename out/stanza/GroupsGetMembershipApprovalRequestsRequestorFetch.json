@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "requestor_fetch": {
+      "type": "string",
+      "literal": "true"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "GetMembershipApprovalRequestsRequestorFetch"
+}
