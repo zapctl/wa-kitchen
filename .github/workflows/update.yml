@@ -62,6 +62,8 @@ jobs:
 
           echo "Newest WhatsApp Web version: $NEWEST_VERSION"
           echo "Newest artifacts sha256 checksum: $NEWEST_CHECKSUM"
+        env:
+          NODE_ENV: production
 
       - name: Check if package update is needed
         run: |
