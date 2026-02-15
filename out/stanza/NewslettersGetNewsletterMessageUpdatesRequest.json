@@ -1,0 +1,53 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "newsletter"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "message_updates",
+      "attributes": {
+        "count": {
+          "type": "number"
+        },
+        "since": {
+          "type": "number",
+          "optional": true
+        },
+        "before": {
+          "type": "number"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterMessageUpdatesRequest"
+}

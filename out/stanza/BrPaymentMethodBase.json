@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "credential-id": {
+      "type": "string"
+    },
+    "country": {
+      "optional": true,
+      "type": "string"
+    },
+    "created": {
+      "optional": true,
+      "type": "string"
+    },
+    "p2p-eligible": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "p2m-eligible": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "BrPayment",
+  "variant": "MethodBase"
+}

@@ -1,0 +1,30 @@
+{
+  "type": "node",
+  "tag": "accept_pay",
+  "attributes": {
+    "service": {
+      "type": "string",
+      "literal": "UPI"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "additional_notice",
+      "attributes": {
+        "notice": {
+          "type": "string",
+          "enum": [
+            "pay_tos_v3",
+            "upi_pay_privacy_policy"
+          ]
+        }
+      },
+      "content": null,
+      "min": 1,
+      "max": 10
+    }
+  ],
+  "namespace": "Account",
+  "variant": "SetPaymentsTOSv3UPIConsumerPaymentsTOSv3Response"
+}

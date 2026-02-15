@@ -1,0 +1,33 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "media"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "plaintext",
+      "attributes": {
+        "mediatype": {
+          "type": "string",
+          "literal": "url"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "rcat",
+      "attributes": {},
+      "content": {
+        "type": "binary"
+      }
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "ReceiverContentTypeMediaRCAT"
+}

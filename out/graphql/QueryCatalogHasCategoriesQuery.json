@@ -1,0 +1,27 @@
+{
+  "id": "9759957480718978",
+  "name": "QueryCatalogHasCategories",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "request": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_product_catalog_get_categories": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      }
+    }
+  }
+}
