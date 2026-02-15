@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {},
+      "content": [
+        {
+          "$ref": "MessageDeliver:AdminProfile"
+        }
+      ]
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "AdminProfileMeta"
+}

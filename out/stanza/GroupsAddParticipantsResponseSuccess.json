@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "add",
+      "attributes": {},
+      "content": [
+        {
+          "$ref": "Groups:AddParticipantsParticipantAddedOrNonRegisteredWaUserParticipantErrorLidResponseMixinGroup"
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "AddParticipantsResponseSuccess"
+}

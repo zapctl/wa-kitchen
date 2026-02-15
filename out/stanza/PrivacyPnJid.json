@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "pn_jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Privacy",
+  "variant": "PnJid"
+}

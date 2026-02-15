@@ -1,0 +1,65 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "revoke",
+      "attributes": {},
+      "content": [
+        {
+          "namespace": "Groups",
+          "variant": "PhoneNumber",
+          "type": "node",
+          "tag": "participant",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "error": {
+              "type": "string",
+              "literal": "404",
+              "optional": true
+            },
+            "phone_number": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "min": 1,
+          "max": 1000
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "RevokeRequestCodeResponseSuccess"
+}

@@ -1,0 +1,49 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "links",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "link",
+          "attributes": {
+            "link_type": {
+              "type": "string",
+              "literal": "sub_group"
+            }
+          },
+          "content": [
+            {
+              "$ref": "Groups:LinkSubGroupsSuccessIqLinksLinkGroupMixinGroup"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "LinkSubGroupsResponseSuccess"
+}
