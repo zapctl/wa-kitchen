@@ -1,0 +1,95 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "my_addons",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "messages",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "NewsletterJid"
+              ]
+            }
+          },
+          "content": [
+            {
+              "namespace": "Newsletters",
+              "variant": "NewsletterMessageMyAddOns",
+              "type": "node",
+              "tag": "message",
+              "attributes": {
+                "server_id": {
+                  "type": "number",
+                  "min": 99,
+                  "max": 2147476647
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "reaction",
+                  "attributes": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "t": {
+                      "type": "number",
+                      "min": 0
+                    }
+                  },
+                  "content": null
+                },
+                {
+                  "type": "node",
+                  "tag": "votes",
+                  "attributes": {
+                    "t": {
+                      "type": "number",
+                      "min": 0
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "vote",
+                      "attributes": {},
+                      "content": {
+                        "type": "binary",
+                        "min": 32,
+                        "max": 32
+                      },
+                      "max": 1000
+                    }
+                  ]
+                }
+              ],
+              "max": 5000
+            }
+          ],
+          "max": 5000
+        }
+      ]
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "MyAddOnsResponseSuccess"
+}

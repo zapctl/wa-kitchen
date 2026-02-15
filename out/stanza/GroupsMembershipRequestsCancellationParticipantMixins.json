@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:CancelGroupMembershipRequestsParticipantRequestNotFound"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAuthorized"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "MembershipRequestsCancellationParticipant"
+}

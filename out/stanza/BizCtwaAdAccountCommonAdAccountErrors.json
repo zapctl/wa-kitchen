@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "BizCtwaAdAccount:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizCtwaAdAccount:IQErrorForbidden"
+    },
+    {
+      "$ref": "BizCtwaAdAccount:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "BizCtwaAdAccount:IQErrorServiceUnavailable"
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "CommonAdAccountErrors"
+}

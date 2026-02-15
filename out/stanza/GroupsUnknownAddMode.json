@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "tag": "member_add_mode",
+  "attributes": {},
+  "content": {
+    "type": "string",
+    "as": "binary"
+  },
+  "namespace": "Groups",
+  "variant": "UnknownAddMode"
+}
