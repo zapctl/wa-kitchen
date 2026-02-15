@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "sub_group_suggestion",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "433"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsActionSubGroupPendingGroupAddsError"
+}

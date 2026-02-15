@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "locked"
+    },
+    "code": {
+      "type": "number",
+      "literal": 423
+    }
+  },
+  "content": null,
+  "namespace": "Newsletters",
+  "variant": "IQErrorLocked"
+}

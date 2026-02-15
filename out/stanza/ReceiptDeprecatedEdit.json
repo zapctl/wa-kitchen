@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1",
+        "7"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Receipt",
+  "variant": "DeprecatedEdit"
+}
