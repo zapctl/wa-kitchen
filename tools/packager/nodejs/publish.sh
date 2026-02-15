@@ -2,7 +2,7 @@
 
 cd $DIST_DIR/nodejs
 
-npm ci
+npm i --omit=dev
 
 if [[ "$PACKAGE_TAG" == "preview" ]]; then
   npx pkg-pr-new publish --json publish.json --comment=off
