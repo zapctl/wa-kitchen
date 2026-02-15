@@ -1,17 +1,11 @@
 const fs = require("fs");
 
 module.exports = async ({ github, context }) => {
-  const { owner, repo } = context.repo;
+  const { sha, repo: { owner, repo } } = context;
   const branch = process.env.BRANCH;
-
   const packageTag = process.env.PACKAGE_TAG;
   const packageName = process.env.PACKAGE_NAME;
-
-  const sha = context.event_name === "pull_request"
-    ? context.payload.pull_request.head.sha
-    : context.payload.after;
-
-  const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sha}`;
+  const commitUrl = `https://github.com/${owner}/${repo}/commit/${sha}`;
 
   const pr = await github.rest.pulls.list({
     owner,
