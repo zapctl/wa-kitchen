@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:CreateParticipantAddedResponse"
+    },
+    {
+      "$ref": "Groups:NonRegisteredWaUserParticipantErrorLidResponse"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateParticipantAddedOrNonRegisteredWaUserParticipantErrorLidResponseMixinGroup"
+}

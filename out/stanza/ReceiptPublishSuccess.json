@@ -1,0 +1,43 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "receipt"
+    },
+    "from": {
+      "type": "string"
+    },
+    "t": {
+      "optional": true,
+      "type": "number",
+      "min": 0
+    },
+    "readreceipts": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "all",
+        "none"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "edit": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1",
+        "7"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Receipt",
+  "variant": "PublishSuccess"
+}

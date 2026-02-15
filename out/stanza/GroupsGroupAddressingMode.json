@@ -1,0 +1,16 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "GroupAddressingMode"
+}

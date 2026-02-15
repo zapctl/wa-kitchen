@@ -1,0 +1,119 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "allow_admin_reports",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "allow_non_admin_sub_group_creation",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "announcement",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "ephemeral",
+      "attributes": {
+        "expiration": {
+          "type": "number",
+          "min": 0,
+          "max": 2147483647
+        },
+        "trigger": {
+          "optional": true,
+          "type": "number",
+          "min": 0,
+          "max": 20
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "frequently_forwarded_ok",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "group_history",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "$ref": "Groups:MembershipApprovalPropertyResponse"
+    },
+    {
+      "type": "node",
+      "tag": "locked",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "no_frequently_forwarded",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "no_group_history",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "not_allow_admin_reports",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "not_allow_non_admin_sub_group_creation",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "not_announcement",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "not_ephemeral",
+      "attributes": {},
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "unlocked",
+      "attributes": {},
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "SetPropertyResponseSuccess"
+}

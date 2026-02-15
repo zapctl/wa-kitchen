@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+import "Web.proto";
+import "Protocol.proto";
+import "E2E.proto";
+
+message GroupHistory {
+	repeated WebMessageInfo messages = 1;
+	repeated UnCountedAssociatedMessageList uncountedAssociatedMessageLists = 2;
+	repeated WebMessageInfo commentMessages = 3;
+}
+
+message UnCountedAssociatedMessageList {
+	repeated WebMessageInfo messages = 1;
+	optional MessageKey parentMessage = 2;
+	optional MessageAssociation.AssociationType associationType = 3;
+}
+
+message WebMessageInfoWithMessageBytes {
+	optional MessageKey key = 1;
+	optional bytes messageBytes = 2;
+}
+
+message UnCountedAssociatedMessageListWithMessageBytes {
+	repeated WebMessageInfoWithMessageBytes messages = 1;
+	optional MessageKey parentMessage = 2;
+}
+
+message GroupHistoryWithMessageBytes {
+	repeated WebMessageInfoWithMessageBytes messages = 1;
+	repeated UnCountedAssociatedMessageListWithMessageBytes uncountedAssociatedMessageLists = 2;
+	repeated WebMessageInfoWithMessageBytes commentMessages = 3;
+}

@@ -1,0 +1,34 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    },
+    "class": {
+      "type": "string",
+      "literal": "notification"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Newsletters",
+  "variant": "LiveUpdatesNotificationResponseAck"
+}

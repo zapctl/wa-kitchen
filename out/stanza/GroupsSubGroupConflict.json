@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "group",
+  "attributes": {
+    "error": {
+      "type": "string",
+      "literal": "409"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "SubGroupConflict"
+}

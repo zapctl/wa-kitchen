@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "SmbMeteredMessagingAccount:IQErrorBadRequest"
+    },
+    {
+      "$ref": "SmbMeteredMessagingAccount:IQErrorFeatureLimit"
+    },
+    {
+      "$ref": "SmbMeteredMessagingAccount:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "SmbMeteredMessagingAccount:IQErrorNotAllowed"
+    },
+    {
+      "$ref": "SmbMeteredMessagingAccount:IQErrorNotAuthorized"
+    },
+    {
+      "$ref": "SmbMeteredMessagingAccount:IQErrorRateOverlimit"
+    }
+  ],
+  "namespace": "SmbMeteredMessagingAccount",
+  "variant": "GetSmbMeteredMessagingCheckoutIqErrors"
+}
