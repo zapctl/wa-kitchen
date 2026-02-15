@@ -1,0 +1,71 @@
+{
+  "enums": {
+    "PrivacySetting": {
+      "calladd": "calladd",
+      "cover_photo": "cover_photo",
+      "defense": "defense",
+      "dependentaccountmessages": "dependentaccountmessages",
+      "groupadd": "groupadd",
+      "groupcreation": "groupcreation",
+      "last": "last",
+      "linked_profiles": "linked_profiles",
+      "messages": "messages",
+      "online": "online",
+      "pix": "pix",
+      "profile": "profile",
+      "readreceipts": "readreceipts",
+      "status": "status",
+      "stickers": "stickers"
+    },
+    "VISIBILITY": {
+      "all": "all",
+      "contacts": "contacts",
+      "contact_blacklist": "contact_blacklist",
+      "none": "none"
+    },
+    "VISIBILITY_WITH_ERROR": {
+      "all": "all",
+      "contacts": "contacts",
+      "contact_blacklist": "contact_blacklist",
+      "none": "none",
+      "error": "error"
+    },
+    "ALL_NONE": {
+      "all": "all",
+      "none": "none"
+    },
+    "ONLINE_VISIBILITY": {
+      "all": "all",
+      "match_last_seen": "match_last_seen"
+    },
+    "ONLINE_VISIBILITY_WITH_ERROR": {
+      "all": "all",
+      "match_last_seen": "match_last_seen",
+      "error": "error"
+    },
+    "ALL_NONE_WITH_ERROR": {
+      "all": "all",
+      "none": "none",
+      "error": "error"
+    },
+    "ALL_CONTACTS": {
+      "all": "all",
+      "contacts": "contacts"
+    },
+    "CALL_ADD": {
+      "all": "all",
+      "known": "known",
+      "contacts": "contacts"
+    },
+    "CALL_ADD_WITH_ERROR": {
+      "all": "all",
+      "known": "known",
+      "contacts": "contacts",
+      "error": "error"
+    },
+    "DEFENSE_MODE_STATE": {
+      "off": "off",
+      "on_standard": "on_standard"
+    }
+  }
+}

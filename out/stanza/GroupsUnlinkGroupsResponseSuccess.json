@@ -1,0 +1,35 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "unlink",
+      "attributes": {
+        "unlink_type": {
+          "type": "string",
+          "literal": "sub_group"
+        }
+      },
+      "content": [
+        {
+          "$ref": "Groups:SubGroupBadRequestOrNotAuthorizedOrNotExistOrNotAcceptableOrPartialServerErrorOrServerErrorMixinGroup"
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "UnlinkGroupsResponseSuccess"
+}

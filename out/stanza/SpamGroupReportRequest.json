@@ -1,0 +1,74 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "spam"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "spam_list",
+      "attributes": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        },
+        "source": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "LidUserJid"
+          ],
+          "optional": true
+        },
+        "spam_flow": {
+          "type": "string"
+        },
+        "reportee": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "LidUserJid"
+          ]
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "attributes": {},
+          "content": null,
+          "max": 210
+        },
+        {
+          "type": "node",
+          "attributes": {},
+          "content": null,
+          "max": 5
+        }
+      ]
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "GroupReportRequest"
+}

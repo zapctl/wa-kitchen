@@ -1,0 +1,26 @@
+{
+  "id": "9152604461510864",
+  "name": "MexUpdateTextStatusJob",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_update_text_status": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}
