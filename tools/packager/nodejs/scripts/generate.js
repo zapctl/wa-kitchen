@@ -16,10 +16,28 @@ function toSnakeCase(value) {
 function toPascalCase(value) {
     return toSnakeCase(value)
         .toLowerCase()
+        .replace(/-/g, "_")
         .split("_")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join("")
         .replace(/Whatsapp/g, "WhatsApp");
+}
+
+function serializePropName(name, value) {
+    if (/^[0-9]/.test(name)) {
+        let prefix = "_";
+
+        if (value && typeof value === "string") {
+            const firstChar = value.charAt(0);
+            if (!/^[0-9]/.test(firstChar)) prefix = firstChar;
+        }
+
+        name = prefix.toUpperCase() + name;
+    }
+
+    const needsQuotes = /[^a-zA-Z0-9_$]/.test(name);
+
+    return needsQuotes ? `"${name}"` : name;
 }
 
 function serializeValue(value) {
@@ -32,10 +50,23 @@ function generateConstants() {
     let output = "";
 
     for (const [name, value] of Object.entries(specs.constants || {})) {
-        const propName = toSnakeCase(name);
+        const propName = serializePropName(toSnakeCase(name));
         const propValue = serializeValue(value);
 
         output += `export const ${propName} = ${propValue};\n`;
+    }
+
+    return output;
+}
+
+function generateUnions() {
+    let output = "";
+
+    for (const [name, spec] of Object.entries(specs.unions || {})) {
+        const unionName = serializePropName(toPascalCase(name));
+        const unionValue = spec.map(serializePropName).join(" |\n\t");
+
+        output += `export type ${unionName} = \n\t${unionValue};\n\n`;
     }
 
     return output;
@@ -45,11 +76,11 @@ function generateEnums() {
     let output = "";
 
     for (const [name, spec] of Object.entries(specs.enums || {})) {
-        const enumName = toPascalCase(name);
+        const enumName = serializePropName(toPascalCase(name));
         output += `export enum ${enumName} {\n`;
 
         for (const [prop, value] of Object.entries(spec)) {
-            const propName = toPascalCase(prop);
+            const propName = serializePropName(toPascalCase(prop), value);
             const propValue = serializeValue(value);
 
             output += `\t${propName} = ${propValue},\n`;
@@ -63,12 +94,14 @@ function generateEnums() {
 
 let output = "";
 
+output += generateConstants();
+output += generateUnions();
+output += generateEnums();
+
 if (fs.existsSync(outputFile)) {
-    output += fs.readFileSync(outputFile, "utf8") + "\n\n";
+    output += "\n" + fs.readFileSync(outputFile, "utf8");
 }
 
-output += generateConstants() + "\n";
-output += generateEnums();
 output = output.trim();
 
 fs.writeFileSync(outputFile, output, "utf8");

@@ -7,7 +7,7 @@ import puppeteer from "puppeteer";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const IS_DEBUG = process.env.NODE_ENV === "development";
+const IS_DEBUG = process.env.NODE_ENV !== "production";
 const OUT_DIR = process.env.OUT_DIR || "./out";
 
 const VERSION_PATH = path.join(OUT_DIR, ".version");
@@ -18,11 +18,18 @@ const SCRAPERS = [
     { name: "version", type: "json", outputPath: "version.json" },
     { name: "main", type: "json", outputPath: "main.json" },
     { name: "binary", type: "json", outputPath: "binary.json" },
+    { name: "media", type: "json", outputPath: "media.json" },
     { name: "jid", type: "json", outputPath: "jid.json" },
+    { name: "newsletter", type: "json", outputPath: "newsletter.json" },
+    { name: "chat", type: "json", outputPath: "chat.json" },
+    { name: "group", type: "json", outputPath: "group.json" },
+    { name: "privacy", type: "json", outputPath: "privacy.json" },
     { name: "message", type: "json", outputPath: "message.json" },
-    { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: ".proto" },
-    { name: "graphql", type: "multi-json", outputDir: "graphql", extension: ".json" },
-];
+    { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: "proto" },
+    { name: "graphql", type: "multi-json", outputDir: "graphql", extension: "json" },
+    { name: "stanza", type: "multi-json", outputDir: "stanza", extension: "json" },
+    IS_DEBUG && { name: "smax", type: "multi-file", outputDir: "smax", extension: "js" },
+].filter(Boolean);
 
 const browser = await puppeteer.launch({
     headless: !IS_DEBUG,
@@ -32,22 +39,24 @@ const browser = await puppeteer.launch({
 
 const [page] = await browser.pages();
 
-await page.setUserAgent((await browser.userAgent())
-    .replace("HeadlessChrome", "Chrome"));
+await page.setUserAgent({
+    userAgent: (await browser.userAgent()).replace("HeadlessChrome", "Chrome"),
+});
+
+const utilsScriptContent = await fs.readFile(UTILS_SCRIPT_PATH, "utf8");
+await page.evaluateOnNewDocument(utilsScriptContent);
 
 await page.goto("https://web.whatsapp.com/", {
     waitUntil: "networkidle2",
 });
 
-const utilsScriptContent = await fs.readFile(UTILS_SCRIPT_PATH, "utf8");
-await page.evaluate(utilsScriptContent);
-
 const results = {};
+const AsyncFunction = Object.getPrototypeOf(async function () { }).constructor;
 
 for (const scraper of SCRAPERS) {
     const scriptPath = path.join(__dirname, "inject", `${scraper.name}.js`);
     const scriptContent = await fs.readFile(scriptPath, "utf8");
-    const scriptFunction = new Function("scrap", scriptContent);
+    const scriptFunction = new AsyncFunction("scrap", scriptContent);
 
     results[scraper.name] = await page.evaluate(scriptFunction);
 }
@@ -69,8 +78,8 @@ for (const scraper of SCRAPERS) {
     await fs.mkdir(targetDir, { recursive: true });
 
     if (scraper.type === "text") {
-        await fs.writeFile(outputPath, data);
         globalHash.update(data);
+        await fs.writeFile(outputPath, data);
     } else if (scraper.type === "json") {
         const content = JSON.stringify(data, null, 2);
         await fs.writeFile(outputPath, content);
@@ -83,16 +92,20 @@ for (const scraper of SCRAPERS) {
         globalHash.update(content);
     } else if (scraper.type === "multi-file") {
         const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
+
         await Promise.all(entries.map(([name, content]) => {
-            const filePath = path.join(outputDir, `${name}${scraper.extension}`);
+            const filePath = path.join(outputDir, `${name}.${scraper.extension}`);
+
             globalHash.update(content);
             return fs.writeFile(filePath, content);
         }));
     } else if (scraper.type === "multi-json") {
         const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
+
         await Promise.all(entries.map(([name, content]) => {
-            const filePath = path.join(outputDir, `${name}${scraper.extension}`);
+            const filePath = path.join(outputDir, `${name}.${scraper.extension}`);
             const jsonContent = JSON.stringify(content, null, 2);
+
             globalHash.update(jsonContent);
             return fs.writeFile(filePath, jsonContent);
         }));

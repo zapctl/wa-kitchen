@@ -10,6 +10,10 @@
       "types": "./index.d.ts",
       "default": "./index.js"
     },
+    "./utils": {
+      "types": "./utils.d.ts",
+      "default": "./utils.js"
+    },
     "./graphql": {
       "types": "./graphql/index.d.ts",
       "default": "./graphql/index.js"
@@ -22,13 +26,37 @@
       "types": "./binary/*.d.ts",
       "default": "./binary/*.js"
     },
+    "./chat/*": {
+      "types": "./chat/*.d.ts",
+      "default": "./chat/*.js"
+    },
+    "./group/*": {
+      "types": "./group/*.d.ts",
+      "default": "./group/*.js"
+    },
     "./jid/*": {
       "types": "./jid/*.d.ts",
       "default": "./jid/*.js"
     },
+    "./media/*": {
+      "types": "./media/*.d.ts",
+      "default": "./media/*.js"
+    },
     "./message/*": {
       "types": "./message/*.d.ts",
       "default": "./message/*.js"
+    },
+    "./newsletter/*": {
+      "types": "./newsletter/*.d.ts",
+      "default": "./newsletter/*.js"
+    },
+    "./privacy/*": {
+      "types": "./privacy/*.d.ts",
+      "default": "./privacy/*.js"
+    },
+    "./stanza/*": {
+      "types": "./stanza/*.d.ts",
+      "default": "./stanza/*.js"
     }
   },
   "engines": {
@@ -51,7 +79,8 @@
     "url": "https://github.com/zapctl/wa-kitchen/issues"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "1.10.0"
+    "@bufbuild/protobuf": "1.10.0",
+    "curve25519-js": "^0.0.4"
   },
   "devDependencies": {
     "@bufbuild/protoc-gen-es": "1.10.0",

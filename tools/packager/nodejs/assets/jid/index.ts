@@ -11,33 +11,43 @@ import {
 
 export const JID_REGEX = Object.freeze(/^(?:(?:(\d+)-)?([0-9a-zA-Z]+)?(?::(\d+))?@)?([a-z.\-_]+)$/);
 
-export interface JidOptions {
-	user?: string;
-	device?: number;
-	integrator?: number;
-	server?: string | JidDomain;
+export interface JidOptions<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TIntegrator extends number = number,
+	TServer extends string = string,
+> {
+	user?: TUser;
+	device?: TDevice;
+	integrator?: TIntegrator;
+	server?: TServer | JidDomain;
 }
 
-export class JID {
-	user = "";
-	device = 0;
-	integrator = 0;
-	server: string = "";
+export class JID<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TIntegrator extends number = number,
+	TServer extends string = string,
+> {
+	user = "" as TUser;
+	device = 0 as TDevice;
+	integrator = 0 as TIntegrator;
+	server = "" as TServer;
 
-	constructor(jid: string | JidOptions) {
+	constructor(jid: string | JidOptions<TUser, TDevice, TIntegrator, TServer>) {
 		if (typeof jid === "string") {
 			const matches = jid.match(JID_REGEX);
 			if (!matches) throw new Error("invalid jid string");
 
-			this.user = matches[2] || "";
-			this.device = parseInt(matches[3]) || 0;
-			this.integrator = parseInt(matches[1]) || 0;
-			this.server = matches[4] || "";
+			this.user = (matches[2] || "") as TUser;
+			this.device = (parseInt(matches[3]) || 0) as TDevice;
+			this.integrator = (parseInt(matches[1]) || 0) as TIntegrator;
+			this.server = (matches[4] || "") as TServer;
 		} else if (typeof jid === "object") {
-			this.user = jid.user || "";
-			this.device = jid.device || 0;
-			this.integrator = jid.integrator || 0;
-			if (typeof jid.server === "string") this.server = jid.server || "";
+			this.user = (jid.user || "") as TUser;
+			this.device = (jid.device || 0) as TDevice;
+			this.integrator = (jid.integrator || 0) as TIntegrator;
+			if (typeof jid.server === "string") this.server = (jid.server || "") as TServer;
 			else this.domain = jid.server;
 		} else {
 			throw new Error("invalid jid constructor");
@@ -50,21 +60,21 @@ export class JID {
 			[LID_SUFFIX]: JidDomain.Lid,
 			[HOSTED_SUFFIX]: JidDomain.Hosted,
 			[HOSTED_LID_SUFFIX]: JidDomain.HostedLid,
-		}[this.server];
+		}[this.server as string];
 	}
 
 	set domain(domain: JidDomain | undefined) {
 		if (!domain) {
-			this.server = "";
+			this.server = "" as TServer;
 			return;
 		}
 
-		this.server = {
+		this.server = ({
 			[JidDomain.WhatsApp]: USER_JID_SUFFIX,
 			[JidDomain.Lid]: LID_SUFFIX,
 			[JidDomain.Hosted]: HOSTED_SUFFIX,
 			[JidDomain.HostedLid]: HOSTED_LID_SUFFIX,
-		}[domain] ?? "";
+		}[domain] ?? "") as TServer;
 	}
 
 	equals(jid: JID) {
@@ -88,19 +98,25 @@ export class JID {
 	}
 }
 
-export interface JidPairOptions {
-	user?: string;
-	server?: string;
+export interface JidPairOptions<
+	TUser extends string = string,
+	TServer extends string = string,
+> {
+	user?: TUser;
+	server?: TServer;
 }
 
-export class JID_PAIR extends JID {
-	constructor(jid: JidPairOptions | string) {
+export class JID_PAIR<
+	TUser extends string = string,
+	TServer extends string = string,
+> extends JID<TUser, 0, 0, TServer> {
+	constructor(jid: JidPairOptions<TUser, TServer> | string) {
 		super(typeof jid === "object" ? {
 			user: jid.user,
 			server: jid.server,
 		} : jid);
 
-		if (!this.server) this.server = USER_JID_SUFFIX;
+		if (!this.server) this.server = USER_JID_SUFFIX as TServer;
 	}
 
 	equals(jid: JID) {
@@ -109,21 +125,29 @@ export class JID_PAIR extends JID {
 	}
 }
 
-export interface JidAdOptions {
-	user?: string;
-	device?: number;
-	server?: JidDomain | string;
+export interface JidAdOptions<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TServer extends string = string,
+> {
+	user?: TUser;
+	device?: TDevice;
+	server?: TServer | JidDomain;
 }
 
-export class JID_AD extends JID {
-	constructor(jid: string | JidAdOptions) {
+export class JID_AD<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TServer extends string = string,
+> extends JID<TUser, TDevice, 0, TServer> {
+	constructor(jid: JidAdOptions<TUser, TDevice, TServer> | string) {
 		super(typeof jid === "object" ? {
 			user: jid.user,
 			server: jid.server,
 			device: jid.device,
 		} : jid);
 
-		if (!this.server) this.server = USER_JID_SUFFIX;
+		if (!this.server) this.server = USER_JID_SUFFIX as TServer;
 	}
 
 	equals(jid: JID) {
@@ -133,16 +157,24 @@ export class JID_AD extends JID {
 	}
 }
 
-export interface JidFBOptions {
-	user?: string;
-	device?: number;
-	server?: JidDomain | string;
+export interface JidFBOptions<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TServer extends string = string,
+> {
+	user?: TUser;
+	device?: TDevice;
+	server?: TServer | JidDomain;
 }
 
-export class JID_FB extends JID {
-	constructor(jid: string | JidFBOptions) {
+export class JID_FB<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TServer extends string = string,
+> extends JID<TUser, TDevice, 0, TServer> {
+	constructor(jid: JidFBOptions<TUser, TDevice, TServer> | string) {
 		super(jid);
-		if (!this.server) this.server = MSGR_USER_JID_SUFFIX;
+		if (!this.server) this.server = MSGR_USER_JID_SUFFIX as TServer;
 	}
 
 	equals(jid: JID) {
@@ -152,17 +184,29 @@ export class JID_FB extends JID {
 	}
 }
 
-export interface JidInteropOptions {
-	user?: string;
-	device?: number;
-	integrator?: number;
-	server?: JidDomain | string;
+export interface JidInteropOptions<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TIntegrator extends number = number,
+	TServer extends string = string,
+> {
+	user?: TUser;
+	device?: TDevice;
+	integrator?: TIntegrator;
+	server?: TServer | JidDomain;
 }
 
-export class JID_INTEROP extends JID {
-	constructor(jid: string | JidInteropOptions) {
+export class JID_INTEROP<
+	TUser extends string = string,
+	TDevice extends number = number,
+	TIntegrator extends number = number,
+	TServer extends string = string,
+> extends JID<TUser, TDevice, TIntegrator, TServer> {
+	constructor(
+		jid: JidInteropOptions<TUser, TDevice, TIntegrator, TServer> | string
+	) {
 		super(jid);
-		if (!this.server) this.server = INTEROP_USER_JID_SUFFIX;
+		if (!this.server) this.server = INTEROP_USER_JID_SUFFIX as TServer;
 	}
 
 	equals(jid: JID) {

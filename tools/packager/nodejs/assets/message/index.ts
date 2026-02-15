@@ -37,7 +37,7 @@ export class MessageID {
     try {
       if (typeof input === "string") {
         const parts = input.split("_");
-        if (parts.length < 3) throw new Error("invalid parts length");
+        if (parts.length < 3) throw new Error("invalid message id format");
 
         this.fromMe = parts[0] === "true";
         this.recipientJid = new JID_PAIR(parts[1]);

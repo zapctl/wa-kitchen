@@ -1,5 +1,5 @@
 const version = window.Debug.VERSION;
-const buildHash = require("WAMd5")(version);
+const buildHash = require("WAMd5").md5(version);
 
 const specs = {
     constants: {

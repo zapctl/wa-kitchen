@@ -1,9 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
-const [, , graphqlDir, outputFile] = process.argv;
+const [, , schemasDir, outputFile] = process.argv;
 
-if (!graphqlDir || !outputFile) {
+if (!schemasDir || !outputFile) {
     console.error("Error: Missing arguments");
     process.exit(1);
 }
@@ -13,9 +13,9 @@ const queries = specs.filter(spec => spec.type === "query");
 const mutations = specs.filter(spec => spec.type === "mutation");
 
 function loadSpecs() {
-    return fs.readdirSync(graphqlDir)
+    return fs.readdirSync(schemasDir)
         .filter(file => file.endsWith(".json"))
-        .map(file => path.join(graphqlDir, file))
+        .map(file => path.join(schemasDir, file))
         .map(file => JSON.parse(fs.readFileSync(file, "utf8")));
 }
 
@@ -108,7 +108,7 @@ function generateTypes() {
         if (spec.output) output += serializeSpec(spec, "output");
     }
 
-    return output;
+    return output.trim();
 }
 
 let output = generateEnum() + "\n\n";

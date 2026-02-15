@@ -7,7 +7,7 @@ const specs = {
         AUTHOR_SYSTEM_JID: waJids.AUTHOR_SYSTEM,
         PSA_JID: waJids.PSA_JID,
         SURVEY_USER_JID: waJids.SURVEY_USER_JID,
-        STATUS_JID: waJids.STATUS_JID,
+        STATUS_JID_PREFIX: waJids.STATUS_JID.split("@")[0],
         CALL_JID_SUFFIX: waJids.CALL_LINK_JID,
         BOT_JID_SUFFIX: waJids.BOT_DOMAIN.replace(/^@/, ""),
         HOSTED_LID_SUFFIX: waJids.HOSTED_LID_SUFFIX,

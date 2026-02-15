@@ -1,8 +1,8 @@
+const relayDefinitions = extractRelayModuleDefinitions();
 const graphqlSchemas = parseGraphQLSchemas();
 
 function parseGraphQLSchemas() {
     const schemaSpecs = {};
-    const relayDefinitions = extractRelayModuleDefinitions();
 
     for (const definition of relayDefinitions) {
         const specName = definition.params.name.replace(/^WAWeb/, "");
@@ -130,9 +130,7 @@ function parseOutputSchema(nodes) {
                 const conditionalSchema = parseOutputSchema(node.selections);
 
                 Object.values(conditionalSchema).forEach(field => {
-                    field.condition = {
-                        [conditionalSchema.condition]: conditionalSchema.passingValue
-                    };
+                    field.condition = { [node.condition]: node.passingValue };
                 });
 
                 Object.assign(schema, conditionalSchema);
@@ -142,6 +140,31 @@ function parseOutputSchema(nodes) {
             case "InlineFragment":
             case "InlineDataFragmentSpread":
                 Object.assign(schema, parseOutputSchema(node.selections));
+                break;
+
+            case "FragmentSpread":
+                const refSchema = relayDefinitions.find(def => def.params.name === node.name);
+                if (!refSchema) break;
+
+                Object.assign(schema, {
+                    type: "object",
+                    properties: parseOutputSchema(refSchema),
+                });
+                break;
+
+            case "AliasedInlineFragmentSpread":
+                schema[node.name] = {
+                    type: "object",
+                    properties: parseOutputSchema([node.fragment]),
+                };
+                break;
+
+            case "Defer":
+                Object.assign(schema, parseOutputSchema(node.selections));
+                break;
+
+            case "RelayResolver":
+                schema[node.name] = { type: "scalar" };
                 break;
 
             default:

@@ -6,3 +6,8 @@ export enum EphemeralExpiration {
 	SevenDays = 7 * 24 * 60 * 60,
 	NinetyDays = 90 * 24 * 60 * 60,
 }
+
+export enum ClientPresence {
+	Available = "available",
+	Unavailable = "unavailable",
+}
