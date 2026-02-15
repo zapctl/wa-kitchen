@@ -1,10 +1,11 @@
-const fs = require("fs");
-
 module.exports = async ({ github, context }) => {
   const { sha, repo: { owner, repo } } = context;
   const branch = process.env.BRANCH;
   const packageTag = process.env.PACKAGE_TAG;
   const packageName = process.env.PACKAGE_NAME;
+  const packageVersion = process.env.PACKAGE_VERSION;
+
+  const shortSha = sha.slice(0, 7);
   const commitUrl = `https://github.com/${owner}/${repo}/commit/${sha}`;
 
   const pr = await github.rest.pulls.list({
@@ -21,20 +22,16 @@ module.exports = async ({ github, context }) => {
 
   const message = (() => {
     if (packageTag === "preview") {
-      const nodePublishOutPath = `${process.env.DIST_DIR}/nodejs/publish.json`;
-      const nodePublishOut = JSON.parse(fs.readFileSync(nodePublishOutPath, "utf8"));
-      console.log(nodePublishOut);
-
-      const nodeUrl = nodePublishOut.packages[0].url;
+      const nodeUrl = `https://pkg.pr.new/${owner}/${packageName}@${shortSha}`;
 
       return `## 📦 Preview packages published\n` +
-        `#### **[Node.js](${nodeUrl})**\n` +
-        `\n🧩 Generated from commit: [${sha.substring(0, 7)}](${commitUrl})`;
+        `#### **Node.js:** \`\`npm i ${nodeUrl}\`\`\n` +
+        `\n🧩 Generated from commit: [${shortSha}](${commitUrl})`;
     } else {
-      const nodeUrl = `https://github.com/${owner}/${repo}/pkgs/npm/${packageName}`;
+      const nodeUrl = `https://www.npmjs.com/package/${packageName}/v/${packageVersion}`;
 
       return `## 📦 Packages published\n` +
-        `#### **[Node.js](${nodeUrl})**\n`;
+        `#### **Node.js:** [${nodeUrl}](${nodeUrl})\n`;
     }
   })();
 
