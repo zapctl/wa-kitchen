@@ -61,20 +61,16 @@ jobs:
           sudo apt-get install -y protobuf-compiler
 
       - name: Generate preview packages
-        id: generate_preview
-        continue-on-error: true
         run: bash generate.sh
         working-directory: tools/packager
 
       - name: Publish preview packages
-        id: publish_preview
-        if: steps.generate_preview.outcome == 'success'
-        continue-on-error: true
         run: bash publish.sh
         working-directory: tools/packager
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit build increment
-        if: steps.publish_preview.outcome == 'success'
         run: |
           echo "$BUILD" > out/.build
           git add out/.build
@@ -82,7 +78,6 @@ jobs:
           git push
 
       - name: Comment preview package link on PR
-        if: steps.publish_preview.outcome == 'success'
         uses: actions/github-script@v8
         with:
           script: |
