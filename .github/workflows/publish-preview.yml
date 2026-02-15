@@ -12,15 +12,16 @@ on:
       - 'preview/**'
 
 env:
-  PACKAGE_NAME: wa-kitchen
+  PACKAGE_OWNER: ${{ github.repository_owner }}
+  PACKAGE_NAME: ${{ github.event.repository.name }}
   PACKAGE_TAG: preview
   BRANCH: ${{ inputs.branch || github.ref }}
   OUT_DIR: ${{ github.workspace }}/out
   DIST_DIR: ${{ github.workspace }}/out/dist
 
 permissions:
-  id-token: write
   contents: write
+  packages: write
   pull-requests: write
 
 jobs:
@@ -53,7 +54,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
 
       - name: Install dependencies
         run: |

@@ -1,7 +1,7 @@
 {
   "name": "wa-kitchen",
   "description": "WhatsApp Web Protocol Buffers",
-  "version": "{{WA_VERSION}}",
+  "version": "0.0.0",
   "private": false,
   "main": "./index.js",
   "types": "./index.d.ts",

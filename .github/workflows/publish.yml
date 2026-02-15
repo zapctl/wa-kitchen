@@ -7,16 +7,13 @@ on:
         description: 'Branch to publish from'
         required: true
         type: string
-    secrets:
-      NPM_TOKEN:
-        required: true
   pull_request:
     types: [closed]
     branches:
       - main
 
 env:
-  PACKAGE_NAME: wa-kitchen
+  PACKAGE_NAME: ${{ github.event.repository.name }}
   PACKAGE_TAG: latest
   BRANCH: ${{ inputs.branch || github.ref }}
   OUT_DIR: ${{ github.workspace }}/out
@@ -72,17 +69,8 @@ jobs:
         working-directory: tools/packager
 
       - name: Publish packages
-        id: publish_packages
         run: bash publish.sh
         working-directory: tools/packager
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Deprecate preview versions
-        run: bash .github/scripts/deprecate-preview.sh
-        continue-on-error: true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Git tag
         run: |

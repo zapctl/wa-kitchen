@@ -3,4 +3,4 @@
 cd $DIST_DIR/nodejs
 
 npm i
-npm publish --provenance --access public --tag $PACKAGE_TAG
+npm publish --access public --tag $PACKAGE_TAG

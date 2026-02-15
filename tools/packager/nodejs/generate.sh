@@ -29,9 +29,14 @@ generate_package() {
     echo "Copying package files..."
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
-    
+
+    if [ -n "$PACKAGE_OWNER" ]; then
+        echo "Setting package name($PACKAGE_OWNER/$PACKAGE_NAME)..."
+        npm pkg set name="$PACKAGE_OWNER/$PACKAGE_NAME" --prefix $OUT
+    fi
+
     echo "Injecting version($PACKAGE_VERSION)..."
-    sed -i 's/{{WA_VERSION}}/'"$PACKAGE_VERSION"'/g' $OUT/package.json
+    npm pkg set version="$PACKAGE_VERSION" --prefix $OUT
     sed -i 's/{{WA_VERSION}}/'"$PACKAGE_VERSION"'/g' $OUT/readme.md
 }
 
