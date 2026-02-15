@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:SubGroupBadRequest"
+    },
+    {
+      "$ref": "Groups:SubGroupNotAcceptable"
+    },
+    {
+      "$ref": "Groups:SubGroupNotAuthorized"
+    },
+    {
+      "$ref": "Groups:SubGroupNotExist"
+    },
+    {
+      "$ref": "Groups:SubGroupPartialServerError"
+    },
+    {
+      "$ref": "Groups:SubGroupServerError"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "SubGroupBadRequestOrNotAuthorizedOrNotExistOrNotAcceptableOrPartialServerErrorOrServerErrorMixinGroup"
+}

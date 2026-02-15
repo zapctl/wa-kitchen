@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "BatchGetGroupInfoClientErrors"
+}

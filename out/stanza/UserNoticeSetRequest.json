@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "tos"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "notice",
+      "attributes": {
+        "id": {
+          "type": "number"
+        },
+        "stage": {
+          "type": "number"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "UserNotice",
+  "variant": "SetRequest"
+}
