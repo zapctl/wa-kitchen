@@ -3,6 +3,7 @@
   "description": "WhatsApp Web Protocol Buffers",
   "version": "0.0.0",
   "private": false,
+  "type": "commonjs",
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {

@@ -22,7 +22,10 @@ module.exports = async ({ github, context }) => {
   const message = (() => {
     if (packageTag === "preview") {
       const nodePublishOutPath = `${process.env.DIST_DIR}/nodejs/publish.json`;
-      const nodeUrl = JSON.parse(fs.readFileSync(nodePublishOutPath, "utf8")).url;
+      const nodePublishOut = JSON.parse(fs.readFileSync(nodePublishOutPath, "utf8"));
+      console.log(nodePublishOut);
+
+      const nodeUrl = nodePublishOut.packages[0].url;
 
       return `## 📦 Preview packages published\n` +
         `#### **[Node.js](${nodeUrl})**\n` +
