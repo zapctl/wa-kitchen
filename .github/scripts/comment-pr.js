@@ -2,7 +2,6 @@ module.exports = async ({ github, context }) => {
   const { sha, repo: { owner, repo } } = context;
   const branch = process.env.BRANCH;
   const packageTag = process.env.PACKAGE_TAG;
-  const packageName = process.env.PACKAGE_NAME;
   const packageVersion = process.env.PACKAGE_VERSION;
 
   const shortSha = sha.slice(0, 7);
@@ -22,13 +21,13 @@ module.exports = async ({ github, context }) => {
 
   const message = (() => {
     if (packageTag === "preview") {
-      const nodeUrl = `https://pkg.pr.new/${owner}/${packageName}@${shortSha}`;
+      const nodeUrl = `https://pkg.pr.new/${owner}/${repo}@${shortSha}`;
 
       return `## 📦 Preview packages published\n` +
         `#### **Node.js:** \`\`npm i ${nodeUrl}\`\`\n` +
         `\n🧩 Generated from commit: [${shortSha}](${commitUrl})`;
     } else {
-      const nodeUrl = `https://www.npmjs.com/package/${packageName}/v/${packageVersion}`;
+      const nodeUrl = `https://www.npmjs.com/package/${repo}/v/${packageVersion}`;
 
       return `## 📦 Packages published\n` +
         `#### **Node.js:** [${nodeUrl}](${nodeUrl})\n`;
