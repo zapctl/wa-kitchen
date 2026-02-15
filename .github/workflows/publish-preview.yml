@@ -68,6 +68,8 @@ jobs:
       - name: Publish preview packages
         run: bash publish.sh
         working-directory: tools/packager
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Commit build increment
         run: |
