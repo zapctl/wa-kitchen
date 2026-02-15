@@ -1,0 +1,35 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {
+    "edit": {
+      "type": "string",
+      "literal": "8"
+    },
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "plaintext",
+      "attributes": {},
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterRevoke"
+}

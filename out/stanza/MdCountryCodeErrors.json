@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Md:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Md:IQErrorInternalServerError"
+    }
+  ],
+  "namespace": "Md",
+  "variant": "CountryCodeErrors"
+}

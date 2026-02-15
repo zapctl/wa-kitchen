@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "display_name",
+      "attributes": {},
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "HasDisplayName"
+}

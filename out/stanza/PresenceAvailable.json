@@ -1,0 +1,25 @@
+{
+  "type": "node",
+  "tag": "presence",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "available",
+      "optional": true
+    },
+    "last": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Presence",
+  "variant": "Available"
+}

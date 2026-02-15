@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "$ref": "Groups:AdminShareMode"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GroupMemberShareGroupHistoryMode"
+}
