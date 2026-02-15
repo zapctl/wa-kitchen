@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": null,
+  "namespace": "Md",
+  "variant": "SetRegResponseHostedClientResponse"
+}

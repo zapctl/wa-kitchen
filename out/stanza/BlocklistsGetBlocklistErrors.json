@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Blocklists:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Blocklists:IQErrorRateOverlimit"
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "GetBlocklistErrors"
+}

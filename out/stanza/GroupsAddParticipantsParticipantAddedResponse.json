@@ -1,0 +1,52 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:ParticipantBotAlreadyExists"
+    },
+    {
+      "$ref": "Groups:ParticipantBotIncompatibleVersion"
+    },
+    {
+      "$ref": "Groups:ParticipantConflict"
+    },
+    {
+      "$ref": "Groups:ParticipantGroupJoinRequest"
+    },
+    {
+      "$ref": "Groups:ParticipantHasInvalidPN"
+    },
+    {
+      "$ref": "Groups:ParticipantInBanList"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAcceptable"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAddressable"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAuthorized"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceConstraint"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceLimit"
+    },
+    {
+      "$ref": "Groups:ParticipantTemporarilyBlocked"
+    },
+    {
+      "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "AddParticipantsParticipantAddedResponse"
+}

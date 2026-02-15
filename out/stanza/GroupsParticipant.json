@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:ParticipantWithJid"
+    },
+    {
+      "$ref": "Groups:ParticipantWithJidAndDisplayName"
+    },
+    {
+      "$ref": "Groups:ParticipantWithJidAndIdentity"
+    },
+    {
+      "$ref": "Groups:ParticipantWithJidAndLid"
+    },
+    {
+      "$ref": "Groups:ParticipantWithJidIdentityAndDisplayName"
+    },
+    {
+      "$ref": "Groups:ParticipantWithJidLidAndDisplayName"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "Participant"
+}

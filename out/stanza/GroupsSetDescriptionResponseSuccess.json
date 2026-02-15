@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "t": {
+      "optional": true,
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "SetDescriptionResponseSuccess"
+}

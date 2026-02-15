@@ -1,0 +1,12 @@
+{
+  "enums": {
+    "ParticipantOperation": {
+      "ADD": "add",
+      "REMOVE": "remove",
+      "DEMOTE": "demote",
+      "PROMOTE": "promote",
+      "LINKED_GROUP_PROMOTE": "linked_group_promote",
+      "LINKED_GROUP_DEMOTE": "linked_group_demote"
+    }
+  }
+}
