@@ -31,13 +31,14 @@ generate_package() {
     cp readme.md $OUT/readme.md
 
     if [ -n "$PACKAGE_OWNER" ]; then
-        echo "Setting package name(@$PACKAGE_OWNER/$PACKAGE_NAME)..."
+        echo "Setting package name (@$PACKAGE_OWNER/$PACKAGE_NAME)..."
         npm pkg set name="@$PACKAGE_OWNER/$PACKAGE_NAME" --prefix $OUT
     fi
 
-    echo "Injecting version($PACKAGE_VERSION)..."
+    echo "Setting package version ($PACKAGE_VERSION)..."
     npm pkg set version="$PACKAGE_VERSION" --prefix $OUT
-    sed -i 's/{{WA_VERSION}}/'"$PACKAGE_VERSION"'/g' $OUT/readme.md
+
+    sed -i 's/{{WA_VERSION}}/'"$VERSION"'/g' $OUT/readme.md
 }
 
 generate_definitions() {
