@@ -1,0 +1,84 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "namespace": "Groups",
+      "variant": "GroupCreatorCountryCode",
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "creator_country_code": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    },
+    {
+      "namespace": "Groups",
+      "variant": "GroupCreatorPhoneNumber",
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "creator_pn": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ],
+          "optional": true
+        }
+      },
+      "content": null
+    },
+    {
+      "namespace": "Groups",
+      "variant": "GroupCreatorUsername",
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "creator_username": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    },
+    {
+      "$ref": "Groups:NamedSubject"
+    },
+    {
+      "namespace": "Groups",
+      "variant": "SubjectOwnerPhoneNumber",
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "s_o_pn": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ],
+          "optional": true
+        }
+      },
+      "content": null
+    },
+    {
+      "namespace": "Groups",
+      "variant": "SubjectOwnerUsername",
+      "type": "node",
+      "tag": "",
+      "attributes": {
+        "s_o_username": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    },
+    {
+      "$ref": "Groups:UnnamedSubjectFallback"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GroupInfo"
+}

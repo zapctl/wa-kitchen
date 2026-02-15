@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "tag": "flags",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "replied",
+      "attributes": {},
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "RepliedFlag"
+}

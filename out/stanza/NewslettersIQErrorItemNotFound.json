@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "item-not-found"
+    },
+    "code": {
+      "type": "number",
+      "literal": 404
+    }
+  },
+  "content": null,
+  "namespace": "Newsletters",
+  "variant": "IQErrorItemNotFound"
+}
