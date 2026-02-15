@@ -12,7 +12,6 @@ jobs:
       id-token: write
       contents: write
       pull-requests: write
-      actions: write
 
     steps:
       - name: Checkout repository
@@ -127,13 +126,6 @@ jobs:
           script: |
             const script = require('.github/scripts/open-pr.js');
             await script({ github, context, core });
-
-      - name: Trigger publish workflow on preview branch
-        if: env.package_update_needed == 'true'
-        run: |
-          gh workflow run publish-preview.yml --ref $PREVIEW_BRANCH
-        env:
-          GH_TOKEN: ${{ github.token }}
 
   publish:
     needs: update
