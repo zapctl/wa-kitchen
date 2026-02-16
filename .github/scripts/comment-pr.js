@@ -25,7 +25,7 @@ module.exports = async ({ github, context }) => {
 
       return `## 📦 Preview packages published\n` +
         `#### **Node.js:** \`\`npm i ${nodeUrl}\`\`\n` +
-        `\n🧩 Generated from commit: [${shortSha}](${commitUrl})`;
+        `\n🧩 Generated from commit [${shortSha}](${commitUrl})`;
     } else {
       const nodeUrl = `https://www.npmjs.com/package/${repo}/v/${packageVersion}`;
 

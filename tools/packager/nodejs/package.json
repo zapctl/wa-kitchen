@@ -15,11 +15,11 @@
       "types": "./utils.d.ts",
       "default": "./utils.js"
     },
-    "./crypto": {
+    "./crypto/*": {
       "types": "./crypto/*.d.ts",
       "default": "./crypto/*.js"
     },
-    "./crypto/signal": {
+    "./crypto/signal/*": {
       "types": "./crypto/signal/*.d.ts",
       "default": "./crypto/signal/*.js"
     },
@@ -31,13 +31,9 @@
       "types": "./proto/*_pb.d.ts",
       "default": "./proto/*_pb.js"
     },
-    "./binary/node": {
-      "types": "./binary/node.d.ts",
-      "default": "./binary/node.js"
-    },
-    "./binary/constants": {
-      "types": "./binary/constants.d.ts",
-      "default": "./binary/constants.js"
+    "./binary/*": {
+      "types": "./binary/*.d.ts",
+      "default": "./binary/*.js"
     },
     "./chat/*": {
       "types": "./chat/*.d.ts",
@@ -79,6 +75,8 @@
     "whatsapp",
     "protobuf",
     "graphql",
+    "stanza",
+    "signal",
     "typescript"
   ],
   "license": "MIT",
