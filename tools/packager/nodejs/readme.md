@@ -2,8 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/wa-kitchen.svg?label=npm)](https://www.npmjs.com/package/wa-kitchen)
 [![npm downloads](https://img.shields.io/npm/dm/wa-kitchen.svg?label=downloads)](https://www.npmjs.com/package/wa-kitchen)
-[![pkg.pr.new](https://pkg.pr.new/badge/zapctl/wa-kitchen)](https://pkg.pr.new/~/zapctl/wa-kitchen)
 [![license](https://img.shields.io/github/license/zapctl/wa-kitchen.svg?label=license)](https://github.com/zapctl/wa-kitchen/blob/main/LICENSE)
+[![pkg.pr.new](https://pkg.pr.new/badge/zapctl/wa-kitchen)](https://pkg.pr.new/~/zapctl/wa-kitchen)
 [![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
 
 The [`wa-kitchen`](https://www.npmjs.com/package/wa-kitchen) package provides JavaScript/TypeScript developers with structured artifacts extracted directly from **WhatsApp Web**.
