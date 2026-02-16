@@ -1,0 +1,108 @@
+{
+  "type": "node",
+  "tag": "user",
+  "attributes": {
+    "t": {
+      "optional": true,
+      "type": "number",
+      "min": 0
+    },
+    "is_cloud_api": {
+      "type": "string",
+      "literal": "true",
+      "optional": true
+    }
+  },
+  "content": [
+    {
+      "type": "number",
+      "literal": 5
+    },
+    {
+      "type": "node",
+      "tag": "device-identity",
+      "attributes": {},
+      "content": {
+        "type": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "key",
+      "attributes": {},
+      "content": [
+        {
+          "namespace": "PreKeys",
+          "variant": "KeyData",
+          "type": "node",
+          "tag": "value",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        },
+        {
+          "$ref": "PreKeys:KeyID"
+        }
+      ]
+    },
+    {
+      "namespace": "PreKeys",
+      "variant": "KeyData",
+      "type": "node",
+      "tag": "identity",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 32,
+        "max": 32
+      }
+    },
+    {
+      "type": "node",
+      "tag": "registration",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 4,
+        "max": 4
+      }
+    },
+    {
+      "type": "node",
+      "tag": "skey",
+      "attributes": {},
+      "content": [
+        {
+          "namespace": "PreKeys",
+          "variant": "KeyData",
+          "type": "node",
+          "tag": "value",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        },
+        {
+          "$ref": "PreKeys:KeyID"
+        },
+        {
+          "type": "node",
+          "tag": "signature",
+          "attributes": {},
+          "content": {
+            "type": "binary",
+            "min": 64,
+            "max": 64
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesUserSuccess"
+}

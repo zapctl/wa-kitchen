@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "phone_number": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "username": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "PhoneNumberAndUsernameAtt"
+}
