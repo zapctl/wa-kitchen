@@ -13,10 +13,7 @@ env:
   DIST_DIR: ${{ github.workspace }}/out/dist
 
 permissions:
-  id-token: write
   contents: write
-  checks: write
-  pull-requests: write
 
 jobs:
   latest:
