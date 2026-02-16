@@ -19,41 +19,19 @@ export class XMLNode {
 	attributes: XMLNodeAttributes;
 	children: XMLNodeChildren;
 
-	constructor(init?: XMLNodeTagName) {
-		this.tagName = String(init || "");
-		this.attributes = {};
-		this.children = [];
-	}
+	constructor(obj?: XMLNode | XMLNodeObject | Uint8Array) {
+		if (obj instanceof XMLNode) return obj;
+		if (obj instanceof Uint8Array) return decodeFromBinary(obj);
 
-	static fromObject(obj: XMLNodeObject): XMLNode {
-		const node = new XMLNode();
-
-		if (Array.isArray(obj.children)) {
-			node.children = [];
-
-			for (const child of obj.children) {
-				if (typeof child === "object" && !(child instanceof XMLNode)) {
-					node.children.push(XMLNode.fromObject(child));
-				} else {
-					node.children.push(child);
-				}
-			}
-		} else {
-			node.children = obj.children || [];
-		}
-
-		node.tagName = obj.tagName;
-		node.attributes = obj.attributes || {};
-
-		return node;
-	}
-
-	static fromBinary(buffer: Uint8Array): XMLNode {
-		return decodeFromBinary(buffer);
+		this.tagName = obj.tagName;
+		this.attributes = obj.attributes || {};
+		this.children = Array.isArray(obj.children) ?
+			obj.children.map(child => new XMLNode(child)) :
+			obj.children;
 	}
 
 	appendNode(node: XMLNode | XMLNodeObject) {
-		if (typeof node === "object") node = XMLNode.fromObject(node);
+		if (typeof node === "object") node = new XMLNode(node);
 		if (!(node instanceof XMLNode)) throw new Error("invalid xml node");
 
 		this.children = this.getContentNodes();
@@ -69,13 +47,13 @@ export class XMLNode {
 		return String(this.attributes[key] || "");
 	}
 
-	getOptionalContentNodes() {
+	getOptionalContentNodes(): XMLNode[] | undefined {
 		if (Array.isArray(this.children)) {
 			return this.children.filter(child => child instanceof XMLNode);
 		}
 	}
 
-	getOptionalContentBuffer() {
+	getOptionalContentBuffer(): Uint8Array | undefined {
 		if (this.children instanceof Uint8Array) {
 			return this.children;
 		} else if (typeof this.children === "string") {
@@ -83,7 +61,7 @@ export class XMLNode {
 		}
 	}
 
-	getOptionalContentString() {
+	getOptionalContentString(): string | undefined {
 		if (typeof this.children === "string") {
 			return this.children;
 		} else if (this.children instanceof Uint8Array) {
@@ -113,7 +91,7 @@ export class XMLNode {
 		return this.getOptionalContentString() || "";
 	}
 
-	getContentNumber(): number {
+	getContentNumber() {
 		return this.getOptionalContentNumber() || 0;
 	}
 
@@ -125,7 +103,7 @@ export class XMLNode {
 		return querySelectorAll(this, selector, 1)[0];
 	}
 
-	match(selector: string): boolean {
+	match(selector: string) {
 		return querySelectorAll(this, selector, 1).length > 0;
 	}
 
@@ -133,7 +111,7 @@ export class XMLNode {
 		return encodeToBinary(this);
 	}
 
-	toString(): string {
+	toString() {
 		return encodeToString(this);
 	}
 }
