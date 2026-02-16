@@ -1,12 +1,6 @@
 name: Publish
 
 on:
-  workflow_call:
-    inputs:
-      branch:
-        description: 'Branch to publish from'
-        required: true
-        type: string
   pull_request:
     types: [closed]
     branches:
@@ -14,7 +8,7 @@ on:
 
 env:
   PACKAGE_TAG: latest
-  BRANCH: ${{ inputs.branch || github.ref }}
+  BRANCH: ${{ github.event.pull_request.head.ref }}
   OUT_DIR: ${{ github.workspace }}/out
   DIST_DIR: ${{ github.workspace }}/out/dist
 
@@ -26,7 +20,9 @@ permissions:
 
 jobs:
   latest:
-    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'preview/')
+    if: >-
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'preview/')
     runs-on: ubuntu-latest
 
     steps:
@@ -67,5 +63,9 @@ jobs:
 
       - name: Create Git tag
         run: |
-          git tag -a "v${{ env.VERSION }}" -m "WhatsApp Web v${{ env.VERSION }}"
-          git push origin "v${{ env.VERSION }}"
+          git tag -a "v$VERSION" -m "WhatsApp Web v$VERSION"
+          git push origin "v$VERSION"
+
+      - name: Delete merged branch
+        run: |
+          git push origin --delete $BRANCH
