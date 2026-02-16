@@ -1,7 +1,7 @@
 # **wa-kitchen**
 
 [![update checker](https://img.shields.io/github/actions/workflow/status/zapctl/wa-kitchen/update.yml?label=Auto%20update%20checker)](https://github.com/zapctl/wa-kitchen/actions/workflows/update.yml)
-[![publish](https://img.shields.io/github/actions/workflow/status/zapctl/wa-kitchen/publish.yml?label=Publish)](https://github.com/zapctl/wa-kitchen/actions/workflows/publish.yml)
+[![publish](https://img.shields.io/github/actions/workflow/status/zapctl/wa-kitchen/publish-latest.yml?label=Publish)](https://github.com/zapctl/wa-kitchen/actions/workflows/publish-latest.yml)
 [![license](https://img.shields.io/github/license/zapctl/wa-kitchen.svg?label=License)](https://github.com/zapctl/wa-kitchen/blob/main/LICENSE)
 [![github stars](https://img.shields.io/github/stars/zapctl/wa-kitchen.svg?label=stars)](https://github.com/zapctl/wa-kitchen)
 
