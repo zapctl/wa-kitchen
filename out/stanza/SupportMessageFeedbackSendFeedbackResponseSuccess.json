@@ -1,0 +1,38 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "result",
+      "attributes": {
+        "status": {
+          "type": "string",
+          "literal": "Success"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "SupportMessageFeedback",
+  "variant": "SendFeedbackResponseSuccess"
+}

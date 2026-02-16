@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "paid_partnership",
+          "attributes": {},
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "PaidPartnershipContent"
+}

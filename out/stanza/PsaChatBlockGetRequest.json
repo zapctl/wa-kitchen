@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:comms:chat"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "query",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "blocking_status",
+          "attributes": {},
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Psa",
+  "variant": "ChatBlockGetRequest"
+}

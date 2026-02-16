@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "questiontype": {
+          "type": "string",
+          "literal": "response"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "QuestionTypeResponse"
+}

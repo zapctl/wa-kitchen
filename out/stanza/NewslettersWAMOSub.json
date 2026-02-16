@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "WAMOSub"
+}

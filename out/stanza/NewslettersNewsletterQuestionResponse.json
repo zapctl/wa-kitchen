@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attributes": {
+        "questiontype": {
+          "type": "string",
+          "literal": "response"
+        },
+        "response_server_id": {
+          "type": "string"
+        }
+      },
+      "content": null
+    },
+    {
+      "$ref": "Newsletters:Payload"
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterQuestionResponse"
+}
