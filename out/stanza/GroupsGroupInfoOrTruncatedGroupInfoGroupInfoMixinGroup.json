@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:GroupInfo"
+    },
+    {
+      "$ref": "Groups:TruncatedGroupInfo"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GroupInfoOrTruncatedGroupInfoGroupInfoMixinGroup"
+}

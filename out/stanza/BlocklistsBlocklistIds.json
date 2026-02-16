@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Blocklists:DisplayName"
+    },
+    {
+      "$ref": "Blocklists:PnJid"
+    },
+    {
+      "$ref": "Blocklists:UnknownIdentifier"
+    },
+    {
+      "$ref": "Blocklists:Username"
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "BlocklistIds"
+}

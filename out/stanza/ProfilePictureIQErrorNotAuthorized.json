@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "not-authorized"
+    },
+    "code": {
+      "type": "number",
+      "literal": 401
+    }
+  },
+  "content": null,
+  "namespace": "ProfilePicture",
+  "variant": "IQErrorNotAuthorized"
+}

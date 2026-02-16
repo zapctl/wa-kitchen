@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "action": {
+      "optional": true,
+      "type": "string"
+    },
+    "category": {
+      "optional": true,
+      "type": "string"
+    },
+    "biz_opt_out_brand_id": {
+      "type": "string"
+    },
+    "biz_jid": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Blocklists",
+  "variant": "BizOptOutResponse"
+}

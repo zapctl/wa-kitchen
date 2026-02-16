@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Account:SetPaymentsTOSv3BRConsumerPaymentsTOSv3Response"
+    },
+    {
+      "$ref": "Account:SetPaymentsTOSv3UPIConsumerPaymentsTOSv3Response"
+    }
+  ],
+  "namespace": "Account",
+  "variant": "SetPaymentsTOSv3BRConsumerOrSetPaymentsTOSv3UPIConsumerPaymentsTOSv3ResponseMixinGroup"
+}
