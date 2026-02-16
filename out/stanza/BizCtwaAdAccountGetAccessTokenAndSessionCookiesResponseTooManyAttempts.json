@@ -1,0 +1,42 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "error",
+      "attributes": {
+        "code": {
+          "type": "string",
+          "literal": "431"
+        },
+        "text": {
+          "type": "string",
+          "literal": "TOO_MANY_ATTEMPTS"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "GetAccessTokenAndSessionCookiesResponseTooManyAttempts"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attributes": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "LidUserJid"
+      ]
+    },
+    "class": {
+      "type": "string",
+      "literal": "notification"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "QpSurfaces",
+  "variant": "QPNotificationResponseAck"
+}

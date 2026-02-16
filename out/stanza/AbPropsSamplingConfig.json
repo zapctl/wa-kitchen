@@ -1,0 +1,18 @@
+{
+  "type": "node",
+  "tag": "prop",
+  "attributes": {
+    "event_code": {
+      "type": "number",
+      "min": 1
+    },
+    "sampling_weight": {
+      "type": "number",
+      "min": -10000,
+      "max": 10000
+    }
+  },
+  "content": null,
+  "namespace": "AbProps",
+  "variant": "SamplingConfig"
+}

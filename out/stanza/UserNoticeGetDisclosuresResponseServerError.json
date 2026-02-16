@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "UserNotice:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "UserNotice:IQErrorRateOverlimit"
+        }
+      ]
+    }
+  ],
+  "namespace": "UserNotice",
+  "variant": "GetDisclosuresResponseServerError"
+}

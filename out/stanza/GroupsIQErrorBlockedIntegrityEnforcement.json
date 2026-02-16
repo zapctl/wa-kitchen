@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "blocked-integrity-enforcement"
+    },
+    "code": {
+      "type": "number",
+      "literal": 486
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "IQErrorBlockedIntegrityEnforcement"
+}

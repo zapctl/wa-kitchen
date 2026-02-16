@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "literal": "rate-overlimit"
+    },
+    "code": {
+      "type": "number",
+      "literal": 429
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "RemoveParticipantsClientErrors"
+}

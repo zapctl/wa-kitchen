@@ -1,0 +1,40 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "attributes": {},
+      "content": [
+        {
+          "$ref": "PreKeys:UserFetchKeyBundlesSuccessOrFetchKeyBundlesErrorOrFetchKeyBundlesErrorFallbackMixinGroup"
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "padding",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 0,
+        "max": 524288
+      }
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesResponseSuccess"
+}
