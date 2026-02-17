@@ -1,4 +1,5 @@
 import { inflateSync } from "node:zlib";
+import MD5 from "./crypto/MD5";
 
 export function BytesEquals(bytes1: Uint8Array, bytes2: Uint8Array) {
   return bytes1.byteLength === bytes2.byteLength &&
@@ -135,4 +136,13 @@ export function DecompressZLib(buffer: Uint8Array) {
 
 export function UnixTimestampToDate(timestamp: bigint | number | string) {
   return new Date(Number(timestamp) * 1000);
+}
+
+export function UnixMillisecondsToDate(ms: bigint | number | string) {
+  return new Date(Number(ms) / 1000);
+}
+
+export async function GetContactHash(user: string) {
+  const hash = MD5.Hash(`${user}WA_ADD_NOTIF`);
+  return BytesToBase64(hash.subarray(0, 3));
 }

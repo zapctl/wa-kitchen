@@ -27,6 +27,10 @@
       "types": "./graphql/index.d.ts",
       "default": "./graphql/index.js"
     },
+    "./stanza": {
+      "types": "./stanza/index.d.ts",
+      "default": "./stanza/index.js"
+    },
     "./proto/*": {
       "types": "./proto/*_pb.d.ts",
       "default": "./proto/*_pb.js"
@@ -43,6 +47,10 @@
       "types": "./group/*.d.ts",
       "default": "./group/*.js"
     },
+    "./jid": {
+      "types": "./jid/index.d.ts",
+      "default": "./jid/index.js"
+    },
     "./jid/*": {
       "types": "./jid/*.d.ts",
       "default": "./jid/*.js"
@@ -50,6 +58,10 @@
     "./media/*": {
       "types": "./media/*.d.ts",
       "default": "./media/*.js"
+    },
+    "./message": {
+      "types": "./message/index.d.ts",
+      "default": "./message/index.js"
     },
     "./message/*": {
       "types": "./message/*.d.ts",
@@ -62,10 +74,6 @@
     "./privacy/*": {
       "types": "./privacy/*.d.ts",
       "default": "./privacy/*.js"
-    },
-    "./stanza/*": {
-      "types": "./stanza/*.d.ts",
-      "default": "./stanza/*.js"
     }
   },
   "engines": {
