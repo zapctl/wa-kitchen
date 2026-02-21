@@ -1,0 +1,66 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "bot"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "bot",
+      "attributes": {
+        "v": {
+          "type": "string",
+          "optional": true
+        },
+        "bhash": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "bot",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "DomainJid",
+                "LidUserJid",
+                "BroadcastJid",
+                "DeviceJid",
+                "CallJid",
+                "GroupJid",
+                "StatusJid",
+                "ChatJid",
+                "NewsletterJid"
+              ]
+            }
+          },
+          "content": null,
+          "max": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Bot",
+  "variant": "BotListRequest"
+}

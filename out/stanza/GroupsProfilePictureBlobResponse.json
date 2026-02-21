@@ -1,0 +1,11 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attributes": {},
+  "content": {
+    "type": "binary",
+    "min": 1
+  },
+  "namespace": "Groups",
+  "variant": "ProfilePictureBlobResponse"
+}

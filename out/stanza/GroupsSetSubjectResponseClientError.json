@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "SetSubjectResponseClientError"
+}

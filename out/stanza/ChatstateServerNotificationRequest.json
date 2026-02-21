@@ -1,0 +1,39 @@
+{
+  "type": "node",
+  "tag": "chatstate",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "composing",
+      "attributes": {
+        "media": {
+          "type": "string",
+          "literal": "audio",
+          "optional": true
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "test",
+      "attributes": {
+        "config": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Chatstate",
+  "variant": "ServerNotificationRequest"
+}

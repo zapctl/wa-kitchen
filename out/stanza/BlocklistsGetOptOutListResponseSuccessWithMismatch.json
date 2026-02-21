@@ -1,0 +1,60 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "attributes": {
+        "dhash": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "namespace": "Blocklists",
+          "variant": "BizOptOutResponse",
+          "type": "node",
+          "tag": "item",
+          "attributes": {
+            "action": {
+              "optional": true,
+              "type": "string"
+            },
+            "category": {
+              "optional": true,
+              "type": "string"
+            },
+            "biz_opt_out_brand_id": {
+              "type": "string"
+            },
+            "biz_jid": {
+              "optional": true,
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            }
+          },
+          "content": null,
+          "max": 64000
+        }
+      ]
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "GetOptOutListResponseSuccessWithMismatch"
+}

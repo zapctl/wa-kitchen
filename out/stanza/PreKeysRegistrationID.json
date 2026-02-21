@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "registration",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 4,
+        "max": 4
+      }
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "RegistrationID"
+}

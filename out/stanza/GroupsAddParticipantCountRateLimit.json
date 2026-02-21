@@ -1,0 +1,14 @@
+{
+  "type": "node",
+  "tag": "rate_limit",
+  "attributes": {
+    "participant_limit": {
+      "type": "number",
+      "min": 1,
+      "max": 19999
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "AddParticipantCountRateLimit"
+}

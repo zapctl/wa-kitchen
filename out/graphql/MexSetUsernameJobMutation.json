@@ -1,0 +1,35 @@
+{
+  "id": "25757341163897635",
+  "name": "MexSetUsernameJob",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      },
+      "reserved": {
+        "type": "scalar"
+      },
+      "session_id": {
+        "type": "scalar"
+      },
+      "source": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_username_set": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}
