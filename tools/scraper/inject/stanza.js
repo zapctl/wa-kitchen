@@ -1125,11 +1125,11 @@ function convertToSchema(stanza) {
     const schema = {
         type: "node",
         tag: stanza.tag,
-        attributes: { ...metadata.attrs || {} },
+        attrs: { ...metadata.attrs || {} },
         content: null,
     };
 
-    Object.values(schema.attributes).forEach(attr => {
+    Object.values(schema.attrs).forEach(attr => {
         delete attr.as
     });
 
