@@ -1,0 +1,62 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "id": {
+      "type": "id"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "encrypt"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "key",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "user",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "DomainJid",
+                "LidUserJid",
+                "BroadcastJid",
+                "DeviceJid",
+                "CallJid",
+                "GroupJid",
+                "StatusJid",
+                "ChatJid",
+                "NewsletterJid"
+              ]
+            },
+            "reason": {
+              "optional": true,
+              "literal": "identity"
+            }
+          },
+          "content": null,
+          "min": 1,
+          "max": 100000
+        }
+      ]
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesRequest"
+}

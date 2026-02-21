@@ -1,0 +1,221 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "create",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "addressing_mode_override",
+          "attributes": {
+            "mode": {
+              "type": "string"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "allow_non_admin_sub_group_creation",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "announcement",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "breakout",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "capi",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "create_general_chat",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "created_as_lid",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "description",
+          "attributes": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "body",
+              "attributes": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": {},
+                  "attributes": {},
+                  "content": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "ephemeral",
+          "attributes": {
+            "expiration": {
+              "type": "number"
+            },
+            "trigger": {
+              "type": "number",
+              "optional": true
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "hidden_group",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "linked_parent",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "GroupJid"
+              ]
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "locked",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "membership_approval_mode",
+          "attributes": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "group_join",
+              "attributes": {
+                "state": {
+                  "type": "string",
+                  "literal": "on"
+                }
+              },
+              "content": null
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "no_frequently_forwarded",
+          "attributes": {},
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "parent",
+          "attributes": {
+            "default_membership_approval_mode": {
+              "type": "string",
+              "literal": "request_required"
+            }
+          },
+          "content": null
+        },
+        {
+          "type": "node",
+          "tag": "participant",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "DomainJid",
+                "LidUserJid",
+                "BroadcastJid",
+                "DeviceJid",
+                "CallJid",
+                "GroupJid",
+                "StatusJid",
+                "ChatJid",
+                "NewsletterJid"
+              ]
+            },
+            "phone_number": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "DomainJid",
+                "LidUserJid",
+                "BroadcastJid",
+                "DeviceJid",
+                "CallJid",
+                "GroupJid",
+                "StatusJid",
+                "ChatJid",
+                "NewsletterJid"
+              ],
+              "optional": true
+            },
+            "username": {
+              "type": "string",
+              "optional": true
+            }
+          },
+          "content": null,
+          "max": 19999
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateRequest"
+}

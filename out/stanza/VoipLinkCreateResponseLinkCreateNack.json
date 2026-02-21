@@ -1,0 +1,42 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attributes": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "CallJid",
+        "DeviceJid",
+        "DomainJid",
+        "UserJid"
+      ],
+      "optional": true
+    },
+    "type": {
+      "type": "string",
+      "literal": "link_create"
+    },
+    "error": {
+      "type": "string",
+      "optional": true
+    },
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DeviceJid",
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "call"
+    }
+  },
+  "content": null,
+  "namespace": "Voip",
+  "variant": "LinkCreateResponseLinkCreateNack"
+}

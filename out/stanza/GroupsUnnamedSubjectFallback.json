@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "subject": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "UnnamedSubjectFallback"
+}

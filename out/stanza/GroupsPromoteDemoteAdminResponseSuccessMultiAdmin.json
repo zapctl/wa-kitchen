@@ -1,0 +1,74 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "admin",
+      "attributes": {},
+      "content": [
+        {
+          "namespace": "Groups",
+          "variant": "PhoneNumber",
+          "type": "node",
+          "tag": "participant",
+          "attributes": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "literal": "admin",
+              "optional": true
+            },
+            "error": {
+              "optional": true,
+              "type": "string",
+              "enum": [
+                "403",
+                "404",
+                "406",
+                "419"
+              ]
+            },
+            "phone_number": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "max": 19999
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "PromoteDemoteAdminResponseSuccessMultiAdmin"
+}
