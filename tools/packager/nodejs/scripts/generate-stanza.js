@@ -85,13 +85,13 @@ function serializeContent(namespace, spec, level) {
             const indent = "\t".repeat(level);
             const indentInner = indent + "\t";
 
-            const attrsType = serializeAttributes(spec.attributes, level + 1);
+            const attrsType = serializeAttributes(spec.attrs, level + 1);
             const contentType = serializeContent(namespace, spec.content, level + 1);
 
             let output = `{\n`;
-            if (spec.tag) output += `${indentInner}tag: "${spec.tag}";\n`;
-            if (attrsType) output += `${indentInner}attrs: ${attrsType};\n`;
-            if (contentType) output += `${indentInner}content: ${contentType};\n`;
+            if (spec.tag) output += `${indentInner}tagName: "${spec.tag}";\n`;
+            if (attrsType) output += `${indentInner}attributes: ${attrsType};\n`;
+            if (contentType) output += `${indentInner}children: ${contentType};\n`;
             output += `${indent}}`;
             return output;
         }
@@ -153,13 +153,13 @@ function serializeSpec(namespace, spec, level = 0) {
 
     switch (spec.type) {
         case "node": {
-            const attrsType = serializeAttributes(spec.attributes, level + 1);
+            const attrsType = serializeAttributes(spec.attrs, level + 1);
             const contentType = serializeContent(namespace, spec.content, level + 1);
 
             let output = `${indent}export interface ${spec.variant} {\n`;
-            if (spec.tag) output += `${indentInner}tag: "${spec.tag}";\n`;
-            if (attrsType) output += `${indentInner}attrs: ${attrsType};\n`;
-            if (contentType) output += `${indentInner}content: ${contentType};\n`;
+            if (spec.tag) output += `${indentInner}tagName: "${spec.tag}";\n`;
+            if (attrsType) output += `${indentInner}attributes: ${attrsType};\n`;
+            if (contentType) output += `${indentInner}children: ${contentType};\n`;
             output += `${indent}}`;
             return output;
         }

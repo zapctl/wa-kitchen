@@ -1,0 +1,1 @@
+export const MEDIA_SERVER_URL = "https://mmg.whatsapp.net";

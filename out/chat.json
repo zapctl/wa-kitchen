@@ -1,9 +1,0 @@
-{
-  "enums": {
-    "ChatState": {
-      "TYPING": "typing",
-      "RECORDING_AUDIO": "recording_audio",
-      "IDLE": "idle"
-    }
-  }
-}

@@ -24,13 +24,11 @@ function toPascalCase(value) {
 }
 
 function serializePropName(name, value) {
-    if (/^[0-9]/.test(name)) {
-        let prefix = "_";
+    if (/^[0-9]/.test(name) && typeof value === "string") {
+        const firstChar = value.charAt(0);
 
-        if (value && typeof value === "string") {
-            const firstChar = value.charAt(0);
-            if (!/^[0-9]/.test(firstChar)) prefix = firstChar;
-        }
+        let prefix = "_";
+        if (!/^[0-9]/.test(firstChar)) prefix = firstChar;
 
         name = prefix.toUpperCase() + name;
     }
@@ -43,6 +41,7 @@ function serializePropName(name, value) {
 function serializeValue(value) {
     if (Array.isArray(value)) return `[${value.map(val => `"${val}"`).join(", ")}]`;
     else if (typeof value === "string") return `"${value}"`;
+    else if (typeof value === "object") return JSON.stringify(value, null, 2);
     return String(value);
 }
 
