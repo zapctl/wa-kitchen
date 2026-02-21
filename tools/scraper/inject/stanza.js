@@ -722,7 +722,7 @@ function createModuleMetadataProxy(targetModule) {
                         assignMetadata(arr, { type: Types.ARRAY });
 
                         return mergeStanzas(originalValue(factory, arr, min, max))
-                            .map(child => assignMetadata(child, { min, max }));
+                            .map(child => assignMetadata(child[0], { min, max }));
                     }
 
                 case "smax":
@@ -1289,10 +1289,10 @@ function getAllModulesSchemas() {
         const modules = getSMaxInOutModules();
 
         modules.forEach((mod, i) => {
-            if (![
-                "ProfilePictureGetRequest",
-                "ChatstateServerNotificationRequest"
-            ].includes(mod.moduleName)) return;
+            // if (![
+            //     "ProfilePictureGetRequest",
+            //     "ChatstateServerNotificationRequest"
+            // ].includes(mod.moduleName)) return;
             // if (createModuleName(mod).namespace !== "Md") return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);

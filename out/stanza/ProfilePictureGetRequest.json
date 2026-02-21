@@ -71,12 +71,6 @@
       "content": [
         {
           "type": "node",
-          "attributes": {},
-          "content": null,
-          "max": 4
-        },
-        {
-          "type": "node",
           "tag": "add_request",
           "attributes": {
             "code": {
@@ -95,6 +89,17 @@
             }
           },
           "content": null
+        },
+        {
+          "type": "node",
+          "tag": "avatar",
+          "attributes": {
+            "pose_id": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "max": 4
         }
       ]
     }

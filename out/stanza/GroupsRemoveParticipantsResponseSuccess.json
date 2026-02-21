@@ -1,0 +1,99 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "remove",
+      "attributes": {
+        "linked_groups": {
+          "type": "string",
+          "literal": "true",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "namespace": "Groups",
+          "variant": "PhoneNumber",
+          "type": "union",
+          "unions": [
+            {
+              "type": "node",
+              "tag": "participant",
+              "attributes": {
+                "error": {
+                  "type": "string",
+                  "literal": "404"
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "ParticipantNotInGroup"
+            },
+            {
+              "type": "node",
+              "tag": "participant",
+              "attributes": {
+                "error": {
+                  "type": "string",
+                  "literal": "405"
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "ParticipantNotAllowed"
+            },
+            {
+              "type": "node",
+              "tag": "participant",
+              "attributes": {
+                "error": {
+                  "type": "string",
+                  "literal": "406"
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "ParticipantNotAcceptable"
+            },
+            {
+              "type": "node",
+              "tag": "participant",
+              "attributes": {
+                "error": {
+                  "type": "string",
+                  "literal": "500"
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "RemoveParticipantsLinkedGroupsServerError"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "RemoveParticipantsResponseSuccess"
+}

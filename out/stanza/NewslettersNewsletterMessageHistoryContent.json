@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Newsletters:NewsletterMedia"
+    },
+    {
+      "$ref": "Newsletters:NewsletterQuestion"
+    },
+    {
+      "$ref": "Newsletters:NewsletterQuestionReply"
+    },
+    {
+      "$ref": "Newsletters:NewsletterText"
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterMessageHistoryContent"
+}

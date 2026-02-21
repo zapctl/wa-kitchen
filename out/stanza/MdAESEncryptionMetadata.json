@@ -1,0 +1,58 @@
+{
+  "type": "node",
+  "tag": "",
+  "attributes": {
+    "version": {
+      "type": "string",
+      "literal": "1"
+    },
+    "algorithm": {
+      "type": "string",
+      "literal": "aes-256-gcm"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "auth_tag",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 128
+      }
+    },
+    {
+      "type": "node",
+      "tag": "encrypted_data",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 8192
+      }
+    },
+    {
+      "type": "node",
+      "tag": "encrypted_key",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 2048
+      }
+    },
+    {
+      "type": "node",
+      "tag": "nonce",
+      "attributes": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 128
+      }
+    }
+  ],
+  "namespace": "Md",
+  "variant": "AESEncryptionMetadata"
+}

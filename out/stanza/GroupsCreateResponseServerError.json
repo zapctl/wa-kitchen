@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attributes": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:IQErrorFallbackServer"
+        },
+        {
+          "$ref": "Groups:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Groups:IQErrorPartialServerError"
+        },
+        {
+          "$ref": "Groups:IQErrorServiceUnavailable"
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateResponseServerError"
+}

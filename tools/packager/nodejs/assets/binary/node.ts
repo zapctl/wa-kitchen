@@ -14,12 +14,12 @@ export interface XMLNodeObject {
 	children?: (XMLNodeObject | XMLNode)[] | string | Uint8Array;
 }
 
-export class XMLNode {
+export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 	tagName: XMLNodeTagName;
 	attributes: XMLNodeAttributes;
 	children: XMLNodeChildren;
 
-	constructor(obj?: XMLNode | XMLNodeObject | Uint8Array) {
+	constructor(obj?: XMLNode<T> | T | Uint8Array) {
 		if (obj instanceof XMLNode) return obj;
 		if (obj instanceof Uint8Array) return decodeFromBinary(obj);
 
@@ -30,7 +30,7 @@ export class XMLNode {
 			obj.children;
 	}
 
-	appendNode(node: XMLNode | XMLNodeObject) {
+	appendNode<T extends XMLNodeObject = XMLNodeObject>(node: XMLNode<T> | T) {
 		if (typeof node === "object") node = new XMLNode(node);
 		if (!(node instanceof XMLNode)) throw new Error("invalid xml node");
 
@@ -95,12 +95,12 @@ export class XMLNode {
 		return this.getOptionalContentNumber() || 0;
 	}
 
-	querySelectorAll(selector: string): XMLNode[] {
-		return querySelectorAll(this, selector);
+	querySelectorAll<T extends XMLNodeObject = XMLNodeObject>(selector: string) {
+		return querySelectorAll(this, selector) as XMLNode<T>[];
 	}
 
-	querySelector(selector: string): XMLNode | undefined {
-		return querySelectorAll(this, selector, 1)[0];
+	querySelector<T extends XMLNodeObject = XMLNodeObject>(selector: string): XMLNode | undefined {
+		return querySelectorAll(this, selector, 1)[0] as XMLNode<T> | undefined;
 	}
 
 	match(selector: string) {

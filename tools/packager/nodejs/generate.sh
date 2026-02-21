@@ -30,10 +30,12 @@ generate_package() {
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
 
-    echo "Setting package version ($VERSION)..."
-    npm pkg set version="$VERSION" --prefix $OUT
+    if [ "$VERSION" ]; then
+        echo "Setting package version ($VERSION)..."
+        npm pkg set version="$VERSION" --prefix $OUT
 
-    sed -i 's/{{WA_VERSION}}/'"$VERSION"'/g' $OUT/readme.md
+        sed -i 's/{{WA_VERSION}}/'"$VERSION"'/g' $OUT/readme.md
+    fi
 }
 
 generate_definitions() {

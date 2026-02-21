@@ -123,7 +123,7 @@ message Message {
 	optional FutureProofMessage newsletterAdminProfileMessage = 116;
 	optional FutureProofMessage newsletterAdminProfileMessageV2 = 117;
 	optional FutureProofMessage spoilerMessage = 118;
-	optional FutureProofMessage pollCreationMessageV6 = 119;
+	optional PollCreationMessage pollCreationMessageV6 = 119;
 
 	enum PollType {
 		POLL = 0;
