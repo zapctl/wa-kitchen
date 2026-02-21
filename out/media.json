@@ -86,7 +86,9 @@
       "thumbnail-sticker-pack": "WhatsApp Sticker Pack Thumbnail Keys",
       "music-artwork": "WhatsApp Music Artwork Keys",
       "group-history": "Group History"
-    },
+    }
+  },
+  "constants": {
     "EXT_TO_MIME": {
       "123": "application/vnd.lotus-1-2-3",
       "aw": "application/applixware",

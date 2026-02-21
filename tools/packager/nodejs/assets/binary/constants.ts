@@ -1,3 +1,4 @@
+// @ts-nocheck
 export enum BinaryTags {
     ListEmpty = 0,
     List8 = 248,
@@ -20,5 +21,5 @@ export enum BinaryTags {
 export const NIBBLE_TOKEN = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", ".", "\ufffd", "\ufffd", "\ufffd", "\ufffd"];
 export const HEX_TOKEN = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
 
-// @ts-ignore
 export const DICTIONARY_TOKEN = [DICTIONARY_0_TOKEN, DICTIONARY_1_TOKEN, DICTIONARY_2_TOKEN, DICTIONARY_3_TOKEN];
+export const PROTO_HEADER = new Uint8Array([87, 65, 6, DICTIONARY_VERSION]);

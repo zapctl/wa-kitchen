@@ -42,7 +42,7 @@
       "attributes": {
         "type": {
           "type": "string",
-          "literal": "avatar"
+          "optional": true
         },
         "id": {
           "type": "string",

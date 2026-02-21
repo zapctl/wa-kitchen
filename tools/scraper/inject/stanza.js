@@ -241,10 +241,34 @@ function mergeStanzas(...nodes) {
         const mergedMetadata = {
             namespace: existingMetadata.namespace || nodeMetadata.namespace,
             variant: existingMetadata.variant || nodeMetadata.variant,
-            attrs: {
-                ...existingMetadata.attrs || {},
-                ...nodeMetadata.attrs || {},
-            },
+            attrs: (() => {
+                const base = existingMetadata.attrs || {};
+                const incoming = nodeMetadata.attrs || {};
+                const merged = { ...base };
+
+                for (const [key, incomingAttr] of Object.entries(incoming)) {
+                    const baseAttr = base[key];
+
+                    if (!baseAttr) {
+                        merged[key] = incomingAttr;
+                        continue;
+                    }
+
+                    const sameLiteral = baseAttr.literal && deepEquals(baseAttr.literal, incomingAttr.literal);
+
+                    merged[key] = {
+                        ...baseAttr,
+                        ...incomingAttr,
+                        optional: baseAttr.optional || incomingAttr.optional || undefined,
+                        literal: sameLiteral ? baseAttr.literal : undefined,
+                    };
+
+                    if (!merged[key].optional) delete merged[key].optional;
+                    if (!merged[key].literal) delete merged[key].literal;
+                }
+
+                return merged;
+            })(),
             content: {
                 ...existingMetadata.content || {},
                 ...nodeMetadata.content || {},
@@ -677,9 +701,7 @@ function createModuleMetadataProxy(targetModule) {
 
                 case "OPTIONAL_LITERAL":
                     return (literal, enabled) => {
-                        assignMetadata(enabled, {
-                            type: Types.BOOLEAN,
-                        });
+                        assignMetadata(enabled, { type: Types.BOOLEAN });
 
                         return assignMetadata(
                             originalValue(literal, enabled),
@@ -737,6 +759,7 @@ function createModuleMetadataProxy(targetModule) {
 
                         return originalValue(result);
                     }
+
 
                 case "mergeStanzas":
                     return (a, b) => mergeStanzas(a, b)[0];
@@ -1266,9 +1289,10 @@ function getAllModulesSchemas() {
         const modules = getSMaxInOutModules();
 
         modules.forEach((mod, i) => {
-            // if (![
-            // "MdCompanionHelloResponseError",
-            // ].includes(mod.moduleName)) return;
+            if (![
+                "ProfilePictureGetRequest",
+                "ChatstateServerNotificationRequest"
+            ].includes(mod.moduleName)) return;
             // if (createModuleName(mod).namespace !== "Md") return;
 
             console.log(`[${i + 1}/${modules.length}] ${mod.moduleName}`);

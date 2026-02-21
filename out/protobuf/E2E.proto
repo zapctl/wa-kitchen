@@ -200,6 +200,7 @@ message Message {
 			optional string accessibilityLabel = 4;
 			optional bool isLottie = 5;
 			optional string mimetype = 6;
+			optional int32 premium = 7;
 		}
 	}
 
@@ -1289,6 +1290,12 @@ message Message {
 
 	message RequestWelcomeMessageMetadata {
 		optional LocalChatState localChatState = 1;
+		optional WelcomeTrigger welcomeTrigger = 2;
+	
+		enum WelcomeTrigger {
+			CHAT_OPEN = 0;
+			COMPANION_PAIRING = 1;
+		}
 	
 		enum LocalChatState {
 			EMPTY = 0;
@@ -1778,6 +1785,7 @@ message ContextInfo {
 	optional bool isSpoiler = 73;
 	optional MediaDomainInfo mediaDomainInfo = 74;
 	optional PartiallySelectedContent partiallySelectedContent = 75;
+	optional uint32 afterReadDurationMs = 76;
 
 	enum QuotedType {
 		EXPLICIT = 0;

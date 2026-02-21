@@ -13,7 +13,9 @@ const specs = {
     enums: {
         MEDIA_TYPE: mmsMediaTypes.MEDIA_TYPES,
         ENC_MEDIA_INFO: {},
-        EXT_TO_MIME: mimeTypes.EXT_TO_MIME,
+    },
+    constants: {
+        EXT_TO_MIME: mimeTypes.EXT_TO_MIME
     },
 }
 

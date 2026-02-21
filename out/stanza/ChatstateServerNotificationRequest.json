@@ -1,37 +1,104 @@
 {
-  "type": "node",
-  "tag": "chatstate",
-  "attributes": {
-    "from": {
-      "type": "jid",
-      "jidTypes": [
-        "UserJid"
-      ]
-    }
-  },
-  "content": [
+  "type": "union",
+  "unions": [
     {
       "type": "node",
-      "tag": "composing",
-      "attributes": {
-        "media": {
-          "type": "string",
-          "literal": "audio",
-          "optional": true
+      "tag": "chatstate",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "composing",
+          "attributes": {
+            "media": {
+              "type": "string",
+              "literal": "audio",
+              "optional": true
+            }
+          },
+          "content": null
         }
-      },
-      "content": null
+      ],
+      "namespace": "Chatstate",
+      "variant": "Composing"
     },
     {
       "type": "node",
-      "tag": "test",
+      "tag": "chatstate",
       "attributes": {
-        "config": {
+        "from": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        },
+        "participant": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        },
+        "participant_pn": {
           "optional": true,
-          "type": "string"
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
         }
       },
-      "content": null
+      "content": null,
+      "namespace": "Chatstate",
+      "variant": "FromGroup"
+    },
+    {
+      "type": "node",
+      "tag": "chatstate",
+      "attributes": {
+        "from": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid"
+          ]
+        }
+      },
+      "content": null,
+      "namespace": "Chatstate",
+      "variant": "FromUser"
+    },
+    {
+      "type": "node",
+      "tag": "chatstate",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "test",
+          "attributes": {
+            "config": {
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "content": null
+        }
+      ],
+      "namespace": "Chatstate",
+      "variant": "InternalTest"
+    },
+    {
+      "type": "node",
+      "tag": "chatstate",
+      "attributes": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "paused",
+          "attributes": {},
+          "content": null
+        }
+      ],
+      "namespace": "Chatstate",
+      "variant": "Paused"
     }
   ],
   "namespace": "Chatstate",

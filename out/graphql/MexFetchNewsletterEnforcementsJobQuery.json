@@ -1,10 +1,13 @@
 {
-  "id": "34122891280658264",
+  "id": "25440958522248700",
   "name": "MexFetchNewsletterEnforcementsJob",
   "type": "query",
   "input": {
     "type": "object",
     "properties": {
+      "locale": {
+        "type": "scalar"
+      },
       "newsletter_id": {
         "type": "scalar"
       }
@@ -57,6 +60,26 @@
                         "type": "scalar"
                       }
                     }
+                  }
+                }
+              },
+              "enforcement_policy_information": {
+                "type": "object",
+                "properties": {
+                  "overview": {
+                    "type": "scalar"
+                  },
+                  "headline": {
+                    "type": "scalar"
+                  },
+                  "subtitle": {
+                    "type": "scalar"
+                  },
+                  "explanation": {
+                    "type": "scalar"
+                  },
+                  "admin_disclaimer": {
+                    "type": "scalar"
                   }
                 }
               }
@@ -121,6 +144,26 @@
                     }
                   }
                 }
+              },
+              "enforcement_policy_information": {
+                "type": "object",
+                "properties": {
+                  "overview": {
+                    "type": "scalar"
+                  },
+                  "headline": {
+                    "type": "scalar"
+                  },
+                  "subtitle": {
+                    "type": "scalar"
+                  },
+                  "explanation": {
+                    "type": "scalar"
+                  },
+                  "admin_disclaimer": {
+                    "type": "scalar"
+                  }
+                }
               }
             }
           },
@@ -168,6 +211,26 @@
                             "type": "scalar"
                           }
                         }
+                      }
+                    }
+                  },
+                  "enforcement_policy_information": {
+                    "type": "object",
+                    "properties": {
+                      "overview": {
+                        "type": "scalar"
+                      },
+                      "headline": {
+                        "type": "scalar"
+                      },
+                      "subtitle": {
+                        "type": "scalar"
+                      },
+                      "explanation": {
+                        "type": "scalar"
+                      },
+                      "admin_disclaimer": {
+                        "type": "scalar"
                       }
                     }
                   }
@@ -253,6 +316,26 @@
                         "type": "scalar"
                       },
                       "enforcement_origin_legal_basis": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "enforcement_policy_information": {
+                    "type": "object",
+                    "properties": {
+                      "overview": {
+                        "type": "scalar"
+                      },
+                      "headline": {
+                        "type": "scalar"
+                      },
+                      "subtitle": {
+                        "type": "scalar"
+                      },
+                      "explanation": {
+                        "type": "scalar"
+                      },
+                      "admin_disclaimer": {
                         "type": "scalar"
                       }
                     }
