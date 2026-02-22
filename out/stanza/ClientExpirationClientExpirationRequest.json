@@ -1,0 +1,28 @@
+{
+  "type": "node",
+  "tag": "ib",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "client_expiration",
+      "attrs": {
+        "t": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "ClientExpiration",
+  "variant": "ClientExpirationRequest"
+}

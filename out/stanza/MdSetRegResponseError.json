@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "id"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "error",
+      "attrs": {
+        "text": {
+          "type": "string",
+          "literal": "not-authorized"
+        },
+        "code": {
+          "type": "number"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Md",
+  "variant": "SetRegResponseError"
+}

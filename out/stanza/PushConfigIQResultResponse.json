@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": null,
+  "namespace": "PushConfig",
+  "variant": "IQResultResponse"
+}

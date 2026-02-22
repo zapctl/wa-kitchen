@@ -1,0 +1,85 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_requests_action",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "participant",
+              "attrs": {
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "DomainJid",
+                    "LidUserJid",
+                    "BroadcastJid",
+                    "DeviceJid",
+                    "CallJid",
+                    "GroupJid",
+                    "StatusJid",
+                    "ChatJid",
+                    "NewsletterJid"
+                  ]
+                },
+                "phone_number": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "DomainJid",
+                    "LidUserJid",
+                    "BroadcastJid",
+                    "DeviceJid",
+                    "CallJid",
+                    "GroupJid",
+                    "StatusJid",
+                    "ChatJid",
+                    "NewsletterJid"
+                  ],
+                  "optional": true
+                },
+                "username": {
+                  "type": "string",
+                  "optional": true
+                }
+              },
+              "content": null,
+              "min": 1,
+              "max": 19999
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "MembershipRequestsActionRequest"
+}

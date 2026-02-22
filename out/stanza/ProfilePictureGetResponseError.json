@@ -1,0 +1,46 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "ProfilePicture:IQErrorBadRequest"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorFeatureNotImplemented"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorItemNotFound"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "ProfilePicture:IQErrorServiceUnavailable"
+        }
+      ]
+    }
+  ],
+  "namespace": "ProfilePicture",
+  "variant": "GetResponseError"
+}

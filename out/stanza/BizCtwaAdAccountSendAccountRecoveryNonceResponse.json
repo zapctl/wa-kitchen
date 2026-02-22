@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "tag": "Result",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "status",
+      "attrs": {},
+      "content": {
+        "type": "string",
+        "as": "binary",
+        "enum": [
+          "Fail",
+          "Success"
+        ]
+      }
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "SendAccountRecoveryNonceResponse"
+}

@@ -1,0 +1,38 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "result",
+      "attrs": {
+        "status": {
+          "type": "string",
+          "literal": "Success"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizAccessToken",
+  "variant": "RequestSilentNonceResponseSuccess"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "9880997548630971",
+  "name": "MexDemoteNewsletterAdminJob",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      },
+      "user_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_admin_demote": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}

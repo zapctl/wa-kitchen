@@ -1,0 +1,25 @@
+{
+  "type": "node",
+  "tag": "messages",
+  "attrs": {
+    "jid": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "NewsletterJid"
+      ]
+    },
+    "t": {
+      "optional": true,
+      "type": "number",
+      "min": 0
+    }
+  },
+  "content": [
+    {
+      "$ref": "Newsletters:NewsletterMessageHistoryWithAddOns"
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterMessageResponsePayload"
+}

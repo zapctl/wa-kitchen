@@ -1,0 +1,38 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attrs": {
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "CallJid",
+        "DeviceJid",
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DeviceJid",
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "call"
+    },
+    "error": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Voip",
+  "variant": "CallAckBase"
+}

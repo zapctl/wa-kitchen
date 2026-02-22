@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "WAMOSub"
+}

@@ -1,0 +1,127 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "literal": "g.us",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Groups",
+      "variant": "DedupAttrs",
+      "type": "union",
+      "unions": [
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "s_o_pn": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ],
+              "optional": true
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "SubjectOwnerPhoneNumber"
+        },
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "s_o_username": {
+              "type": "string",
+              "optional": true
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "SubjectOwnerUsername"
+        },
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "creator_pn": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ],
+              "optional": true
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "GroupCreatorPhoneNumber"
+        },
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "creator_username": {
+              "type": "string",
+              "optional": true
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "GroupCreatorUsername"
+        },
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "creator_country_code": {
+              "type": "string",
+              "optional": true
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "GroupCreatorCountryCode"
+        },
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "subject": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "NamedSubject"
+        },
+        {
+          "type": "node",
+          "tag": "",
+          "attrs": {
+            "subject": {
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "content": null,
+          "namespace": "Groups",
+          "variant": "UnnamedSubjectFallback"
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateResponseSuccess"
+}
