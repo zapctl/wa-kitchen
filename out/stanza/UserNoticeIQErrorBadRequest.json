@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "bad-request"
+    },
+    "code": {
+      "type": "number",
+      "literal": 400
+    }
+  },
+  "content": null,
+  "namespace": "UserNotice",
+  "variant": "IQErrorBadRequest"
+}

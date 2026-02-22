@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "linked-groups-participants-resource-limit"
+    },
+    "code": {
+      "type": "number",
+      "literal": 412
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "IQErrorParentLinkedGroupsParticipantsResourceLimit"
+}

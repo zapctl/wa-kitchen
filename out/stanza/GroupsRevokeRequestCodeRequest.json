@@ -1,0 +1,50 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "revoke",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "participant",
+          "attrs": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "LidUserJid"
+              ]
+            }
+          },
+          "content": null,
+          "min": 1,
+          "max": 1000
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "RevokeRequestCodeRequest"
+}

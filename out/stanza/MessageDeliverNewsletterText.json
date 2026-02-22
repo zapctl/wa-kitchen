@@ -1,0 +1,28 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "$ref": "MessageDeliver:Payload"
+    },
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterText"
+}

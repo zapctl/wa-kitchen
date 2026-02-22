@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "forbidden"
+    },
+    "code": {
+      "type": "number",
+      "literal": 403
+    }
+  },
+  "content": null,
+  "namespace": "BizCtwaAdAccount",
+  "variant": "IQErrorForbidden"
+}

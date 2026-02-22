@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "internal-server-error"
+    },
+    "code": {
+      "type": "number",
+      "literal": 500
+    }
+  },
+  "content": null,
+  "namespace": "ProfilePicture",
+  "variant": "IQErrorInternalServerError"
+}

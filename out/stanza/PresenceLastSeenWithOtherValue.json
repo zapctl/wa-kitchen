@@ -1,0 +1,28 @@
+{
+  "type": "node",
+  "tag": "presence",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "unavailable"
+    },
+    "last": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "deny",
+        "error",
+        "none"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Presence",
+  "variant": "LastSeenWithOtherValue"
+}

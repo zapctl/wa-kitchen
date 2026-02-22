@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "tag": "localisation_metadata",
+  "attrs": {
+    "uid": {
+      "type": "string"
+    },
+    "translation_project": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "parameter",
+      "attrs": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "content": null,
+      "min": 0,
+      "max": 20
+    }
+  ],
+  "namespace": "BizCtwaAction",
+  "variant": "LocalisationMetadata"
+}

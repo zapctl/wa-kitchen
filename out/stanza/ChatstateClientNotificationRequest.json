@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "tag": "chatstate",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "composing",
+      "attrs": {
+        "media": {
+          "optional": true,
+          "literal": "audio"
+        }
+      },
+      "content": null,
+      "min": 0
+    }
+  ],
+  "namespace": "Chatstate",
+  "variant": "ClientNotificationRequest"
+}

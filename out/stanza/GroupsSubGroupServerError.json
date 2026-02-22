@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "group",
+  "attrs": {
+    "error": {
+      "type": "string",
+      "literal": "500"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "SubGroupServerError"
+}

@@ -1,0 +1,76 @@
+{
+  "type": "node",
+  "tag": "custom_payment_method",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "pay_on_delivery",
+        "pix_key"
+      ]
+    },
+    "country": {
+      "type": "string",
+      "optional": true
+    },
+    "created": {
+      "optional": true,
+      "type": "string"
+    },
+    "flow": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "p2m",
+        "p2p"
+      ]
+    },
+    "credential-id": {
+      "type": "string"
+    },
+    "p2p-eligible": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "p2m-eligible": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    }
+  },
+  "content": [
+    {
+      "namespace": "BrPayment",
+      "variant": "CustomPaymentMethodMetaData",
+      "type": "node",
+      "tag": "metadata_info",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "metadata",
+          "attrs": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "min": 1,
+          "max": 5
+        }
+      ]
+    }
+  ],
+  "namespace": "BrPayment",
+  "variant": "CustomPaymentMethod"
+}

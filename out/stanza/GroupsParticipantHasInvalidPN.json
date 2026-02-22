@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attrs": {
+    "error": {
+      "type": "string",
+      "literal": "404"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "ParticipantHasInvalidPN"
+}

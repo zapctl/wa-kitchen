@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_approval_request",
+      "attrs": {},
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "JoinLinkedGroupResponseGroupJoinRequestSuccess"
+}

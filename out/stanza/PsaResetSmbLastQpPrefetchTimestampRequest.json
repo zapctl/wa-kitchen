@@ -1,0 +1,39 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "psa"
+    },
+    "t": {
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "reset_smb_last_qp_prefetch_timestamp",
+      "attrs": {},
+      "content": null
+    }
+  ],
+  "namespace": "Psa",
+  "variant": "ResetSmbLastQpPrefetchTimestampRequest"
+}

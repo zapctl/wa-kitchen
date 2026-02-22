@@ -1,0 +1,48 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "urn:xmpp:whatsapp:push"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "config",
+      "attrs": {
+        "platform": {
+          "type": "string",
+          "literal": "fb"
+        },
+        "appid": {
+          "type": "string"
+        },
+        "deviceid": {
+          "type": "string"
+        },
+        "fbid": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "PushConfig",
+  "variant": "SetRequest"
+}
