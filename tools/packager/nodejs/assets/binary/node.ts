@@ -4,30 +4,36 @@ import { JID } from "../jid";
 import { BytesToInt, BytesToString, StringToBytes } from "../utils";
 
 export type XMLNodeTagName = "iq" | "message" | "presence" | (string & { _?: never });
-export type XMLNodeAttributeValue = string | JID | undefined;
-export type XMLNodeAttributes = Record<string, XMLNodeAttributeValue>;
-export type XMLNodeChildren = XMLNode[] | string | Uint8Array;
+export type XMLNodeAttribute = string | JID | undefined;
+export type XMLNodeAttributes = Record<string, XMLNodeAttribute>;
+export type XMLNodeChildren = XMLNode[] | string | Uint8Array | null;
+
+export type XMLNodeObjectAttribute = string | number | boolean | JID | undefined;
 
 export interface XMLNodeObject {
 	tagName: XMLNodeTagName;
-	attributes?: XMLNodeAttributes;
+	attributes?: Record<string, XMLNodeObjectAttribute>;
 	children?: (XMLNodeObject | XMLNode)[] | string | Uint8Array;
 }
 
 export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
-	tagName: XMLNodeTagName;
-	attributes: XMLNodeAttributes;
-	children: XMLNodeChildren;
+	tagName: XMLNodeTagName = "";
+	attributes: XMLNodeAttributes = {};
+	children: XMLNodeChildren = null;
 
 	constructor(obj?: XMLNode<T> | T | Uint8Array) {
 		if (obj instanceof XMLNode) return obj;
 		if (obj instanceof Uint8Array) return decodeFromBinary(obj);
 
 		this.tagName = obj.tagName;
-		this.attributes = obj.attributes || {};
+
+		for (const key in obj.attributes || {}) {
+			this.setAttribute(key, obj.attributes[key]);
+		}
+
 		this.children = Array.isArray(obj.children) ?
 			obj.children.map(child => new XMLNode(child)) :
-			obj.children;
+			obj.children ?? null;
 	}
 
 	appendNode<T extends XMLNodeObject = XMLNodeObject>(node: XMLNode<T> | T) {
@@ -38,7 +44,7 @@ export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 		this.children.push(node);
 	}
 
-	setAttribute(key: string, value: XMLNodeAttributeValue | undefined) {
+	setAttribute(key: string, value: XMLNodeObjectAttribute) {
 		if (value != undefined) this.attributes[key] = String(value);
 		else delete this.attributes[key];
 	}
