@@ -8,7 +8,7 @@ export type XMLNodeAttribute = string | JID | undefined;
 export type XMLNodeAttributes = Record<string, XMLNodeAttribute>;
 export type XMLNodeChildren = XMLNode[] | string | Uint8Array | null;
 
-export type XMLNodeObjectAttribute = string | number | boolean | JID | undefined;
+export type XMLNodeObjectAttribute = string | number | boolean | JID | null | undefined;
 
 export interface XMLNodeObject {
 	tagName: XMLNodeTagName;
