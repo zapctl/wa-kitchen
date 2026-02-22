@@ -1,0 +1,33 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "media"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "plaintext",
+      "attrs": {
+        "mediatype": {
+          "type": "string",
+          "literal": "url"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "rcat",
+      "attrs": {},
+      "content": {
+        "type": "binary"
+      }
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "ReceiverContentTypeMediaRCAT"
+}

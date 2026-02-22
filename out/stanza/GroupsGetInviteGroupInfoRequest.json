@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "invite",
+      "attrs": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GetInviteGroupInfoRequest"
+}

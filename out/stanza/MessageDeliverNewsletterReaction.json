@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "reaction"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "reaction",
+      "attrs": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterReaction"
+}

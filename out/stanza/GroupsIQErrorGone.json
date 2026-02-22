@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "gone"
+    },
+    "code": {
+      "type": "number",
+      "literal": 410
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "IQErrorGone"
+}

@@ -1,0 +1,37 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "literal": "g.us",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "group",
+      "attrs": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateResponseGroupAlreadyExists"
+}

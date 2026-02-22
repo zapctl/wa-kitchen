@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "subject": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "NamedSubject"
+}

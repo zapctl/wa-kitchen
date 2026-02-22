@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "tag": "chatstate",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "composing",
+      "attrs": {
+        "media": {
+          "type": "string",
+          "literal": "audio",
+          "optional": true
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Chatstate",
+  "variant": "Composing"
+}

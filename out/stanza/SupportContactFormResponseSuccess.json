@@ -1,0 +1,66 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "response",
+      "attrs": {
+        "status": {
+          "type": "string",
+          "literal": "ok"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "group_jid",
+          "attrs": {},
+          "content": {
+            "type": "string",
+            "as": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "message",
+          "attrs": {},
+          "content": {
+            "type": "string",
+            "as": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "ticket_id",
+          "attrs": {},
+          "content": {
+            "type": "string",
+            "as": "binary"
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "Support",
+  "variant": "ContactFormResponseSuccess"
+}

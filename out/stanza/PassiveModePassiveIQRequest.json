@@ -1,0 +1,33 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "passive"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "passive",
+      "attrs": {},
+      "content": null
+    }
+  ],
+  "namespace": "PassiveMode",
+  "variant": "PassiveIQRequest"
+}

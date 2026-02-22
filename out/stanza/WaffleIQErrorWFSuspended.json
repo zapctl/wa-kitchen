@@ -1,0 +1,33 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "wf-suspended"
+    },
+    "code": {
+      "type": "number",
+      "literal": 484
+    },
+    "ndc": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "false",
+        "true"
+      ]
+    },
+    "npr": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "false",
+        "true"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Waffle",
+  "variant": "IQErrorWFSuspended"
+}

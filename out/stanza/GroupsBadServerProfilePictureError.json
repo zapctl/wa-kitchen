@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attrs": {
+    "status": {
+      "type": "string",
+      "literal": "500"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "BadServerProfilePictureError"
+}
