@@ -87,11 +87,16 @@ function serializeContent(namespace, spec, level) {
 
             const attrsType = serializeAttributes(spec.attrs, level + 1);
             const contentType = serializeContent(namespace, spec.content, level + 1);
+            const childrenOptional = (Array.isArray(spec.content) ?
+                spec.content.every(child => child.min === 0) :
+                spec.content?.min === 0) ? "?" : "";
 
             let output = `{\n`;
             if (spec.tag) output += `${indentInner}tagName: "${spec.tag}";\n`;
             if (attrsType) output += `${indentInner}attributes: ${attrsType};\n`;
-            if (contentType) output += `${indentInner}children: ${contentType};\n`;
+            if (contentType) output += `${indentInner}children${childrenOptional}: ${contentType};\n`;
+            if (spec.min != null) output += `readonly __min: ${spec.min};\n`;
+            if (spec.max != null) output += `readonly __max: ${spec.max};\n`;
             output += `${indent}}`;
             return output;
         }
@@ -153,14 +158,9 @@ function serializeSpec(namespace, spec, level = 0) {
 
     switch (spec.type) {
         case "node": {
-            const attrsType = serializeAttributes(spec.attrs, level + 1);
-            const contentType = serializeContent(namespace, spec.content, level + 1);
+            let output = `${indent}export interface ${spec.variant} `;
+            output += serializeContent(namespace, { ...spec, variant: undefined }, level + 1);
 
-            let output = `${indent}export interface ${spec.variant} {\n`;
-            if (spec.tag) output += `${indentInner}tagName: "${spec.tag}";\n`;
-            if (attrsType) output += `${indentInner}attributes: ${attrsType};\n`;
-            if (contentType) output += `${indentInner}children: ${contentType};\n`;
-            output += `${indent}}`;
             return output;
         }
         case "union": {

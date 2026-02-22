@@ -219,6 +219,21 @@ function mergeStanzas(...nodes) {
         const existingMetadata = existentNode[METADATA_SYMBOL] || {};
         const nodeMetadata = node[METADATA_SYMBOL] || {};
 
+        if (existingMetadata.isOptionalMerge) {
+            if (node.attrs) assignMetadata(node, {
+                attrs: Object.keys(node.attrs).reduce((attrs, attrName) => {
+                    attrs[attrName] = { optional: true };
+                    return attrs;
+                }, {}),
+            });
+
+            if (Array.isArray(node.content)) node.content.forEach(child => {
+                assignMetadata(child, { min: 0 });
+            });
+
+            delete existingMetadata.isOptionalMerge;
+        }
+
         const mergedAttrs = {
             ...existentNode.attrs || {},
             ...node.attrs || {},
@@ -764,6 +779,15 @@ function createModuleMetadataProxy(targetModule) {
                 case "mergeStanzas":
                     return (a, b) => mergeStanzas(a, b)[0];
 
+                case "optionalMerge":
+                    return (mixin, nodeBase, mixinArgs, defaultValue) => {
+                        assignMetadata(nodeBase, {
+                            isOptionalMerge: true,
+                        });
+
+                        return originalValue(mixin, nodeBase, mixinArgs, defaultValue);
+                    }
+
                 default:
                     return originalValue;
             }
@@ -1135,8 +1159,8 @@ function convertToSchema(stanza) {
 
     if (metadata.namespace) schema.namespace = metadata.namespace;
     if (metadata.variant) schema.variant = metadata.variant;
-    if (metadata.min) schema.min = metadata.min;
-    if (metadata.max) schema.max = metadata.max;
+    if (metadata.min != null) schema.min = metadata.min;
+    if (metadata.max != null) schema.max = metadata.max;
 
     if (Array.isArray(stanza.content)) {
         const children = stanza.content.map(convertToSchema);
@@ -1291,7 +1315,7 @@ function getAllModulesSchemas() {
         modules.forEach((mod, i) => {
             // if (![
             //     "ProfilePictureGetRequest",
-            //     "ChatstateServerNotificationRequest"
+            //     // "ChatstateServerNotificationRequest"
             // ].includes(mod.moduleName)) return;
             // if (createModuleName(mod).namespace !== "Md") return;
 
