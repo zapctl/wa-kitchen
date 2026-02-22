@@ -16,12 +16,16 @@ export interface XMLNodeObject {
 	children?: (XMLNodeObject | XMLNode)[] | string | Uint8Array;
 }
 
+export type WithOptionalId<T extends XMLNodeObject> = T['attributes'] extends { id: infer I } ?
+	Omit<T, 'attributes'> & { attributes: Omit<T['attributes'], 'id'> & { id?: I } } :
+	T;
+
 export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 	tagName: XMLNodeTagName = "";
 	attributes: XMLNodeAttributes = {};
 	children: XMLNodeChildren = null;
 
-	constructor(obj?: XMLNode<T> | T | Uint8Array) {
+	constructor(obj?: XMLNode<WithOptionalId<T>> | WithOptionalId<T> | Uint8Array) {
 		if (obj instanceof XMLNode) return obj;
 		if (obj instanceof Uint8Array) return decodeFromBinary(obj);
 
@@ -36,7 +40,9 @@ export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 			obj.children ?? null;
 	}
 
-	appendNode<T extends XMLNodeObject = XMLNodeObject>(node: XMLNode<T> | T) {
+	appendNode<T extends XMLNodeObject = XMLNodeObject>(
+		node: XMLNode<WithOptionalId<T>> | WithOptionalId<T>
+	) {
 		if (typeof node === "object") node = new XMLNode(node);
 		if (!(node instanceof XMLNode)) throw new Error("invalid xml node");
 
