@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "report",
+      "attrs": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "ReportId"
+}

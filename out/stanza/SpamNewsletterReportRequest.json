@@ -1,0 +1,277 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "spam"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "spam_list",
+      "attrs": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "DomainJid",
+            "LidUserJid",
+            "BroadcastJid",
+            "DeviceJid",
+            "CallJid",
+            "GroupJid",
+            "StatusJid",
+            "ChatJid",
+            "NewsletterJid"
+          ]
+        },
+        "spam_flow": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "message",
+          "attrs": {
+            "from": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "DomainJid",
+                "LidUserJid",
+                "BroadcastJid",
+                "DeviceJid",
+                "CallJid",
+                "GroupJid",
+                "StatusJid",
+                "ChatJid",
+                "NewsletterJid"
+              ]
+            },
+            "t": {
+              "type": "number"
+            },
+            "id": {
+              "type": "id"
+            },
+            "selected": {
+              "type": "string",
+              "optional": true
+            },
+            "unsent": {
+              "type": "string",
+              "optional": true
+            },
+            "deleted_reason": {
+              "type": "string",
+              "optional": true
+            },
+            "edit": {
+              "type": "string"
+            },
+            "participant": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "LidUserJid"
+              ]
+            },
+            "participant_type": {
+              "type": "string",
+              "optional": true
+            },
+            "server_id": {
+              "type": "number"
+            },
+            "response_server_id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "literal": "pay"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "automated",
+              "attrs": {},
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "extension_screen",
+              "attrs": {
+                "extension_id": {
+                  "type": "string"
+                },
+                "session_id": {
+                  "type": "string"
+                },
+                "t": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "entry_point": {
+                  "type": "string",
+                  "optional": true
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "data",
+                  "attrs": {},
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": {},
+                      "attrs": {},
+                      "content": null
+                    }
+                  ]
+                }
+              ],
+              "min": 1,
+              "max": 100
+            },
+            {
+              "type": "node",
+              "tag": "hsm",
+              "attrs": {
+                "tid": {
+                  "type": "string"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "iab",
+              "attrs": {
+                "reported_link": {
+                  "type": "string"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "meta",
+              "attrs": {
+                "biz_source": {
+                  "type": "string"
+                },
+                "placeholder_type": {
+                  "type": "string",
+                  "literal": "call"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "multicast",
+              "attrs": {},
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "pay",
+              "attrs": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string",
+                  "optional": true
+                },
+                "sender": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "LidUserJid"
+                  ],
+                  "optional": true
+                },
+                "receiver": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "LidUserJid"
+                  ],
+                  "optional": true
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "raw",
+              "attrs": {
+                "mediatype": {
+                  "type": "string",
+                  "optional": true
+                },
+                "local_message_type": {
+                  "type": "number",
+                  "optional": true
+                },
+                "v": {
+                  "type": "number"
+                },
+                "protocol_v": {
+                  "type": "number"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": {},
+                  "attrs": {},
+                  "content": null
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "url_number",
+              "attrs": {},
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "url_text",
+              "attrs": {},
+              "content": null
+            }
+          ],
+          "max": 65
+        }
+      ]
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "NewsletterReportRequest"
+}

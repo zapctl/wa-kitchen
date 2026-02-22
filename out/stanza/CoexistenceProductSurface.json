@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "product_surface": {
+      "type": "string",
+      "enum": [
+        "ai_from_meta",
+        "automation",
+        "business_platform"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Coexistence",
+  "variant": "ProductSurface"
+}

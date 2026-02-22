@@ -1,0 +1,35 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "report",
+      "attrs": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "IndividualReportResponseSuccess"
+}

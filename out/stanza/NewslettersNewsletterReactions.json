@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "reactions",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "reaction",
+          "attrs": {
+            "code": {
+              "type": "string"
+            },
+            "count": {
+              "type": "number",
+              "min": 1
+            }
+          },
+          "content": null,
+          "max": 1000
+        }
+      ]
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterReactions"
+}

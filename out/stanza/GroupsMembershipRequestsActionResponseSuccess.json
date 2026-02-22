@@ -1,0 +1,282 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "membership_requests_action",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "attrs": {},
+          "content": [
+            {
+              "namespace": "Groups",
+              "variant": "Identity",
+              "type": "union",
+              "unions": [
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumberAndUsernameAtt"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumber"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "UsernameAtt"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "400"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantNotFound"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "401"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantNotAuthorized"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "403"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantForbidden"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "404"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "MembershipRequestsActionParticipantRequestNotFound"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "408"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantTemporarilyBlocked"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "409"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantConflict"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "500"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantResourceConstraint"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "412"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantParentLinkedGroupsResourceConstraint"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "reject",
+          "attrs": {},
+          "content": [
+            {
+              "namespace": "Groups",
+              "variant": "Identity",
+              "type": "union",
+              "unions": [
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumberAndUsernameAtt"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumber"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "UsernameAtt"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "404"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "MembershipRequestsActionParticipantRequestNotFound"
+                },
+                {
+                  "type": "node",
+                  "tag": "participant",
+                  "attrs": {
+                    "error": {
+                      "type": "string",
+                      "literal": "409"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "ParticipantConflict"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "MembershipRequestsActionResponseSuccess"
+}

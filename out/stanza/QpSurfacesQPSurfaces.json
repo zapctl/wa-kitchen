@@ -1,0 +1,340 @@
+{
+  "type": "node",
+  "tag": "surfaces",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "surface",
+      "attrs": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "promotion",
+          "attrs": {
+            "id": {
+              "type": "string"
+            },
+            "instance_id": {
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "colors",
+              "attrs": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "dark",
+                  "attrs": {
+                    "background": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "highlight": {
+                      "optional": true,
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                },
+                {
+                  "type": "node",
+                  "tag": "light",
+                  "attrs": {
+                    "background": {
+                      "optional": true,
+                      "type": "string"
+                    },
+                    "highlight": {
+                      "optional": true,
+                      "type": "string"
+                    }
+                  },
+                  "content": null
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "content_attributes",
+              "attrs": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "attribute",
+                  "attrs": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "max": 50
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "header",
+              "attrs": {
+                "title": {
+                  "type": "string"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "image",
+              "attrs": {
+                "description": {
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "dark",
+                  "attrs": {},
+                  "content": {
+                    "type": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "light",
+                  "attrs": {},
+                  "content": {
+                    "type": "binary"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "primary_action",
+              "attrs": {
+                "text": {
+                  "type": "string"
+                },
+                "universal_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "deep_link": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "qp_config",
+              "attrs": {
+                "template_name": {
+                  "type": "string"
+                },
+                "start_time_seconds": {
+                  "type": "number"
+                },
+                "end_time_seconds": {
+                  "type": "number"
+                },
+                "ttl_seconds": {
+                  "type": "number"
+                },
+                "dismissable": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "force_pass": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "surface_delay_time_seconds": {
+                  "type": "number"
+                },
+                "deterministic": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "experiment_key": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "exposure_holdout": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "max_impressions": {
+                  "type": "number"
+                },
+                "impression_cooldown": {
+                  "type": "number"
+                },
+                "eligibility_duration_ms": {
+                  "type": "number"
+                },
+                "priority": {
+                  "type": "number"
+                },
+                "log_eligibility_waterfall": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "filter_rules",
+                  "attrs": {},
+                  "content": {
+                    "type": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "instance_log_data",
+                  "attrs": {},
+                  "content": {
+                    "type": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "pacing",
+                  "attrs": {},
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "promotion_config",
+                      "attrs": {
+                        "max_impressions": {
+                          "type": "number"
+                        },
+                        "max_primary_clicks": {
+                          "type": "number"
+                        },
+                        "max_secondary_clicks": {
+                          "type": "number"
+                        },
+                        "max_dismisses": {
+                          "type": "number"
+                        }
+                      },
+                      "content": null
+                    },
+                    {
+                      "type": "node",
+                      "tag": "user_info",
+                      "attrs": {
+                        "impression_count": {
+                          "type": "number"
+                        },
+                        "primary_click_count": {
+                          "type": "number"
+                        },
+                        "secondary_click_count": {
+                          "type": "number"
+                        },
+                        "dismiss_click_count": {
+                          "type": "number"
+                        }
+                      },
+                      "content": null
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "triggers",
+                  "attrs": {},
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "trigger",
+                      "attrs": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "content": null,
+                      "min": 1,
+                      "max": 50
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "secondary_action",
+              "attrs": {
+                "text": {
+                  "type": "string"
+                },
+                "universal_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "deep_link": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "text",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            },
+            {
+              "type": "node",
+              "tag": "title",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            }
+          ],
+          "max": 100
+        }
+      ],
+      "max": 100
+    }
+  ],
+  "namespace": "QpSurfaces",
+  "variant": "QPSurfaces"
+}

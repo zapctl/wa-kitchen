@@ -1,0 +1,70 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "privacy",
+      "attrs": {
+        "addressing_mode": {
+          "type": "string",
+          "literal": "pn",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "list",
+          "attrs": {
+            "dhash": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "user",
+              "attrs": {
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                },
+                "lid": {
+                  "optional": true,
+                  "type": "jid",
+                  "jidTypes": [
+                    "LidUserJid"
+                  ]
+                }
+              },
+              "content": null,
+              "max": 64000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Privacy",
+  "variant": "GetContactBlacklistResponseSuccess"
+}

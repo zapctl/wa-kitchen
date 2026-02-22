@@ -1,0 +1,46 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:comms"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "event",
+      "attrs": {
+        "promotion_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "timestamp_sec": {
+          "type": "number"
+        },
+        "logdata": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "InAppComms",
+  "variant": "EventRequest"
+}

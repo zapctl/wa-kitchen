@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "picture",
+  "attrs": {
+    "status": {
+      "type": "string",
+      "literal": "405"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "BadLinkedGroupProfilePictureError"
+}

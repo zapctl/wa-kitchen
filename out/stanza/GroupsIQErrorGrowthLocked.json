@@ -1,0 +1,33 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "growth-locked"
+    },
+    "code": {
+      "type": "number",
+      "literal": 436
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "growth_locked",
+      "attrs": {
+        "type": {
+          "type": "string",
+          "literal": "invite"
+        },
+        "expiration": {
+          "type": "number",
+          "min": 0
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "IQErrorGrowthLocked"
+}

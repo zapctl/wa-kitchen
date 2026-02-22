@@ -1,0 +1,83 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Waffle",
+      "variant": "GetCertificateResponse",
+      "type": "node",
+      "tag": "reply",
+      "attrs": {
+        "timestamp": {
+          "type": "number",
+          "min": 1
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "encryption_pem",
+          "attrs": {
+            "ttl": {
+              "type": "number",
+              "min": 1
+            }
+          },
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 4092
+          }
+        },
+        {
+          "type": "node",
+          "tag": "signature_pem",
+          "attrs": {
+            "ttl": {
+              "type": "number",
+              "min": 1
+            }
+          },
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 4092
+          }
+        },
+        {
+          "type": "node",
+          "tag": "password_pem",
+          "attrs": {
+            "ttl": {
+              "type": "number",
+              "min": 1
+            },
+            "key_id": {
+              "type": "number",
+              "min": 1
+            }
+          },
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 4092
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "Waffle",
+  "variant": "GetCertificateResponseSuccess"
+}

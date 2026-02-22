@@ -1,0 +1,66 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "newsletter"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "question_responses",
+      "attrs": {
+        "server_id": {
+          "type": "number"
+        },
+        "count": {
+          "type": "number"
+        },
+        "before": {
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "filters",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "contacts",
+              "attrs": {},
+              "content": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterResponsesRequest"
+}

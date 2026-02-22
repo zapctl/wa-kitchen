@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "config-mismatch"
+    },
+    "code": {
+      "type": "number",
+      "literal": 453
+    }
+  },
+  "content": null,
+  "namespace": "Account",
+  "variant": "IQErrorConfigMismatch"
+}

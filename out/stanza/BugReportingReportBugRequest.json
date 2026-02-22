@@ -1,0 +1,154 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "fb:thrift_iq"
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "LidUserJid"
+      ],
+      "optional": true
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "category",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "client_server_join_key",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "debug_information_json",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "description",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "device_log_handle",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "media",
+      "attrs": {
+        "iv": {
+          "type": "string"
+        },
+        "cipherKey": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ],
+      "max": 10
+    },
+    {
+      "type": "node",
+      "tag": "reproducibility",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "title",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": {},
+          "attrs": {},
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "BugReporting",
+  "variant": "ReportBugRequest"
+}

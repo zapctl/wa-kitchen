@@ -1,0 +1,67 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "demote",
+      "attrs": {},
+      "content": [
+        {
+          "namespace": "Groups",
+          "variant": "PhoneNumber",
+          "type": "node",
+          "tag": "participant",
+          "attrs": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "error": {
+              "optional": true,
+              "type": "string",
+              "enum": [
+                "404",
+                "406"
+              ]
+            },
+            "phone_number": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "max": 1024
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "PromoteDemoteResponseSuccessDemote"
+}

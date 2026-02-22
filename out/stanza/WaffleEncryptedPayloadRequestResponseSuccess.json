@@ -1,0 +1,91 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Waffle",
+      "variant": "RSAEncryptionMetadata",
+      "type": "node",
+      "tag": "encryption_metadata",
+      "attrs": {
+        "version": {
+          "type": "string",
+          "literal": "1"
+        },
+        "algorithm": {
+          "type": "string",
+          "literal": "rsa2048"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "encrypted_key",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 2048
+          }
+        },
+        {
+          "type": "node",
+          "tag": "nonce",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 128
+          }
+        },
+        {
+          "type": "node",
+          "tag": "encrypted_data",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 8192
+          }
+        },
+        {
+          "type": "node",
+          "tag": "auth_tag",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 1,
+            "max": 128
+          }
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "tag": "wf_deleted",
+      "attrs": {},
+      "content": {
+        "type": "string",
+        "as": "binary",
+        "enum": [
+          "false",
+          "true"
+        ]
+      }
+    }
+  ],
+  "namespace": "Waffle",
+  "variant": "EncryptedPayloadRequestResponseSuccess"
+}

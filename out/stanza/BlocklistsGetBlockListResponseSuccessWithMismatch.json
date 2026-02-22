@@ -1,0 +1,63 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "attrs": {
+        "dhash": {
+          "optional": true,
+          "type": "string"
+        },
+        "addressing_mode": {
+          "type": "string",
+          "literal": "pn",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "namespace": "Blocklists",
+          "variant": "DisplayName",
+          "type": "node",
+          "tag": "item",
+          "attrs": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid"
+              ]
+            },
+            "lid": {
+              "optional": true,
+              "type": "jid",
+              "jidTypes": [
+                "LidUserJid"
+              ]
+            },
+            "display_name": {
+              "type": "string"
+            }
+          },
+          "content": null,
+          "max": 64000
+        }
+      ]
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "GetBlockListResponseSuccessWithMismatch"
+}

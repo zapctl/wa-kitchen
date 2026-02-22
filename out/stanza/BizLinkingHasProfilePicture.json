@@ -1,0 +1,34 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "profile_picture",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "bytes",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 0
+          }
+        },
+        {
+          "type": "node",
+          "tag": "url",
+          "attrs": {},
+          "content": {
+            "type": "string",
+            "as": "binary"
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "HasProfilePicture"
+}

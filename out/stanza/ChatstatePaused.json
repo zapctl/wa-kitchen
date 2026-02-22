@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "tag": "chatstate",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "paused",
+      "attrs": {},
+      "content": null
+    }
+  ],
+  "namespace": "Chatstate",
+  "variant": "Paused"
+}

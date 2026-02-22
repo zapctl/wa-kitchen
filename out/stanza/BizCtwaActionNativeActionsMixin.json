@@ -1,0 +1,30 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "native_action",
+      "attrs": {
+        "platform": {
+          "type": "string"
+        },
+        "min_app_version": {
+          "type": "string"
+        },
+        "local_link": {
+          "type": "string"
+        },
+        "universal_link": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": null,
+      "max": 50
+    }
+  ],
+  "namespace": "BizCtwaAction",
+  "variant": "NativeActions"
+}

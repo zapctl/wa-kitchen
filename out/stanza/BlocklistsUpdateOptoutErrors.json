@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "not-acceptable"
+    },
+    "code": {
+      "type": "number",
+      "literal": 406
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "field",
+      "attrs": {
+        "name": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "UpdateOptoutErrors"
+}

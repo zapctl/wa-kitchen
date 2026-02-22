@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attrs": {
+    "error": {
+      "type": "string",
+      "literal": "500"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "ParticipantResourceConstraint"
+}

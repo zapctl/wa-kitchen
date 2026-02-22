@@ -1,0 +1,56 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "admin",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "promote",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "participant",
+              "attrs": {
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "LidUserJid"
+                  ]
+                }
+              },
+              "content": null,
+              "max": 1024
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "PromoteDemoteAdminRequest"
+}

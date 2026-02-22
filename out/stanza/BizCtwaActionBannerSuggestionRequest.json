@@ -1,0 +1,286 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "business"
+    },
+    "t": {
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "ctwa_suggestion",
+      "attrs": {
+        "target_entity_id": {
+          "type": "string"
+        }
+      },
+      "content": [
+        {
+          "namespace": "BizCtwaAction",
+          "variant": "NativeActions",
+          "type": "node",
+          "tag": "banner",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "config",
+              "attrs": {
+                "expires_at": {
+                  "type": "number",
+                  "min": 1
+                },
+                "display": {
+                  "type": "string",
+                  "enum": [
+                    "info",
+                    "warning"
+                  ]
+                },
+                "revoked": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "content",
+              "attrs": {
+                "locale": {
+                  "type": "string"
+                }
+              },
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "heading",
+                  "attrs": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "body",
+                  "attrs": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "highlight",
+                  "attrs": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "localised_heading",
+                  "attrs": {
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "localisation_metadata",
+                      "attrs": {
+                        "uid": {
+                          "type": "string"
+                        },
+                        "translation_project": {
+                          "type": "string"
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "node",
+                          "tag": "parameter",
+                          "attrs": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "content": null,
+                          "max": 20
+                        }
+                      ],
+                      "namespace": "BizCtwaAction",
+                      "variant": "LocalisationMetadata"
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "localised_body",
+                  "attrs": {
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "localisation_metadata",
+                      "attrs": {
+                        "uid": {
+                          "type": "string"
+                        },
+                        "translation_project": {
+                          "type": "string"
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "node",
+                          "tag": "parameter",
+                          "attrs": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "content": null,
+                          "max": 20
+                        }
+                      ],
+                      "namespace": "BizCtwaAction",
+                      "variant": "LocalisationMetadata"
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "tag": "localised_highlight",
+                  "attrs": {
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "content": [
+                    {
+                      "type": "node",
+                      "tag": "localisation_metadata",
+                      "attrs": {
+                        "uid": {
+                          "type": "string"
+                        },
+                        "translation_project": {
+                          "type": "string"
+                        }
+                      },
+                      "content": [
+                        {
+                          "type": "node",
+                          "tag": "parameter",
+                          "attrs": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "content": null,
+                          "max": 20
+                        }
+                      ],
+                      "namespace": "BizCtwaAction",
+                      "variant": "LocalisationMetadata"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "action",
+              "attrs": {
+                "deep_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "local_link": {
+                  "optional": true,
+                  "type": "string"
+                },
+                "local_android_link": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "native_action",
+              "attrs": {
+                "platform": {
+                  "type": "string"
+                },
+                "min_app_version": {
+                  "type": "string"
+                },
+                "local_link": {
+                  "type": "string"
+                },
+                "universal_link": {
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "content": null,
+              "max": 50
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "BizCtwaAction",
+  "variant": "BannerSuggestionRequest"
+}

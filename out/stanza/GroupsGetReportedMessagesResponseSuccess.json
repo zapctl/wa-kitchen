@@ -1,0 +1,49 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "reports",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "report",
+          "attrs": {
+            "message_id": {
+              "type": "id"
+            }
+          },
+          "content": [
+            {
+              "$ref": "Groups:Identity"
+            }
+          ],
+          "max": 10000
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GetReportedMessagesResponseSuccess"
+}

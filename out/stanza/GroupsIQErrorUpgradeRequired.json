@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "upgrade-required"
+    },
+    "code": {
+      "type": "number",
+      "literal": 426
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "IQErrorUpgradeRequired"
+}

@@ -1,0 +1,59 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "namespace": "Blocklists",
+      "variant": "IQErrorNotAcceptable",
+      "type": "node",
+      "tag": "error",
+      "attrs": {
+        "addressing_mode": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "lid",
+            "pn"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "literal": "not-acceptable"
+        },
+        "code": {
+          "type": "number",
+          "literal": 406
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "field",
+          "attrs": {
+            "name": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "UpdateBlockListResponseInvalidRequest"
+}

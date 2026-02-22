@@ -1,0 +1,57 @@
+{
+  "type": "node",
+  "tag": "fb_page",
+  "attrs": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "ad_status",
+      "attrs": {
+        "has_created_ad": {
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        },
+        "has_active_ctwa_ad": {
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "display_name",
+      "attrs": {},
+      "content": {
+        "type": "string",
+        "as": "binary"
+      }
+    },
+    {
+      "type": "node",
+      "tag": "profile_sync",
+      "attrs": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "disable",
+            "import"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "FBPageResponseBase"
+}

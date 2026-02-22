@@ -1,0 +1,93 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "namespace": "Groups",
+      "variant": "GetMembershipApprovalRequestsRequestorFetch",
+      "type": "node",
+      "tag": "membership_approval_requests",
+      "attrs": {
+        "requestor_fetch": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": [
+        {
+          "type": "union",
+          "unions": [
+            {
+              "type": "node",
+              "tag": "",
+              "attrs": {
+                "phone_number": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "PhoneNumberAndUsernameAtt"
+            },
+            {
+              "type": "node",
+              "tag": "",
+              "attrs": {
+                "phone_number": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "PhoneNumber"
+            },
+            {
+              "type": "node",
+              "tag": "",
+              "attrs": {
+                "username": {
+                  "type": "string"
+                }
+              },
+              "content": null,
+              "namespace": "Groups",
+              "variant": "UsernameAtt"
+            }
+          ],
+          "namespace": "Groups",
+          "variant": "GetMembershipApprovalRequestsMembershipApprovalRequest"
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GetMembershipApprovalRequestsResponseSuccess"
+}

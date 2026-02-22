@@ -1,0 +1,22 @@
+{
+  "id": "9892367127524985",
+  "name": "MexLidChangeNotification",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_notify_lid_change": {
+        "type": "object",
+        "properties": {
+          "old": {
+            "type": "scalar"
+          },
+          "new": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}
