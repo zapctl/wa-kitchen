@@ -2,6 +2,7 @@ import { BytesEquals, StringToBytes } from "../utils";
 
 namespace SHA512 {
 	const ALGORITHM = "SHA-512";
+	export const HashLen = 64;
 
 	export async function Hash(data: Uint8Array | string) {
 		if (typeof data === "string") data = StringToBytes(data);
@@ -30,8 +31,6 @@ namespace SHA512 {
 
 		return BytesEquals(hmac, calculatedHmac);
 	}
-
-	export const HashLen = 64;
 }
 
 export default SHA512;

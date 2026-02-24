@@ -1,7 +1,9 @@
+import { webcrypto } from "node:crypto";
 import { BytesEquals, StringToBytes } from "../utils";
 
 namespace SHA256 {
 	const ALGORITHM = "SHA-256";
+	export const HashLen = 32;
 
 	export async function Hash(data: Uint8Array | string) {
 		if (typeof data === "string") data = StringToBytes(data);
@@ -95,8 +97,6 @@ namespace SHA256 {
 
 		return output.subarray(0, length);
 	}
-
-	export const HashLen = 32;
 }
 
 export default SHA256;
