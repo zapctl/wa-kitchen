@@ -1,0 +1,23 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "$ref": "Blocklists:IQErrorFeatureNotImplemented"
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "UpdateOptOutListResponseServerError"
+}

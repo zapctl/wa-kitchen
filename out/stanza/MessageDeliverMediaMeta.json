@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "contenttype": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "MediaMeta"
+}

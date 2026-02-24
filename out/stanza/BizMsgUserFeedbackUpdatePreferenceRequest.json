@@ -1,0 +1,48 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:biz:msg_feedback"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "user_feedback",
+      "attrs": {
+        "action": {
+          "type": "string"
+        },
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "LidUserJid"
+          ]
+        },
+        "feedback": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizMsgUserFeedback",
+  "variant": "UpdatePreferenceRequest"
+}

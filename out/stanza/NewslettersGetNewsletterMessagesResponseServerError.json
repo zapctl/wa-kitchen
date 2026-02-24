@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "$ref": "Newsletters:IQErrorInternalServerError"
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "GetNewsletterMessagesResponseServerError"
+}

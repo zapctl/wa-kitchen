@@ -1,0 +1,75 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "get"
+    },
+    "id": {
+      "type": "id"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "encrypt"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "key_fetch",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "user",
+          "attrs": {
+            "jid": {
+              "type": "jid",
+              "jidTypes": [
+                "UserJid",
+                "DomainJid",
+                "LidUserJid",
+                "BroadcastJid",
+                "DeviceJid",
+                "CallJid",
+                "GroupJid",
+                "StatusJid",
+                "ChatJid",
+                "NewsletterJid"
+              ]
+            },
+            "reason": {
+              "optional": true,
+              "literal": "identity"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "device",
+              "attrs": {
+                "id": {
+                  "type": "number"
+                }
+              },
+              "content": null,
+              "min": 0,
+              "max": 100
+            }
+          ],
+          "min": 1,
+          "max": 100000
+        }
+      ]
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchMissingPreKeysRequest"
+}

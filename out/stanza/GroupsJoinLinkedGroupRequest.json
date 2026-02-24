@@ -1,0 +1,44 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "join_linked_group",
+      "attrs": {
+        "type": {
+          "type": "string",
+          "optional": true
+        },
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "JoinLinkedGroupRequest"
+}

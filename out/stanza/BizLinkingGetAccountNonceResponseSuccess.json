@@ -1,0 +1,60 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "detail",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "nonce",
+          "attrs": {},
+          "content": {
+            "type": "string",
+            "as": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "request",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "id",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            }
+          ],
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "GetAccountNonceResponseSuccess"
+}

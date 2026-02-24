@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "false",
+        "notset",
+        "true"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "BizSettings",
+  "variant": "SmbDataSharingSettingValue"
+}
