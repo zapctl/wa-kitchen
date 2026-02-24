@@ -1,0 +1,29 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "poll"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "polltype": {
+          "type": "string",
+          "literal": "quiz_creation"
+        },
+        "contenttype": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "ContentTypeQuizCreation"
+}

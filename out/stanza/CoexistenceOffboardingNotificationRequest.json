@@ -1,0 +1,86 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "hosted"
+    },
+    "t": {
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "namespace": "Coexistence",
+      "variant": "ProviderInfo",
+      "type": "node",
+      "tag": "offboarding",
+      "attrs": {
+        "product_surface": {
+          "type": "string",
+          "enum": [
+            "ai_from_meta",
+            "automation",
+            "business_platform"
+          ]
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "provider_info",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "logo_url",
+              "attrs": {},
+              "content": {
+                "type": "binary"
+              },
+              "min": 0
+            },
+            {
+              "type": "node",
+              "tag": "name",
+              "attrs": {},
+              "content": {
+                "type": "binary"
+              },
+              "min": 0
+            },
+            {
+              "type": "node",
+              "tag": "id",
+              "attrs": {},
+              "content": {
+                "type": "number",
+                "as": "binary"
+              },
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Coexistence",
+  "variant": "OffboardingNotificationRequest"
+}

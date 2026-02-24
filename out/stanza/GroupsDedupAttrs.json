@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "key": {
+      "type": "string"
+    },
+    "create_ctx": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "e2ee_migration",
+        "regular",
+        "rtc"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "DedupAttrs"
+}

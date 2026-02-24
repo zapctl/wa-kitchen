@@ -1,0 +1,53 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:biz"
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "LidUserJid"
+      ],
+      "optional": true
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "features",
+      "attrs": {
+        "meta_verified": {
+          "type": "string",
+          "optional": true
+        },
+        "marketing_messages": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizMarketingMessage",
+  "variant": "GetBusinessEligibilityRequest"
+}

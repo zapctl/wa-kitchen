@@ -1,0 +1,64 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "media",
+      "attrs": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "video"
+          ]
+        }
+      },
+      "content": null,
+      "min": 0
+    },
+    {
+      "type": "node",
+      "tag": "media_list",
+      "attrs": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "video"
+          ]
+        }
+      },
+      "content": null,
+      "min": 0,
+      "max": 10
+    }
+  ],
+  "namespace": "BizCtwaNativeAd",
+  "variant": "UploadAdMediaResponseSuccess"
+}

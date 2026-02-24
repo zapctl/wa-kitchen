@@ -1,0 +1,34 @@
+{
+  "type": "node",
+  "tag": "whatsapp_ad_identity",
+  "attrs": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "ad_status",
+      "attrs": {
+        "has_created_ad": {
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        },
+        "has_active_ctwa_ad": {
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "WhatsAppAdIdentityResponse"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "plaintext",
+  "attrs": {},
+  "content": {
+    "type": "binary",
+    "min": 1,
+    "max": 1048576
+  },
+  "namespace": "MessageDeliver",
+  "variant": "Payload"
+}

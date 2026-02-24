@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "rate-overlimit"
+    },
+    "code": {
+      "type": "number",
+      "literal": 429
+    }
+  },
+  "content": [
+    {
+      "$ref": "Groups:AddParticipantTimeOrCountRateLimitMixinGroup"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateOrAddGroupRateLimitError"
+}

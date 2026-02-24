@@ -1,0 +1,46 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Waffle:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Waffle:IQErrorFeatureNotImplemented"
+        },
+        {
+          "$ref": "Waffle:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Waffle:IQErrorNotAllowed"
+        },
+        {
+          "$ref": "Waffle:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Waffle:IQErrorRequestTimeout"
+        },
+        {
+          "$ref": "Waffle:IQErrorServiceUnavailable"
+        }
+      ]
+    }
+  ],
+  "namespace": "Waffle",
+  "variant": "GetCertificateResponseError"
+}

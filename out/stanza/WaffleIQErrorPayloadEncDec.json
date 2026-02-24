@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "payload-enc-dec-failed"
+    },
+    "code": {
+      "type": "number",
+      "literal": 480
+    }
+  },
+  "content": null,
+  "namespace": "Waffle",
+  "variant": "IQErrorPayloadEncDec"
+}

@@ -1,0 +1,64 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "set"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:pay"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "account",
+      "attrs": {
+        "action": {
+          "type": "string",
+          "literal": "create-custom-payment-method"
+        },
+        "device_id": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "literal": "BR"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "custom_payment_method",
+          "attrs": {
+            "type": {
+              "type": "string"
+            },
+            "update": {
+              "type": "string",
+              "optional": true
+            },
+            "flow": {
+              "type": "string",
+              "optional": true
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "BrPayment",
+  "variant": "CreateCustomPaymentMethodRequest"
+}

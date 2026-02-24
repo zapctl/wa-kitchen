@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "user",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "error",
+      "attrs": {
+        "text": {
+          "type": "string"
+        },
+        "code": {
+          "type": "number",
+          "min": 500,
+          "max": 599
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchKeyBundlesUserErrorFallback"
+}

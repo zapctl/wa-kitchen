@@ -1,0 +1,48 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Spam:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Spam:IQErrorFeatureNotImplemented"
+        },
+        {
+          "$ref": "Spam:IQErrorForbidden"
+        },
+        {
+          "$ref": "Spam:IQErrorInternalServerError"
+        },
+        {
+          "$ref": "Spam:IQErrorRateOverlimit"
+        },
+        {
+          "$ref": "Spam:IQErrorReportTokenValidationFail"
+        }
+      ]
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "IndividualReportResponseError"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WAWebReportProductJobMutation",
+  "name": "ReportProductJob",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_whatsapp_catalog_report_product": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

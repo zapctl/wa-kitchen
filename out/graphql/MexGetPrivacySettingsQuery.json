@@ -1,0 +1,39 @@
+{
+  "id": "25637004609323493",
+  "name": "MexGetPrivacySettings",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_fetch_wa_users": {
+        "type": "array",
+        "items": {
+          "privacy_settings": {
+            "type": "object",
+            "properties": {
+              "settings": {
+                "type": "array",
+                "items": {
+                  "feature": {
+                    "type": "scalar"
+                  },
+                  "setting": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
