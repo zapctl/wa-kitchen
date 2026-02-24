@@ -39,8 +39,13 @@ function generateMaps() {
     output += "export interface GraphQLQueryMap {\n";
     for (const spec of queries) {
         output += `\t"${spec.id}": {\n`;
+
         if (spec.input) output += `\t\tinput: ${spec.name}QueryInput;\n`;
+        else output += `\t\tinput: never;\n`;
+
         if (spec.output) output += `\t\toutput: ${spec.name}QueryOutput;\n`;
+        else output += `\t\toutput: never;\n`;
+
         output += `\t}\n`;
     }
     output += `}\n\n`;
@@ -48,8 +53,13 @@ function generateMaps() {
     output += `export interface GraphQLMutationMap {\n`;
     for (const spec of mutations) {
         output += `\t"${spec.id}": {\n`;
+
         if (spec.input) output += `\t\tinput: ${spec.name}MutationInput;\n`;
+        else output += `\t\tinput: never;\n`;
+
         if (spec.output) output += `\t\toutput: ${spec.name}MutationOutput;\n`;
+        else output += `\t\toutput: never;\n`;
+
         output += `\t}\n`;
     }
     output += `}`;
