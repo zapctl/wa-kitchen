@@ -66,9 +66,9 @@ type ValidateHierarchyInner<T, Parent extends string, Child extends string> =
 	ValidateAttrSelector<T, Parent> extends never ? never
 	: Parent extends `${infer ParentTag}[${string}]`
 	? ValidateAttrSelector<GetChildren<T, ParentTag>, Child> extends never ? never
-		: Child extends `${infer ChildTag}[${string}]` ? ChildTag : Child
+	: Child extends `${infer ChildTag}[${string}]` ? ChildTag : Child
 	: ValidateAttrSelector<GetChildren<T, Parent>, Child> extends never ? never
-		: Child extends `${infer ChildTag}[${string}]` ? ChildTag : Child;
+	: Child extends `${infer ChildTag}[${string}]` ? ChildTag : Child;
 
 // Validate hierarchy: parent>child or parent > child
 type ValidateHierarchy<T, Sel extends string> =
@@ -211,21 +211,28 @@ export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 		return String(this.attributes[key] || "");
 	}
 
-	getOptionalAttributeJid<K extends AttributeKeys<T>>(key: K): string;
-	getOptionalAttributeJid(key: string): string;
-	getOptionalAttributeJid<T extends JID>(key: any): any {
+	getAttributeJid<J extends JID, K extends AttributeKeys<T>>(key: K): J | undefined;
+	getAttributeJid<J extends JID>(key: string): J | undefined;
+	getAttributeJid(key: any): any {
 		const value = this.attributes[key];
-		if (value instanceof JID) return value as T;
+		if (value instanceof JID) return value;
 	}
 
-	getOptionalContentNodes() {
+	getAttributeNumber<K extends AttributeKeys<T>>(key: K): number | undefined;
+	getAttributeNumber(key: string): number | undefined;
+	getAttributeNumber(key: any): any {
+		const value = Number(this.attributes[key]);
+		if (!Number.isNaN(value)) return value;
+	}
+
+	getContentNodes(): XMLNode[] | undefined {
 		if (!Array.isArray(this.children)) return;
 
 		return (this.children as any[])
-			.filter(child => child instanceof XMLNode) as ChildNodesValue<T>;
+			.filter(child => child instanceof XMLNode);
 	}
 
-	getOptionalContentBuffer() {
+	getContentBuffer(): Uint8Array | undefined {
 		if (this.children instanceof Uint8Array) {
 			return this.children;
 		} else if (typeof this.children === "string") {
@@ -233,7 +240,7 @@ export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 		}
 	}
 
-	getOptionalContentString() {
+	getContentString(): string | undefined {
 		if (typeof this.children === "string") {
 			return this.children;
 		} else if (this.children instanceof Uint8Array) {
@@ -241,7 +248,7 @@ export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 		}
 	}
 
-	getOptionalContentNumber() {
+	getContentNumber(): number | undefined {
 		if (typeof this.children === "string") {
 			const numberContent = Number(this.children);
 			if (Number.isNaN(numberContent)) return undefined;
@@ -249,22 +256,6 @@ export class XMLNode<T extends XMLNodeObject = XMLNodeObject> {
 		} else if (this.children instanceof Uint8Array) {
 			return BytesToInt(this.children);
 		}
-	}
-
-	getContentNodes() {
-		return this.getOptionalContentNodes() || [] as ChildNodesValue<T>;
-	}
-
-	getContentBuffer() {
-		return this.getOptionalContentBuffer() || new Uint8Array();
-	}
-
-	getContentString() {
-		return this.getOptionalContentString() || "";
-	}
-
-	getContentNumber() {
-		return this.getOptionalContentNumber() || 0;
 	}
 
 	querySelectorAll<Sel extends AdvancedSelector<T>>(selector: Sel): XMLNode<SelectorValue<T, Sel>>[];
