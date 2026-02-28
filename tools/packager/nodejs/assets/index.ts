@@ -1,3 +1,4 @@
+
 export const WEBSOCKET_URL = "wss://web.whatsapp.com/ws/chat";
 
 export const EDGE_ROUTING_HEADER = new Uint8Array([69, 68, 0, 1]);
