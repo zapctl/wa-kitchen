@@ -1,0 +1,60 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "description",
+      "attrs": {
+        "id": {
+          "type": "string",
+          "optional": true
+        },
+        "prev": {
+          "type": "string",
+          "optional": true
+        },
+        "delete": {
+          "optional": true,
+          "literal": "true"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "body",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": {},
+              "attrs": {},
+              "content": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "SetDescriptionRequest"
+}

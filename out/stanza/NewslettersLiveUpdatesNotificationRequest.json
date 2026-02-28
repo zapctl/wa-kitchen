@@ -1,0 +1,43 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "NewsletterJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "newsletter"
+    },
+    "t": {
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "live_updates",
+      "attrs": {},
+      "content": [
+        {
+          "$ref": "Newsletters:NewsletterMessageResponsePayload"
+        }
+      ]
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "LiveUpdatesNotificationRequest"
+}

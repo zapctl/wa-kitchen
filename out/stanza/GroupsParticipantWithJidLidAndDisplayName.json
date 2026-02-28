@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attrs": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "lid": {
+      "type": "jid",
+      "jidTypes": [
+        "LidUserJid"
+      ]
+    },
+    "display_name": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "ParticipantWithJidLidAndDisplayName"
+}

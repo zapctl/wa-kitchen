@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "MessageDeliver:ContentTypeMedia"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypePollCreation"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeQuizCreation"
+    },
+    {
+      "$ref": "MessageDeliver:ContentTypeText"
+    }
+  ],
+  "namespace": "MessageDeliver",
+  "variant": "NewsletterWAMOEmpty"
+}

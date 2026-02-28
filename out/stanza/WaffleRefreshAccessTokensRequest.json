@@ -1,0 +1,36 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "waffle"
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "encryption_metadata",
+      "attrs": {},
+      "content": null
+    }
+  ],
+  "namespace": "Waffle",
+  "variant": "RefreshAccessTokensRequest"
+}

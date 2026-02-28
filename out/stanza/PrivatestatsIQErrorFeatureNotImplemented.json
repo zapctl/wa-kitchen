@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "feature-not-implemented"
+    },
+    "code": {
+      "type": "number",
+      "literal": 501
+    }
+  },
+  "content": null,
+  "namespace": "Privatestats",
+  "variant": "IQErrorFeatureNotImplemented"
+}

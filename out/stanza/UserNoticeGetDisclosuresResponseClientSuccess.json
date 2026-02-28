@@ -1,0 +1,52 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "namespace": "UserNotice",
+      "variant": "Stage",
+      "type": "node",
+      "tag": "notice",
+      "attrs": {
+        "t": {
+          "type": "number",
+          "min": 0
+        },
+        "version": {
+          "type": "number",
+          "min": 1
+        },
+        "type": {
+          "type": "number",
+          "min": 0
+        },
+        "id": {
+          "type": "number",
+          "min": 0
+        },
+        "stage": {
+          "type": "number",
+          "min": 0,
+          "max": 1000
+        }
+      },
+      "content": null,
+      "min": 0,
+      "max": null
+    }
+  ],
+  "namespace": "UserNotice",
+  "variant": "GetDisclosuresResponseClientSuccess"
+}

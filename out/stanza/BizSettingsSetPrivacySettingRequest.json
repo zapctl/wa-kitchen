@@ -1,0 +1,44 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "w:biz"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "privacy",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "smb_data_sharing_with_meta_consent",
+          "attrs": {},
+          "content": null,
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "namespace": "BizSettings",
+  "variant": "SetPrivacySettingRequest"
+}

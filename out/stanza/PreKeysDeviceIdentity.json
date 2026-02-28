@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "device-identity",
+      "attrs": {},
+      "content": {
+        "type": "binary"
+      }
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "DeviceIdentity"
+}

@@ -1,0 +1,59 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "md"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "link_code_companion_reg",
+      "attrs": {
+        "jid": {
+          "type": "jid",
+          "jidTypes": [
+            "UserJid",
+            "LidUserJid"
+          ]
+        },
+        "stage": {
+          "type": "string",
+          "literal": "companion_finish"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "link_code_pairing_wrapped_key_bundle",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": {},
+              "attrs": {},
+              "content": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Md",
+  "variant": "CompanionFinishRequest"
+}
