@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "wf-not-found"
+    },
+    "code": {
+      "type": "number",
+      "literal": 483
+    }
+  },
+  "content": null,
+  "namespace": "Waffle",
+  "variant": "IQErrorWFNotFound"
+}

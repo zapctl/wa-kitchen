@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "tag": "participant",
+  "attrs": {
+    "type": {
+      "optional": true,
+      "type": "string",
+      "enum": [
+        "admin",
+        "superadmin"
+      ]
+    },
+    "addressable": {
+      "type": "string",
+      "literal": "false"
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "CreateParticipantAdded"
+}

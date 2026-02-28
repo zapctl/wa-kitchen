@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "username": {
+      "type": "string"
+    }
+  },
+  "content": null,
+  "namespace": "Privacy",
+  "variant": "Username"
+}

@@ -1,0 +1,58 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "fb:thrift_iq"
+    },
+    "smax_id": {
+      "type": "number"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "LidUserJid"
+      ],
+      "optional": true
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "parameters",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "code",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": {},
+              "attrs": {},
+              "content": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "GetAccessTokenAndSessionCookiesRequest"
+}

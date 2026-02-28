@@ -1,0 +1,149 @@
+{
+  "type": "node",
+  "tag": "user",
+  "attrs": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "namespace": "PreKeys",
+      "variant": "RegistrationID",
+      "type": "node",
+      "tag": "device",
+      "attrs": {
+        "id": {
+          "type": "number",
+          "min": 0,
+          "max": 99
+        },
+        "t": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        },
+        "is_cloud_api": {
+          "type": "string",
+          "literal": "true",
+          "optional": true
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "registration",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 4,
+            "max": 4
+          }
+        },
+        {
+          "type": "number",
+          "literal": 5
+        },
+        {
+          "type": "node",
+          "tag": "identity",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          },
+          "namespace": "PreKeys",
+          "variant": "KeyData"
+        },
+        {
+          "type": "node",
+          "tag": "key",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "id",
+              "attrs": {},
+              "content": {
+                "type": "binary",
+                "min": 3,
+                "max": 3
+              },
+              "namespace": "PreKeys",
+              "variant": "KeyID"
+            },
+            {
+              "type": "node",
+              "tag": "value",
+              "attrs": {},
+              "content": {
+                "type": "binary",
+                "min": 32,
+                "max": 32
+              },
+              "namespace": "PreKeys",
+              "variant": "KeyData"
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "skey",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "id",
+              "attrs": {},
+              "content": {
+                "type": "binary",
+                "min": 3,
+                "max": 3
+              },
+              "namespace": "PreKeys",
+              "variant": "KeyID"
+            },
+            {
+              "type": "node",
+              "tag": "value",
+              "attrs": {},
+              "content": {
+                "type": "binary",
+                "min": 32,
+                "max": 32
+              },
+              "namespace": "PreKeys",
+              "variant": "KeyData"
+            },
+            {
+              "type": "node",
+              "tag": "signature",
+              "attrs": {},
+              "content": {
+                "type": "binary",
+                "min": 64,
+                "max": 64
+              }
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "tag": "device-identity",
+          "attrs": {},
+          "content": {
+            "type": "binary"
+          }
+        }
+      ],
+      "min": 1,
+      "max": 100
+    }
+  ],
+  "namespace": "PreKeys",
+  "variant": "FetchMissingPreKeysUserSuccess"
+}

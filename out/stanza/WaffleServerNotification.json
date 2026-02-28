@@ -1,0 +1,22 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attrs": {
+    "t": {
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": null,
+  "namespace": "Waffle",
+  "variant": "ServerNotification"
+}

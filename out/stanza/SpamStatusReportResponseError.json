@@ -1,0 +1,28 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid",
+        "UserJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "$ref": "Spam:IQErrorInternalServerError"
+    }
+  ],
+  "namespace": "Spam",
+  "variant": "StatusReportResponseError"
+}

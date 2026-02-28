@@ -1,0 +1,31 @@
+{
+  "enums": {
+    "NewsletterSubscriberRole": {
+      "Subscriber": "subscriber",
+      "Admin": "admin",
+      "Guest": "guest",
+      "Owner": "owner"
+    },
+    "NewsletterPrivacy": {
+      "Public": "public",
+      "Private": "private"
+    },
+    "NewsletterState": {
+      "Active": "active",
+      "Suspended": "suspended",
+      "GeoSuspended": "geosuspended"
+    },
+    "NewsletterMembershipType": {
+      "Subscriber": "subscriber",
+      "Admin": "admin",
+      "Guest": "guest",
+      "Owner": "owner"
+    },
+    "NewsletterReactions": {
+      "All": "all",
+      "Basic": "basic",
+      "Blocklist": "blocklist",
+      "None": "none"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "poll"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "polltype": {
+          "type": "string",
+          "literal": "result_snapshot"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "ContentTypePollResultSnapshot"
+}
