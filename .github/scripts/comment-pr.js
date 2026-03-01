@@ -1,5 +1,6 @@
 module.exports = async ({ github, context }) => {
-  const { sha, repo: { owner, repo } } = context;
+  const sha = process.env.COMMIT_SHA || context.sha;
+  const { repo: { owner, repo } } = context;
   const branch = process.env.BRANCH;
   const packageTag = process.env.PACKAGE_TAG;
   const packageVersion = process.env.PACKAGE_VERSION;

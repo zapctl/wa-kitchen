@@ -38,9 +38,11 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           VERSION=$(cat out/.version)
+          COMMIT_SHA=$(git rev-parse HEAD)
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "Publishing version: $VERSION"
+          echo "COMMIT_SHA=$COMMIT_SHA" >> $GITHUB_ENV
+          echo "Publishing version: $VERSION from commit $COMMIT_SHA"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
