@@ -1,0 +1,49 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "props",
+      "attrs": {
+        "ab_key": {
+          "optional": true,
+          "type": "string"
+        },
+        "hash": {
+          "optional": true,
+          "type": "string"
+        },
+        "refresh": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        },
+        "refresh_id": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        }
+      },
+      "content": [
+        {
+          "$ref": "AbProps:ExperimentOrSamplingConfigMixinGroup"
+        }
+      ]
+    }
+  ],
+  "namespace": "AbProps",
+  "variant": "GetGroupExperimentConfigResponseSuccess"
+}

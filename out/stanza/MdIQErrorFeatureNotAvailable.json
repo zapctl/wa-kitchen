@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "feature-not-available"
+    },
+    "code": {
+      "type": "number",
+      "literal": 452
+    }
+  },
+  "content": null,
+  "namespace": "Md",
+  "variant": "IQErrorFeatureNotAvailable"
+}

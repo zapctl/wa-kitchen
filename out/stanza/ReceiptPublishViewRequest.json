@@ -1,0 +1,51 @@
+{
+  "type": "node",
+  "tag": "receipt",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid",
+        "DomainJid",
+        "LidUserJid",
+        "BroadcastJid",
+        "DeviceJid",
+        "CallJid",
+        "GroupJid",
+        "StatusJid",
+        "ChatJid",
+        "NewsletterJid"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "literal": "view"
+    },
+    "id": {
+      "type": "id"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "item",
+          "attrs": {
+            "server_id": {
+              "type": "number"
+            }
+          },
+          "content": null,
+          "min": 0,
+          "max": 255
+        }
+      ]
+    }
+  ],
+  "namespace": "Receipt",
+  "variant": "PublishViewRequest"
+}

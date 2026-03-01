@@ -1,0 +1,52 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": [
+    {
+      "type": "union",
+      "unions": [
+        {
+          "$ref": "Groups:IQErrorBadRequest"
+        },
+        {
+          "$ref": "Groups:IQErrorFallbackClient"
+        },
+        {
+          "$ref": "Groups:IQErrorGone"
+        },
+        {
+          "$ref": "Groups:IQErrorGrowthLocked"
+        },
+        {
+          "$ref": "Groups:IQErrorItemNotFound"
+        },
+        {
+          "$ref": "Groups:IQErrorLocked"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAcceptable"
+        },
+        {
+          "$ref": "Groups:IQErrorNotAuthorized"
+        },
+        {
+          "$ref": "Groups:IQErrorParentGroupSuspended"
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GetInviteGroupInfoResponseClientError"
+}

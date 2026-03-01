@@ -1,0 +1,19 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Newsletters:NewsletterMedia"
+    },
+    {
+      "$ref": "Newsletters:NewsletterText"
+    },
+    {
+      "$ref": "Newsletters:NewsletterViewsCountDeprecated"
+    },
+    {
+      "$ref": "Newsletters:NewsletterViewsCountViews"
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterMessageHistoryWithAddOns"
+}

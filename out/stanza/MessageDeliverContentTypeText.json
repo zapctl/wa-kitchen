@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": null,
+  "namespace": "MessageDeliver",
+  "variant": "ContentTypeText"
+}

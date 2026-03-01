@@ -1,0 +1,32 @@
+{
+  "type": "node",
+  "tag": "Result",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "reason",
+      "attrs": {},
+      "content": {
+        "type": "string",
+        "as": "binary"
+      },
+      "min": 0
+    },
+    {
+      "type": "node",
+      "tag": "status",
+      "attrs": {},
+      "content": {
+        "type": "string",
+        "as": "binary",
+        "enum": [
+          "Fail",
+          "Success"
+        ]
+      }
+    }
+  ],
+  "namespace": "BizCtwaAdAccount",
+  "variant": "AccountRecoveryCleanupResponse"
+}

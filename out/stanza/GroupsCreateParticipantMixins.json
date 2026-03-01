@@ -1,0 +1,40 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:CreateParticipantAdded"
+    },
+    {
+      "$ref": "Groups:ParticipantBotAlreadyExists"
+    },
+    {
+      "$ref": "Groups:ParticipantBotIncompatibleVersion"
+    },
+    {
+      "$ref": "Groups:ParticipantHasInvalidPN"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAcceptable"
+    },
+    {
+      "$ref": "Groups:ParticipantNotAuthorized"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceConstraint"
+    },
+    {
+      "$ref": "Groups:ParticipantResourceLimit"
+    },
+    {
+      "$ref": "Groups:ParticipantTemporarilyBlockedFromDefaultSubGroup"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "CreateParticipant"
+}

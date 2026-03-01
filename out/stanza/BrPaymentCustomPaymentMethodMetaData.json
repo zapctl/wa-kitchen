@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "metadata",
+      "attrs": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "content": null,
+      "min": 1,
+      "max": 5
+    }
+  ],
+  "namespace": "BrPayment",
+  "variant": "CustomPaymentMethodMetaData"
+}

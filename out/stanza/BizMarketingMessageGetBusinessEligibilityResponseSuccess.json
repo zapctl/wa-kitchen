@@ -1,0 +1,76 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "marketing_messages",
+      "attrs": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "FAIL",
+            "PAUSED",
+            "SUCCESS",
+            "WARNING"
+          ]
+        },
+        "expiration": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        }
+      },
+      "content": null,
+      "min": 0
+    },
+    {
+      "type": "node",
+      "tag": "meta_verified",
+      "attrs": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "FAIL",
+            "SUCCESS"
+          ]
+        },
+        "should_show_privacy_interstitial_to_new_users": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        },
+        "additional_params": {
+          "optional": true,
+          "type": "string"
+        }
+      },
+      "content": null,
+      "min": 0
+    }
+  ],
+  "namespace": "BizMarketingMessage",
+  "variant": "GetBusinessEligibilityResponseSuccess"
+}

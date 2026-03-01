@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "linked_group",
+  "attrs": {
+    "jid": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    }
+  },
+  "content": [
+    {
+      "$ref": "Groups:GroupInfoAttributes"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "LinkedGroupInfo"
+}
