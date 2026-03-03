@@ -5,15 +5,15 @@ export enum StatusPrivacy {
 	ContactBlackList = "contact_blacklist",
 }
 
-export const LastPrivacy: VisibilityWithError = VisibilityWithError;
-export const OnlinePrivacy: OnlineVisibilityWithError = OnlineVisibilityWithError;
-export const ProfilePrivacy: VisibilityWithError = VisibilityWithError;
-export const AboutPrivacy: VisibilityWithError = VisibilityWithError;
-export const ReadReceiptsPrivacy: AllNoneWithError = AllNoneWithError;
-export const MessagesPrivacy: AllContacts = AllContacts;
-export const GroupAddPrivacy: VisibilityWithError = VisibilityWithError;
-export const CallAddPrivacy: CallAddWithError = CallAddWithError;
-export const PixPrivacy: Visibility = Visibility;
-export const LinkedProfilesPrivacy: Visibility = Visibility;
-export const StickersPrivacy: Visibility = Visibility;
-export const DefensePrivacy: DefenseModeState = DefenseModeState;
+export const LastPrivacy = VisibilityWithError;
+export const OnlinePrivacy = OnlineVisibilityWithError;
+export const ProfilePrivacy = VisibilityWithError;
+export const AboutPrivacy = VisibilityWithError;
+export const ReadReceiptsPrivacy = AllNoneWithError;
+export const MessagesPrivacy = AllContacts;
+export const GroupAddPrivacy = VisibilityWithError;
+export const CallAddPrivacy = CallAddWithError;
+export const PixPrivacy = Visibility;
+export const LinkedProfilesPrivacy = Visibility;
+export const StickersPrivacy = Visibility;
+export const DefensePrivacy = DefenseModeState;
