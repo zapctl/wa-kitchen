@@ -1,5 +1,7 @@
 import { BytesConcat } from "../../utils";
 
+export const PROTOCOL_VERSION = 3;
+export const PROTOCOL_VERSION_BYTE = (PROTOCOL_VERSION << 4) | PROTOCOL_VERSION;
 export const CURVE_KEY_TYPE = 0x05;
 
 export function CurveKeyToSignalKey(curveKey: Uint8Array) {

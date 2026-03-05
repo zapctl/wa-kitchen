@@ -1,6 +1,5 @@
 import { webcrypto } from "node:crypto";
 import { BytesConcat, RandomBytes, StringToBytes } from "../utils";
-import SHA256 from "./SHA256";
 
 namespace AES256CBC {
 	export async function Encrypt(key: Uint8Array, plainText: string | Uint8Array, iv?: Uint8Array) {
