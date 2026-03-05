@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:ParticipantHasInvalidPN"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCanBeSent"
+    },
+    {
+      "$ref": "Groups:ParticipantRequestCodeCannotBeCreatedForLegalConcerns"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "ParticipantRequestCodeCanBeSentOrRequestCodeCannotBeCreatedForLegalConcernsOrHasInvalidPNMixinGroup"
+}

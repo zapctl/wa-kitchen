@@ -1,0 +1,27 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "biz",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "pricing",
+          "attrs": {
+            "business_country_code": {
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "MessagePublish",
+  "variant": "AckPaidGroupConversation"
+}

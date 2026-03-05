@@ -1,0 +1,19 @@
+{
+  "id": "25995999653397511",
+  "name": "CanonicalUserValid",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_canonical_user_valid": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

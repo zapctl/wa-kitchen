@@ -1,0 +1,25 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Groups:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Groups:IQErrorFallbackClient"
+    },
+    {
+      "$ref": "Groups:IQErrorForbidden"
+    },
+    {
+      "$ref": "Groups:IQErrorGone"
+    },
+    {
+      "$ref": "Groups:IQErrorItemNotFound"
+    },
+    {
+      "$ref": "Groups:IQErrorRateOverlimit"
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "GetGroupInfoClientErrors"
+}

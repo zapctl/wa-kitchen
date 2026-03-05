@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "feature-limit"
+    },
+    "code": {
+      "type": "number",
+      "literal": 482
+    }
+  },
+  "content": null,
+  "namespace": "SmbMeteredMessagingAccount",
+  "variant": "IQErrorFeatureLimit"
+}

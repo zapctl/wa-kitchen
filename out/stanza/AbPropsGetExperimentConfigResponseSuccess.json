@@ -1,0 +1,92 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "erid",
+      "attrs": {},
+      "content": {
+        "type": "binary",
+        "min": 1,
+        "max": 100
+      },
+      "min": 0
+    },
+    {
+      "type": "node",
+      "tag": "props",
+      "attrs": {
+        "protocol": {
+          "type": "string",
+          "literal": "1"
+        },
+        "ab_key": {
+          "optional": true,
+          "type": "string"
+        },
+        "hash": {
+          "optional": true,
+          "type": "string"
+        },
+        "refresh": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        },
+        "refresh_id": {
+          "optional": true,
+          "type": "number",
+          "min": 0
+        },
+        "delta_update": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ]
+        }
+      },
+      "content": [
+        {
+          "namespace": "AbProps",
+          "variant": "ExperimentConfig",
+          "type": "node",
+          "tag": "prop",
+          "attrs": {
+            "config_code": {
+              "type": "number",
+              "min": 1
+            },
+            "config_value": {
+              "type": "string"
+            },
+            "config_expo_key": {
+              "optional": true,
+              "type": "number",
+              "min": 0
+            }
+          },
+          "content": null,
+          "min": 0,
+          "max": null
+        }
+      ]
+    }
+  ],
+  "namespace": "AbProps",
+  "variant": "GetExperimentConfigResponseSuccess"
+}

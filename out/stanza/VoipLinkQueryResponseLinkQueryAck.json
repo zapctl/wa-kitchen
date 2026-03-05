@@ -1,0 +1,110 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "CallJid",
+        "DeviceJid",
+        "DomainJid",
+        "UserJid"
+      ],
+      "optional": true
+    },
+    "type": {
+      "type": "string",
+      "literal": "link_query"
+    },
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DeviceJid",
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "call"
+    },
+    "error": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "link_query",
+      "attrs": {
+        "link_creator": {
+          "type": "jid",
+          "jidTypes": [
+            "DeviceJid"
+          ]
+        },
+        "link_creator_pn": {
+          "optional": true,
+          "type": "jid",
+          "jidTypes": [
+            "DeviceJid"
+          ]
+        },
+        "link_creator_username": {
+          "optional": true,
+          "type": "string"
+        },
+        "action": {
+          "optional": true,
+          "type": "string",
+          "enum": [
+            "link_edit",
+            "preview"
+          ]
+        },
+        "token": {
+          "type": "string"
+        },
+        "media": {
+          "type": "string",
+          "enum": [
+            "audio",
+            "video"
+          ]
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "event",
+          "attrs": {},
+          "content": null,
+          "min": 0
+        },
+        {
+          "type": "node",
+          "tag": "waiting_room",
+          "attrs": {
+            "is_admin": {
+              "type": "string",
+              "literal": "1",
+              "optional": true
+            },
+            "enabled": {
+              "type": "string",
+              "literal": "1"
+            }
+          },
+          "content": null,
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "namespace": "Voip",
+  "variant": "LinkQueryResponseLinkQueryAck"
+}

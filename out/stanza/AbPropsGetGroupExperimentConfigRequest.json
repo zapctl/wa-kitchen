@@ -1,0 +1,44 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "xmlns": {
+      "type": "string",
+      "literal": "abt"
+    },
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "props",
+      "attrs": {
+        "group": {
+          "type": "jid",
+          "jidTypes": [
+            "GroupJid"
+          ]
+        },
+        "hash": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "AbProps",
+  "variant": "GetGroupExperimentConfigRequest"
+}

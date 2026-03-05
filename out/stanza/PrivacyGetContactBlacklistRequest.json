@@ -1,0 +1,50 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "privacy"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "get"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "privacy",
+      "attrs": {
+        "addressing_mode": {
+          "type": "string",
+          "literal": "lid"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "list",
+          "attrs": {
+            "value": {
+              "type": "string",
+              "literal": "contact_blacklist"
+            }
+          },
+          "content": null
+        }
+      ]
+    }
+  ],
+  "namespace": "Privacy",
+  "variant": "GetContactBlacklistRequest"
+}

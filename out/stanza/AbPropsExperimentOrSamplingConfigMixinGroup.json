@@ -1,0 +1,13 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "AbProps:ExperimentConfig"
+    },
+    {
+      "$ref": "AbProps:SamplingConfig"
+    }
+  ],
+  "namespace": "AbProps",
+  "variant": "ExperimentOrSamplingConfigMixinGroup"
+}

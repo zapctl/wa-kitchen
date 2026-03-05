@@ -1,0 +1,289 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "linked_accounts",
+      "attrs": {},
+      "content": [
+        {
+          "namespace": "BizLinking",
+          "variant": "FBBizResponse",
+          "type": "node",
+          "tag": "fb_biz",
+          "attrs": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "catalog",
+              "attrs": {
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "disable",
+                    "import"
+                  ]
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "content": null,
+              "min": 0
+            },
+            {
+              "type": "node",
+              "tag": "display_name",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            }
+          ],
+          "min": 0
+        },
+        {
+          "namespace": "BizLinking",
+          "variant": "FBPageResponseBase",
+          "type": "node",
+          "tag": "fb_page",
+          "attrs": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "whatsapp_as_page_button",
+              "attrs": {
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "off",
+                    "on"
+                  ]
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "profile_sync",
+              "attrs": {
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "disable",
+                    "import"
+                  ]
+                }
+              },
+              "content": null,
+              "min": 0
+            },
+            {
+              "type": "node",
+              "tag": "display_name",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            },
+            {
+              "type": "node",
+              "tag": "ad_status",
+              "attrs": {
+                "has_created_ad": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "has_active_ctwa_ad": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                }
+              },
+              "content": null
+            },
+            {
+              "type": "node",
+              "tag": "profile_picture",
+              "attrs": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "url",
+                  "attrs": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "bytes",
+                  "attrs": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 0
+                  },
+                  "min": 0
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "show_on_profile",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary",
+                "enum": [
+                  "false",
+                  "true"
+                ]
+              }
+            }
+          ],
+          "min": 0
+        },
+        {
+          "namespace": "BizLinking",
+          "variant": "IGProfessionalResponseBase",
+          "type": "node",
+          "tag": "ig_professional",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "ig_handle",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            },
+            {
+              "type": "node",
+              "tag": "profile_picture",
+              "attrs": {},
+              "content": [
+                {
+                  "type": "node",
+                  "tag": "url",
+                  "attrs": {},
+                  "content": {
+                    "type": "string",
+                    "as": "binary"
+                  }
+                },
+                {
+                  "type": "node",
+                  "tag": "bytes",
+                  "attrs": {},
+                  "content": {
+                    "type": "binary",
+                    "min": 0
+                  },
+                  "min": 0
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "tag": "display_name",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary"
+              }
+            },
+            {
+              "type": "node",
+              "tag": "show_on_profile",
+              "attrs": {},
+              "content": {
+                "type": "string",
+                "as": "binary",
+                "enum": [
+                  "false",
+                  "true"
+                ]
+              }
+            }
+          ],
+          "min": 0
+        },
+        {
+          "namespace": "BizLinking",
+          "variant": "WhatsAppAdIdentityResponse",
+          "type": "node",
+          "tag": "whatsapp_ad_identity",
+          "attrs": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "content": [
+            {
+              "type": "node",
+              "tag": "ad_status",
+              "attrs": {
+                "has_created_ad": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "has_active_ctwa_ad": {
+                  "type": "string",
+                  "enum": [
+                    "false",
+                    "true"
+                  ]
+                }
+              },
+              "content": null
+            }
+          ],
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "GetLinkedAccountsResponseSuccess"
+}

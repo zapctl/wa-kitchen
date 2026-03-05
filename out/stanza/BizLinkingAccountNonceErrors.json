@@ -1,0 +1,16 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "BizLinking:IQErrorBadRequest"
+    },
+    {
+      "$ref": "BizLinking:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "BizLinking:IQErrorNoticeRequired"
+    }
+  ],
+  "namespace": "BizLinking",
+  "variant": "AccountNonceErrors"
+}

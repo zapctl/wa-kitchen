@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "presence",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "optional": true
+    },
+    "name": {
+      "type": "string",
+      "optional": true
+    }
+  },
+  "content": null,
+  "namespace": "Presence",
+  "variant": "AvailabilityRequest"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "reaction"
+    }
+  },
+  "content": null,
+  "namespace": "MessageDeliver",
+  "variant": "ContentTypeReaction"
+}

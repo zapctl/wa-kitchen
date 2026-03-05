@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "service-unavailable"
+    },
+    "code": {
+      "type": "number",
+      "literal": 503
+    }
+  },
+  "content": null,
+  "namespace": "BizCtwaAdAccount",
+  "variant": "IQErrorServiceUnavailable"
+}
