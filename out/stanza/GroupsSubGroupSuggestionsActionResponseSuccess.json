@@ -1,0 +1,195 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "addressing_mode": {
+      "type": "string",
+      "enum": [
+        "lid",
+        "pn"
+      ]
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "sub_group_suggestions_action",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "attrs": {},
+          "content": [
+            {
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestion",
+              "type": "node",
+              "tag": "sub_group_suggestion",
+              "attrs": {
+                "creator": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                },
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "GroupJid"
+                  ]
+                },
+                "creator_pn": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid"
+                  ]
+                },
+                "error": {
+                  "type": "string",
+                  "literal": "404"
+                }
+              },
+              "content": null,
+              "min": 1,
+              "max": 1000
+            }
+          ],
+          "min": 0
+        },
+        {
+          "type": "node",
+          "tag": "cancel",
+          "attrs": {},
+          "content": [
+            {
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestionWithoutCreator",
+              "type": "union",
+              "unions": [
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumberAndUsernameAtt"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumber"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "UsernameAtt"
+                }
+              ]
+            }
+          ],
+          "min": 0
+        },
+        {
+          "type": "node",
+          "tag": "reject",
+          "attrs": {},
+          "content": [
+            {
+              "namespace": "Groups",
+              "variant": "SubGroupSuggestion",
+              "type": "union",
+              "unions": [
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumberAndUsernameAtt"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "phone_number": {
+                      "type": "jid",
+                      "jidTypes": [
+                        "UserJid"
+                      ]
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "PhoneNumber"
+                },
+                {
+                  "type": "node",
+                  "tag": "",
+                  "attrs": {
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "content": null,
+                  "namespace": "Groups",
+                  "variant": "UsernameAtt"
+                }
+              ]
+            }
+          ],
+          "min": 0
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsActionResponseSuccess"
+}

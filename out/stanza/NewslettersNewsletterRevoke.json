@@ -1,0 +1,35 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "edit": {
+      "type": "string",
+      "literal": "8"
+    },
+    "type": {
+      "type": "string",
+      "literal": "text"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    },
+    {
+      "type": "node",
+      "tag": "plaintext",
+      "attrs": {},
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterRevoke"
+}

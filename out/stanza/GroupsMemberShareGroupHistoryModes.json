@@ -1,0 +1,12 @@
+{
+  "type": "node",
+  "tag": "member_share_group_history_mode",
+  "attrs": {},
+  "content": {
+    "type": "string",
+    "as": "binary",
+    "literal": "admin_share"
+  },
+  "namespace": "Groups",
+  "variant": "MemberShareGroupHistoryModes"
+}

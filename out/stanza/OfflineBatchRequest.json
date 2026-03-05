@@ -1,0 +1,19 @@
+{
+  "type": "node",
+  "tag": "ib",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "offline_batch",
+      "attrs": {
+        "count": {
+          "type": "number"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Offline",
+  "variant": "BatchRequest"
+}

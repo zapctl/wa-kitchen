@@ -1,0 +1,29 @@
+{
+  "id": "9096834660422734",
+  "name": "HandleStoryBumperExposure",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "bumperClass": {
+        "type": "scalar"
+      },
+      "wasHidden": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "handle_story_bumper_exposure": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "type": "node",
+  "tag": "ack",
+  "attrs": {
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "CallJid",
+        "DeviceJid",
+        "DomainJid",
+        "UserJid"
+      ],
+      "optional": true
+    },
+    "type": {
+      "type": "string",
+      "literal": "waiting_room_toggle"
+    },
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "DeviceJid",
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string",
+      "literal": "call"
+    },
+    "error": {
+      "optional": true,
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "waiting_room_toggle",
+      "attrs": {
+        "link-token": {
+          "type": "string"
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Voip",
+  "variant": "WaitingRoomToggleCallLinkResponseWaitingRoomToggleCallLinkAck"
+}

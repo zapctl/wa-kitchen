@@ -1,0 +1,26 @@
+{
+  "id": "9741612265875562",
+  "name": "QuickPromotionAction",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "wa_quick_promotion_log_event": {
+        "type": "object",
+        "properties": {
+          "client_mutation_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

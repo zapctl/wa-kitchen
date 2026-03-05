@@ -1,0 +1,35 @@
+{
+  "id": "34778300218423824",
+  "name": "FetchNativeAdsMvpEligibility",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "phone_number": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "wa_smb_native_ads_web_info": {
+        "type": "object",
+        "properties": {
+          "lifetime_native_ctwa_advertiser": {
+            "type": "scalar"
+          },
+          "webclient_l90_ad_creator": {
+            "type": "scalar"
+          },
+          "is_page_asset_linked": {
+            "type": "scalar"
+          },
+          "is_pageless_asset_linked": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

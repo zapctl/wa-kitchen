@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "views_count",
+      "attrs": {
+        "type": {
+          "type": "string",
+          "literal": "views"
+        },
+        "count": {
+          "type": "number",
+          "min": 0
+        }
+      },
+      "content": null
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterViewsCountViews"
+}

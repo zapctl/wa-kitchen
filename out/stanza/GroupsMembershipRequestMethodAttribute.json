@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "request_method": {
+      "type": "string",
+      "enum": [
+        "invite_link",
+        "linked_group_join",
+        "non_admin_add"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Groups",
+  "variant": "MembershipRequestMethodAttribute"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "optional": true,
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "error"
+    }
+  },
+  "content": null,
+  "namespace": "BizAccessToken",
+  "variant": "HackBaseIQErrorResponse"
+}

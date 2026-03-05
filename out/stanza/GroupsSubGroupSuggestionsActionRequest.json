@@ -1,0 +1,63 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "to": {
+      "type": "jid",
+      "jidTypes": [
+        "GroupJid"
+      ]
+    },
+    "xmlns": {
+      "type": "string",
+      "literal": "w:g2"
+    },
+    "id": {
+      "type": "id"
+    },
+    "type": {
+      "type": "string",
+      "literal": "set"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "sub_group_suggestions_action",
+      "attrs": {},
+      "content": [
+        {
+          "type": "node",
+          "tag": "approve",
+          "attrs": {},
+          "content": [
+            {
+              "type": "node",
+              "tag": "sub_group_suggestion",
+              "attrs": {
+                "creator": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "UserJid",
+                    "LidUserJid"
+                  ]
+                },
+                "jid": {
+                  "type": "jid",
+                  "jidTypes": [
+                    "GroupJid"
+                  ]
+                }
+              },
+              "content": null,
+              "min": 1,
+              "max": 1000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "namespace": "Groups",
+  "variant": "SubGroupSuggestionsActionRequest"
+}

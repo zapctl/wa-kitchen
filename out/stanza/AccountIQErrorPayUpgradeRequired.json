@@ -1,0 +1,17 @@
+{
+  "type": "node",
+  "tag": "error",
+  "attrs": {
+    "text": {
+      "type": "string",
+      "literal": "upgrade-required"
+    },
+    "code": {
+      "type": "number",
+      "literal": 443
+    }
+  },
+  "content": null,
+  "namespace": "Account",
+  "variant": "IQErrorPayUpgradeRequired"
+}
