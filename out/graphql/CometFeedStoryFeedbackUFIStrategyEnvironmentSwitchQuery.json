@@ -1,0 +1,37 @@
+{
+  "id": "26181354544838543",
+  "name": "CometFeedStoryFeedbackUFIStrategyEnvironmentSwitch",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "feedLocation": {
+        "type": "scalar"
+      },
+      "feedbackSource": {
+        "type": "scalar"
+      },
+      "focusCommentID": {
+        "type": "scalar"
+      },
+      "id": {
+        "type": "scalar"
+      },
+      "scale": {
+        "type": "scalar"
+      },
+      "useDefaultActor": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "node": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}

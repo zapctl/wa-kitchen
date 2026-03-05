@@ -1,0 +1,15 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {
+    "biz_opt_out_jid": {
+      "type": "jid",
+      "jidTypes": [
+        "UserJid"
+      ]
+    }
+  },
+  "content": null,
+  "namespace": "Blocklists",
+  "variant": "BizOptOutJid"
+}

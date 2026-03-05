@@ -1,0 +1,69 @@
+{
+  "type": "node",
+  "tag": "notification",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "link_code_companion_reg"
+    },
+    "from": {
+      "type": "jid",
+      "jidTypes": [
+        "DomainJid"
+      ]
+    },
+    "t": {
+      "type": "number",
+      "min": 0
+    },
+    "id": {
+      "type": "id"
+    },
+    "offline": {
+      "optional": true,
+      "type": "number",
+      "min": 0,
+      "max": 1024
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "link_code_companion_reg",
+      "attrs": {
+        "stage": {
+          "type": "string",
+          "literal": "primary_hello"
+        }
+      },
+      "content": [
+        {
+          "type": "node",
+          "tag": "link_code_pairing_ref",
+          "attrs": {},
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "link_code_pairing_wrapped_primary_ephemeral_pub",
+          "attrs": {},
+          "content": {
+            "type": "binary"
+          }
+        },
+        {
+          "type": "node",
+          "tag": "primary_identity_pub",
+          "attrs": {},
+          "content": {
+            "type": "binary"
+          }
+        }
+      ]
+    }
+  ],
+  "namespace": "Md",
+  "variant": "PrimaryHelloNotifyCompanionRequest"
+}

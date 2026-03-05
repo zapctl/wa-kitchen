@@ -1,0 +1,32 @@
+{
+  "type": "node",
+  "tag": "message",
+  "attrs": {
+    "type": {
+      "type": "string",
+      "literal": "poll"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "meta",
+      "attrs": {
+        "polltype": {
+          "type": "string",
+          "literal": "result_snapshot"
+        },
+        "is_wamo_sub": {
+          "type": "string",
+          "literal": "true"
+        }
+      },
+      "content": null
+    },
+    {
+      "$ref": "Newsletters:Payload"
+    }
+  ],
+  "namespace": "Newsletters",
+  "variant": "NewsletterPollResultSnapshot"
+}

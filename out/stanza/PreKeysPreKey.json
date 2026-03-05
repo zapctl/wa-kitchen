@@ -1,0 +1,31 @@
+{
+  "type": "node",
+  "tag": "",
+  "attrs": {},
+  "content": [
+    {
+      "type": "node",
+      "tag": "key",
+      "attrs": {},
+      "content": [
+        {
+          "namespace": "PreKeys",
+          "variant": "KeyData",
+          "type": "node",
+          "tag": "value",
+          "attrs": {},
+          "content": {
+            "type": "binary",
+            "min": 32,
+            "max": 32
+          }
+        },
+        {
+          "$ref": "PreKeys:KeyID"
+        }
+      ]
+    }
+  ],
+  "namespace": "sPreKey",
+  "variant": "PreKey"
+}

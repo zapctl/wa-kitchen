@@ -1,0 +1,22 @@
+{
+  "type": "union",
+  "unions": [
+    {
+      "$ref": "Md:IQErrorBadRequest"
+    },
+    {
+      "$ref": "Md:IQErrorFeatureNotAvailable"
+    },
+    {
+      "$ref": "Md:IQErrorForbidden"
+    },
+    {
+      "$ref": "Md:IQErrorInternalServerError"
+    },
+    {
+      "$ref": "Md:IQErrorRateOverlimit"
+    }
+  ],
+  "namespace": "Md",
+  "variant": "IqMixinErrors"
+}

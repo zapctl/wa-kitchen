@@ -1,0 +1,39 @@
+{
+  "type": "node",
+  "tag": "iq",
+  "attrs": {
+    "from": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "literal": "result"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "content": [
+    {
+      "type": "node",
+      "tag": "list",
+      "attrs": {
+        "dhash": {
+          "optional": true,
+          "type": "string"
+        },
+        "addressing_mode": {
+          "type": "string",
+          "literal": "lid"
+        }
+      },
+      "content": [
+        {
+          "$ref": "Blocklists:BlocklistIdentifier"
+        }
+      ]
+    }
+  ],
+  "namespace": "Blocklists",
+  "variant": "GetBlockListResponseMigratedSuccessWithMismatch"
+}

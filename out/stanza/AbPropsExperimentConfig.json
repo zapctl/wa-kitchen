@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "tag": "prop",
+  "attrs": {
+    "config_code": {
+      "type": "number",
+      "min": 1
+    },
+    "config_value": {
+      "type": "string"
+    },
+    "config_expo_key": {
+      "optional": true,
+      "type": "number",
+      "min": 0
+    }
+  },
+  "content": null,
+  "namespace": "AbProps",
+  "variant": "ExperimentConfig"
+}
