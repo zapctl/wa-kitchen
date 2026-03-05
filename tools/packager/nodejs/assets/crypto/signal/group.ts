@@ -8,7 +8,7 @@ import CURVE25519 from "../CURVE25519";
 import SHA256 from "../SHA256";
 import { CurveKeyToSignalKey, PadPKCS7, PROTOCOL_VERSION, PROTOCOL_VERSION_BYTE, SignalKeyToCurveKey, UnPadPKCS7 } from "./utils";
 
-export namespace GroupSignal {
+namespace GroupSignal {
 	export interface SendChain {
 		groupJid: JID_PAIR;
 		id: number;
@@ -267,3 +267,5 @@ export namespace GroupSignal {
 		};
 	}
 }
+
+export default GroupSignal;

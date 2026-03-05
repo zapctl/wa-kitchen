@@ -13,7 +13,7 @@ import CURVE25519 from "../CURVE25519";
 import SHA256 from "../SHA256";
 import { CurveKeyToSignalKey, PadPKCS7, PROTOCOL_VERSION, PROTOCOL_VERSION_BYTE, SignalKeyToCurveKey, UnPadPKCS7 } from "./utils";
 
-export namespace UserSignal {
+namespace UserSignal {
 	export interface PreKey {
 		keyId: number;
 		keyPair: CURVE25519.KeyPair;
@@ -509,3 +509,5 @@ export namespace UserSignal {
 		return { isSkippedMessageKey: false, messageKey };
 	}
 }
+
+export default UserSignal;
