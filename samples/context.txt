@@ -1,0 +1,31 @@
+Com meu pacote wa-kitchen eu fiz um crawler que extrai essas schemas stanza e cria tipos Typescript, eu consegui extrair muitas schemas dessa de modulos Smax*, porem muita coisa importante nao tem definido aqui, e pra montar node é bom se tiver o tipo, mas para nodes de recebimento nao, minhas funções get da classe XMLNode tipo getAttributeJID retorna JID ou undefined, ai tem que ficar tratando se tem isso, ficar tratando tudo, as queries sao strings genéricas... eu acho que seria melhor eu realmente extrair parsers do codigo do whatsapp web, pois por exemplo o sendPassiveIQ nao tem definição de SMax* mas com certeza tem uma função que faz esse make node, envio e tambem já faz o parse da response e erros, e se de alguma forma eu extrair esses módulos RPC e conseguir fazer um mock dos módulos de dependencia dessas funções RPC e dividir a função em um parse de input e outro parse de output eu acho que seria melhor, extrair o codigo js mesmo, nao fazer um scraper que simula todas as execuções do codigo e vai montando possibilidades de schema pra depois gerar um tipo typescript, eu fiz isso, mas falta muita coisa importante nisso e é extremamente complexo pela variedade de coisas que tem que tratar
+
+eu extrai alguns exemplos de codigos para nós analizarmos, de uma olhada na pasta samples
+
+os samples sao do web inspect, eu ao quero mexer com WASmax* mais, nao tem tudo que eu quero e é muito complexo, os samples tem coisas que eu preciso e que no smax nao tem, por exemplo o passiveMode.
+
+minha analise:
+Analisando WAWebGetProfilePicJob:
+modulos WAWeb*Job eles tem validações que dependem do whatsapp, já os WASmax*RPC engloba tudo independente do estado do whatsapp, entao estes sao preferenciais para um scraper de codigo js.
+
+Analisando WASmaxPassiveModeActiveIQRPC:
+Nao tem um WAWeb*Job, ele tem um WASendPassiveModeProtocol que chama o WASmaxPassiveModeActiveIQRPC que é o que interessa.
+
+Analisando WAWebUploadPreKeysJob:
+nao é um job comum igual os outros, ele roda um timer que faz upload das prekeys de tempo em tempo. nao temos de forma facil o que precisamos que é o RPC ou os dados da requisição, mas temos pelomenos o uploadPreKeyResParser.
+
+Analisando WAWebHandleAccountSyncNotification:
+Vemos um handler de tipos de eventos, porem com muitas coisas que dependem do estado do whatsapp, talvez o que interessa e podemos pegar é o parser incomingAccountSyncNotification
+
+Analisando WAWebHandleGroupNotification:
+eu vejo que o que nos interessa é o groupNotificationParser, porem eu percebi que tem uma chamada para uma coisa que é do estado do whatsapp, ("WAWebUserPrefsMeUser").getMeDevicePnOrThrow().
+
+
+
+sobre WASmax*Out*Request e WASmax*In*Response* eu nao quero mais tratar isso, eu ja fiz isso, porem falta algumas coisas, e fica muito complexo converter isso para interfaces ts, eu prefiro trabalhar diretamente com os WASmax*RPC.
+
+e tambem quero utilizar os WAWeb*Parser para as notificações, mesmo contendo alguma coisa de estado que devemos desativar ou mockar isso de alguma forma.
+
+getMeDevicePnOrThrow nao pode retornar um jid padrao pois o assertAttr disparará um erro se o jid que chegou no parser for diferente do jid do usuario atual.
+
+eu quero chegar em um toolkit com funções RPC e parsers que nao tem estado, e só passar os parametros para eles como por exemplo uma função rpc tem que passar o socket pra poder enviar e escutar eventos, e tambem outros parametros
