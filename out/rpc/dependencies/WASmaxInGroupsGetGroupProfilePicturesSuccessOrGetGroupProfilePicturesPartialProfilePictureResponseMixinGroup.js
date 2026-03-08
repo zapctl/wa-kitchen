@@ -1,0 +1,8 @@
+const map = { id: "WASmaxInGroupsGetGroupProfilePicturesSuccessOrGetGroupProfilePicturesPartialProfilePictureResponseMixinGroup" };
+const exports = module.exports = {};
+const dependencies = {"WAResultOrError": require("./WAResultOrError.js"),"WASmaxInGroupsGetGroupProfilePicturesPartialProfilePictureResponseMixin": require("./WASmaxInGroupsGetGroupProfilePicturesPartialProfilePictureResponseMixin.js"),"WASmaxInGroupsGetGroupProfilePicturesSuccessProfilePictureResponseMixin": require("./WASmaxInGroupsGetGroupProfilePicturesSuccessProfilePictureResponseMixin.js"),"WASmaxParseUtils": require("./WASmaxParseUtils.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxInGroupsGetGroupProfilePicturesSuccessProfilePictureResponseMixin").parseGetGroupProfilePicturesSuccessProfilePictureResponseMixin(e);if(t.success)return o("WAResultOrError").makeResult({name:"GetGroupProfilePicturesSuccessProfilePictureResponse",value:t.value});var n=o("WASmaxInGroupsGetGroupProfilePicturesPartialProfilePictureResponseMixin").parseGetGroupProfilePicturesPartialProfilePictureResponseMixin(e);return n.success?o("WAResultOrError").makeResult({name:"GetGroupProfilePicturesPartialProfilePictureResponse",value:n.value}):o("WASmaxParseUtils").errorMixinDisjunction(e,["SuccessProfilePictureResponse","PartialProfilePictureResponse"],[t,n])}l.parseGetGroupProfilePicturesSuccessOrGetGroupProfilePicturesPartialProfilePictureResponseMixinGroup=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

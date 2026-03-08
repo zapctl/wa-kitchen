@@ -1,0 +1,8 @@
+const map = { id: "WASmaxInNewslettersGetNewsletterMessageUpdatesResponseSuccess" };
+const exports = module.exports = {};
+const dependencies = {"WAResultOrError": require("./WAResultOrError.js"),"WASmaxInNewslettersIQResultResponseMixin": require("./WASmaxInNewslettersIQResultResponseMixin.js"),"WASmaxInNewslettersNewsletterMessageResponsePayloadMixin": require("./WASmaxInNewslettersNewsletterMessageResponsePayloadMixin.js"),"WASmaxParseUtils": require("./WASmaxParseUtils.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){var n=o("WASmaxParseUtils").assertTag(e,"iq");if(!n.success)return n;var r=o("WASmaxParseUtils").flattenedChildWithTag(e,"message_updates");if(!r.success)return r;var a=o("WASmaxParseUtils").flattenedChildWithTag(r.value,"messages");if(!a.success)return a;var i=o("WASmaxInNewslettersNewsletterMessageResponsePayloadMixin").parseNewsletterMessageResponsePayloadMixin(a.value);if(!i.success)return i;var l=o("WASmaxInNewslettersIQResultResponseMixin").parseIQResultResponseMixin(e,t);return l.success?o("WAResultOrError").makeResult(babelHelpers.extends({messageUpdatesMessagesNewsletterMessageResponsePayloadMixin:i.value},l.value)):l}l.parseGetNewsletterMessageUpdatesResponseSuccess=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

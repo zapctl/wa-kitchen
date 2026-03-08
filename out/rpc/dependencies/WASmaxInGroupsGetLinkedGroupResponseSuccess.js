@@ -1,0 +1,8 @@
+const map = { id: "WASmaxInGroupsGetLinkedGroupResponseSuccess" };
+const exports = module.exports = {};
+const dependencies = {"WAResultOrError": require("./WAResultOrError.js"),"WASmaxInGroupsGroupAddressingModeMixin": require("./WASmaxInGroupsGroupAddressingModeMixin.js"),"WASmaxInGroupsIQResultResponseMixin": require("./WASmaxInGroupsIQResultResponseMixin.js"),"WASmaxInGroupsLinkedGroupInfoMixin": require("./WASmaxInGroupsLinkedGroupInfoMixin.js"),"WASmaxParseUtils": require("./WASmaxParseUtils.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){var n=o("WASmaxParseUtils").assertTag(e,"iq");if(!n.success)return n;var r=o("WASmaxParseUtils").flattenedChildWithTag(e,"linked_group");if(!r.success)return r;var a=o("WASmaxInGroupsLinkedGroupInfoMixin").parseLinkedGroupInfoMixin(r.value);if(!a.success)return a;var i=o("WASmaxInGroupsIQResultResponseMixin").parseIQResultResponseMixin(e,t);if(!i.success)return i;var l=o("WASmaxInGroupsGroupAddressingModeMixin").parseGroupAddressingModeMixin(e);return o("WAResultOrError").makeResult(babelHelpers.extends({linkedGroupLinkedGroupInfoMixin:a.value},i.value,{groupAddressingModeMixin:l.success?l.value:null}))}l.parseGetLinkedGroupResponseSuccess=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

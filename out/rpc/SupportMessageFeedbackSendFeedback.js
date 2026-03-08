@@ -1,0 +1,10 @@
+const map = { id: "WASmaxSupportMessageFeedbackSendFeedbackRPC" };
+const exports = {};
+const dependencies = {"WAComms": require("./dependencies/WAComms.js"),"WASmaxInSupportMessageFeedbackSendFeedbackResponseError": require("./dependencies/WASmaxInSupportMessageFeedbackSendFeedbackResponseError.js"),"WASmaxInSupportMessageFeedbackSendFeedbackResponseSuccess": require("./dependencies/WASmaxInSupportMessageFeedbackSendFeedbackResponseSuccess.js"),"WASmaxOutSupportMessageFeedbackSendFeedbackRequest": require("./dependencies/WASmaxOutSupportMessageFeedbackSendFeedbackRequest.js"),"WASmaxParsingFailure": require("./dependencies/WASmaxParsingFailure.js"),"WASmaxRpcUtils": require("./dependencies/WASmaxRpcUtils.js"),"asyncToGeneratorRuntime": require("./dependencies/asyncToGeneratorRuntime.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){return s.apply(this,arguments)}function s(){return s=n("asyncToGeneratorRuntime").asyncToGenerator(function*(e,t){var n=o("WASmaxOutSupportMessageFeedbackSendFeedbackRequest").makeSendFeedbackRequest(e),r=yield o("WAComms").sendSmaxStanza(n,t),a=o("WASmaxInSupportMessageFeedbackSendFeedbackResponseSuccess").parseSendFeedbackResponseSuccess(r,n);if(a.success)return{name:"SendFeedbackResponseSuccess",value:a.value};var i=o("WASmaxInSupportMessageFeedbackSendFeedbackResponseError").parseSendFeedbackResponseError(r,n);if(i.success)return{name:"SendFeedbackResponseError",value:i.value};throw new(o("WASmaxParsingFailure")).SmaxParsingFailure(o("WASmaxRpcUtils").errorMessageRpcParsing("SendFeedback",{Success:a,Error:i}))}),s.apply(this,arguments)}l.sendSendFeedbackRPC=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);
+
+module.exports = {"sendSendFeedbackRPC": exports["sendSendFeedbackRPC"]};

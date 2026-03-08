@@ -1,0 +1,8 @@
+const map = { id: "WASmaxOutSpamWaMessageReportingMixin" };
+const exports = module.exports = {};
+const dependencies = {"WASmaxChildren": require("./WASmaxChildren.js"),"WASmaxJsx": require("./WASmaxJsx.js"),"WASmaxMixins": require("./WASmaxMixins.js"),"WASmaxOutSpamClientReportingContentValidationMixin": require("./WASmaxOutSpamClientReportingContentValidationMixin.js"),"WASmaxOutSpamRawV2Mixin": require("./WASmaxOutSpamRawV2Mixin.js"),"WASmaxOutSpamServerReportingTokenMixin": require("./WASmaxOutSpamServerReportingTokenMixin.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(){var e=o("WASmaxOutSpamRawV2Mixin").mergeRawV2Mixin(o("WASmaxJsx").smax("raw",null));return e}function s(t){var n=t.hasRaw,r=t.clientReportingContentValidationMixinArgs,a=t.serverReportingTokenMixinArgs,i=o("WASmaxMixins").optionalMerge(o("WASmaxOutSpamServerReportingTokenMixin").mergeServerReportingTokenMixin,o("WASmaxMixins").optionalMerge(o("WASmaxOutSpamClientReportingContentValidationMixin").mergeClientReportingContentValidationMixin,o("WASmaxJsx").smax("message",null,o("WASmaxChildren").HAS_OPTIONAL_CHILD(e,n)),r),a);return i}function u(e,t){var n=s(t);return o("WASmaxMixins").mergeStanzas(e,n)}l.makeWaMessageReportingRaw=e,l.mergeWaMessageReportingMixin=u})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

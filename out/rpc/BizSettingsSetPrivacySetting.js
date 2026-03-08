@@ -1,0 +1,10 @@
+const map = { id: "WASmaxBizSettingsSetPrivacySettingRPC" };
+const exports = {};
+const dependencies = {"WAComms": require("./dependencies/WAComms.js"),"WASmaxInBizSettingsSetPrivacySettingResponseError": require("./dependencies/WASmaxInBizSettingsSetPrivacySettingResponseError.js"),"WASmaxInBizSettingsSetPrivacySettingResponseSuccess": require("./dependencies/WASmaxInBizSettingsSetPrivacySettingResponseSuccess.js"),"WASmaxOutBizSettingsSetPrivacySettingRequest": require("./dependencies/WASmaxOutBizSettingsSetPrivacySettingRequest.js"),"WASmaxParsingFailure": require("./dependencies/WASmaxParsingFailure.js"),"WASmaxRpcUtils": require("./dependencies/WASmaxRpcUtils.js"),"asyncToGeneratorRuntime": require("./dependencies/asyncToGeneratorRuntime.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){return s.apply(this,arguments)}function s(){return s=n("asyncToGeneratorRuntime").asyncToGenerator(function*(e,t){var n=o("WASmaxOutBizSettingsSetPrivacySettingRequest").makeSetPrivacySettingRequest(e),r=yield o("WAComms").sendSmaxStanza(n,t),a=o("WASmaxInBizSettingsSetPrivacySettingResponseSuccess").parseSetPrivacySettingResponseSuccess(r,n);if(a.success)return{name:"SetPrivacySettingResponseSuccess",value:a.value};var i=o("WASmaxInBizSettingsSetPrivacySettingResponseError").parseSetPrivacySettingResponseError(r,n);if(i.success)return{name:"SetPrivacySettingResponseError",value:i.value};throw new(o("WASmaxParsingFailure")).SmaxParsingFailure(o("WASmaxRpcUtils").errorMessageRpcParsing("SetPrivacySetting",{Success:a,Error:i}))}),s.apply(this,arguments)}l.sendSetPrivacySettingRPC=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);
+
+module.exports = {"sendSetPrivacySettingRPC": exports["sendSetPrivacySettingRPC"]};

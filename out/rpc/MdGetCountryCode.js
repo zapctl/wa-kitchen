@@ -1,0 +1,10 @@
+const map = { id: "WASmaxMdGetCountryCodeRPC" };
+const exports = {};
+const dependencies = {"WAComms": require("./dependencies/WAComms.js"),"WASmaxInMdGetCountryCodeResponseError": require("./dependencies/WASmaxInMdGetCountryCodeResponseError.js"),"WASmaxInMdGetCountryCodeResponseGetCountryCodeResponse": require("./dependencies/WASmaxInMdGetCountryCodeResponseGetCountryCodeResponse.js"),"WASmaxOutMdGetCountryCodeRequest": require("./dependencies/WASmaxOutMdGetCountryCodeRequest.js"),"WASmaxParsingFailure": require("./dependencies/WASmaxParsingFailure.js"),"WASmaxRpcUtils": require("./dependencies/WASmaxRpcUtils.js"),"asyncToGeneratorRuntime": require("./dependencies/asyncToGeneratorRuntime.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e){return s.apply(this,arguments)}function s(){return s=n("asyncToGeneratorRuntime").asyncToGenerator(function*(e){var t=o("WASmaxOutMdGetCountryCodeRequest").makeGetCountryCodeRequest(),n=yield o("WAComms").sendSmaxStanza(t,e),r=o("WASmaxInMdGetCountryCodeResponseGetCountryCodeResponse").parseGetCountryCodeResponseGetCountryCodeResponse(n,t);if(r.success)return{name:"GetCountryCodeResponseGetCountryCodeResponse",value:r.value};var a=o("WASmaxInMdGetCountryCodeResponseError").parseGetCountryCodeResponseError(n,t);if(a.success)return{name:"GetCountryCodeResponseError",value:a.value};throw new(o("WASmaxParsingFailure")).SmaxParsingFailure(o("WASmaxRpcUtils").errorMessageRpcParsing("GetCountryCode",{GetCountryCodeResponse:r,Error:a}))}),s.apply(this,arguments)}l.sendGetCountryCodeRPC=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);
+
+module.exports = {"sendGetCountryCodeRPC": exports["sendGetCountryCodeRPC"]};

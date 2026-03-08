@@ -1,0 +1,8 @@
+const map = { id: "WASmaxOutGroupsSuggestionForCreateSubGroupSuggestionNewGroupOrCreateSubGroupSuggestionExistingGroupsMixinGroup" };
+const exports = module.exports = {};
+const dependencies = {"WASmaxMixinGroupExhaustiveError": require("./WASmaxMixinGroupExhaustiveError.js"),"WASmaxOutGroupsCreateSubGroupSuggestionSuggestionForExistingGroupsMixin": require("./WASmaxOutGroupsCreateSubGroupSuggestionSuggestionForExistingGroupsMixin.js"),"WASmaxOutGroupsCreateSubGroupSuggestionSuggestionForNewGroupMixin": require("./WASmaxOutGroupsCreateSubGroupSuggestionSuggestionForNewGroupMixin.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){if(t.createSubGroupSuggestionSuggestionForNewGroup)return o("WASmaxOutGroupsCreateSubGroupSuggestionSuggestionForNewGroupMixin").mergeCreateSubGroupSuggestionSuggestionForNewGroupMixin(e,t.createSubGroupSuggestionSuggestionForNewGroup);if(t.createSubGroupSuggestionSuggestionForExistingGroups)return o("WASmaxOutGroupsCreateSubGroupSuggestionSuggestionForExistingGroupsMixin").mergeCreateSubGroupSuggestionSuggestionForExistingGroupsMixin(e,t.createSubGroupSuggestionSuggestionForExistingGroups);throw new(o("WASmaxMixinGroupExhaustiveError")).SmaxMixinGroupExhaustiveError}l.mergeSuggestionForCreateSubGroupSuggestionNewGroupOrCreateSubGroupSuggestionExistingGroupsMixinGroup=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

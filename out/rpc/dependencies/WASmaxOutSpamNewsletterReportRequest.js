@@ -1,0 +1,8 @@
+const map = { id: "WASmaxOutSpamNewsletterReportRequest" };
+const exports = module.exports = {};
+const dependencies = {"WASmaxChildren": require("./WASmaxChildren.js"),"WASmaxJsx": require("./WASmaxJsx.js"),"WASmaxOutSpamBaseIQSetRequestMixin": require("./WASmaxOutSpamBaseIQSetRequestMixin.js"),"WASmaxOutSpamBaseReportMixin": require("./WASmaxOutSpamBaseReportMixin.js"),"WASmaxOutSpamEntitySubjectMixin": require("./WASmaxOutSpamEntitySubjectMixin.js"),"WASmaxOutSpamMessageMixin": require("./WASmaxOutSpamMessageMixin.js"),"WAWap": require("./WAWap.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e){var t=e.messageFrom,n=o("WASmaxOutSpamMessageMixin").mergeMessageMixin(o("WASmaxJsx").smax("message",{from:o("WAWap").JID(t)}),e);return n}function s(t){var n=t.messageArgs,r=t.spamListJid,a=o("WASmaxOutSpamEntitySubjectMixin").mergeEntitySubjectMixin(o("WASmaxOutSpamBaseReportMixin").mergeBaseReportMixin(o("WASmaxOutSpamBaseIQSetRequestMixin").mergeBaseIQSetRequestMixin(o("WASmaxJsx").smax("iq",null,o("WASmaxJsx").smax("spam_list",{jid:o("WAWap").JID(r)},o("WASmaxChildren").REPEATED_CHILD(e,n,0,65)))),t),t);return a}l.makeNewsletterReportRequestSpamListMessage=e,l.makeNewsletterReportRequest=s})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

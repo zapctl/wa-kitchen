@@ -1,0 +1,8 @@
+const map = { id: "WASmaxInGroupsCreateParticipantAddedResponseMixin" };
+const exports = module.exports = {};
+const dependencies = {"WAResultOrError": require("./WAResultOrError.js"),"WASmaxInGroupsCreateParticipantMixins": require("./WASmaxInGroupsCreateParticipantMixins.js"),"WASmaxInGroupsEnums": require("./WASmaxInGroupsEnums.js"),"WASmaxInGroupsPhoneNumberMixin": require("./WASmaxInGroupsPhoneNumberMixin.js"),"WASmaxInGroupsUsernameAttMixin": require("./WASmaxInGroupsUsernameAttMixin.js"),"WASmaxParseJid": require("./WASmaxParseJid.js"),"WASmaxParseUtils": require("./WASmaxParseUtils.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"participant");if(!t.success)return t;var n=o("WASmaxParseJid").attrJidEnum(e,"jid",o("WASmaxInGroupsEnums").USERJID_USERJID);if(!n.success)return n;var r=o("WASmaxInGroupsPhoneNumberMixin").parsePhoneNumberMixin(e),a=o("WASmaxInGroupsUsernameAttMixin").parseUsernameAttMixin(e),i=o("WASmaxInGroupsCreateParticipantMixins").parseCreateParticipantMixins(e);return i.success?o("WAResultOrError").makeResult({jid:n.value,phoneNumberMixin:r.success?r.value:null,usernameAttMixin:a.success?a.value:null,createParticipantMixins:i.value}):i}l.parseCreateParticipantAddedResponseMixin=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

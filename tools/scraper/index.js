@@ -15,20 +15,21 @@ const CHECKSUM_PATH = path.join(OUT_DIR, ".checksum");
 const UTILS_SCRIPT_PATH = path.join(__dirname, "inject/utils.js");
 
 const SCRAPERS = [
-    { name: "version", type: "json", outputPath: "version.json" },
-    { name: "main", type: "json", outputPath: "main.json" },
-    { name: "binary", type: "json", outputPath: "binary.json" },
-    { name: "media", type: "json", outputPath: "media.json" },
-    { name: "jid", type: "json", outputPath: "jid.json" },
-    { name: "newsletter", type: "json", outputPath: "newsletter.json" },
-    { name: "chat", type: "json", outputPath: "chat.json" },
-    { name: "group", type: "json", outputPath: "group.json" },
-    { name: "privacy", type: "json", outputPath: "privacy.json" },
-    { name: "message", type: "json", outputPath: "message.json" },
-    { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: "proto" },
-    { name: "graphql", type: "multi-json", outputDir: "graphql", extension: "json" },
-    { name: "stanza", type: "multi-json", outputDir: "stanza", extension: "json" },
-    IS_DEBUG && { name: "smax", type: "multi-file", outputDir: "smax", extension: "js" },
+    // { name: "version", type: "json", outputPath: "version.json" },
+    // { name: "main", type: "json", outputPath: "main.json" },
+    // { name: "binary", type: "json", outputPath: "binary.json" },
+    // { name: "media", type: "json", outputPath: "media.json" },
+    // { name: "jid", type: "json", outputPath: "jid.json" },
+    // { name: "newsletter", type: "json", outputPath: "newsletter.json" },
+    // { name: "chat", type: "json", outputPath: "chat.json" },
+    // { name: "group", type: "json", outputPath: "group.json" },
+    // { name: "privacy", type: "json", outputPath: "privacy.json" },
+    // { name: "message", type: "json", outputPath: "message.json" },
+    // { name: "protobuf", type: "multi-file", outputDir: "protobuf", extension: "proto" },
+    // { name: "graphql", type: "multi-json", outputDir: "graphql", extension: "json" },
+    { name: "rpc", type: "multi-file", outputDir: "rpc", extension: "js" },
+    // { name: "parser", type: "json", outputPath: "parser.json" },
+    // IS_DEBUG && { name: "smax", type: "multi-file", outputDir: "smax", extension: "js" },
 ].filter(Boolean);
 
 const browser = await puppeteer.launch({
@@ -68,6 +69,28 @@ await fs.mkdir(OUT_DIR);
 
 const globalHash = createHash("sha256");
 
+async function saveEntry(basePath, name, content, scraper) {
+    if (typeof content === "object" && content !== null) {
+        const folderPath = path.join(basePath, name);
+        await fs.mkdir(folderPath, { recursive: true });
+
+        const entries = Object.entries(content).sort(([a], [b]) => a.localeCompare(b));
+
+        await Promise.all(entries.map(([key, value]) =>
+            saveEntry(folderPath, key, value, scraper)
+        ));
+    } else {
+        const filePath = path.join(basePath, `${name}.${scraper.extension}`);
+
+        let fileContent = typeof content === "string" ?
+            content :
+            JSON.stringify(content, null, 2);
+
+        globalHash.update(fileContent);
+        return fs.writeFile(filePath, fileContent);
+    }
+}
+
 for (const scraper of SCRAPERS) {
     const data = results[scraper.name];
 
@@ -90,25 +113,12 @@ for (const scraper of SCRAPERS) {
         }
 
         globalHash.update(content);
-    } else if (scraper.type === "multi-file") {
+    } else if (scraper.type === "multi-file" || scraper.type === "multi-json") {
         const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
 
-        await Promise.all(entries.map(([name, content]) => {
-            const filePath = path.join(outputDir, `${name}.${scraper.extension}`);
-
-            globalHash.update(content);
-            return fs.writeFile(filePath, content);
-        }));
-    } else if (scraper.type === "multi-json") {
-        const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
-
-        await Promise.all(entries.map(([name, content]) => {
-            const filePath = path.join(outputDir, `${name}.${scraper.extension}`);
-            const jsonContent = JSON.stringify(content, null, 2);
-
-            globalHash.update(jsonContent);
-            return fs.writeFile(filePath, jsonContent);
-        }));
+        await Promise.all(entries.map(([name, content]) =>
+            saveEntry(outputDir, name, content, scraper)
+        ));
     }
 }
 

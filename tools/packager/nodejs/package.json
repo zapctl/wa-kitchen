@@ -74,6 +74,10 @@
     "./privacy/*": {
       "types": "./privacy/*.d.ts",
       "default": "./privacy/*.js"
+    },
+    "./rpc": {
+      "types": "./rpc/index.d.ts",
+      "default": "./rpc/index.js"
     }
   },
   "engines": {

@@ -1,0 +1,10 @@
+const map = { id: "WASmaxPushConfigSetRPC" };
+const exports = {};
+const dependencies = {"WAComms": require("./dependencies/WAComms.js"),"WASmaxInPushConfigSetResponseConflict": require("./dependencies/WASmaxInPushConfigSetResponseConflict.js"),"WASmaxInPushConfigSetResponseInternalServerError": require("./dependencies/WASmaxInPushConfigSetResponseInternalServerError.js"),"WASmaxInPushConfigSetResponseSuccess": require("./dependencies/WASmaxInPushConfigSetResponseSuccess.js"),"WASmaxOutPushConfigSetRequest": require("./dependencies/WASmaxOutPushConfigSetRequest.js"),"WASmaxParsingFailure": require("./dependencies/WASmaxParsingFailure.js"),"WASmaxRpcUtils": require("./dependencies/WASmaxRpcUtils.js"),"asyncToGeneratorRuntime": require("./dependencies/asyncToGeneratorRuntime.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){return s.apply(this,arguments)}function s(){return s=n("asyncToGeneratorRuntime").asyncToGenerator(function*(e,t){var n=o("WASmaxOutPushConfigSetRequest").makeSetRequest(e),r=yield o("WAComms").sendSmaxStanza(n,t),a=o("WASmaxInPushConfigSetResponseSuccess").parseSetResponseSuccess(r,n);if(a.success)return{name:"SetResponseSuccess",value:a.value};var i=o("WASmaxInPushConfigSetResponseInternalServerError").parseSetResponseInternalServerError(r,n);if(i.success)return{name:"SetResponseInternalServerError",value:i.value};var l=o("WASmaxInPushConfigSetResponseConflict").parseSetResponseConflict(r,n);if(l.success)return{name:"SetResponseConflict",value:l.value};throw new(o("WASmaxParsingFailure")).SmaxParsingFailure(o("WASmaxRpcUtils").errorMessageRpcParsing("Set",{Success:a,InternalServerError:i,Conflict:l}))}),s.apply(this,arguments)}l.sendSetRPC=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);
+
+module.exports = {"sendSetRPC": exports["sendSetRPC"]};

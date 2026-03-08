@@ -102,6 +102,12 @@ generate_all_definitions() {
     generate_definitions \
         "Privacy constants" "generate.js" \
         "$OUT_DIR/privacy.json" "$OUT/privacy/constants.ts"
+
+    echo "Generating RPC and Parser modules..."
+    node $(dirname "$0")/scripts/generate-rpc.js || {
+        echo "Error: RPC generation failed"
+        exit 1
+    }
 }
 
 compile_proto() {

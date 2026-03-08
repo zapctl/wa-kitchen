@@ -1,0 +1,8 @@
+const map = { id: "WASmaxInMessagePublishNegativeAckMixin" };
+const exports = module.exports = {};
+const dependencies = {"WAResultOrError": require("./WAResultOrError.js"),"WASmaxInMessagePublishAckMixin": require("./WASmaxInMessagePublishAckMixin.js"),"WASmaxInMessagePublishApplicationNegativeAckMixin": require("./WASmaxInMessagePublishApplicationNegativeAckMixin.js"),"WASmaxInMessagePublishMessageNackRetryAttributesMixin": require("./WASmaxInMessagePublishMessageNackRetryAttributesMixin.js"),"WASmaxParseUtils": require("./WASmaxParseUtils.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e,t){var n=o("WASmaxParseUtils").assertTag(e,"ack");if(!n.success)return n;var r=o("WASmaxParseUtils").attrString(e,"error");if(!r.success)return r;var a=o("WASmaxInMessagePublishAckMixin").parseAckMixin(e,t);if(!a.success)return a;var i=o("WASmaxInMessagePublishApplicationNegativeAckMixin").parseApplicationNegativeAckMixin(e),l=o("WASmaxInMessagePublishMessageNackRetryAttributesMixin").parseMessageNackRetryAttributesMixin(e);return o("WAResultOrError").makeResult(babelHelpers.extends({error:r.value},a.value,{applicationNegativeAckMixin:i.success?i.value:null,messageNackRetryAttributesMixin:l.success?l.value:null}))}l.parseNegativeAckMixin=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);

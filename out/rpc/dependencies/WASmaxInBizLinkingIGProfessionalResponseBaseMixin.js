@@ -1,0 +1,8 @@
+const map = { id: "WASmaxInBizLinkingIGProfessionalResponseBaseMixin" };
+const exports = module.exports = {};
+const dependencies = {"WAResultOrError": require("./WAResultOrError.js"),"WASmaxParseUtils": require("./WASmaxParseUtils.js")};
+const requireModule = (name) => dependencies[name];
+const requireModuleDefault = (name) => dependencies[name].default;
+
+(function(t,n,r,o,a,i,l){function e(e){var t=o("WASmaxParseUtils").assertTag(e,"ig_professional");if(!t.success)return t;var n=o("WASmaxParseUtils").flattenedChildWithTag(e,"ig_handle");if(!n.success)return n;var r=o("WASmaxParseUtils").contentString(n.value);return r.success?o("WAResultOrError").makeResult({igHandleElementValue:r.value}):r}l.parseIGProfessionalResponseBaseMixin=e})
+(window, requireModule, requireModuleDefault, requireModule, undefined, map, exports);
